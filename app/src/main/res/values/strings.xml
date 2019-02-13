@@ -1,4 +1,9 @@
 <resources>
     <string name="app_name">SpaceTrader</string>
     <string name="action_settings">Settings</string>
+
+    <string name="pName">Player Name: </string>
+    <string name="oNameHint">Type your player name</string>
+
+    <string name="sPoints">Skill Points: </string>
 </resources>

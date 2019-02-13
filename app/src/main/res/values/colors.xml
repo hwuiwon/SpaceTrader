@@ -3,4 +3,9 @@
     <color name="colorPrimary">#008577</color>
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#D81B60</color>
+
+    <color name="STPrimary">#554EBB</color>
+    <color name="STPrimaryDark">#8B4EBB</color>
+    <color name="STAccent">#BB554E</color>
+
 </resources>
