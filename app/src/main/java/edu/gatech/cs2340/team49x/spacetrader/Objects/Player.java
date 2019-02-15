@@ -6,14 +6,16 @@ public class Player {
     private int engineerPt;
     private int tradePt;
     private int fighterPt;
+    private Ship ship;
     private int credits;
 
-    public Player(String name, int pilotPt, int engineerPt, int tradePt, int fighterPt, int credits) {
+    public Player(String name, int pilotPt, int engineerPt, int tradePt, int fighterPt, Ship ship, int credits) {
         this.name = name;
         this.pilotPt = pilotPt;
         this.engineerPt = engineerPt;
         this.tradePt = tradePt;
         this.fighterPt = fighterPt;
+        this.ship = ship;
         this.credits = credits;
     }
 
@@ -55,6 +57,14 @@ public class Player {
 
     public void setFighterPt(int fighterPt) {
         this.fighterPt = fighterPt;
+    }
+
+    public Ship getShip() {
+        return ship;
+    }
+
+    public void setShip(Ship ship) {
+        this.ship = ship;
     }
 
     public int getCredits() {
