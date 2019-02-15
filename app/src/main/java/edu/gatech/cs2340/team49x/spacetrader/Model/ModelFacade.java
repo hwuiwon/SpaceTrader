@@ -1,6 +1,8 @@
 package edu.gatech.cs2340.team49x.spacetrader.Model;
 
+import edu.gatech.cs2340.team49x.spacetrader.Objects.Difficulty;
 import edu.gatech.cs2340.team49x.spacetrader.Objects.Game;
+import edu.gatech.cs2340.team49x.spacetrader.Objects.Player;
 
 public class ModelFacade {
     private static ModelFacade instance = new ModelFacade();
@@ -10,11 +12,11 @@ public class ModelFacade {
     private Game game;
 
     private ModelFacade() {
-        createGame();
-    }
-
-    public void createGame() {
         game = new Game();
     }
 
+    public void configureGame(Player p, Difficulty d) {
+        game.configurePlayer(p);
+        game.setDifficulty(d);
+    }
 }
