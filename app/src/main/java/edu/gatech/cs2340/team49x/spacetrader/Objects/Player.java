@@ -19,6 +19,10 @@ public class Player {
         this.credits = credits;
     }
 
+    public Player(String name) {
+        this(name, 0,0,0,0,null,0);
+    }
+
     public String getName() {
         return name;
     }

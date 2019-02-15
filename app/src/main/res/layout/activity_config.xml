@@ -22,8 +22,9 @@
         android:id="@+id/pnameET"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_toEndOf="@id/pnameTV"
         android:hint="Type your player name"
-        android:layout_toEndOf="@id/pnameTV"/>
+        android:singleLine="true" />
 
     <TextView
         android:id="@+id/spTV"
@@ -52,6 +53,7 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="17dp"
+        android:onClick="onConfirmPressed"
         android:text="Confirm" />
 
 </RelativeLayout>
