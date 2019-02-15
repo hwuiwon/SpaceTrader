@@ -23,4 +23,12 @@ public class Game {
     public void setDifficulty(Difficulty difficulty) {
         this.difficulty = difficulty;
     }
+
+    @Override
+    public String toString() {
+        return "Game{" +
+                "player=" + player +
+                ", difficulty=" + difficulty +
+                '}';
+    }
 }

@@ -6,4 +6,11 @@ public class Ship {
     public Ship(ShipType type) {
         this.type = type;
     }
+
+    @Override
+    public String toString() {
+        return "Ship{" +
+                "type=" + type +
+                '}';
+    }
 }

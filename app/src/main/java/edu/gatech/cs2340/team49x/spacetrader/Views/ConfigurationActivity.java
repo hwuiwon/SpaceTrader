@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import edu.gatech.cs2340.team49x.spacetrader.Objects.Difficulty;
 import edu.gatech.cs2340.team49x.spacetrader.Objects.Player;
@@ -24,8 +25,15 @@ public class ConfigurationActivity extends AppCompatActivity {
     }
 
     public void onConfirmPressed(View view) {
-        Player p = new Player(nameField.getText().toString());
-        viewModel.configure(p, Difficulty.EASY);
-        finish();
+        String name = nameField.getText().toString().trim();
+        if (name == null || name.length() == 0)
+            Toast.makeText(this, "Please enter a valid name.", Toast.LENGTH_LONG).show();
+        else {
+            Player p = new Player(nameField.getText().toString());
+            viewModel.configure(p, Difficulty.EASY);
+
+            Toast.makeText(this, viewModel.printGameState(), Toast.LENGTH_LONG).show();
+            finish();
+        }
     }
 }

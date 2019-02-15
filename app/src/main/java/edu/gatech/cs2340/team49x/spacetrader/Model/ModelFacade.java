@@ -19,4 +19,8 @@ public class ModelFacade {
         game.configurePlayer(p);
         game.setDifficulty(d);
     }
+
+    public String printGameState() {
+        return game.toString();
+    }
 }

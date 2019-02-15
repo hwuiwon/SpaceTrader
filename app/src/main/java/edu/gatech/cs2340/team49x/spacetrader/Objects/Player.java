@@ -78,4 +78,17 @@ public class Player {
     public void setCredits(int credits) {
         this.credits = credits;
     }
+
+    @Override
+    public String toString() {
+        return "Player{" +
+                "name='" + name + '\'' +
+                ", pilotPt=" + pilotPt +
+                ", engineerPt=" + engineerPt +
+                ", tradePt=" + tradePt +
+                ", fighterPt=" + fighterPt +
+                ", ship=" + ship +
+                ", credits=" + credits +
+                '}';
+    }
 }
