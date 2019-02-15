@@ -2,21 +2,19 @@ package edu.gatech.cs2340.team49x.spacetrader.Objects;
 
 public class Player {
     private String name;
-    private int skillPoints;
-    private int[] skills;
+    private int pilotPt;
+    private int engineerPt;
+    private int tradePt;
+    private int fighterPt;
     private int credits;
-    private Difficulty difficulty;
 
-    public Player(String name, int skillPoints, int[] skills, int credits, Difficulty difficulty) {
+    public Player(String name, int pilotPt, int engineerPt, int tradePt, int fighterPt, int credits) {
         this.name = name;
-        this.skillPoints = skillPoints;
-        this.skills = skills;
+        this.pilotPt = pilotPt;
+        this.engineerPt = engineerPt;
+        this.tradePt = tradePt;
+        this.fighterPt = fighterPt;
         this.credits = credits;
-        this.difficulty = difficulty;
-    }
-
-    public Player(String name) {
-        this(name, 16, null, 1000, Difficulty.Easy);
     }
 
     public String getName() {
@@ -27,20 +25,36 @@ public class Player {
         this.name = name;
     }
 
-    public int getSkillPoints() {
-        return skillPoints;
+    public int getPilotPt() {
+        return pilotPt;
     }
 
-    public void setSkillPoints(int skillPoints) {
-        this.skillPoints = skillPoints;
+    public void setPilotPt(int pilotPt) {
+        this.pilotPt = pilotPt;
     }
 
-    public int[] getSkills() {
-        return skills;
+    public int getEngineerPt() {
+        return engineerPt;
     }
 
-    public void setSkills(int[] skills) {
-        this.skills = skills;
+    public void setEngineerPt(int engineerPt) {
+        this.engineerPt = engineerPt;
+    }
+
+    public int getTradePt() {
+        return tradePt;
+    }
+
+    public void setTradePt(int tradePt) {
+        this.tradePt = tradePt;
+    }
+
+    public int getFighterPt() {
+        return fighterPt;
+    }
+
+    public void setFighterPt(int fighterPt) {
+        this.fighterPt = fighterPt;
     }
 
     public int getCredits() {
@@ -49,13 +63,5 @@ public class Player {
 
     public void setCredits(int credits) {
         this.credits = credits;
-    }
-
-    public Difficulty getDifficulty() {
-        return difficulty;
-    }
-
-    public void setDifficulty(Difficulty difficulty) {
-        this.difficulty = difficulty;
     }
 }

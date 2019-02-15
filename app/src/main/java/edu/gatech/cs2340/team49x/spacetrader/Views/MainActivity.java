@@ -1,4 +1,4 @@
-package edu.gatech.cs2340.team49x.spacetrader;
+package edu.gatech.cs2340.team49x.spacetrader.Views;
 
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -8,6 +8,8 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+
+import edu.gatech.cs2340.team49x.spacetrader.R;
 
 public class MainActivity extends AppCompatActivity {
 
