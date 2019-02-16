@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/container"
     android:layout_width="match_parent"
@@ -13,17 +12,16 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/pName"
-        android:textSize="20dp"
-        android:textColor="@android:color/black"
-        android:paddingTop="@dimen/margin2"
-        android:paddingRight="@dimen/margin2"/>
+        android:padding="@dimen/margin2"
+        android:textStyle="bold"/>
 
     <EditText
         android:id="@+id/pnameET"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:hint="@string/oNameHint"
         android:layout_toEndOf="@id/pnameTV"
-        android:hint="Type your player name"
+        android:inputType="text"
         android:singleLine="true" />
 
     <TextView
@@ -31,20 +29,205 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/sPoints"
-        android:textSize="20dp"
-        android:textColor="@android:color/black"
         android:layout_below="@id/pnameTV"
-        android:paddingTop="@dimen/fab_margin"
-        android:paddingRight="@dimen/margin2"/>
+        android:padding="@dimen/margin2"
+        android:textStyle="bold"/>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="16"
-        android:textColor="@android:color/black"
-        android:textSize="20dp"
-        android:layout_toRightOf="@id/spTV"
-        android:paddingTop="51dp" />
+        android:text="@string/defaultTtlSP"
+        android:layout_toEndOf="@id/spTV"
+        android:layout_below="@id/pnameTV"
+        android:paddingTop="@dimen/margin2" />
+
+    <LinearLayout
+        android:id="@+id/skillTVContainer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_below="@id/spTV"
+        android:layout_margin="@dimen/margin2">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/sk1"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="@dimen/margin3"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/sk2"
+            android:layout_marginBottom="@dimen/margin3"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/sk3"
+            android:layout_marginBottom="@dimen/margin3"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/sk4" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/minusBTContainer"
+        android:layout_width="50dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_below="@id/spTV"
+        android:layout_toEndOf="@id/skillTVContainer"
+        android:layout_margin="@dimen/margin2">
+
+        <Button
+            android:id="@+id/skill1minusBT"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/minus" />
+
+        <Button
+            android:id="@+id/skill2minusBT"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/minus" />
+
+        <Button
+            android:id="@+id/skill3minusBT"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/minus" />
+
+        <Button
+            android:id="@+id/skill4minusBT"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/minus" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/skillContainer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@id/minusBTContainer"
+        android:layout_below="@id/spTV"
+        android:orientation="vertical"
+        android:layout_margin="@dimen/fab_margin">
+
+        <TextView
+            android:id="@+id/pilotSkillTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/defaultSKL"
+            android:layout_marginTop="2dp"
+            android:layout_marginBottom="@dimen/margin3"/>
+
+        <TextView
+            android:id="@+id/traderSkillTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/defaultSKL"
+            android:layout_marginBottom="@dimen/margin3"/>
+
+        <TextView
+            android:id="@+id/fighterSkillTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/defaultSKL"
+            android:layout_marginBottom="@dimen/margin3"/>
+
+        <TextView
+            android:id="@+id/engineerSkillTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/defaultSKL" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="50dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_below="@id/spTV"
+        android:layout_toEndOf="@id/skillContainer"
+        android:layout_margin="@dimen/margin2">
+
+        <Button
+            android:id="@+id/skill1plusBT"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/plus" />
+
+        <Button
+            android:id="@+id/skill2plusBT"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/plus" />
+
+        <Button
+            android:id="@+id/skill3plusBT"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/plus" />
+
+        <Button
+            android:id="@+id/skill4plusBT"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/plus"/>
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/difTV"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/skillTVContainer"
+        android:text="@string/difficulty"
+        android:textStyle="bold"
+        android:paddingStart="@dimen/margin2"
+        android:paddingTop="@dimen/margin3"/>
+
+    <LinearLayout
+        android:id="@+id/difContainer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_below="@+id/difTV"
+        android:paddingTop="@dimen/margin3">
+
+        <Button
+            android:id="@+id/lowDifBT"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/leftDF"
+            android:layout_weight="1"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/defaultDif"
+            android:layout_weight="8"
+            android:gravity="center"/>
+
+        <Button
+            android:id="@+id/highDifBT"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/rightDF"
+            android:layout_weight="1"/>
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/saveBT"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/save"
+        android:layout_alignParentBottom="true"/>
 
     <Button
         android:id="@+id/confimBT"

@@ -17,5 +17,7 @@
         android:clickable="false"
         android:cropToPadding="false"
         android:scaleType="fitXY"
-        app:srcCompat="@drawable/tmpimage" />
+        app:srcCompat="@drawable/tmpimage"
+        android:contentDescription="@string/picDescription"/>
+
 </LinearLayout>
