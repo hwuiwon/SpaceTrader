@@ -1,8 +1,9 @@
 package edu.gatech.cs2340.team49x.spacetrader.Objects;
 
+import java.io.Serializable;
 import java.util.Arrays;
 
-public class Player {
+public class Player implements Serializable {
     private String name;
     private int skillPt;
     private int pilotPt;
