@@ -30,6 +30,17 @@ public class ConfigurationActivity extends AppCompatActivity {
         setContentView(R.layout.activity_config);
         binding = DataBindingUtil.setContentView(this, R.layout.activity_config);
         viewModel = ViewModelProviders.of(this).get(ConfigurationViewModel.class);
+
+        if (getIntent().getSerializableExtra("player") != null) {
+            player = (Player) getIntent().getSerializableExtra("player");
+            binding.pnameET.setText(player.getName());
+            binding.sPointsTV.setText(String.valueOf(player.getSkillPt()));
+            binding.pilotSkillTV.setText(String.valueOf(player.getPilotPt()));
+            binding.fighterSkillTV.setText(String.valueOf(player.getFighterPt()));
+            binding.traderSkillTV.setText(String.valueOf(player.getTradePt()));
+            binding.engineerSkillTV.setText(String.valueOf(player.getEngineerPt()));
+            binding.difTV.setText(getIntent().getStringExtra("difficulty"));
+        }
     }
 
     /**
@@ -49,7 +60,10 @@ public class ConfigurationActivity extends AppCompatActivity {
                     getVal(binding.traderSkillTV),
                     getVal(binding.engineerSkillTV), null, null);
 
-            setResult(Activity.RESULT_OK, new Intent().putExtra("player", player));
+            Intent playerData = new Intent().putExtra("player", player)
+                    .putExtra("difficulty", binding.difTV.getText().toString());
+
+            setResult(Activity.RESULT_OK, playerData);
             viewModel.configure(player, Difficulty.valueOf(binding.difTV.getText().toString()));
             Toast.makeText(this, viewModel.printGameState(), Toast.LENGTH_LONG).show();
             finish();
