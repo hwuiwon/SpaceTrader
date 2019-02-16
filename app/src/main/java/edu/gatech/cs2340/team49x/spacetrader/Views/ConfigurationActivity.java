@@ -25,19 +25,6 @@ public class ConfigurationActivity extends AppCompatActivity {
         setContentView(R.layout.activity_config);
         viewModel = ViewModelProviders.of(this).get(ConfigurationViewModel.class);
         binding = DataBindingUtil.setContentView(this, R.layout.activity_config);
-
-        if (getVal(binding.pilotSkillTV) == 0) {
-            binding.skill1minusBT.setEnabled(false);
-        }
-        if (getVal(binding.fighterSkillTV) == 0) {
-            binding.skill2minusBT.setEnabled(false);
-        }
-        if (getVal(binding.traderSkillTV) == 0) {
-            binding.skill3minusBT.setEnabled(false);
-        }
-        if (getVal(binding.engineerSkillTV) == 0) {
-            binding.skill4minusBT.setEnabled(false);
-        }
     }
 
     /**
@@ -93,18 +80,6 @@ public class ConfigurationActivity extends AppCompatActivity {
                 increase(binding.engineerSkillTV);
                 break;
         }
-        if (getVal(binding.pilotSkillTV) == 0) {
-            binding.skill1minusBT.setEnabled(false);
-        } else binding.skill1minusBT.setEnabled(true);
-        if (getVal(binding.fighterSkillTV) == 0) {
-            binding.skill2minusBT.setEnabled(false);
-        } else binding.skill2minusBT.setEnabled(true);
-        if (getVal(binding.traderSkillTV) == 0) {
-            binding.skill3minusBT.setEnabled(false);
-        } else binding.skill3minusBT.setEnabled(true);
-        if (getVal(binding.engineerSkillTV) == 0) {
-            binding.skill4minusBT.setEnabled(false);
-        } else binding.skill4minusBT.setEnabled(true);
     }
 
     /**
@@ -123,8 +98,10 @@ public class ConfigurationActivity extends AppCompatActivity {
      * @param view TextView that will be modified
      */
     private void decrease(TextView view) {
-        view.setText(Integer.toString(getVal(view) - 1));
-        binding.sPointsTV.setText(Integer.toString(getVal(binding.sPointsTV) + 1));
+        if (!((getVal(view) - 1) < 0)) {
+            view.setText(Integer.toString(getVal(view) - 1));
+            binding.sPointsTV.setText(Integer.toString(getVal(binding.sPointsTV) + 1));
+        }
     }
 
     /**
@@ -133,8 +110,10 @@ public class ConfigurationActivity extends AppCompatActivity {
      * @param view TextView that will be modified
      */
     private void increase(TextView view) {
-        view.setText(Integer.toString(getVal(view) + 1));
-        binding.sPointsTV.setText(Integer.toString(getVal(binding.sPointsTV) - 1));
+        if (!(getVal(binding.sPointsTV) - 1 < 0)) {
+            view.setText(Integer.toString(getVal(view) + 1));
+            binding.sPointsTV.setText(Integer.toString(getVal(binding.sPointsTV) - 1));
+        }
     }
 
     /**
@@ -146,11 +125,11 @@ public class ConfigurationActivity extends AppCompatActivity {
         switch (view.getId()) {
             case R.id.lowDifBT:
                 binding.difTV.setText(
-                        Difficulty.valueOf(String.valueOf(binding.difTV.getText())).prev());
+                        Difficulty.valueOf((String) binding.difTV.getText()).prev());
                 break;
             case R.id.highDifBT:
                 binding.difTV.setText(
-                        Difficulty.valueOf(String.valueOf(binding.difTV.getText())).next());
+                        Difficulty.valueOf((String) binding.difTV.getText()).next());
                 break;
         }
     }
