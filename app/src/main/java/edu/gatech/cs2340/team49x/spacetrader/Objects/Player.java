@@ -2,21 +2,25 @@ package edu.gatech.cs2340.team49x.spacetrader.Objects;
 
 public class Player {
     private String name;
-    private int skillPoints;
-    private int[] skills;
+    private int pilotPt;
+    private int engineerPt;
+    private int tradePt;
+    private int fighterPt;
+    private Ship ship;
     private int credits;
-    private Difficulty difficulty;
 
-    public Player(String name, int skillPoints, int[] skills, int credits, Difficulty difficulty) {
+    public Player(String name, int pilotPt, int engineerPt, int tradePt, int fighterPt, Ship ship, int credits) {
         this.name = name;
-        this.skillPoints = skillPoints;
-        this.skills = skills;
+        this.pilotPt = pilotPt;
+        this.engineerPt = engineerPt;
+        this.tradePt = tradePt;
+        this.fighterPt = fighterPt;
+        this.ship = ship;
         this.credits = credits;
-        this.difficulty = difficulty;
     }
 
     public Player(String name) {
-        this(name, 16, null, 1000, Difficulty.Easy);
+        this(name, 0,0,0,0,null,0);
     }
 
     public String getName() {
@@ -27,20 +31,44 @@ public class Player {
         this.name = name;
     }
 
-    public int getSkillPoints() {
-        return skillPoints;
+    public int getPilotPt() {
+        return pilotPt;
     }
 
-    public void setSkillPoints(int skillPoints) {
-        this.skillPoints = skillPoints;
+    public void setPilotPt(int pilotPt) {
+        this.pilotPt = pilotPt;
     }
 
-    public int[] getSkills() {
-        return skills;
+    public int getEngineerPt() {
+        return engineerPt;
     }
 
-    public void setSkills(int[] skills) {
-        this.skills = skills;
+    public void setEngineerPt(int engineerPt) {
+        this.engineerPt = engineerPt;
+    }
+
+    public int getTradePt() {
+        return tradePt;
+    }
+
+    public void setTradePt(int tradePt) {
+        this.tradePt = tradePt;
+    }
+
+    public int getFighterPt() {
+        return fighterPt;
+    }
+
+    public void setFighterPt(int fighterPt) {
+        this.fighterPt = fighterPt;
+    }
+
+    public Ship getShip() {
+        return ship;
+    }
+
+    public void setShip(Ship ship) {
+        this.ship = ship;
     }
 
     public int getCredits() {
@@ -51,11 +79,16 @@ public class Player {
         this.credits = credits;
     }
 
-    public Difficulty getDifficulty() {
-        return difficulty;
-    }
-
-    public void setDifficulty(Difficulty difficulty) {
-        this.difficulty = difficulty;
+    @Override
+    public String toString() {
+        return "Player{" +
+                "name='" + name + '\'' +
+                ", pilotPt=" + pilotPt +
+                ", engineerPt=" + engineerPt +
+                ", tradePt=" + tradePt +
+                ", fighterPt=" + fighterPt +
+                ", ship=" + ship +
+                ", credits=" + credits +
+                '}';
     }
 }
