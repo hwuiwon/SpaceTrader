@@ -136,4 +136,22 @@ public class ConfigurationActivity extends AppCompatActivity {
         view.setText(Integer.toString(getVal(view) + 1));
         binding.sPointsTV.setText(Integer.toString(getVal(binding.sPointsTV) - 1));
     }
+
+    /**
+     * Updates difficulty of a game
+     *
+     * @param view current View
+     */
+    public void updateDifficulty(View view) {
+        switch (view.getId()) {
+            case R.id.lowDifBT:
+                binding.difTV.setText(
+                        Difficulty.valueOf(String.valueOf(binding.difTV.getText())).prev());
+                break;
+            case R.id.highDifBT:
+                binding.difTV.setText(
+                        Difficulty.valueOf(String.valueOf(binding.difTV.getText())).next());
+                break;
+        }
+    }
 }

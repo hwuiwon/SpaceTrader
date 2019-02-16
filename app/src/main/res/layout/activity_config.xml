@@ -194,7 +194,7 @@
         </LinearLayout>
 
         <TextView
-            android:id="@+id/difTV"
+            android:id="@+id/difTitleTV"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/skillTVContainer"
@@ -207,7 +207,7 @@
             android:id="@+id/difContainer"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/difTV"
+            android:layout_below="@+id/difTitleTV"
             android:orientation="horizontal"
             android:paddingTop="@dimen/margin3">
 
@@ -216,9 +216,11 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="@string/leftDF" />
+                android:text="@string/leftDF"
+                android:onClick="updateDifficulty"/>
 
             <TextView
+                android:id="@+id/difTV"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="8"
@@ -230,7 +232,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="@string/rightDF" />
+                android:text="@string/rightDF"
+                android:onClick="updateDifficulty"/>
 
         </LinearLayout>
 

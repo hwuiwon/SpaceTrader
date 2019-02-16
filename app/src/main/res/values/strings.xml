@@ -19,7 +19,7 @@
     <string name="difficulty">Difficulty: </string>
     <string name="leftDF">◂</string>
     <string name="rightDF">▸</string>
-    <string name="defaultDif">Easy</string>
+    <string name="defaultDif">EASY</string>
 
     <string name="save">Save</string>
 </resources>
