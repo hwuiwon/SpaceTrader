@@ -1,5 +1,7 @@
 package edu.gatech.cs2340.team49x.spacetrader.Objects;
 
+import java.util.Arrays;
+
 public class Player {
     private String name;
     private int pilotPt;
@@ -8,8 +10,9 @@ public class Player {
     private int fighterPt;
     private Ship ship;
     private int credits;
+    private String[] storage;
 
-    public Player(String name, int pilotPt, int engineerPt, int tradePt, int fighterPt, Ship ship, int credits) {
+    public Player(String name, int pilotPt, int engineerPt, int tradePt, int fighterPt, Ship ship, int credits, String[] storage) {
         this.name = name;
         this.pilotPt = pilotPt;
         this.engineerPt = engineerPt;
@@ -17,10 +20,11 @@ public class Player {
         this.fighterPt = fighterPt;
         this.ship = ship;
         this.credits = credits;
+        this.storage = storage;
     }
 
     public Player(String name) {
-        this(name, 0,0,0,0,null,0);
+        this(name, 0,0,0,0,null,0, null);
     }
 
     public String getName() {
@@ -79,6 +83,14 @@ public class Player {
         this.credits = credits;
     }
 
+    public String[] getStorage() {
+        return storage;
+    }
+
+    public void setStorage(String[] storage) {
+        this.storage = storage;
+    }
+
     @Override
     public String toString() {
         return "Player{" +
@@ -89,6 +101,7 @@ public class Player {
                 ", fighterPt=" + fighterPt +
                 ", ship=" + ship +
                 ", credits=" + credits +
+                ", storage=" + Arrays.toString(storage) +
                 '}';
     }
 }

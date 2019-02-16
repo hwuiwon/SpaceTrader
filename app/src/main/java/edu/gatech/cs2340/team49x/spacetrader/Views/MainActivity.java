@@ -2,6 +2,7 @@ package edu.gatech.cs2340.team49x.spacetrader.Views;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
@@ -10,9 +11,12 @@ import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import edu.gatech.cs2340.team49x.spacetrader.Objects.Player;
 import edu.gatech.cs2340.team49x.spacetrader.R;
 
 public class MainActivity extends AppCompatActivity {
+
+    public Player player;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,9 +25,10 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        // Immediately begin Config activity
+        // Launch configuration activity when app starts
         Intent intent = new Intent(MainActivity.this, ConfigurationActivity.class);
         startActivity(intent);
+
     }
 
     @Override
@@ -46,5 +51,10 @@ public class MainActivity extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+
     }
 }
