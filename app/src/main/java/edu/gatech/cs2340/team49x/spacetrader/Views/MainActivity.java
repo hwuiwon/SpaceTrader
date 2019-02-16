@@ -1,27 +1,19 @@
 package edu.gatech.cs2340.team49x.spacetrader.Views;
 
-import android.arch.lifecycle.ViewModelProviders;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.Toast;
 
-import edu.gatech.cs2340.team49x.spacetrader.Objects.Difficulty;
 import edu.gatech.cs2340.team49x.spacetrader.Objects.Player;
 import edu.gatech.cs2340.team49x.spacetrader.R;
-import edu.gatech.cs2340.team49x.spacetrader.Viewmodels.ConfigurationViewModel;
 
 public class MainActivity extends AppCompatActivity {
 
     public Player player;
-    private ConfigurationViewModel viewModel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,7 +21,6 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        viewModel = ViewModelProviders.of(this).get(ConfigurationViewModel.class);
 
         // Launch configuration activity when app starts
         Intent intent = new Intent(MainActivity.this, ConfigurationActivity.class);
@@ -63,7 +54,5 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         player = (Player) data.getSerializableExtra("player");
-        viewModel.configure(player, Difficulty.valueOf(data.getStringExtra("difficulty")));
-        Toast.makeText(this, viewModel.printGameState(), Toast.LENGTH_LONG).show();
     }
 }
