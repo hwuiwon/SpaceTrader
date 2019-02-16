@@ -23,8 +23,4 @@ public class ModelFacade {
     public String printGameState() {
         return game.toString();
     }
-
-    public Game getGame() {
-        return game;
-    }
 }

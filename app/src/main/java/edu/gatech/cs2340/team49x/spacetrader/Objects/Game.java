@@ -16,10 +16,6 @@ public class Game {
         this.player = player;
     }
 
-    public Difficulty getDifficulty() {
-        return difficulty;
-    }
-
     public void setDifficulty(Difficulty difficulty) {
         this.difficulty = difficulty;
     }

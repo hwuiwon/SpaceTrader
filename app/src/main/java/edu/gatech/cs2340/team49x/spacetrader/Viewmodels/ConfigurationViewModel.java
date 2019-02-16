@@ -22,8 +22,4 @@ public class ConfigurationViewModel extends AndroidViewModel {
     public String printGameState() {
         return ModelFacade.getInstance().printGameState();
     }
-
-    public Difficulty getDifficulty() {
-        return ModelFacade.getInstance().getGame().getDifficulty();
-    }
 }
