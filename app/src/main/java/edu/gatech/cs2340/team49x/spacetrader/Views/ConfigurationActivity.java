@@ -40,9 +40,14 @@ public class ConfigurationActivity extends AppCompatActivity {
         }
     }
 
+    /**
+     * Creates player with values in configuration screen
+     *
+     * @param view current View
+     */
     public void onConfirmPressed(View view) {
         String name = binding.pnameET.getText().toString().trim();
-        if (name == null || name.length() == 0)
+        if (name.length() == 0)
             Toast.makeText(this, "Please enter a valid name.", Toast.LENGTH_LONG).show();
         else {
             Player p = new Player(binding.pnameET.getText().toString());
@@ -52,6 +57,11 @@ public class ConfigurationActivity extends AppCompatActivity {
         }
     }
 
+    /**
+     * Updates the value of TextView depending on the button pressed
+     *
+     * @param view current View
+     */
     public void updateSkill(View view) {
         int points = getVal(binding.sPointsTV);
         if (points == 0) {
@@ -97,15 +107,31 @@ public class ConfigurationActivity extends AppCompatActivity {
         } else binding.skill4minusBT.setEnabled(true);
     }
 
+    /**
+     * Gets integer value
+     *
+     * @param view TextView that will get converted
+     * @return the integer value of TextView
+     */
     private int getVal(TextView view) {
         return Integer.parseInt(String.valueOf(view.getText()));
     }
 
+    /**
+     * Decreases integer value of TextView by 1
+     *
+     * @param view TextView that will be modified
+     */
     private void decrease(TextView view) {
         view.setText(Integer.toString(getVal(view) - 1));
         binding.sPointsTV.setText(Integer.toString(getVal(binding.sPointsTV) + 1));
     }
 
+    /**
+     * Increases integer value of TextView by 1
+     *
+     * @param view TextView that will be modified
+     */
     private void increase(TextView view) {
         view.setText(Integer.toString(getVal(view) + 1));
         binding.sPointsTV.setText(Integer.toString(getVal(binding.sPointsTV) - 1));
