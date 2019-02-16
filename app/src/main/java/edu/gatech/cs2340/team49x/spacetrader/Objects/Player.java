@@ -38,6 +38,14 @@ public class Player {
         this.name = name;
     }
 
+    public int getSkillPt() {
+        return skillPt;
+    }
+
+    public void setSkillPt(int skillPt) {
+        this.skillPt = skillPt;
+    }
+
     public int getPilotPt() {
         return pilotPt;
     }

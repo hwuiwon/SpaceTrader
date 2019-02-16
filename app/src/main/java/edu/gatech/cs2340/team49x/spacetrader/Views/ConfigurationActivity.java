@@ -43,7 +43,7 @@ public class ConfigurationActivity extends AppCompatActivity {
                     .putExtra("fighterPt", getVal(binding.fighterSkillTV))
                     .putExtra("tradePt", getVal(binding.traderSkillTV))
                     .putExtra("engineerPt", getVal(binding.engineerSkillTV))
-                    .putExtra("difficulty", Difficulty.valueOf((String) binding.difTV.getText())));
+                    .putExtra("difficulty", (String) binding.difTV.getText()));
 
             Toast.makeText(this, "Player{" +
                     "name='" + binding.pnameET.getText() + '\'' +

@@ -52,7 +52,15 @@ public class MainActivity extends AppCompatActivity {
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
-            return true;
+            Intent intent = new Intent(MainActivity.this, ConfigurationActivity.class);
+            intent.putExtra("name", player.getName())
+                    .putExtra("skillPt", player.getSkillPt())
+                    .putExtra("pilotPt", player.getPilotPt())
+                    .putExtra("fighterPt", player.getFighterPt())
+                    .putExtra("tradePt", player.getTradePt())
+                    .putExtra("engineerPt", player.getEngineerPt())
+                    .putExtra("difficulty", viewModel.getDifficulty().toString());
+            startActivity(intent);
         }
 
         return super.onOptionsItemSelected(item);
@@ -60,8 +68,13 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-        player = new Player("Test");
-        viewModel.configure(player, Difficulty.EASY);
+        player = new Player(data.getStringExtra("name"),
+                data.getIntExtra("skillPt", 0),
+                data.getIntExtra("pilotPt", 0),
+                data.getIntExtra("fighterPt", 0),
+                data.getIntExtra("tradePt", 0),
+                data.getIntExtra("engineerPt", 0), null, null);
+        viewModel.configure(player, Difficulty.valueOf(data.getStringExtra("difficulty")));
         Toast.makeText(this, viewModel.printGameState(), Toast.LENGTH_LONG).show();
     }
 }
