@@ -4,27 +4,30 @@ import java.util.Arrays;
 
 public class Player {
     private String name;
+    private int skillPt;
     private int pilotPt;
-    private int engineerPt;
-    private int tradePt;
     private int fighterPt;
+    private int tradePt;
+    private int engineerPt;
     private Ship ship;
-    private int credits;
     private String[] storage;
 
-    public Player(String name, int pilotPt, int engineerPt, int tradePt, int fighterPt, Ship ship, int credits, String[] storage) {
+    private int credits;
+
+    public Player(String name, int skillPt, int pilotPt, int fighterPt, int tradePt, int engineerPt, Ship ship, String[] storage) {
         this.name = name;
+        this.skillPt = skillPt;
         this.pilotPt = pilotPt;
-        this.engineerPt = engineerPt;
-        this.tradePt = tradePt;
         this.fighterPt = fighterPt;
+        this.tradePt = tradePt;
+        this.engineerPt = engineerPt;
         this.ship = ship;
-        this.credits = credits;
+        this.credits = 1000;
         this.storage = storage;
     }
 
     public Player(String name) {
-        this(name, 0,0,0,0,null,0, null);
+        this(name, 16, 0,0,0,0,null, null);
     }
 
     public String getName() {
@@ -95,13 +98,14 @@ public class Player {
     public String toString() {
         return "Player{" +
                 "name='" + name + '\'' +
+                ", skillPt=" + skillPt +
                 ", pilotPt=" + pilotPt +
-                ", engineerPt=" + engineerPt +
-                ", tradePt=" + tradePt +
                 ", fighterPt=" + fighterPt +
+                ", tradePt=" + tradePt +
+                ", engineerPt=" + engineerPt +
                 ", ship=" + ship +
-                ", credits=" + credits +
                 ", storage=" + Arrays.toString(storage) +
+                ", credits=" + credits +
                 '}';
     }
 }

@@ -1,6 +1,7 @@
 package edu.gatech.cs2340.team49x.spacetrader.Views;
 
-import android.arch.lifecycle.ViewModelProviders;
+import android.app.Activity;
+import android.content.Intent;
 import android.databinding.DataBindingUtil;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -8,22 +9,20 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.Arrays;
+
 import edu.gatech.cs2340.team49x.spacetrader.Objects.Difficulty;
-import edu.gatech.cs2340.team49x.spacetrader.Objects.Player;
 import edu.gatech.cs2340.team49x.spacetrader.R;
-import edu.gatech.cs2340.team49x.spacetrader.Viewmodels.ConfigurationViewModel;
 import edu.gatech.cs2340.team49x.spacetrader.databinding.ActivityConfigBinding;
 
 public class ConfigurationActivity extends AppCompatActivity {
 
-    private ConfigurationViewModel viewModel;
     ActivityConfigBinding binding;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_config);
-        viewModel = ViewModelProviders.of(this).get(ConfigurationViewModel.class);
         binding = DataBindingUtil.setContentView(this, R.layout.activity_config);
     }
 
@@ -37,9 +36,24 @@ public class ConfigurationActivity extends AppCompatActivity {
         if (name.length() == 0)
             Toast.makeText(this, "Please enter a valid name.", Toast.LENGTH_LONG).show();
         else {
-            Player p = new Player(binding.pnameET.getText().toString());
-            viewModel.configure(p, Difficulty.EASY);
-            Toast.makeText(this, viewModel.printGameState(), Toast.LENGTH_LONG).show();
+            setResult(Activity.RESULT_OK, new Intent()
+                    .putExtra("name", binding.pnameET.getText())
+                    .putExtra("skillPt", getVal(binding.sPointsTV))
+                    .putExtra("pilotPt", getVal(binding.pilotSkillTV))
+                    .putExtra("fighterPt", getVal(binding.fighterSkillTV))
+                    .putExtra("tradePt", getVal(binding.traderSkillTV))
+                    .putExtra("engineerPt", getVal(binding.engineerSkillTV))
+                    .putExtra("difficulty", Difficulty.valueOf((String) binding.difTV.getText())));
+
+            Toast.makeText(this, "Player{" +
+                    "name='" + binding.pnameET.getText() + '\'' +
+                    ", skillPt=" + getVal(binding.sPointsTV) +
+                    ", pilotPt=" + getVal(binding.pilotSkillTV) +
+                    ", fighterPt=" + getVal(binding.fighterSkillTV) +
+                    ", tradePt=" + getVal(binding.traderSkillTV) +
+                    ", engineerPt=" + getVal(binding.engineerSkillTV) +
+                    ", difficulty=" + binding.difTV.getText() +
+                    '}', Toast.LENGTH_LONG).show();
             finish();
         }
     }
