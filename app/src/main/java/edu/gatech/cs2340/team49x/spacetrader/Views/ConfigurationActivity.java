@@ -1,6 +1,8 @@
 package edu.gatech.cs2340.team49x.spacetrader.Views;
 
+import android.app.Activity;
 import android.arch.lifecycle.ViewModelProviders;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -33,6 +35,14 @@ public class ConfigurationActivity extends AppCompatActivity {
             viewModel.configure(p, Difficulty.EASY);
 
             Toast.makeText(this, viewModel.printGameState(), Toast.LENGTH_LONG).show();
+            setResult(Activity.RESULT_OK,
+                    new Intent().putExtra("name", p.getName())
+                            .putExtra("pilotPt", p.getPilotPt())
+                            .putExtra("engineerPt", p.getEngineerPt())
+                            .putExtra("tradePt", p.getTradePt())
+                            .putExtra("fighterPt", p.getFighterPt())
+                            .putExtra("credits", p.getCredits())
+                            .putExtra("shiptype", p.getShip().getType()));
             finish();
         }
     }
