@@ -9,6 +9,9 @@ public enum Difficulty {
     }
 
     public String prev() {
+        if (this.ordinal() - 1 < 0) {
+            return vals[Math.abs((this.ordinal() - vals.length + 1) % vals.length)].toString();
+        }
         return vals[(this.ordinal() - 1) % vals.length].toString();
     }
 }

@@ -10,10 +10,9 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import java.util.Arrays;
-
 import edu.gatech.cs2340.team49x.spacetrader.Objects.Difficulty;
 import edu.gatech.cs2340.team49x.spacetrader.Objects.Player;
+import edu.gatech.cs2340.team49x.spacetrader.Objects.Ship;
 import edu.gatech.cs2340.team49x.spacetrader.R;
 import edu.gatech.cs2340.team49x.spacetrader.Viewmodels.ConfigurationViewModel;
 import edu.gatech.cs2340.team49x.spacetrader.databinding.ActivityConfigBinding;
@@ -23,6 +22,8 @@ public class ConfigurationActivity extends AppCompatActivity {
     ActivityConfigBinding binding;
     private ConfigurationViewModel viewModel;
     public Player player;
+    private Ship ship = null;
+    private String[] storage = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +41,8 @@ public class ConfigurationActivity extends AppCompatActivity {
             binding.traderSkillTV.setText(String.valueOf(player.getTradePt()));
             binding.engineerSkillTV.setText(String.valueOf(player.getEngineerPt()));
             binding.difTV.setText(getIntent().getStringExtra("difficulty"));
+            ship = player.getShip();
+            storage = player.getStorage();
         }
     }
 
@@ -58,7 +61,7 @@ public class ConfigurationActivity extends AppCompatActivity {
                     getVal(binding.pilotSkillTV),
                     getVal(binding.fighterSkillTV),
                     getVal(binding.traderSkillTV),
-                    getVal(binding.engineerSkillTV), null, null);
+                    getVal(binding.engineerSkillTV), ship, storage);
 
             Intent playerData = new Intent().putExtra("player", player)
                     .putExtra("difficulty", binding.difTV.getText().toString());
