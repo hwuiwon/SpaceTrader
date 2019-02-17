@@ -48,7 +48,7 @@ public class MainActivity extends AppCompatActivity {
         if (id == R.id.action_settings) {
             Intent intent = new Intent(MainActivity.this, ConfigurationActivity.class);
             intent.putExtra("player", player).putExtra("difficulty", difficulty.toString());
-            startActivity(intent);
+            startActivityForResult(intent, 999);
         }
 
         return super.onOptionsItemSelected(item);
