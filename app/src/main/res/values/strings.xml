@@ -1,4 +1,25 @@
 <resources>
     <string name="app_name">SpaceTrader</string>
     <string name="action_settings">Settings</string>
+    <string name="picDescription">Temporary Picture</string>
+
+    <string name="pName">Player Name: </string>
+    <string name="oNameHint">Type your player name</string>
+
+    <string name="sPoints">Skill Points: </string>
+    <string name="defaultTtlSP">16</string>
+    <string name="defaultSKL">0</string>
+    <string name="sk1">Pilot</string>
+    <string name="sk2">Fighter</string>
+    <string name="sk3">Trader</string>
+    <string name="sk4">Engineer</string>
+    <string name="minus">-</string>
+    <string name="plus">+</string>
+
+    <string name="difficulty">Difficulty: </string>
+    <string name="leftDF">◂</string>
+    <string name="rightDF">▸</string>
+    <string name="defaultDif">EASY</string>
+
+    <string name="save">Save</string>
 </resources>

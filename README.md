@@ -11,7 +11,7 @@ Team 49x
 
 ## Features
 
-- [ ] Game Configuration
+- [x] Game Configuration
 - [ ] Trade Transaction
 - [ ] Travel function
 
