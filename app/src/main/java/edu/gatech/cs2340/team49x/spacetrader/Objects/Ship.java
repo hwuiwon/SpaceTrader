@@ -2,6 +2,7 @@ package edu.gatech.cs2340.team49x.spacetrader.Objects;
 
 public class Ship {
     private ShipType type;
+    private String[] storage;
 
     public Ship(ShipType type) {
         this.type = type;
@@ -13,6 +14,14 @@ public class Ship {
 
     public void setType(ShipType type) {
         this.type = type;
+    }
+
+    public String[] getStorage() {
+        return storage;
+    }
+
+    public void setStorage(String[] storage) {
+        this.storage = storage;
     }
 
     @Override
