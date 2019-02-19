@@ -4,16 +4,28 @@ public class Game {
     private Player player;
     private Difficulty difficulty;
 
-    public void configurePlayer(Player p) {
-        player = p;
-    }
-
-    public Player getPlayer() {
-        return player;
+    public Player getPlayerInfo() {
+        if (player == null) {
+            return null;
+        }
+        Player newPlayer = new Player(
+                player.getName(),
+                player.getSkillPt(),
+                player.getPilotPt(),
+                player.getFighterPt(),
+                player.getTradePt(),
+                player.getEngineerPt(),
+                player.getShip()
+        );
+        return newPlayer;
     }
 
     public void setPlayer(Player player) {
         this.player = player;
+    }
+
+    public Difficulty getDifficulty() {
+        return difficulty;
     }
 
     public void setDifficulty(Difficulty difficulty) {

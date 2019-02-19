@@ -15,9 +15,6 @@ import edu.gatech.cs2340.team49x.spacetrader.R;
 
 public class MainActivity extends AppCompatActivity {
 
-    public Player player;
-    public Difficulty difficulty;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,7 +44,6 @@ public class MainActivity extends AppCompatActivity {
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
             Intent intent = new Intent(MainActivity.this, ConfigurationActivity.class);
-            intent.putExtra("player", player).putExtra("difficulty", difficulty.toString());
             startActivityForResult(intent, 999);
         }
 
@@ -58,8 +54,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if (resultCode == RESULT_OK) {
-            player = (Player) data.getSerializableExtra("player");
-            difficulty = Difficulty.valueOf(data.getStringExtra("difficulty"));
+            // Do stuff when config activity ends
         }
     }
 }

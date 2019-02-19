@@ -19,6 +19,12 @@ public class ConfigurationViewModel extends AndroidViewModel {
         ModelFacade.getInstance().configureGame(p, d);
     }
 
+    public Player getPlayer() {
+        return ModelFacade.getInstance().getPlayer();
+    }
+
+    public Difficulty getDifficulty() { return ModelFacade.getInstance().getDifficulty(); }
+
     public String printGameState() {
         return ModelFacade.getInstance().printGameState();
     }
