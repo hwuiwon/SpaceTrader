@@ -8,7 +8,7 @@ public class Game {
         if (player == null) {
             return null;
         }
-        Player newPlayer = new Player(
+        return new Player(
                 player.getName(),
                 player.getSkillPt(),
                 player.getPilotPt(),
@@ -17,7 +17,6 @@ public class Game {
                 player.getEngineerPt(),
                 player.getShip()
         );
-        return newPlayer;
     }
 
     public void setPlayer(Player player) {

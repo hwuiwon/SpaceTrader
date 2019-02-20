@@ -2,7 +2,6 @@ package edu.gatech.cs2340.team49x.spacetrader.Views;
 
 import android.app.Activity;
 import android.arch.lifecycle.ViewModelProviders;
-import android.content.Intent;
 import android.databinding.DataBindingUtil;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -66,7 +65,6 @@ public class ConfigurationActivity extends AppCompatActivity {
             player.setTradePt(getVal(binding.traderSkillTV));
             player.setEngineerPt(getVal(binding.engineerSkillTV));
 
-            setResult(Activity.RESULT_OK);
             viewModel.configure(player, Difficulty.valueOf(binding.difTV.getText().toString()));
             Log.d("STATE", viewModel.printGameState());
             finish();
