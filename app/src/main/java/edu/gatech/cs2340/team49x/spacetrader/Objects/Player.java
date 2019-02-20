@@ -1,7 +1,6 @@
 package edu.gatech.cs2340.team49x.spacetrader.Objects;
 
 import java.io.Serializable;
-import java.util.Arrays;
 
 public class Player implements Serializable {
     private String name;
@@ -11,7 +10,6 @@ public class Player implements Serializable {
     private int tradePt;
     private int engineerPt;
     private Ship ship;
-
 
     private int credits;
 
@@ -93,8 +91,6 @@ public class Player implements Serializable {
     public void setCredits(int credits) {
         this.credits = credits;
     }
-
-
 
     @Override
     public String toString() {
