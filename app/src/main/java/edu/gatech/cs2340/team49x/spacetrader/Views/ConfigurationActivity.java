@@ -2,18 +2,18 @@ package edu.gatech.cs2340.team49x.spacetrader.Views;
 
 import android.app.Activity;
 import android.arch.lifecycle.ViewModelProviders;
-import android.content.Intent;
 import android.databinding.DataBindingUtil;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import java.util.Arrays;
-
 import edu.gatech.cs2340.team49x.spacetrader.Objects.Difficulty;
 import edu.gatech.cs2340.team49x.spacetrader.Objects.Player;
+import edu.gatech.cs2340.team49x.spacetrader.Objects.Ship;
+import edu.gatech.cs2340.team49x.spacetrader.Objects.ShipType;
 import edu.gatech.cs2340.team49x.spacetrader.R;
 import edu.gatech.cs2340.team49x.spacetrader.Viewmodels.ConfigurationViewModel;
 import edu.gatech.cs2340.team49x.spacetrader.databinding.ActivityConfigBinding;
@@ -22,7 +22,7 @@ public class ConfigurationActivity extends AppCompatActivity {
 
     ActivityConfigBinding binding;
     private ConfigurationViewModel viewModel;
-    public Player player;
+    private Player player;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,16 +31,21 @@ public class ConfigurationActivity extends AppCompatActivity {
         binding = DataBindingUtil.setContentView(this, R.layout.activity_config);
         viewModel = ViewModelProviders.of(this).get(ConfigurationViewModel.class);
 
-        if (getIntent().getSerializableExtra("player") != null) {
-            player = (Player) getIntent().getSerializableExtra("player");
-            binding.pnameET.setText(player.getName());
-            binding.sPointsTV.setText(String.valueOf(player.getSkillPt()));
-            binding.pilotSkillTV.setText(String.valueOf(player.getPilotPt()));
-            binding.fighterSkillTV.setText(String.valueOf(player.getFighterPt()));
-            binding.traderSkillTV.setText(String.valueOf(player.getTradePt()));
-            binding.engineerSkillTV.setText(String.valueOf(player.getEngineerPt()));
-            binding.difTV.setText(getIntent().getStringExtra("difficulty"));
+        player = viewModel.getPlayer();
+        Difficulty difficulty = viewModel.getDifficulty();
+        if (player == null) {
+            player = new Player("", 16, 0, 0, 0, 0, new Ship(ShipType.GNAT));
         }
+        if (difficulty == null) {
+            difficulty = Difficulty.EASY;
+        }
+        binding.pnameET.setText(player.getName());
+        binding.sPointsTV.setText(String.valueOf(player.getSkillPt()));
+        binding.pilotSkillTV.setText(String.valueOf(player.getPilotPt()));
+        binding.fighterSkillTV.setText(String.valueOf(player.getFighterPt()));
+        binding.traderSkillTV.setText(String.valueOf(player.getTradePt()));
+        binding.engineerSkillTV.setText(String.valueOf(player.getEngineerPt()));
+        binding.difTV.setText(difficulty.toString());
     }
 
     /**
@@ -53,19 +58,15 @@ public class ConfigurationActivity extends AppCompatActivity {
         if (name.length() == 0)
             Toast.makeText(this, "Please enter a valid name.", Toast.LENGTH_LONG).show();
         else {
-            player = new Player(binding.pnameET.getText().toString(),
-                    getVal(binding.sPointsTV),
-                    getVal(binding.pilotSkillTV),
-                    getVal(binding.fighterSkillTV),
-                    getVal(binding.traderSkillTV),
-                    getVal(binding.engineerSkillTV), null, null);
+            player.setName(binding.pnameET.getText().toString());
+            player.setSkillPt(getVal(binding.sPointsTV));
+            player.setPilotPt(getVal(binding.pilotSkillTV));
+            player.setFighterPt(getVal(binding.fighterSkillTV));
+            player.setTradePt(getVal(binding.traderSkillTV));
+            player.setEngineerPt(getVal(binding.engineerSkillTV));
 
-            Intent playerData = new Intent().putExtra("player", player)
-                    .putExtra("difficulty", binding.difTV.getText().toString());
-
-            setResult(Activity.RESULT_OK, playerData);
             viewModel.configure(player, Difficulty.valueOf(binding.difTV.getText().toString()));
-            Toast.makeText(this, viewModel.printGameState(), Toast.LENGTH_LONG).show();
+            Log.d("STATE", viewModel.printGameState());
             finish();
         }
     }

@@ -1,7 +1,6 @@
 package edu.gatech.cs2340.team49x.spacetrader.Objects;
 
 import java.io.Serializable;
-import java.util.Arrays;
 
 public class Player implements Serializable {
     private String name;
@@ -11,11 +10,10 @@ public class Player implements Serializable {
     private int tradePt;
     private int engineerPt;
     private Ship ship;
-    private String[] storage;
 
     private int credits;
 
-    public Player(String name, int skillPt, int pilotPt, int fighterPt, int tradePt, int engineerPt, Ship ship, String[] storage) {
+    public Player(String name, int skillPt, int pilotPt, int fighterPt, int tradePt, int engineerPt, Ship ship) {
         this.name = name;
         this.skillPt = skillPt;
         this.pilotPt = pilotPt;
@@ -24,11 +22,10 @@ public class Player implements Serializable {
         this.engineerPt = engineerPt;
         this.ship = ship;
         this.credits = 1000;
-        this.storage = storage;
     }
 
     public Player(String name) {
-        this(name, 16, 0,0,0,0,null, null);
+        this(name, 16, 0,0,0,0,null);
     }
 
     public String getName() {
@@ -95,14 +92,6 @@ public class Player implements Serializable {
         this.credits = credits;
     }
 
-    public String[] getStorage() {
-        return storage;
-    }
-
-    public void setStorage(String[] storage) {
-        this.storage = storage;
-    }
-
     @Override
     public String toString() {
         return "Player{" +
@@ -113,7 +102,6 @@ public class Player implements Serializable {
                 ", tradePt=" + tradePt +
                 ", engineerPt=" + engineerPt +
                 ", ship=" + ship +
-                ", storage=" + Arrays.toString(storage) +
                 ", credits=" + credits +
                 '}';
     }

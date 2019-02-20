@@ -16,8 +16,16 @@ public class ModelFacade {
     }
 
     public void configureGame(Player p, Difficulty d) {
-        game.configurePlayer(p);
+        game.setPlayer(p);
         game.setDifficulty(d);
+    }
+
+    public Player getPlayer() {
+        return  game.getPlayerInfo();
+    }
+
+    public Difficulty getDifficulty() {
+        return  game.getDifficulty();
     }
 
     public String printGameState() {
