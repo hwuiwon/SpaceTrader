@@ -13,11 +13,17 @@ public class SolarSystem {
     private ArrayList<Planet> planets;
     private Resources resources;
 
-    enum TechLevel {
+    public enum TechLevel {
         PreAgriculture, Agriculture,
         Medieval, Renaissance,
         EarlyIndustrial, Industrial,
         PostIndustrial, HiTech
+    }
+
+    public enum Resources {
+        WATER, FURS, FOOD,
+        ORE, GAMES, FIREARMS,
+        MEDICINE, MACHINES, NARCOTICS, ROBOTS
     }
 
     private static final Set<String> systemNames = new HashSet<>(Arrays.asList(
