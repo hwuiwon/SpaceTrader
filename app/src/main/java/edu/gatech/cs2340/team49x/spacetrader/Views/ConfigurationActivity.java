@@ -1,6 +1,5 @@
 package edu.gatech.cs2340.team49x.spacetrader.Views;
 
-import android.app.Activity;
 import android.arch.lifecycle.ViewModelProviders;
 import android.databinding.DataBindingUtil;
 import android.support.v7.app.AppCompatActivity;

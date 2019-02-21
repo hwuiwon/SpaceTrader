@@ -5,18 +5,7 @@ public class Game {
     private Difficulty difficulty;
 
     public Player getPlayerInfo() {
-        if (player == null) {
-            return null;
-        }
-        return new Player(
-                player.getName(),
-                player.getSkillPt(),
-                player.getPilotPt(),
-                player.getFighterPt(),
-                player.getTradePt(),
-                player.getEngineerPt(),
-                player.getShip()
-        );
+        return player;
     }
 
     public void setPlayer(Player player) {
