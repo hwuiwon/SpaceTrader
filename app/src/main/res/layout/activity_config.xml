@@ -16,7 +16,8 @@
             android:layout_height="wrap_content"
             android:padding="@dimen/margin2"
             android:text="@string/pName"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:maxLines="1"/>
 
         <EditText
             android:id="@+id/pnameET"
