@@ -1,10 +1,11 @@
 package edu.gatech.cs2340.team49x.spacetrader.Objects;
 
-public class Coord {
+public class Coordinate {
+
     private int x;
     private int y;
 
-    public Coord(int x, int y) {
+    public Coordinate(int x, int y) {
         this.x = x;
         this.y = y;
     }
@@ -23,5 +24,10 @@ public class Coord {
 
     public void setY(int y) {
         this.y = y;
+    }
+
+    public boolean equals(Coordinate o) {
+        Coordinate tmp = o;
+        return x == tmp.x && y == tmp.y;
     }
 }

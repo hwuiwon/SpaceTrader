@@ -7,23 +7,26 @@ import java.util.Set;
 
 public class SolarSystem {
 
-    private Coord coordinates;
     private String name;
     private TechLevel techLevel;
     private ArrayList<Planet> planets;
     private Resources resources;
 
     public enum TechLevel {
-        PreAgriculture, Agriculture,
-        Medieval, Renaissance,
-        EarlyIndustrial, Industrial,
-        PostIndustrial, HiTech
-    }
+        PREAGRICULTURE(0), AGRICULTURE(1),
+        MEDIEVAL(2), RENAISSANCE(3),
+        EARLYINDUSTRIAL(4), INDUSTRIAL(5),
+        POSTINDUSTRIAL(6), HITECH(7);
 
-    public enum Resources {
-        WATER, FURS, FOOD,
-        ORE, GAMES, FIREARMS,
-        MEDICINE, MACHINES, NARCOTICS, ROBOTS
+        private int i;
+
+        TechLevel(int i) {
+            this.i = i;
+        }
+
+        public int getLevel() {
+            return i;
+        }
     }
 
     private static final Set<String> systemNames = new HashSet<>(Arrays.asList(
@@ -149,8 +152,7 @@ public class SolarSystem {
             "Zuul"
     ));
 
-    public SolarSystem(Coord coordinates, String name, TechLevel techLevel, Resources resources, ArrayList<Planet> planets) {
-        this.coordinates = coordinates;
+    public SolarSystem(String name, TechLevel techLevel, Resources resources, ArrayList<Planet> planets) {
         this.name = name;
         this.techLevel = techLevel;
         this.resources = resources;
@@ -163,14 +165,6 @@ public class SolarSystem {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public Coord getCoordinates() {
-        return coordinates;
-    }
-
-    public void setCoordinates(Coord coordinates) {
-        this.coordinates = coordinates;
     }
 
     public TechLevel getTechLevel() {
