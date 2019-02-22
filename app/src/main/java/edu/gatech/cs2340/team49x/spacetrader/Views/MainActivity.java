@@ -7,6 +7,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Toast;
 
 import edu.gatech.cs2340.team49x.spacetrader.R;
 
@@ -41,5 +42,6 @@ public class MainActivity extends AppCompatActivity {
 
     public void startGame(View view) {
         // Starts game activity
+        Toast.makeText(this, "Play Button Pressed", Toast.LENGTH_LONG).show();
     }
 }
