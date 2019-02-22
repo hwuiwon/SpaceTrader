@@ -3,4 +3,5 @@
 
     <dimen name="margin2">8dp</dimen>
     <dimen name="margin3">20dp</dimen>
+    <dimen name="mainTopMargin">60dp</dimen>
 </resources>

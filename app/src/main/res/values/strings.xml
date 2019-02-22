@@ -3,8 +3,10 @@
     <string name="action_settings">Settings</string>
     <string name="picDescription">Temporary Picture</string>
 
+    <string name="name_main">S P A C E\nT R A D E R S</string>
+
     <string name="pName">Player Name: </string>
-    <string name="oNameHint">Type your player name</string>
+    <string name="oNameHint">Type player name</string>
 
     <string name="sPoints">Skill Points: </string>
     <string name="defaultTtlSP">16</string>
