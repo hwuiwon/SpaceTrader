@@ -8,6 +8,7 @@ import java.util.Set;
 public class SolarSystem {
 
     private String name;
+    private Coordinate coordinate;
     private TechLevel techLevel;
     private ArrayList<Planet> planets;
     private Resources resources;
@@ -152,8 +153,10 @@ public class SolarSystem {
             "Zuul"
     ));
 
-    public SolarSystem(String name, TechLevel techLevel, Resources resources, ArrayList<Planet> planets) {
+    public SolarSystem(String name, Coordinate coordinate,
+                       TechLevel techLevel, Resources resources, ArrayList<Planet> planets) {
         this.name = name;
+        this.coordinate = coordinate;
         this.techLevel = techLevel;
         this.resources = resources;
         this.planets = planets;
@@ -165,6 +168,14 @@ public class SolarSystem {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public Coordinate getCoordinate() {
+        return coordinate;
+    }
+
+    public void setCoordinate(Coordinate coordinate) {
+        this.coordinate = coordinate;
     }
 
     public TechLevel getTechLevel() {
