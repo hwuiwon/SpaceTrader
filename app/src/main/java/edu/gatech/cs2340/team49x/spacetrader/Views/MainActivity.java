@@ -24,6 +24,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void startGame(View view) {
         // Starts game activity
-        Toast.makeText(this, "Play Button Pressed", Toast.LENGTH_LONG).show();
+        Intent intent = new Intent(MainActivity.this, GameActivity.class);
+        startActivity(intent);
     }
 }
