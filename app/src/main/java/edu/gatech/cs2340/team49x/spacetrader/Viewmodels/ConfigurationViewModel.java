@@ -10,6 +10,7 @@ import edu.gatech.cs2340.team49x.spacetrader.Objects.Difficulty;
 import edu.gatech.cs2340.team49x.spacetrader.Objects.Player;
 
 public class ConfigurationViewModel extends AndroidViewModel {
+
     public ConfigurationViewModel(@NonNull Application application) {
         super(application);
     }

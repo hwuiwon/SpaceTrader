@@ -1,10 +1,7 @@
 package edu.gatech.cs2340.team49x.spacetrader.Objects;
 
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 public class SolarSystem {
 
@@ -23,6 +20,7 @@ public class SolarSystem {
         this.resources = resources;
         this.planets = planets;
     }
+
     public SolarSystem(String name, Coordinate coordinate,
                        TechLevel techLevel, Resources resources) {
         this(name, coordinate, techLevel, resources, new ArrayList<Planet>());
@@ -70,11 +68,11 @@ public class SolarSystem {
 
     @Override
     public String toString() {
-        return "SolarSystem{" +
-                "name='" + name + '\'' +
-                ", coordinate=" + coordinate +
-                ", techLevel=" + techLevel +
-                ", resources=" + resources +
-                '}';
+        return "\nSolarSystem {" +
+                "name = '" + name + '\'' +
+                ", coordinate = " + coordinate +
+                ", techLevel = " + techLevel +
+                ", resources = " + resources +
+                "}";
     }
 }

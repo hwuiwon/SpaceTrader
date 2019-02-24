@@ -3,6 +3,7 @@ package edu.gatech.cs2340.team49x.spacetrader.Objects;
 import java.util.Random;
 
 public class Game {
+
     private Player player;
     private Difficulty difficulty;
     private Universe universe;

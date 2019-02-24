@@ -20,6 +20,7 @@ public enum Resources {
 
     private double chance;
     private static double totalChance;
+
     static {
         for (Resources value : values()) {
             totalChance += value.chance;

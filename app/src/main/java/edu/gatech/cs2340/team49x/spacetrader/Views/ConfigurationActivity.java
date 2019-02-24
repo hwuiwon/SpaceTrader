@@ -2,15 +2,14 @@ package edu.gatech.cs2340.team49x.spacetrader.Views;
 
 import android.arch.lifecycle.ViewModelProviders;
 import android.databinding.DataBindingUtil;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import edu.gatech.cs2340.team49x.spacetrader.Objects.Difficulty;
 import edu.gatech.cs2340.team49x.spacetrader.Objects.Player;
-import edu.gatech.cs2340.team49x.spacetrader.Objects.Ship;
 import edu.gatech.cs2340.team49x.spacetrader.R;
 import edu.gatech.cs2340.team49x.spacetrader.Viewmodels.ConfigurationViewModel;
 import edu.gatech.cs2340.team49x.spacetrader.databinding.ActivityConfigBinding;
@@ -31,7 +30,7 @@ public class ConfigurationActivity extends AppCompatActivity {
         player = viewModel.getPlayer();
         Difficulty difficulty = viewModel.getDifficulty();
         if (player == null) {
-            player = new Player("", 16, 0, 0, 0, 0, new Ship(Ship.ShipType.GNAT));
+            player = new Player("");
         }
         if (difficulty == null) {
             difficulty = Difficulty.EASY;

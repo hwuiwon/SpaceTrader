@@ -5,7 +5,7 @@ import edu.gatech.cs2340.team49x.spacetrader.Objects.Game;
 import edu.gatech.cs2340.team49x.spacetrader.Objects.Player;
 
 public class ModelFacade {
-    private static int NUM_SYSTEMS = 10;
+    private final static int NUM_SYSTEMS = 10;
     private static ModelFacade instance = new ModelFacade();
 
     public static ModelFacade getInstance() { return instance; }

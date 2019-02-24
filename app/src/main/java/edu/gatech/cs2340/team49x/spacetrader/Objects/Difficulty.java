@@ -1,7 +1,12 @@
 package edu.gatech.cs2340.team49x.spacetrader.Objects;
 
 public enum Difficulty {
-    EASY, NORMAL, HARD, IMPOSSIBLE;
+
+    EASY,
+    NORMAL,
+    HARD,
+    IMPOSSIBLE;
+
     private static Difficulty[] values = values();
 
     public String next() {

@@ -2,13 +2,12 @@ package edu.gatech.cs2340.team49x.spacetrader.Objects;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
-import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Random;
-import java.util.Set;
 
 public class Universe {
+
     private static final List<String> systemNames = Arrays.asList(
             "Acamar",
             "Adahn",
@@ -149,26 +148,26 @@ public class Universe {
 
     public Universe(Random random, int numSystems) {
         this(random);
-        while(solarSystems.size() < numSystems
+        while (solarSystems.size() < numSystems
                 && solarSystems.size() < WIDTH * HEIGHT
                 && solarSystems.size() < NUM_NAMES) {
             String name = systemNames.get(random.nextInt(systemNames.size()));
-            Coordinate coord = new Coordinate(random.nextInt(WIDTH), random.nextInt(HEIGHT));
-            while(nameMap.containsKey(name)) {
+            Coordinate coordinate = new Coordinate(random.nextInt(WIDTH), random.nextInt(HEIGHT));
+            while (nameMap.containsKey(name)) {
                 name = systemNames.get(random.nextInt(systemNames.size()));
             }
-            while(coordMap.containsKey(coord)) {
-                coord = new Coordinate(random.nextInt(WIDTH), random.nextInt(HEIGHT));
+            while (coordMap.containsKey(coordinate)) {
+                coordinate = new Coordinate(random.nextInt(WIDTH), random.nextInt(HEIGHT));
             }
             SolarSystem newSystem = new SolarSystem(
                     name,
-                    coord,
+                    coordinate,
                     TechLevel.getRandom(random),
                     Resources.getRandom(random)
             );
             this.solarSystems.add(newSystem);
             this.nameMap.put(name, newSystem);
-            this.coordMap.put(coord, newSystem);
+            this.coordMap.put(coordinate, newSystem);
         }
     }
 

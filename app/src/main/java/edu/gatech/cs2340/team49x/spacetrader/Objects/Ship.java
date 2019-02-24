@@ -3,9 +3,17 @@ package edu.gatech.cs2340.team49x.spacetrader.Objects;
 public class Ship {
 
     public enum ShipType {
-        GNAT(5), FLEA(10), FIREFLY(15),
-        MOSQUITO(20), BUMBLEBEE(25), BEETLE(30),
-        HORNET(35), GRASSHOPPER(40), TERMITE(45), WASP(50);
+
+        GNAT(5),
+        FLEA(10),
+        FIREFLY(15),
+        MOSQUITO(20),
+        BUMBLEBEE(25),
+        BEETLE(30),
+        HORNET(35),
+        GRASSHOPPER(40),
+        TERMITE(45),
+        WASP(50);
 
         private int storage;
 

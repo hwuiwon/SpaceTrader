@@ -3,6 +3,7 @@ package edu.gatech.cs2340.team49x.spacetrader.Objects;
 import java.util.Random;
 
 public enum TechLevel {
+
     PREAGRICULTURE(1),
     AGRICULTURE(1),
     MEDIEVAL(1),
@@ -14,6 +15,7 @@ public enum TechLevel {
 
     private double chance;
     private static double totalChance;
+
     static {
         for (TechLevel value : values()) {
             totalChance += value.chance;
