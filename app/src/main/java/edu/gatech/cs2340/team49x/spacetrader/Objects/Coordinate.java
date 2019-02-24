@@ -26,8 +26,17 @@ public class Coordinate {
         this.y = y;
     }
 
-    public boolean equals(Coordinate o) {
-        Coordinate tmp = o;
-        return x == tmp.x && y == tmp.y;
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Coordinate that = (Coordinate) o;
+        return x == that.x &&
+                y == that.y;
+    }
+
+    @Override
+    public int hashCode() {
+        return (x << 15) | y;
     }
 }

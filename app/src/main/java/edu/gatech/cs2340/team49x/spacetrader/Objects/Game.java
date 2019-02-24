@@ -1,8 +1,16 @@
 package edu.gatech.cs2340.team49x.spacetrader.Objects;
 
+import java.util.Random;
+
 public class Game {
     private Player player;
     private Difficulty difficulty;
+    private Universe universe;
+    private Random random;
+
+    public Game() {
+        random = new Random();
+    }
 
     public Player getPlayerInfo() {
         return player;
@@ -20,11 +28,15 @@ public class Game {
         this.difficulty = difficulty;
     }
 
-    @Override
-    public String toString() {
-        return "Game{" +
-                "player=" + player +
-                ", difficulty=" + difficulty +
-                '}';
+    public void createUniverse(int numSystems) {
+        universe = new Universe(random, numSystems);
+    }
+
+    public String printPlayer() {
+        return player.toString();
+    }
+
+    public String printUniverse() {
+        return universe.toString();
     }
 }

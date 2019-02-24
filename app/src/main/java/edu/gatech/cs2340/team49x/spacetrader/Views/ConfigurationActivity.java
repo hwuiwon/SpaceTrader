@@ -4,7 +4,6 @@ import android.arch.lifecycle.ViewModelProviders;
 import android.databinding.DataBindingUtil;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -64,7 +63,7 @@ public class ConfigurationActivity extends AppCompatActivity {
             player.setEngineerPt(getVal(binding.engineerSkillTV));
 
             viewModel.configure(player, Difficulty.valueOf(binding.difTV.getText().toString()));
-            Log.d("STATE", viewModel.printGameState());
+            viewModel.printGameState();
             finish();
         }
     }

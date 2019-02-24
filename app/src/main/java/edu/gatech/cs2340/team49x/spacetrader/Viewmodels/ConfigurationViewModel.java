@@ -3,6 +3,7 @@ package edu.gatech.cs2340.team49x.spacetrader.Viewmodels;
 import android.app.Application;
 import android.arch.lifecycle.AndroidViewModel;
 import android.support.annotation.NonNull;
+import android.util.Log;
 
 import edu.gatech.cs2340.team49x.spacetrader.Model.ModelFacade;
 import edu.gatech.cs2340.team49x.spacetrader.Objects.Difficulty;
@@ -25,7 +26,8 @@ public class ConfigurationViewModel extends AndroidViewModel {
         return ModelFacade.getInstance().getDifficulty();
     }
 
-    public String printGameState() {
-        return ModelFacade.getInstance().printGameState();
+    public void printGameState() {
+        Log.d("STATE", ModelFacade.getInstance().printPlayer());
+        Log.d("STATE", ModelFacade.getInstance().printUniverse());
     }
 }

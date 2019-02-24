@@ -3,6 +3,7 @@ package edu.gatech.cs2340.team49x.spacetrader.Objects;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 public class SolarSystem {
@@ -10,156 +11,21 @@ public class SolarSystem {
     private String name;
     private Coordinate coordinate;
     private TechLevel techLevel;
-    private ArrayList<Planet> planets;
+    private List<Planet> planets;
     private Resources resources;
 
-    public enum TechLevel {
-        PREAGRICULTURE(0), AGRICULTURE(1),
-        MEDIEVAL(2), RENAISSANCE(3),
-        EARLYINDUSTRIAL(4), INDUSTRIAL(5),
-        POSTINDUSTRIAL(6), HITECH(7);
-
-        private int i;
-
-        TechLevel(int i) {
-            this.i = i;
-        }
-
-        public int getLevel() {
-            return i;
-        }
-    }
-
-    private static final Set<String> systemNames = new HashSet<>(Arrays.asList(
-            "Acamar",
-            "Adahn",
-            "Aldea",
-            "Andevian",
-            "Antedi",
-            "Balosnee",
-            "Baratas",
-            "Brax",
-            "Bretel",
-            "Calondia",
-            "Campor",
-            "Capelle",
-            "Carzon",
-            "Castor",
-            "Cestus",
-            "Cheron",
-            "Courteney",
-            "Daled",
-            "Damast",
-            "Davlos",
-            "Deneb",
-            "Deneva",
-            "Devidia",
-            "Draylon",
-            "Drema",
-            "Endor",
-            "Esmee",
-            "Exo",
-            "Ferris",
-            "Festen",
-            "Fourmi",
-            "Frolix",
-            "Gemulon",
-            "Guinifer",
-            "Hades",
-            "Hamlet",
-            "Helena",
-            "Hulst",
-            "Iodine",
-            "Iralius",
-            "Janus",
-            "Japori",
-            "Jarada",
-            "Jason",
-            "Kaylon",
-            "Khefka",
-            "Kira",
-            "Klaatu",
-            "Klaestron",
-            "Korma",
-            "Kravat",
-            "Krios",
-            "Laertes",
-            "Largo",
-            "Lave",
-            "Ligon",
-            "Lowry",
-            "Magrat",
-            "Malcoria",
-            "Melina",
-            "Mentar",
-            "Merik",
-            "Mintaka",
-            "Montor",
-            "Mordan",
-            "Myrthe",
-            "Nelvana",
-            "Nix",
-            "Nyle",
-            "Odet",
-            "Og",
-            "Omega",
-            "Omphalos",
-            "Orias",
-            "Othello",
-            "Parade",
-            "Penthara",
-            "Picard",
-            "Pollux",
-            "Quator",
-            "Rakhar",
-            "Ran",
-            "Regulas",
-            "Relva",
-            "Rhymus",
-            "Rochani",
-            "Rubicum",
-            "Rutia",
-            "Sarpeidon",
-            "Sefalla",
-            "Seltrice",
-            "Sigma",
-            "Sol",
-            "Somari",
-            "Stakoron",
-            "Styris",
-            "Talani",
-            "Tamus",
-            "Tantalos",
-            "Tanuga",
-            "Tarchannen",
-            "Terosa",
-            "Thera",
-            "Titan",
-            "Torin",
-            "Triacus",
-            "Turkana",
-            "Tyrus",
-            "Umberlee",
-            "Utopia",
-            "Vadera",
-            "Vagra",
-            "Vandor",
-            "Ventax",
-            "Xenon",
-            "Xerxes",
-            "Yew",
-            "Yojimbo",
-            "Zalkon",
-            "Zuul"
-    ));
 
     public SolarSystem(String name, Coordinate coordinate,
-                       TechLevel techLevel, Resources resources, ArrayList<Planet> planets) {
+                       TechLevel techLevel, Resources resources, List<Planet> planets) {
         this.name = name;
         this.coordinate = coordinate;
         this.techLevel = techLevel;
         this.resources = resources;
         this.planets = planets;
+    }
+    public SolarSystem(String name, Coordinate coordinate,
+                       TechLevel techLevel, Resources resources) {
+        this(name, coordinate, techLevel, resources, new ArrayList<Planet>());
     }
 
     public String getName() {
@@ -194,11 +60,21 @@ public class SolarSystem {
         this.resources = resources;
     }
 
-    public ArrayList<Planet> getPlanets() {
+    public List<Planet> getPlanets() {
         return planets;
     }
 
     public void setPlanets(ArrayList<Planet> planets) {
         this.planets = planets;
+    }
+
+    @Override
+    public String toString() {
+        return "SolarSystem{" +
+                "name='" + name + '\'' +
+                ", coordinate=" + coordinate +
+                ", techLevel=" + techLevel +
+                ", resources=" + resources +
+                '}';
     }
 }
