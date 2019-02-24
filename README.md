@@ -12,8 +12,9 @@ Team 49x
 ## Features
 
 - [x] Game Configuration
+- [x] Universe Creation
 - [ ] Trade Transaction
-- [ ] Travel function
+- [ ] Travel Function
 
 
 ## Team members
