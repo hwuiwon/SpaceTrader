@@ -53,6 +53,8 @@ public class ConfigurationActivity extends AppCompatActivity {
         String name = binding.pnameET.getText().toString().trim();
         if (name.length() == 0)
             Toast.makeText(this, "Please enter a valid name.", Toast.LENGTH_LONG).show();
+        else if (getVal(binding.sPointsTV) > 0)
+            Toast.makeText(this, "You have unused skill points.", Toast.LENGTH_LONG).show();
         else {
             player.setName(binding.pnameET.getText().toString());
             player.setSkillPt(getVal(binding.sPointsTV));
