@@ -9,13 +9,14 @@
         android:roundIcon="@mipmap/spacetrader_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Views.GameActivity"></activity>
+        <activity android:name=".Activities.MarketActivity"/>
+        <activity android:name=".Activities.GameActivity" />
         <activity
-            android:name=".Views.ConfigurationActivity"
+            android:name=".Activities.ConfigurationActivity"
             android:label="@string/action_settings"
-            android:theme="@style/AppTheme"></activity>
+            android:theme="@style/AppTheme" />
         <activity
-            android:name=".Views.MainActivity"
+            android:name=".Activities.MainActivity"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar.FullScreen">
             <intent-filter>

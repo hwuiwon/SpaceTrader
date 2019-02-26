@@ -3,6 +3,7 @@
     <string name="action_settings">Player Settings</string>
 
     <string name="name_main">S P A C E\nT R A D E R S</string>
+    <string name="play">PLAY</string>
 
     <string name="pName">Player Name: </string>
     <string name="oNameHint">Type player name</string>

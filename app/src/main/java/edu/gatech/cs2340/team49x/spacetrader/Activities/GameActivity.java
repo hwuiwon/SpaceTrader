@@ -1,7 +1,7 @@
-package edu.gatech.cs2340.team49x.spacetrader.Views;
+package edu.gatech.cs2340.team49x.spacetrader.Activities;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 
 import edu.gatech.cs2340.team49x.spacetrader.R;
 

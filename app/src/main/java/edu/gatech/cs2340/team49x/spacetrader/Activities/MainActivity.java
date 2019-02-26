@@ -1,4 +1,4 @@
-package edu.gatech.cs2340.team49x.spacetrader.Views;
+package edu.gatech.cs2340.team49x.spacetrader.Activities;
 
 import android.content.Intent;
 import android.os.Bundle;

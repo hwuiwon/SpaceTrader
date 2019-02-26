@@ -1,4 +1,4 @@
-package edu.gatech.cs2340.team49x.spacetrader.Views;
+package edu.gatech.cs2340.team49x.spacetrader.Activities;
 
 import android.arch.lifecycle.ViewModelProviders;
 import android.databinding.DataBindingUtil;
