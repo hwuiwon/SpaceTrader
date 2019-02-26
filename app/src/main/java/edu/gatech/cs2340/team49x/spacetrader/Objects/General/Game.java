@@ -1,6 +1,9 @@
-package edu.gatech.cs2340.team49x.spacetrader.Objects;
+package edu.gatech.cs2340.team49x.spacetrader.Objects.General;
 
 import java.util.Random;
+
+import edu.gatech.cs2340.team49x.spacetrader.Objects.Difficulty;
+import edu.gatech.cs2340.team49x.spacetrader.Objects.Universe.Universe;
 
 public class Game {
 

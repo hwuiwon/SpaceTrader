@@ -9,7 +9,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import edu.gatech.cs2340.team49x.spacetrader.Objects.Difficulty;
-import edu.gatech.cs2340.team49x.spacetrader.Objects.Player;
+import edu.gatech.cs2340.team49x.spacetrader.Objects.General.Player;
 import edu.gatech.cs2340.team49x.spacetrader.R;
 import edu.gatech.cs2340.team49x.spacetrader.Viewmodels.ConfigurationViewModel;
 import edu.gatech.cs2340.team49x.spacetrader.databinding.ActivityConfigBinding;

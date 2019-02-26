@@ -7,7 +7,7 @@ import android.util.Log;
 
 import edu.gatech.cs2340.team49x.spacetrader.Model.ModelFacade;
 import edu.gatech.cs2340.team49x.spacetrader.Objects.Difficulty;
-import edu.gatech.cs2340.team49x.spacetrader.Objects.Player;
+import edu.gatech.cs2340.team49x.spacetrader.Objects.General.Player;
 
 public class ConfigurationViewModel extends AndroidViewModel {
 

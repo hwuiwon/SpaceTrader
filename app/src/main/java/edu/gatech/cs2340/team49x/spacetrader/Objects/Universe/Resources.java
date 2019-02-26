@@ -1,4 +1,4 @@
-package edu.gatech.cs2340.team49x.spacetrader.Objects;
+package edu.gatech.cs2340.team49x.spacetrader.Objects.Universe;
 
 import java.util.Random;
 
@@ -12,9 +12,10 @@ public enum Resources {
     RICHSOIL(1),
     POORSOIL(1),
     RICHFAUNA(1),
-    LIFELES(1),
+    LIFELESS(1),
     WEIRDMUSHROOMS(1),
     LOTSOFHERBS(1),
+    LOTSOFWATER(1),
     ARTISTIC(1),
     WARLIKE(1);
 
