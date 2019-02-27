@@ -5,6 +5,7 @@ import edu.gatech.cs2340.team49x.spacetrader.Objects.Universe.SolarSystem;
 import edu.gatech.cs2340.team49x.spacetrader.Objects.Universe.TechLevel;
 
 public enum TradeGood {
+
     WATER("Water", 0, 0, 2, 30, 3, 4, RandomEvent.DROUGHT, Resources.LOTSOFWATER, Resources.DESERT, 30, 50),
     FURS("Furs", 0, 0, 0, 250, 10, 10, RandomEvent.COLD, Resources.RICHFAUNA, Resources.LIFELESS, 230, 280),
     FOOD("Food", 1, 0, 1, 100, 5, 5, RandomEvent.CROPFAIL, Resources.RICHSOIL, Resources.POORSOIL, 90, 160),
@@ -17,32 +18,33 @@ public enum TradeGood {
     ROBOTS("Robots", 6, 4, 7, 5000, -150, 100, RandomEvent.LACKOFWORKERS, null, null, 3500, 5000);
 
     private String name;
-    private int mtlp;
-    private int mtlu;
-    private int ttp;
+    private int minTechProduce;
+    private int minTechUse;
+    private int mostProduced;
     private int basePrice;
-    private int ipl;
-    private int var;
-    private RandomEvent ie;
-    private Resources cr;
-    private Resources er;
-    private int mtl;
-    private int mth;
+    private int priceIcrTech;
+    private int variance;
+    private RandomEvent priceUP;
+    private Resources lowWhenPresent;
+    private Resources highWhenPresent;
+    private int minPrice;
+    private int maxPrice;
 
-    TradeGood(String name, int mtlp, int mtlu, int ttp, int basePrice, int ipl, int var,
-              RandomEvent ie, Resources cr, Resources er, int mtl, int mth) {
+    TradeGood(String name, int minTechProduce, int minTechUse, int mostProduced,
+              int basePrice, int priceIcrTech, int variance, RandomEvent priceUP,
+              Resources lowWhenPresent, Resources highWhenPresent, int minPrice, int maxPrice) {
         this.name = name;
-        this.mtlp = mtlp;
-        this.mtlu = mtlu;
-        this.ttp = ttp;
+        this.minTechProduce = minTechProduce;
+        this.minTechUse = minTechUse;
+        this.mostProduced = mostProduced;
         this.basePrice = basePrice;
-        this.ipl = ipl;
-        this.var = var;
-        this.ie = ie;
-        this.cr = cr;
-        this.er = er;
-        this.mtl = mtl;
-        this.mth = mth;
+        this.priceIcrTech = priceIcrTech;
+        this.variance = variance;
+        this.priceUP = priceUP;
+        this.lowWhenPresent = lowWhenPresent;
+        this.highWhenPresent = highWhenPresent;
+        this.minPrice = minPrice;
+        this.maxPrice = maxPrice;
     }
 
     public boolean canBeProducedBy(TechLevel tl) {
