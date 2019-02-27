@@ -20,13 +20,13 @@ public class Inventory {
 
     /**
      * Returns the price of this inventory given a PriceList.
-     * @param pl the PriceList to use for computing prices
+     * @param pl the price list to use for computing prices
      * @return the price of this inventory
      */
-    public int getPrice(PriceList pl) {
+    public int getPrice(Map<TradeGood, Integer> pl) {
         int total = 0;
         for (Map.Entry<TradeGood, Integer> item : quantities.entrySet()) {
-            total += pl.priceOf(item.getKey()) * item.getValue();
+            total += pl.get(item.getKey()) * item.getValue();
         }
         return total;
     }

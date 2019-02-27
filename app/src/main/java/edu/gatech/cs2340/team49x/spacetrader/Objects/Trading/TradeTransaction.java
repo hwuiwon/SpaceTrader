@@ -1,20 +1,22 @@
 package edu.gatech.cs2340.team49x.spacetrader.Objects.Trading;
 
+import java.util.Map;
+
 import edu.gatech.cs2340.team49x.spacetrader.Objects.General.Player;
 import edu.gatech.cs2340.team49x.spacetrader.Objects.Universe.SolarSystem;
 
 public class TradeTransaction {
     private Player customer;
-    private PriceList prices;
+    private Map<TradeGood, Integer> prices;
     private Inventory itemsToSell;
     private Inventory itemsToBuy;
 
     /**
      * Creates a transaction
      * @param customer the customer of the transaction
-     * @param prices the PriceList of items for this transaction
+     * @param prices the price list of items for this transaction
      */
-    public TradeTransaction(Player customer, PriceList prices) {
+    public TradeTransaction(Player customer, Map<TradeGood, Integer> prices) {
         this.customer = customer;
         this.prices = prices;
         this.itemsToSell = new Inventory();
