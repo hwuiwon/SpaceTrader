@@ -8,14 +8,13 @@ public enum Resources {
     MINERALRICH(1),
     MINERALPOOR(1),
     DESERT(1),
-    TSOFWATER(1),
+    LOTSOFWATER(1),
     RICHSOIL(1),
     POORSOIL(1),
     RICHFAUNA(1),
     LIFELESS(1),
     WEIRDMUSHROOMS(1),
     LOTSOFHERBS(1),
-    LOTSOFWATER(1),
     ARTISTIC(1),
     WARLIKE(1);
 

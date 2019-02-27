@@ -59,6 +59,18 @@ public enum TradeGood {
         return tl.ordinal() == this.mostProduced;
     }
 
+    public int getMinTechProduce() {
+        return minTechProduce;
+    }
+
+    public int getMinTechUse() {
+        return minTechUse;
+    }
+
+    public int getMostProduced() {
+        return mostProduced;
+    }
+
     public String getName() {
         return name;
     }

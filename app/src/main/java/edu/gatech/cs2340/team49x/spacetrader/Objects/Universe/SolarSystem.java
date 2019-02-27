@@ -87,9 +87,20 @@ public class SolarSystem {
     private void initializePrices() {
         prices = new HashMap<>();
         for (TradeGood good : TradeGood.values()) {
-            if (good.canBeProducedBy(techLevel) || good.canBeUsedBy(techLevel)) {
+            if (good.canBeUsedBy(techLevel)) {
                 int price = good.getBasePrice();
                 //Do price initialization stuff
+                price += good.getPriceIcrTech() * (techLevel.ordinal() - good.getMinTechProduce());
+                if (random.nextBoolean()){
+                    price += random.nextInt(good.getVariance() + 1);
+                } else {
+                    price -= random.nextInt(good.getVariance() + 1);
+                }
+                if (resources == good.getLowWhenPresent()) {
+                    price /= 2;
+                } else if (resources == good.getHighWhenPresent()) {
+                    price *= 2 + random.nextInt(2);
+                }
                 prices.put(good, price);
             }
         }
