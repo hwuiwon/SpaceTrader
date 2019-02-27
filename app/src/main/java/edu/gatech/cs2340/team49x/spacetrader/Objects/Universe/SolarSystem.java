@@ -27,6 +27,7 @@ public class SolarSystem {
         this.resources = resources;
         this.random = random;
         this.planets = planets;
+        initializePrices();
     }
 
     public SolarSystem(String name, Coordinate coordinate,
