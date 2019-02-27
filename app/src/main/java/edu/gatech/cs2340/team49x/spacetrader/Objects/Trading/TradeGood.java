@@ -48,86 +48,50 @@ public enum TradeGood {
     }
 
     public boolean canBeProducedBy(TechLevel tl) {
-        return tl.ordinal() >= this.mtlp;
+        return tl.ordinal() >= this.minTechProduce;
     }
 
     public boolean canBeUsedBy(TechLevel tl) {
-        return tl.ordinal() >= this.mtlu;
+        return tl.ordinal() >= this.minTechUse;
     }
 
     public boolean isTopTechLevel(TechLevel tl) {
-        return tl.ordinal() == this.ttp;
+        return tl.ordinal() == this.mostProduced;
     }
 
     public String getName() {
         return name;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
     public int getBasePrice() {
         return basePrice;
     }
 
-    public void setBasePrice(int basePrice) {
-        this.basePrice = basePrice;
+    public int getPriceIcrTech() {
+        return priceIcrTech;
     }
 
-    public int getIpl() {
-        return ipl;
+    public int getVariance() {
+        return variance;
     }
 
-    public void setIpl(int ipl) {
-        this.ipl = ipl;
+    public RandomEvent getPriceUP() {
+        return priceUP;
     }
 
-    public int getVar() {
-        return var;
+    public Resources getLowWhenPresent() {
+        return lowWhenPresent;
     }
 
-    public void setVar(int var) {
-        this.var = var;
+    public Resources getHighWhenPresent() {
+        return highWhenPresent;
     }
 
-    public RandomEvent getIe() {
-        return ie;
+    public int getMinPrice() {
+        return minPrice;
     }
 
-    public void setIe(RandomEvent ie) {
-        this.ie = ie;
-    }
-
-    public Resources getCr() {
-        return cr;
-    }
-
-    public void setCr(Resources cr) {
-        this.cr = cr;
-    }
-
-    public Resources getEr() {
-        return er;
-    }
-
-    public void setEr(Resources er) {
-        this.er = er;
-    }
-
-    public int getMtl() {
-        return mtl;
-    }
-
-    public void setMtl(int mtl) {
-        this.mtl = mtl;
-    }
-
-    public int getMth() {
-        return mth;
-    }
-
-    public void setMth(int mth) {
-        this.mth = mth;
+    public int getMaxPrice() {
+        return maxPrice;
     }
 }
