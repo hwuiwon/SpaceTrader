@@ -1,6 +1,8 @@
 package edu.gatech.cs2340.team49x.spacetrader.Objects.Trading;
 
 import edu.gatech.cs2340.team49x.spacetrader.Objects.Universe.Resources;
+import edu.gatech.cs2340.team49x.spacetrader.Objects.Universe.SolarSystem;
+import edu.gatech.cs2340.team49x.spacetrader.Objects.Universe.TechLevel;
 
 public enum TradeGood {
     WATER("Water", 0, 0, 2, 30, 3, 4, RandomEvent.DROUGHT, Resources.LOTSOFWATER, Resources.DESERT, 30, 50),
@@ -40,6 +42,90 @@ public enum TradeGood {
         this.cr = cr;
         this.er = er;
         this.mtl = mtl;
+        this.mth = mth;
+    }
+
+    public boolean canBeProducedBy(TechLevel tl) {
+        return tl.ordinal() >= this.mtlp;
+    }
+
+    public boolean canBeUsedBy(TechLevel tl) {
+        return tl.ordinal() >= this.mtlu;
+    }
+
+    public boolean isTopTechLevel(TechLevel tl) {
+        return tl.ordinal() == this.ttp;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public int getBasePrice() {
+        return basePrice;
+    }
+
+    public void setBasePrice(int basePrice) {
+        this.basePrice = basePrice;
+    }
+
+    public int getIpl() {
+        return ipl;
+    }
+
+    public void setIpl(int ipl) {
+        this.ipl = ipl;
+    }
+
+    public int getVar() {
+        return var;
+    }
+
+    public void setVar(int var) {
+        this.var = var;
+    }
+
+    public RandomEvent getIe() {
+        return ie;
+    }
+
+    public void setIe(RandomEvent ie) {
+        this.ie = ie;
+    }
+
+    public Resources getCr() {
+        return cr;
+    }
+
+    public void setCr(Resources cr) {
+        this.cr = cr;
+    }
+
+    public Resources getEr() {
+        return er;
+    }
+
+    public void setEr(Resources er) {
+        this.er = er;
+    }
+
+    public int getMtl() {
+        return mtl;
+    }
+
+    public void setMtl(int mtl) {
+        this.mtl = mtl;
+    }
+
+    public int getMth() {
+        return mth;
+    }
+
+    public void setMth(int mth) {
         this.mth = mth;
     }
 }
