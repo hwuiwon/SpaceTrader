@@ -18,7 +18,6 @@ public class SolarSystem {
     private Random random;
     private Map<TradeGood, Integer> prices;
 
-
     public SolarSystem(String name, Coordinate coordinate,
                        TechLevel techLevel, Resources resources, Random random, List<Planet> planets) {
         this.name = name;
@@ -73,6 +72,10 @@ public class SolarSystem {
 
     public void setPlanets(ArrayList<Planet> planets) {
         this.planets = planets;
+    }
+
+    public Map<TradeGood, Integer> getPrices() {
+        return prices;
     }
 
     @Override

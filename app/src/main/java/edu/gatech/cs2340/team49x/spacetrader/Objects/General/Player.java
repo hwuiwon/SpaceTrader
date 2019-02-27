@@ -1,6 +1,8 @@
 package edu.gatech.cs2340.team49x.spacetrader.Objects.General;
 
 import edu.gatech.cs2340.team49x.spacetrader.Objects.Trading.Inventory;
+import edu.gatech.cs2340.team49x.spacetrader.Objects.Trading.TradeTransaction;
+import edu.gatech.cs2340.team49x.spacetrader.Objects.Universe.SolarSystem;
 
 public class Player {
 
@@ -11,7 +13,7 @@ public class Player {
     private int tradePt;
     private int engineerPt;
     private Ship ship;
-
+    private SolarSystem currentSystem;
     private int credits;
 
     public Player(String name, int skillPt, int pilotPt, int fighterPt, int tradePt, int engineerPt, Ship ship) {
@@ -93,12 +95,32 @@ public class Player {
         this.credits = credits;
     }
 
-    public boolean addToCargo(Inventory loot) {
-        return this.ship.addToCargo(loot);
+
+    public SolarSystem getCurrentSystem() {
+        return currentSystem;
     }
 
-    public boolean removeFromCargo(Inventory loot) {
-        return this.ship.removeFromCargo(loot);
+    public void setCurrentSystem(SolarSystem currentSystem) {
+        this.currentSystem = currentSystem;
+    }
+
+    /**
+     * Starts a TradeTransaction on the current planet.
+     * @return a new TradeTransaction, or null if the currentSystem is null
+     */
+    public TradeTransaction startTrade() {
+        if (currentSystem == null) {
+            return null;
+        }
+        return new TradeTransaction(this, currentSystem.getPrices());
+    }
+
+    public boolean addToCargo(Inventory items) {
+        return this.ship.addToCargo(items);
+    }
+
+    public boolean removeFromCargo(Inventory items) {
+        return this.ship.removeFromCargo(items);
     }
 
     public boolean has(Inventory items) {
