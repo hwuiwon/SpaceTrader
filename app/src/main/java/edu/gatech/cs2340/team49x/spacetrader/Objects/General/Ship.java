@@ -1,5 +1,7 @@
 package edu.gatech.cs2340.team49x.spacetrader.Objects.General;
 
+import edu.gatech.cs2340.team49x.spacetrader.Objects.Trading.Inventory;
+
 public class Ship {
 
     public enum ShipType {
@@ -27,27 +29,29 @@ public class Ship {
     }
 
     private ShipType type;
-    private String[] storage;
+    private int storage;
+    private Inventory cargo;
 
     public Ship(ShipType type) {
         this.type = type;
-        storage = new String[type.getStorage()];
+        cargo = new Inventory();
+        storage = type.getStorage();
     }
 
     public ShipType getType() {
         return type;
     }
 
-    public void setType(ShipType type) {
-        this.type = type;
+    public Inventory getCargo() {
+        return cargo;
     }
 
-    public String[] getStorage() {
-        return storage;
-    }
-
-    public void setStorage(String[] storage) {
-        this.storage = storage;
+    public boolean addToCargo(Inventory items) {
+        if (cargo.getCount() + items.getCount() <= storage) {
+            cargo.add(items);
+            return true;
+        }
+        return false;
     }
 
     @Override

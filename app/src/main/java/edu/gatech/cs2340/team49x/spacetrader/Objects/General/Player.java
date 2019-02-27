@@ -1,5 +1,7 @@
 package edu.gatech.cs2340.team49x.spacetrader.Objects.General;
 
+import edu.gatech.cs2340.team49x.spacetrader.Objects.Trading.Inventory;
+
 public class Player {
 
     private String name;
@@ -89,6 +91,10 @@ public class Player {
 
     public void setCredits(int credits) {
         this.credits = credits;
+    }
+
+    public boolean addToCargo(Inventory loot) {
+        return this.ship.addToCargo(loot);
     }
 
     @Override
