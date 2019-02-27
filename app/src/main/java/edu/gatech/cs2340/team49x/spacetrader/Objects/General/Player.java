@@ -97,6 +97,22 @@ public class Player {
         return this.ship.addToCargo(loot);
     }
 
+    public boolean removeFromCargo(Inventory loot) {
+        return this.ship.removeFromCargo(loot);
+    }
+
+    public boolean has(Inventory items) {
+        return ship.has(items);
+    }
+
+    public int cargoSpaceRemaining() {
+        return ship.cargoSpaceRemaining();
+    }
+
+    public void changeCredits(int amount) {
+        credits += amount;
+    }
+
     @Override
     public String toString() {
         return "Player{" +

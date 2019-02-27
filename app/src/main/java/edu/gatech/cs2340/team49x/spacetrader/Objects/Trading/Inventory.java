@@ -49,6 +49,15 @@ public class Inventory {
         return quantity <= 0;
     }
 
+    public boolean has(Inventory inventory) {
+        for (TradeGood good : inventory.quantities.keySet()) {
+            if (!has(good, inventory.quantities.get(good))) {
+                return false;
+            }
+        }
+        return true;
+    }
+
     public void add(TradeGood good, int quantity) {
         if (quantities.containsKey(good)) {
             quantities.put(good, quantities.get(good) + quantity);
@@ -60,6 +69,14 @@ public class Inventory {
 
     public int getQuantity(TradeGood good) {
         return quantities.get(good);
+    }
+
+    /**
+     * Empties the inventory.
+     */
+    public void empty() {
+        quantities = new HashMap<>();
+        count = 0;
     }
 
     public int getCount() {

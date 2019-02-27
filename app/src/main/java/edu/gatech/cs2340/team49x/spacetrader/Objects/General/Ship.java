@@ -54,6 +54,22 @@ public class Ship {
         return false;
     }
 
+    public boolean removeFromCargo(Inventory items) {
+        if (cargo.has(items)) {
+            cargo.remove(items);
+            return true;
+        }
+        return false;
+    }
+
+    public boolean has(Inventory items) {
+        return cargo.has(items);
+    }
+
+    public int cargoSpaceRemaining() {
+        return storage - cargo.getCount();
+    }
+
     @Override
     public String toString() {
         return "Ship{" +
