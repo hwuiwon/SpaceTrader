@@ -10,11 +10,19 @@ public class Inventory {
     private Map<TradeGood, Integer> quantities;
     private int count;
 
+    /**
+     * Creates an empty inventory
+     */
     public Inventory() {
         quantities = new HashMap<>();
         count = 0;
     }
 
+    /**
+     * Returns the price of this inventory given a PriceList.
+     * @param pl the PriceList to use for computing prices
+     * @return the price of this inventory
+     */
     public int getPrice(PriceList pl) {
         int total = 0;
         for (Map.Entry<TradeGood, Integer> item : quantities.entrySet()) {
@@ -23,12 +31,20 @@ public class Inventory {
         return total;
     }
 
+    /**
+     * Adds the items from another inventory to this one.
+     * @param inventory the items to add
+     */
     public void add(Inventory inventory) {
         for (TradeGood good : inventory.quantities.keySet()) {
             add(good, quantities.get(good));
         }
     }
 
+    /**
+     * Removes the items of another inventory from this one.
+     * @param inventory the items to remove
+     */
     public void remove(Inventory inventory) {
         for (TradeGood good : inventory.quantities.keySet()) {
             add(good, -quantities.get(good));
@@ -49,6 +65,11 @@ public class Inventory {
         return quantity <= 0;
     }
 
+    /**
+     * Tests if this inventory contains another as a subset.
+     * @param inventory the items to test for
+     * @return true if this inventory contains the given items
+     */
     public boolean has(Inventory inventory) {
         for (TradeGood good : inventory.quantities.keySet()) {
             if (!has(good, inventory.quantities.get(good))) {
@@ -58,6 +79,11 @@ public class Inventory {
         return true;
     }
 
+    /**
+     * Adds a quantity of goods to this inventory
+     * @param good the good to add
+     * @param quantity the quantity to add
+     */
     public void add(TradeGood good, int quantity) {
         if (quantities.containsKey(good)) {
             quantities.put(good, quantities.get(good) + quantity);
@@ -67,8 +93,17 @@ public class Inventory {
         count += quantity;
     }
 
+    /**
+     * Returns the quantity of a good in this inventory
+     *
+     * @param good the good to test for
+     * @return the quantity of the good
+     */
     public int getQuantity(TradeGood good) {
-        return quantities.get(good);
+        if (quantities.containsKey(good)) {
+            return quantities.get(good);
+        }
+        return 0;
     }
 
     /**
@@ -79,6 +114,9 @@ public class Inventory {
         count = 0;
     }
 
+    /**
+     * @return the number of items in this inventory
+     */
     public int getCount() {
         return count;
     }

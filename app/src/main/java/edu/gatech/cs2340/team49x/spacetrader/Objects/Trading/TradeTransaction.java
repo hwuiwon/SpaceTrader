@@ -9,6 +9,11 @@ public class TradeTransaction {
     private Inventory itemsToSell;
     private Inventory itemsToBuy;
 
+    /**
+     * Creates a transaction
+     * @param customer the customer of the transaction
+     * @param prices the PriceList of items for this transaction
+     */
     public TradeTransaction(Player customer, PriceList prices) {
         this.customer = customer;
         this.prices = prices;
@@ -16,26 +21,49 @@ public class TradeTransaction {
         this.itemsToBuy = new Inventory();
     }
 
+    /**
+     * Adds items to sell
+     * @param item the good to add
+     * @param quantity the quantity to add
+     */
     public void addItemToSell(TradeGood item, int quantity) {
         itemsToSell.add(item, quantity);
     }
 
+     /**
+     * Adds items to sell buy
+     * @param item the good to add
+     * @param quantity the quantity to add
+     */
     public void addItemToBuy(TradeGood item, int quantity) {
         itemsToBuy.add(item, quantity);
     }
 
+    /**
+     * @return items to sell
+     */
     public Inventory getItemsToSell() {
         return itemsToSell;
     }
 
+    /**
+     * @return items to buy
+     */
     public Inventory getItemsToBuy() {
         return itemsToBuy;
     }
 
+    /**
+     * @return the total cost of items bought minus items sold
+     */
     public int getTotalCost() {
         return itemsToBuy.getPrice(prices) - itemsToSell.getPrice(prices);
     }
 
+    /**
+     * Makes the transaction, if possible
+     * @return true if the transaction was successful, false otherwise
+     */
     public boolean makeTrade() {
         if (customer.getCredits() >= getTotalCost()
                 && customer.has(itemsToSell)
