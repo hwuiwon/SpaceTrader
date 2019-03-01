@@ -1,19 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="@dimen/fab_margin"
     android:background="@android:color/black">
-
-    <de.hdodenhof.circleimageview.CircleImageView
-        android:id="@+id/itemCIV"
-        android:layout_width="70dp"
-        android:layout_height="70dp"
-        android:src="@drawable/sample"
-        app:civ_border_width="2dp"
-        app:civ_border_color="@android:color/white" />
 
     <TextView
         android:id="@+id/itemNameTV"
@@ -25,30 +17,76 @@
         android:textStyle="bold"
         android:paddingLeft="@dimen/fab_margin"
         android:paddingTop="@dimen/margin2"
-        android:layout_alignParentTop="true"
-        android:layout_toEndOf="@+id/itemCIV" />
+        android:layout_alignParentTop="true" />
 
     <TextView
         android:id="@+id/itemRemainTV"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="2 Remaining"
-        android:textSize="15dp"
+        android:text="2"
+        android:textSize="15sp"
         android:textColor="@android:color/white"
         android:paddingLeft="@dimen/fab_margin"
         android:paddingTop="@dimen/margin6"
+        android:layout_below="@+id/itemNameTV"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=" in Cargo"
+        android:textSize="15sp"
+        android:textColor="@android:color/white"
+        android:paddingTop="5dp"
         android:layout_below="@+id/itemNameTV"
-        android:layout_toEndOf="@+id/itemCIV" />
+        android:layout_toEndOf="@id/itemRemainTV"/>
 
     <TextView
         android:id="@+id/itemPriceTV"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="$ 15.00"
+        android:text="(15.00)"
         android:textSize="20sp"
         android:textColor="@android:color/white"
-        android:paddingStart="@dimen/margin5"
-        android:paddingTop="@dimen/margin3"
+        android:paddingTop="@dimen/margin2"
+        android:paddingStart="@dimen/margin2"
         android:layout_toEndOf="@id/itemNameTV"/>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:orientation="horizontal"
+        android:weightSum="4">
+
+        <Button
+            android:id="@+id/tradeIncreaseBT"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:text="@string/minus"
+            android:layout_marginTop="@dimen/margin7"
+            android:layout_weight="1"/>
+
+        <TextView
+            android:id="@+id/tradeCount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="1"
+            android:layout_marginStart="@dimen/margin3"
+            android:layout_marginTop="@dimen/margin7"
+            android:textColor="@android:color/white"
+            android:layout_toEndOf="@+id/tradeIncreaseBT"
+            android:layout_weight="2"/>
+
+        <Button
+            android:id="@+id/tradeDecreaseBT"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:text="@string/plus"
+            android:layout_toEndOf="@id/tradeCount"
+            android:layout_marginTop="@dimen/margin7"
+            android:layout_marginStart="@dimen/margin3"
+            android:layout_weight="1"/>
+
+    </LinearLayout>
 
 </RelativeLayout>

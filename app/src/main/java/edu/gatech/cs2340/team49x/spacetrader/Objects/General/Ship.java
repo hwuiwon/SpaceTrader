@@ -69,11 +69,4 @@ public class Ship {
     public int cargoSpaceRemaining() {
         return storage - cargo.getCount();
     }
-
-    @Override
-    public String toString() {
-        return "Ship{" +
-                "type=" + type +
-                '}';
-    }
 }

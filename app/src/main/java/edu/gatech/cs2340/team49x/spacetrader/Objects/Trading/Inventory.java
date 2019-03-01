@@ -120,4 +120,12 @@ public class Inventory {
     public int getCount() {
         return count;
     }
+
+    @Override
+    public String toString() {
+        return "Inventory{" +
+                "quantities=" + quantities +
+                ", count=" + count +
+                '}';
+    }
 }

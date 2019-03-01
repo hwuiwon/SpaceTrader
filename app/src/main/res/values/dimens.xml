@@ -6,5 +6,6 @@
     <dimen name="margin4">30dp</dimen>
     <dimen name="margin5">100dp</dimen>
     <dimen name="margin6">5dp</dimen>
+    <dimen name="margin7">12dp</dimen>
     <dimen name="mainTopMargin">120dp</dimen>
 </resources>

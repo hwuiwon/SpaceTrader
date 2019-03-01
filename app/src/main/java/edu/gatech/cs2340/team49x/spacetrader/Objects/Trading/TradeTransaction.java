@@ -3,7 +3,6 @@ package edu.gatech.cs2340.team49x.spacetrader.Objects.Trading;
 import java.util.Map;
 
 import edu.gatech.cs2340.team49x.spacetrader.Objects.General.Player;
-import edu.gatech.cs2340.team49x.spacetrader.Objects.Universe.SolarSystem;
 
 public class TradeTransaction {
     private Player customer;
@@ -69,7 +68,7 @@ public class TradeTransaction {
     public boolean makeTrade() {
         if (customer.getCredits() >= getTotalCost()
                 && customer.has(itemsToSell)
-                && customer.cargoSpaceRemaining() >= itemsToBuy.getCount()){
+                && customer.cargoSpaceRemaining() >= itemsToBuy.getCount()) {
             customer.removeFromCargo(itemsToSell);
             customer.addToCargo(itemsToBuy);
             customer.changeCredits(-getTotalCost());

@@ -5,7 +5,6 @@ import android.view.LayoutInflater;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import de.hdodenhof.circleimageview.CircleImageView;
 import edu.gatech.cs2340.team49x.spacetrader.Objects.Item;
 import edu.gatech.cs2340.team49x.spacetrader.R;
 
@@ -14,7 +13,6 @@ public class ItemView extends RelativeLayout {
     TextView itemNameTV;
     TextView itemRemainTV;
     TextView itemPriceTV;
-    CircleImageView itemCIV;
 
     public ItemView(Context context, Item item) {
         super(context);
@@ -24,7 +22,6 @@ public class ItemView extends RelativeLayout {
         itemNameTV = findViewById(R.id.itemNameTV);
         itemRemainTV = findViewById(R.id.itemRemainTV);
         itemPriceTV = findViewById(R.id.itemPriceTV);
-        itemCIV = findViewById(R.id.itemCIV);
 
         setData(item);
     }
@@ -33,6 +30,5 @@ public class ItemView extends RelativeLayout {
         itemNameTV.setText(item.getName());
         itemRemainTV.setText(item.getRemaining());
         itemPriceTV.setText(String.valueOf(item.getPrice()));
-        itemCIV.setImageBitmap(item.getItemPic());
     }
 }
