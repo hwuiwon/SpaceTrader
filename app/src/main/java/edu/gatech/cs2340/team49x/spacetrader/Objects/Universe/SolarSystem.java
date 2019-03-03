@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Random;
 
+import edu.gatech.cs2340.team49x.spacetrader.Objects.Trading.Tradable;
 import edu.gatech.cs2340.team49x.spacetrader.Objects.Trading.TradeGood;
 
 public class SolarSystem {
@@ -16,7 +17,7 @@ public class SolarSystem {
     private List<Planet> planets;
     private Resources resources;
     private Random random;
-    private Map<TradeGood, Integer> prices;
+    private Map<Tradable, Integer> prices;
 
     public SolarSystem(String name, Coordinate coordinate,
                        TechLevel techLevel, Resources resources, Random random, List<Planet> planets) {
@@ -74,7 +75,7 @@ public class SolarSystem {
         this.planets = planets;
     }
 
-    public Map<TradeGood, Integer> getPrices() {
+    public Map<Tradable, Integer> getPrices() {
         return prices;
     }
 

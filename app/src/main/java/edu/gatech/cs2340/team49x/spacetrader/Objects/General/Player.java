@@ -13,7 +13,6 @@ public class Player {
     private int tradePt;
     private int engineerPt;
     private Ship ship;
-    private SolarSystem currentSystem;
     private int credits;
 
     public Player(String name, int skillPt, int pilotPt, int fighterPt, int tradePt, int engineerPt, Ship ship) {
@@ -96,24 +95,6 @@ public class Player {
     }
 
 
-    public SolarSystem getCurrentSystem() {
-        return currentSystem;
-    }
-
-    public void setCurrentSystem(SolarSystem currentSystem) {
-        this.currentSystem = currentSystem;
-    }
-
-    /**
-     * Starts a TradeTransaction on the current planet.
-     * @return a new TradeTransaction, or null if the currentSystem is null
-     */
-    public TradeTransaction startTrade() {
-        if (currentSystem == null) {
-            return null;
-        }
-        return new TradeTransaction(this, currentSystem.getPrices());
-    }
 
     public boolean addToCargo(Inventory items) {
         return this.ship.addToCargo(items);
