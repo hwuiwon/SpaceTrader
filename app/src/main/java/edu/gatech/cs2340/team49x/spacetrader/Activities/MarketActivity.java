@@ -40,4 +40,13 @@ public class MarketActivity extends AppCompatActivity {
         }
         return adapter;
     }
+
+    public void switchScreen(View view) {
+        // Switch between buy and sell screen
+        // Update Listview with new items and change text
+    }
+
+    public void buy(View view) {
+        // Buy items if player has enough credits
+    }
 }

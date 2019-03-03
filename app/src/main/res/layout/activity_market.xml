@@ -23,7 +23,7 @@
             android:paddingTop="@dimen/margin2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Total Sale: "
+            android:text="@string/ttlSale"
             android:textColor="@android:color/white"
             android:textSize="20sp"
             android:layout_below="@+id/itemLV"
@@ -34,7 +34,7 @@
             android:id="@+id/marketItemCountTV"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="1400"
+            android:text="@string/sSale"
             android:paddingTop="@dimen/margin2"
             android:textColor="@android:color/white"
             android:textSize="20sp"
@@ -46,7 +46,7 @@
             android:id="@+id/marketTV2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Your credits: "
+            android:text="@string/urCredit"
             android:paddingStart="@dimen/margin3"
             android:textColor="@android:color/white"
             android:textSize="20sp"
@@ -57,7 +57,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="15000"
+            android:text="@string/sCredit"
             android:textColor="@android:color/white"
             android:textSize="20sp"
             android:layout_toEndOf="@id/marketTV2"
@@ -70,20 +70,28 @@
             android:orientation="horizontal"
             android:layout_alignParentBottom="true"
             android:paddingHorizontal="@dimen/margin3"
-            android:paddingBottom="@dimen/margin7"
-            android:weightSum="2">
+            android:paddingBottom="@dimen/margin7">
 
             <Button
+                android:onClick="switchScreen"
+                android:background="@drawable/roundrectangle"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:text="Switch to Buy"
-                android:layout_weight="1"/>
+                android:text="@string/switchScreen"
+                android:textColor="@android:color/white"
+                android:layout_weight="1"
+                android:layout_marginEnd="@dimen/margin2"
+                android:fontFamily="@font/montserrat_regular"/>
 
             <Button
+                android:onClick="buy"
+                android:background="@drawable/roundrectangle"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:text="Done"
-                android:layout_weight="1"/>
+                android:text="@string/done"
+                android:textColor="@android:color/white"
+                android:layout_weight="1"
+                android:fontFamily="@font/montserrat_regular"/>
 
         </LinearLayout>
 

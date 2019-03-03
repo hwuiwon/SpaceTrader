@@ -25,4 +25,11 @@
 
     <string name="save">Save</string>
     <string name="tmpScr">TEMPORARY SCREEN</string>
+
+    <string name="done">Done</string>
+    <string name="switchScreen">Switch to Buy</string>
+    <string name="ttlSale">Total Sale: </string>
+    <string name="sSale">1400</string>
+    <string name="urCredit">Your credits: </string>
+    <string name="sCredit">15000</string>
 </resources>
