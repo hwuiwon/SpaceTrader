@@ -6,6 +6,7 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import edu.gatech.cs2340.team49x.spacetrader.Objects.Item;
 import edu.gatech.cs2340.team49x.spacetrader.Views.ItemView;
@@ -13,7 +14,7 @@ import edu.gatech.cs2340.team49x.spacetrader.Views.ItemView;
 public class ItemAdapter extends BaseAdapter {
 
     private Context context;
-    private ArrayList<Item> items = new ArrayList<>();
+    private List<Item> items = new ArrayList<>();
 
     public ItemAdapter(Context context) {
         this.context = context;

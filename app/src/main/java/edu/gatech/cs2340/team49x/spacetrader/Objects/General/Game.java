@@ -37,6 +37,7 @@ public class Game {
 
     public void createUniverse(int numSystems) {
         universe = new Universe(random, numSystems);
+        currentSystem = universe.getSolarSystem(random.nextInt(numSystems));
     }
 
     public String printPlayer() {

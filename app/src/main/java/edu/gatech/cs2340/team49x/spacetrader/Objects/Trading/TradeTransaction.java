@@ -55,10 +55,17 @@ public class TradeTransaction {
     }
 
     /**
-     * @return the total cost of items bought minus items sold
+     * @return the total cost of items bought
      */
     public int getTotalCost() {
-        return itemsToBuy.getPrice(prices) - itemsToSell.getPrice(prices);
+        return itemsToBuy.getPrice(prices);
+    }
+
+    /**
+     * @return the total cost of items sold
+     */
+    public int getTotalSale() {
+        return itemsToSell.getPrice(prices);
     }
 
     /**

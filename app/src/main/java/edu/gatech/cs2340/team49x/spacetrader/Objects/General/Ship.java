@@ -29,13 +29,11 @@ public class Ship {
     }
 
     private ShipType type;
-    private int storage;
     private Inventory cargo;
 
     public Ship(ShipType type) {
         this.type = type;
         cargo = new Inventory();
-        storage = type.getStorage();
     }
 
     public ShipType getType() {
@@ -47,7 +45,7 @@ public class Ship {
     }
 
     public boolean addToCargo(Inventory items) {
-        if (cargo.getCount() + items.getCount() <= storage) {
+        if (cargo.getCount() + items.getCount() <= type.getStorage()) {
             cargo.add(items);
             return true;
         }
@@ -67,6 +65,6 @@ public class Ship {
     }
 
     public int cargoSpaceRemaining() {
-        return storage - cargo.getCount();
+        return type.getStorage() - cargo.getCount();
     }
 }

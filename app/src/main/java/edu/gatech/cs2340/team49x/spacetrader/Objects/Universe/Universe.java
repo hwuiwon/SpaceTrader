@@ -182,6 +182,16 @@ public class Universe {
         return true;
     }
 
+    /**
+     * Returns the solarSystem at a given index.
+     *
+     * @param i the index of the solarSystem
+     * @return the solarSystem
+     */
+    public SolarSystem getSolarSystem(int i) {
+        return solarSystems.get(i);
+    }
+
     public List<SolarSystem> getSolarSystems() {
         return solarSystems;
     }
