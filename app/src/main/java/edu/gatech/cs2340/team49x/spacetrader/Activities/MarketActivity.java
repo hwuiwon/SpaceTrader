@@ -1,5 +1,6 @@
 package edu.gatech.cs2340.team49x.spacetrader.Activities;
 
+import android.arch.lifecycle.ViewModelProviders;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -8,16 +9,19 @@ import android.widget.ListView;
 import edu.gatech.cs2340.team49x.spacetrader.Adapters.ItemAdapter;
 import edu.gatech.cs2340.team49x.spacetrader.Objects.Item;
 import edu.gatech.cs2340.team49x.spacetrader.R;
+import edu.gatech.cs2340.team49x.spacetrader.Viewmodels.ConfigurationViewModel;
+import edu.gatech.cs2340.team49x.spacetrader.Viewmodels.MarketViewModel;
 
 public class MarketActivity extends AppCompatActivity {
 
     private ListView itemLV;
-    private Item[] items;
+    private MarketViewModel viewModel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_market);
+        viewModel = ViewModelProviders.of(this).get(MarketViewModel.class);
         itemLV = findViewById(R.id.itemLV);
         itemLV.setAdapter(makeItemAdapter());
     }
@@ -30,7 +34,7 @@ public class MarketActivity extends AppCompatActivity {
 
         // Need to create items depending on resources and tech level and add them to Item[] items
 
-        for (Item item : items) {
+        for (Item item : viewModel.getItems()) {
             adapter.addItem(item);
         }
         return adapter;
