@@ -16,13 +16,22 @@ public class MainActivity extends AppCompatActivity {
         openSettings(findViewById(R.id.settingsBT));
     }
 
+    /**
+     * Opens Setting Activity
+     *
+     * @param view current View
+     */
     public void openSettings(View view) {
         Intent intent = new Intent(MainActivity.this, ConfigurationActivity.class);
         startActivity(intent);
     }
 
+    /**
+     * Starts Game Activity
+     *
+     * @param view current View
+     */
     public void startGame(View view) {
-        // Starts game activity
         Intent intent = new Intent(MainActivity.this, GameActivity.class);
         startActivity(intent);
     }

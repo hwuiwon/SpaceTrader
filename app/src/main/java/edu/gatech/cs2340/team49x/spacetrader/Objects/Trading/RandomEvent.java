@@ -7,5 +7,5 @@ public enum RandomEvent {
     WAR,
     BOREDOM,
     PLAGUE,
-    LACKOFWORKERS;
+    LACKOFWORKERS
 }

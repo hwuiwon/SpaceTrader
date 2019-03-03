@@ -1,5 +1,6 @@
 package edu.gatech.cs2340.team49x.spacetrader.Activities;
 
+import android.annotation.SuppressLint;
 import android.arch.lifecycle.ViewModelProviders;
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
@@ -14,6 +15,7 @@ import edu.gatech.cs2340.team49x.spacetrader.R;
 import edu.gatech.cs2340.team49x.spacetrader.Viewmodels.ConfigurationViewModel;
 import edu.gatech.cs2340.team49x.spacetrader.databinding.ActivityConfigBinding;
 
+@SuppressLint("SetTextI18n")
 public class ConfigurationActivity extends AppCompatActivity {
 
     ActivityConfigBinding binding;

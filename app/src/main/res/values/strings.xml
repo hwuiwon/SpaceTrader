@@ -27,6 +27,10 @@
     <string name="tmpScr">TEMPORARY SCREEN</string>
 
     <string name="done">Done</string>
+    <string name="itemName">ITEM NAME</string>
+    <string name="sRem">2</string>
+    <string name="inCargo">\tin Cargo</string>
+    <string name="sPrice">(15.00)</string>
     <string name="switchScreen">Switch to Buy</string>
     <string name="ttlSale">Total Sale: </string>
     <string name="sSale">1400</string>

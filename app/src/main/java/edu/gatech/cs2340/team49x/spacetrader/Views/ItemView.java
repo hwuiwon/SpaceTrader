@@ -14,6 +14,10 @@ public class ItemView extends RelativeLayout {
     TextView itemRemainTV;
     TextView itemPriceTV;
 
+    public ItemView(Context context) {
+        super(context, null);
+    }
+
     public ItemView(Context context, Item item) {
         super(context);
         LayoutInflater inflater = (LayoutInflater)context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
@@ -26,6 +30,11 @@ public class ItemView extends RelativeLayout {
         setData(item);
     }
 
+    /**
+     * Set data of an item
+     *
+     * @param item item that will contain new data
+     */
     public void setData(Item item) {
         itemNameTV.setText(item.getName());
         itemRemainTV.setText(item.getRemaining());
