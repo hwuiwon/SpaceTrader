@@ -6,7 +6,7 @@ import edu.gatech.cs2340.team49x.spacetrader.Objects.General.Player;
 
 public class TradeTransaction {
     private Player customer;
-    private Map<TradeGood, Integer> prices;
+    private Map<Tradable, Integer> prices;
     private Inventory itemsToSell;
     private Inventory itemsToBuy;
 
@@ -15,7 +15,7 @@ public class TradeTransaction {
      * @param customer the customer of the transaction
      * @param prices the price list of items for this transaction
      */
-    public TradeTransaction(Player customer, Map<TradeGood, Integer> prices) {
+    public TradeTransaction(Player customer, Map<Tradable, Integer> prices) {
         this.customer = customer;
         this.prices = prices;
         this.itemsToSell = new Inventory();
@@ -27,7 +27,7 @@ public class TradeTransaction {
      * @param item the good to add
      * @param quantity the quantity to add
      */
-    public void addItemToSell(TradeGood item, int quantity) {
+    public void addItemToSell(Tradable item, int quantity) {
         itemsToSell.add(item, quantity);
     }
 
@@ -36,7 +36,7 @@ public class TradeTransaction {
      * @param item the good to add
      * @param quantity the quantity to add
      */
-    public void addItemToBuy(TradeGood item, int quantity) {
+    public void addItemToBuy(Tradable item, int quantity) {
         itemsToBuy.add(item, quantity);
     }
 

@@ -4,10 +4,10 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * This class is used to represent a collection of TradeGoods and their quantities.
+ * This class is used to represent a collection of Tradables and their quantities.
  */
 public class Inventory {
-    private Map<TradeGood, Integer> quantities;
+    private Map<Tradable, Integer> quantities;
     private int count;
 
     /**
@@ -23,9 +23,9 @@ public class Inventory {
      * @param pl the price list to use for computing prices
      * @return the price of this inventory
      */
-    public int getPrice(Map<TradeGood, Integer> pl) {
+    public int getPrice(Map<Tradable, Integer> pl) {
         int total = 0;
-        for (Map.Entry<TradeGood, Integer> item : quantities.entrySet()) {
+        for (Map.Entry<Tradable, Integer> item : quantities.entrySet()) {
             total += pl.get(item.getKey()) * item.getValue();
         }
         return total;
@@ -36,7 +36,7 @@ public class Inventory {
      * @param inventory the items to add
      */
     public void add(Inventory inventory) {
-        for (TradeGood good : inventory.quantities.keySet()) {
+        for (Tradable good : inventory.quantities.keySet()) {
             add(good, quantities.get(good));
         }
     }
@@ -46,7 +46,7 @@ public class Inventory {
      * @param inventory the items to remove
      */
     public void remove(Inventory inventory) {
-        for (TradeGood good : inventory.quantities.keySet()) {
+        for (Tradable good : inventory.quantities.keySet()) {
             add(good, -quantities.get(good));
         }
     }
@@ -54,11 +54,11 @@ public class Inventory {
     /**
      * Returns true if this inventory as at least a certain quantity of a good.
      *
-     * @param good the TradeGood to test.
+     * @param good the Tradable to test.
      * @param quantity the amount the inventory must contain.
      * @return
      */
-    public boolean has(TradeGood good, int quantity) {
+    public boolean has(Tradable good, int quantity) {
         if (quantities.containsKey(good)) {
             return quantity <= quantities.get(good);
         }
@@ -71,7 +71,7 @@ public class Inventory {
      * @return true if this inventory contains the given items
      */
     public boolean has(Inventory inventory) {
-        for (TradeGood good : inventory.quantities.keySet()) {
+        for (Tradable good : inventory.quantities.keySet()) {
             if (!has(good, inventory.quantities.get(good))) {
                 return false;
             }
@@ -84,7 +84,7 @@ public class Inventory {
      * @param good the good to add
      * @param quantity the quantity to add
      */
-    public void add(TradeGood good, int quantity) {
+    public void add(Tradable good, int quantity) {
         if (quantities.containsKey(good)) {
             quantities.put(good, quantities.get(good) + quantity);
         } else {
@@ -99,7 +99,7 @@ public class Inventory {
      * @param good the good to test for
      * @return the quantity of the good
      */
-    public int getQuantity(TradeGood good) {
+    public int getQuantity(Tradable good) {
         if (quantities.containsKey(good)) {
             return quantities.get(good);
         }
