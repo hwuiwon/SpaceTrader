@@ -3,7 +3,6 @@ package edu.gatech.cs2340.team49x.spacetrader.Objects.General;
 import java.util.Random;
 
 import edu.gatech.cs2340.team49x.spacetrader.Objects.Difficulty;
-import edu.gatech.cs2340.team49x.spacetrader.Objects.Trading.TradeTransaction;
 import edu.gatech.cs2340.team49x.spacetrader.Objects.Universe.SolarSystem;
 import edu.gatech.cs2340.team49x.spacetrader.Objects.Universe.Universe;
 
@@ -19,7 +18,7 @@ public class Game {
         random = new Random();
     }
 
-    public Player getPlayerInfo() {
+    public Player getPlayer() {
         return player;
     }
 
@@ -57,14 +56,4 @@ public class Game {
         this.currentSystem = currentSystem;
     }
 
-    /**
-     * Starts a TradeTransaction on the current planet.
-     * @return a new TradeTransaction, or null if the currentSystem is null
-     */
-    public TradeTransaction startTrade() {
-        if (currentSystem == null) {
-            return null;
-        }
-        return new TradeTransaction(player, currentSystem.getPrices());
-    }
 }

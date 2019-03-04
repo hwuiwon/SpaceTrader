@@ -45,20 +45,12 @@ public class Ship {
         return cargo;
     }
 
-    public boolean addToCargo(Inventory items) {
-        if (cargo.getCount() + items.getCount() <= type.getStorage()) {
-            cargo.add(items);
-            return true;
-        }
-        return false;
+    public void addToCargo(Tradable good, int quantity) {
+        cargo.add(good, quantity);
     }
 
-    public boolean removeFromCargo(Inventory items) {
-        if (cargo.has(items)) {
-            cargo.remove(items);
-            return true;
-        }
-        return false;
+    public void removeFromCargo(Tradable good, int quantity) {
+        cargo.add(good, -quantity);
     }
 
     public int getAmountOf(Tradable good) {

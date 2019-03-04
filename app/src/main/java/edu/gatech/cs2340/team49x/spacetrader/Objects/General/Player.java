@@ -2,8 +2,6 @@ package edu.gatech.cs2340.team49x.spacetrader.Objects.General;
 
 import edu.gatech.cs2340.team49x.spacetrader.Objects.Trading.Inventory;
 import edu.gatech.cs2340.team49x.spacetrader.Objects.Trading.Tradable;
-import edu.gatech.cs2340.team49x.spacetrader.Objects.Trading.TradeTransaction;
-import edu.gatech.cs2340.team49x.spacetrader.Objects.Universe.SolarSystem;
 
 public class Player {
 
@@ -97,12 +95,12 @@ public class Player {
 
 
 
-    public boolean addToCargo(Inventory items) {
-        return this.ship.addToCargo(items);
+    public void addToCargo(Tradable good, int quantity) {
+        this.ship.addToCargo(good, quantity);
     }
 
-    public boolean removeFromCargo(Inventory items) {
-        return this.ship.removeFromCargo(items);
+    public void removeFromCargo(Tradable good, int quantity) {
+        this.ship.removeFromCargo(good, quantity);
     }
 
     public int getAmountOf(Tradable good) {

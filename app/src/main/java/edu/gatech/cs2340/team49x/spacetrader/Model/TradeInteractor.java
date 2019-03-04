@@ -4,20 +4,22 @@ import java.util.Map;
 
 import edu.gatech.cs2340.team49x.spacetrader.Objects.General.Player;
 import edu.gatech.cs2340.team49x.spacetrader.Objects.Trading.Tradable;
-import edu.gatech.cs2340.team49x.spacetrader.Objects.Trading.TradeTransaction;
+import edu.gatech.cs2340.team49x.spacetrader.Objects.Universe.SolarSystem;
 
 /**
  * This class is used by MarketViewModel to connect with the backend.
  */
 public class TradeInteractor {
-    private TradeTransaction trade;
     private Map<Tradable, Integer> prices;
     private Player customer;
 
-    public TradeInteractor(TradeTransaction trade) {
-        this.trade = trade;
-        this.prices = trade.getPrices();
-        this.customer = trade.getCustomer();
+    public TradeInteractor(Player customer, Map<Tradable, Integer> prices) {
+        this.prices = prices;
+        this.customer = customer;
+    }
+
+    public TradeInteractor(Player customer, SolarSystem system) {
+        this(customer, system.getPrices());
     }
 
     public int getPriceOf(Tradable good) {
@@ -28,25 +30,15 @@ public class TradeInteractor {
         return customer.getAmountOf(good);
     }
 
-    /**
-     * Adds items to sell
-     * @param item the good to add
-     * @param quantity the quantity to add
-     */
-    public void addItemToSell(Tradable item, int quantity) {
-        trade.addItemToBuy(item, quantity);
+    public void removeFromCargo(Tradable good, int quantity) {
+        customer.removeFromCargo(good, quantity);
     }
 
-    /**
-     * Adds items to buy
-     * @param item the good to add
-     * @param quantity the quantity to add
-     */
-    public void addItemToBuy(Tradable item, int quantity) {
-        trade.addItemToSell(item, quantity);
+    public void addToCargo(Tradable good, int quantity) {
+        customer.addToCargo(good, quantity);
     }
 
-    public void makeTrade() {
-        trade.makeTrade();
+    public void changeCredits(int change) {
+        customer.changeCredits(change);
     }
 }
