@@ -22,6 +22,14 @@ public class TradeTransaction {
         this.itemsToBuy = new Inventory();
     }
 
+    public Player getCustomer() {
+        return customer;
+    }
+
+    public Map<Tradable, Integer> getPrices() {
+        return prices;
+    }
+
     /**
      * Adds items to sell
      * @param item the good to add

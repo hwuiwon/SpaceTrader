@@ -35,8 +35,8 @@ public class ModelFacade {
         return game.printPlayer();
     }
 
-    public TradeTransaction startTrade() {
-        return game.startTrade();
+    public TradeInteractor startTrade() {
+        return new TradeInteractor(game.startTrade());
     }
 
     public String printUniverse() {

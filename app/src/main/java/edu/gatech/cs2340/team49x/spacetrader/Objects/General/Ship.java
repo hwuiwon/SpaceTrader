@@ -1,6 +1,7 @@
 package edu.gatech.cs2340.team49x.spacetrader.Objects.General;
 
 import edu.gatech.cs2340.team49x.spacetrader.Objects.Trading.Inventory;
+import edu.gatech.cs2340.team49x.spacetrader.Objects.Trading.Tradable;
 
 public class Ship {
 
@@ -58,6 +59,10 @@ public class Ship {
             return true;
         }
         return false;
+    }
+
+    public int getAmountOf(Tradable good) {
+        return cargo.getQuantity(good);
     }
 
     public boolean has(Inventory items) {
