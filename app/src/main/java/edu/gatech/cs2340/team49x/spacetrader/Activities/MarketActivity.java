@@ -22,6 +22,7 @@ public class MarketActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_market);
         viewModel = ViewModelProviders.of(this).get(MarketViewModel.class);
+        viewModel.init();
         itemLV = findViewById(R.id.itemLV);
         itemLV.setAdapter(makeItemAdapter());
     }

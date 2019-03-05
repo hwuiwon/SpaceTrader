@@ -3,7 +3,9 @@ package edu.gatech.cs2340.team49x.spacetrader.Model;
 import java.util.Map;
 
 import edu.gatech.cs2340.team49x.spacetrader.Objects.General.Player;
+import edu.gatech.cs2340.team49x.spacetrader.Objects.Trading.Inventory;
 import edu.gatech.cs2340.team49x.spacetrader.Objects.Trading.Tradable;
+import edu.gatech.cs2340.team49x.spacetrader.Objects.Trading.Trader;
 import edu.gatech.cs2340.team49x.spacetrader.Objects.Universe.SolarSystem;
 import edu.gatech.cs2340.team49x.spacetrader.Objects.Universe.TechLevel;
 
@@ -12,31 +14,52 @@ import edu.gatech.cs2340.team49x.spacetrader.Objects.Universe.TechLevel;
  */
 public class TradeInteractor {
     private Player customer;
-    private Map<Tradable, Integer> prices;
+    private Trader trader;
 
-    public TradeInteractor(Player customer, Map<Tradable, Integer> prices) {
-        this.customer = customer;
-        this.prices = prices;
+    public TradeInteractor(Player customer, Trader trader) {
+        init(customer, trader);
     }
 
     public TradeInteractor(Player customer, SolarSystem system) {
-        this(customer, system.getPrices());
+        this(customer, system.getMarket());
+    }
+
+    public void init(Player customer, Trader trader) {
+        this.customer = customer;
+        this.trader = trader;
+    }
+
+    public void init(Player customer, SolarSystem system) {
+        this.customer = customer;
+        this.trader = system.getMarket();
     }
 
     public int getPriceOf(Tradable good) {
-        return prices.get(good);
+        return trader.getPrice(good);
     }
 
     public int getCargoAmount(Tradable good) {
         return customer.getAmountOf(good);
     }
 
-    public void removeFromCargo(Tradable good, int quantity) {
-        customer.removeFromCargo(good, quantity);
+    public int getCargoRemaining() {
+        return customer.cargoSpaceRemaining();
     }
 
-    public void addToCargo(Tradable good, int quantity) {
-        customer.addToCargo(good, quantity);
+    public Tradable[] getBuyList() {
+        return trader.buys();
+    }
+
+    public Tradable[] getSellList() {
+        return trader.sells();
+    }
+
+    public void removeFromCargo(Inventory items) {
+        customer.removeFromCargo(items);
+    }
+
+    public void addToCargo(Inventory items) {
+        customer.addToCargo(items);
     }
 
     public void changeCredits(int change) {
