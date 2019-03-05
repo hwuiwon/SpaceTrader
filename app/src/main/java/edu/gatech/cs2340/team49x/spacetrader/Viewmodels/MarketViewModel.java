@@ -7,6 +7,7 @@ import android.support.annotation.NonNull;
 import edu.gatech.cs2340.team49x.spacetrader.Model.ModelFacade;
 import edu.gatech.cs2340.team49x.spacetrader.Model.TradeInteractor;
 import edu.gatech.cs2340.team49x.spacetrader.Objects.Item;
+import edu.gatech.cs2340.team49x.spacetrader.Objects.Trading.Inventory;
 
 public class MarketViewModel extends AndroidViewModel {
     public MarketViewModel(@NonNull Application application) {
@@ -14,6 +15,7 @@ public class MarketViewModel extends AndroidViewModel {
     }
 
     private Item[] items;
+    private Inventory quantities;
     private TradeInteractor interactor;
 
     public void init() {
@@ -24,4 +26,6 @@ public class MarketViewModel extends AndroidViewModel {
     public Item[] getItems() {
         return items;
     }
+
+
 }
