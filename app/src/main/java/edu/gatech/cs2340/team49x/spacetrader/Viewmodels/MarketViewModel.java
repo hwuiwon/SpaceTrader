@@ -4,6 +4,9 @@ import android.app.Application;
 import android.arch.lifecycle.AndroidViewModel;
 import android.support.annotation.NonNull;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import edu.gatech.cs2340.team49x.spacetrader.Model.ModelFacade;
 import edu.gatech.cs2340.team49x.spacetrader.Model.TradeInteractor;
 import edu.gatech.cs2340.team49x.spacetrader.Objects.Item;
@@ -15,7 +18,8 @@ public class MarketViewModel extends AndroidViewModel {
         super(application);
     }
 
-    private Item[] items;
+    private Item[] sellItems;
+    private Item[] buyItems;
     private Inventory selectedGoods;
     private TradeInteractor interactor;
     private boolean buying;
@@ -26,10 +30,28 @@ public class MarketViewModel extends AndroidViewModel {
         selectedGoods.empty();
         total = 0;
         //initialize item array by getting data from the interactor
+        List<Item> sellList = new ArrayList<>();
+        List<Item> buyList = new ArrayList<>();
+        for (Tradable t : interactor.getBuyList()) {
+            sellList.add(new Item(
+                    t.getName(),
+                    interactor.getPriceOf(t),
+                    interactor.getCargoAmount(t)
+            ));
+        }
+        for (Tradable t : interactor.getSellList()) {
+            buyList.add(new Item(
+                    t.getName(),
+                    interactor.getPriceOf(t),
+                    interactor.getCargoAmount(t)
+            ));
+        }
+        sellItems = sellList.toArray(sellItems);
+        buyItems = buyList.toArray(buyItems);
     }
 
     public Item[] getItems() {
-        return items;
+        return buying ? buyItems : sellItems;
     }
 
     /**
