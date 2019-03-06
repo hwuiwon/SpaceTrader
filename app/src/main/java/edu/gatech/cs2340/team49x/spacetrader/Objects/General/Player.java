@@ -99,8 +99,16 @@ public class Player {
         this.ship.addToCargo(good, quantity);
     }
 
+    public void addToCargo(Inventory items) {
+        this.ship.addToCargo(items);
+    }
+
     public void removeFromCargo(Tradable good, int quantity) {
         this.ship.removeFromCargo(good, quantity);
+    }
+
+    public void removeFromCargo(Inventory items) {
+        this.ship.removeFromCargo(items);
     }
 
     public int getAmountOf(Tradable good) {

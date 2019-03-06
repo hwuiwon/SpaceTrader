@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Random;
 
+import edu.gatech.cs2340.team49x.spacetrader.Objects.Trading.Market;
 import edu.gatech.cs2340.team49x.spacetrader.Objects.Trading.Tradable;
 import edu.gatech.cs2340.team49x.spacetrader.Objects.Trading.TradeGood;
 
@@ -17,7 +18,7 @@ public class SolarSystem {
     private List<Planet> planets;
     private Resources resources;
     private Random random;
-    private Map<Tradable, Integer> prices;
+    private Market market;
 
     public SolarSystem(String name, Coordinate coordinate,
                        TechLevel techLevel, Resources resources, Random random, List<Planet> planets) {
@@ -27,7 +28,7 @@ public class SolarSystem {
         this.resources = resources;
         this.random = random;
         this.planets = planets;
-        initializePrices();
+        this.market = new Market(techLevel, resources, random);
     }
 
     public SolarSystem(String name, Coordinate coordinate,
@@ -75,8 +76,8 @@ public class SolarSystem {
         this.planets = planets;
     }
 
-    public Map<Tradable, Integer> getPrices() {
-        return prices;
+    public Market getMarket() {
+        return market;
     }
 
     @Override
@@ -87,27 +88,5 @@ public class SolarSystem {
                 ", techLevel = " + techLevel +
                 ", resources = " + resources +
                 "}";
-    }
-
-    private void initializePrices() {
-        prices = new HashMap<>();
-        for (TradeGood good : TradeGood.values()) {
-            if (good.canBeUsedBy(techLevel)) {
-                int price = good.getBasePrice();
-                //Do price initialization stuff
-                price += good.getPriceIcrTech() * (techLevel.ordinal() - good.getMinTechProduce());
-                if (random.nextBoolean()){
-                    price += random.nextInt(good.getVariance() + 1);
-                } else {
-                    price -= random.nextInt(good.getVariance() + 1);
-                }
-                if (resources == good.getLowWhenPresent()) {
-                    price /= 2;
-                } else if (resources == good.getHighWhenPresent()) {
-                    price *= 2 + random.nextInt(2);
-                }
-                prices.put(good, price);
-            }
-        }
     }
 }

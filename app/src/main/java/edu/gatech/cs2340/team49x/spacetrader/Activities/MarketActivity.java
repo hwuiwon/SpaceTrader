@@ -22,6 +22,7 @@ public class MarketActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_market);
         viewModel = ViewModelProviders.of(this).get(MarketViewModel.class);
+        viewModel.init();
         itemLV = findViewById(R.id.itemLV);
         itemLV.setAdapter(makeItemAdapter());
     }
@@ -47,6 +48,7 @@ public class MarketActivity extends AppCompatActivity {
      */
     public void switchScreen(View view) {
         // Switch between buy and sell screen
+        viewModel.toggleBuySell();
         // Update Listview with new items and change text
     }
 
@@ -57,5 +59,6 @@ public class MarketActivity extends AppCompatActivity {
      */
     public void buy(View view) {
         // Buy items if player has enough credits
+        viewModel.done();
     }
 }

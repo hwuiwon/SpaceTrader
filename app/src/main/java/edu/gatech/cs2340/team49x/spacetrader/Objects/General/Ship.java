@@ -49,8 +49,16 @@ public class Ship {
         cargo.add(good, quantity);
     }
 
+    public void addToCargo(Inventory items) {
+        cargo.add(items);
+    }
+
     public void removeFromCargo(Tradable good, int quantity) {
         cargo.add(good, -quantity);
+    }
+
+    public void removeFromCargo(Inventory items) {
+        cargo.remove(items);
     }
 
     public int getAmountOf(Tradable good) {

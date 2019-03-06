@@ -19,14 +19,14 @@ public class Inventory {
     }
 
     /**
-     * Returns the price of this inventory given a PriceList.
-     * @param pl the price list to use for computing prices
+     * Returns the price of this inventory for a certain trader.
+     * @param trader the trader to use for computing prices
      * @return the price of this inventory
      */
-    public int getPrice(Map<Tradable, Integer> pl) {
+    public int getPrice(Trader trader) {
         int total = 0;
         for (Map.Entry<Tradable, Integer> item : quantities.entrySet()) {
-            total += pl.get(item.getKey()) * item.getValue();
+            total += trader.getPrice(item.getKey()) * item.getValue();
         }
         return total;
     }
