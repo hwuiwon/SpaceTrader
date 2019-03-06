@@ -17,10 +17,8 @@ public class ModelFacade {
         game = new Game();
     }
 
-    public void configureGame(Player p, Difficulty d) {
-        game.setPlayer(p);
-        game.setDifficulty(d);
-        game.createUniverse(NUM_SYSTEMS);
+    public void configureGame(Player player, Difficulty difficulty) {
+        game = new Game(player, difficulty, NUM_SYSTEMS);
     }
 
     public Player getPlayer() {

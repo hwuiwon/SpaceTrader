@@ -18,25 +18,19 @@ public class Game {
         random = new Random();
     }
 
+    public Game(Player player, Difficulty difficulty, int numSystems) {
+        this.player = player;
+        this.difficulty = difficulty;
+        universe = new Universe(random, numSystems);
+        currentSystem = universe.getSolarSystem(random.nextInt(numSystems));
+    }
+
     public Player getPlayer() {
         return player;
     }
 
-    public void setPlayer(Player player) {
-        this.player = player;
-    }
-
     public Difficulty getDifficulty() {
         return difficulty;
-    }
-
-    public void setDifficulty(Difficulty difficulty) {
-        this.difficulty = difficulty;
-    }
-
-    public void createUniverse(int numSystems) {
-        universe = new Universe(random, numSystems);
-        currentSystem = universe.getSolarSystem(random.nextInt(numSystems));
     }
 
     public String printPlayer() {
