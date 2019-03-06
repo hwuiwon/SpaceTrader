@@ -25,6 +25,9 @@
 
     <string name="save">Save</string>
     <string name="select">Select solar system to travel</string>
+    <string name="currentSys">Current system:\t</string>
+    <string name="tmpSys">Pluto</string>
+    <string name="openMarket">Enter Market</string>
 
     <string name="done">Done</string>
     <string name="itemName">ITEM NAME</string>

@@ -8,6 +8,7 @@ import android.util.Log;
 import edu.gatech.cs2340.team49x.spacetrader.Model.ModelFacade;
 import edu.gatech.cs2340.team49x.spacetrader.Objects.Difficulty;
 import edu.gatech.cs2340.team49x.spacetrader.Objects.General.Player;
+import edu.gatech.cs2340.team49x.spacetrader.Objects.Universe.SolarSystem;
 import edu.gatech.cs2340.team49x.spacetrader.Objects.Universe.Universe;
 
 public class ConfigurationViewModel extends AndroidViewModel {
@@ -30,6 +31,14 @@ public class ConfigurationViewModel extends AndroidViewModel {
 
     public Difficulty getDifficulty() {
         return ModelFacade.getInstance().getDifficulty();
+    }
+
+    public SolarSystem getCurrentSystem() {
+        return ModelFacade.getInstance().getCurrentSystem();
+    }
+
+    public void setCurrentSystem(SolarSystem system) {
+        ModelFacade.getInstance().setCurrentSystem(system);
     }
 
     public void printGameState() {

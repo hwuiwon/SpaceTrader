@@ -3,6 +3,7 @@ package edu.gatech.cs2340.team49x.spacetrader.Model;
 import edu.gatech.cs2340.team49x.spacetrader.Objects.Difficulty;
 import edu.gatech.cs2340.team49x.spacetrader.Objects.General.Game;
 import edu.gatech.cs2340.team49x.spacetrader.Objects.General.Player;
+import edu.gatech.cs2340.team49x.spacetrader.Objects.Universe.SolarSystem;
 import edu.gatech.cs2340.team49x.spacetrader.Objects.Universe.Universe;
 
 public class ModelFacade {
@@ -31,6 +32,14 @@ public class ModelFacade {
 
     public Difficulty getDifficulty() {
         return  game.getDifficulty();
+    }
+
+    public SolarSystem getCurrentSystem() {
+        return game.getCurrentSystem();
+    }
+
+    public void setCurrentSystem(SolarSystem system) {
+        game.setCurrentSystem(system);
     }
 
     public String printPlayer() {

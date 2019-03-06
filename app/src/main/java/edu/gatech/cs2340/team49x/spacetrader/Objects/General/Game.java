@@ -12,7 +12,7 @@ public class Game {
     private Difficulty difficulty;
     private Universe universe;
     private SolarSystem currentSystem;
-    private Random random;
+    private Random random = new Random();
 
     public Game() {
         random = new Random();
