@@ -16,10 +16,11 @@ import edu.gatech.cs2340.team49x.spacetrader.Objects.Trading.Tradable;
 public class MarketViewModel extends AndroidViewModel {
     public MarketViewModel(@NonNull Application application) {
         super(application);
+        selectedGoods = new Inventory();
     }
 
-    private Item[] sellItems;
-    private Item[] buyItems;
+    private Item[] sellItems = {};
+    private Item[] buyItems = {};
     private Inventory selectedGoods;
     private TradeInteractor interactor;
     private boolean buying;

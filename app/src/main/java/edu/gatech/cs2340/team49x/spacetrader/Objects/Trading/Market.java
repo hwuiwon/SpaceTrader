@@ -12,8 +12,8 @@ import edu.gatech.cs2340.team49x.spacetrader.Objects.Universe.TechLevel;
 public class Market implements Trader {
     private Map<TradeGood, Integer> prices;
     private RandomEvent event;
-    private Tradable[] sells;
-    private Tradable[] buys;
+    private Tradable[] sells = {};
+    private Tradable[] buys = {};
 
     public Market(TechLevel techLevel, Resources resources, Random random) {
         List<Tradable> canSell = new ArrayList<>();
