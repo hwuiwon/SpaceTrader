@@ -58,5 +58,4 @@ public class Game {
     public void setCurrentSystem(SolarSystem currentSystem) {
         this.currentSystem = currentSystem;
     }
-
 }

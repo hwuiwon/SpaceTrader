@@ -10,20 +10,8 @@ public class Coordinate {
         this.y = y;
     }
 
-    public int getX() {
-        return x;
-    }
-
-    public void setX(int x) {
-        this.x = x;
-    }
-
-    public int getY() {
-        return y;
-    }
-
-    public void setY(int y) {
-        this.y = y;
+    public double getDistance(Coordinate coordinate) {
+        return Math.sqrt((this.x - coordinate.x)^2 + (this.y - coordinate.y)^2);
     }
 
     @Override

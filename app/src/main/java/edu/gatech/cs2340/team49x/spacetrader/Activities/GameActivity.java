@@ -12,7 +12,6 @@ import edu.gatech.cs2340.team49x.spacetrader.Viewmodels.ConfigurationViewModel;
 
 public class GameActivity extends AppCompatActivity {
 
-    private ListView planetSelectLV;
     private ConfigurationViewModel viewModel;
 
     @Override
@@ -20,7 +19,7 @@ public class GameActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game);
         viewModel = ViewModelProviders.of(this).get(ConfigurationViewModel.class);
-        planetSelectLV = findViewById(R.id.planetSelectLV);
+        ListView planetSelectLV = findViewById(R.id.planetSelectLV);
         planetSelectLV.setAdapter(makePlanetAdapter());
     }
 

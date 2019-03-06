@@ -93,8 +93,6 @@ public class Player {
         this.credits = credits;
     }
 
-
-
     public void addToCargo(Tradable good, int quantity) {
         this.ship.addToCargo(good, quantity);
     }
@@ -129,15 +127,15 @@ public class Player {
 
     @Override
     public String toString() {
-        return "Player{" +
-                "name='" + name + '\'' +
-                ", skillPt=" + skillPt +
-                ", pilotPt=" + pilotPt +
-                ", fighterPt=" + fighterPt +
-                ", tradePt=" + tradePt +
-                ", engineerPt=" + engineerPt +
-                ", ship=" + ship +
-                ", credits=" + credits +
+        return "\nPlayer{" +
+                "\nname = '" + name + '\'' +
+                ", \nskillPt = " + skillPt +
+                ", pilotPt = " + pilotPt +
+                ", fighterPt = " + fighterPt +
+                ", tradePt = " + tradePt +
+                ", engineerPt = " + engineerPt +
+                ", \nship = " + ship.getName() +
+                ", credits = " + credits +
                 '}';
     }
 }

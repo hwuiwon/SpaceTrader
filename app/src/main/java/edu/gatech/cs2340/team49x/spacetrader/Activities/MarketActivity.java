@@ -13,7 +13,6 @@ import edu.gatech.cs2340.team49x.spacetrader.Viewmodels.MarketViewModel;
 
 public class MarketActivity extends AppCompatActivity {
 
-    private ListView itemLV;
     private MarketViewModel viewModel;
 
     @Override
@@ -22,7 +21,7 @@ public class MarketActivity extends AppCompatActivity {
         setContentView(R.layout.activity_market);
         viewModel = ViewModelProviders.of(this).get(MarketViewModel.class);
         viewModel.init();
-        itemLV = findViewById(R.id.itemLV);
+        ListView itemLV = findViewById(R.id.itemLV);
         itemLV.setAdapter(makeItemAdapter());
     }
 

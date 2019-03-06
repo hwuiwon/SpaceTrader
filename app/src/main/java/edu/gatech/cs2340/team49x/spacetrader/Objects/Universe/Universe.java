@@ -172,16 +172,6 @@ public class Universe {
         }
     }
 
-    public boolean addSolarSystem(SolarSystem system) {
-        if (nameMap.containsKey(system.getName()) || coordMap.containsKey(system.getCoordinate())) {
-            return false;
-        }
-        this.solarSystems.add(system);
-        this.nameMap.put(system.getName(), system);
-        this.coordMap.put(system.getCoordinate(), system);
-        return true;
-    }
-
     /**
      * Returns the solarSystem at a given index.
      *

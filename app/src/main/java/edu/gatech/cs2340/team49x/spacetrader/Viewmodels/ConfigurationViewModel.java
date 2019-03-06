@@ -33,7 +33,7 @@ public class ConfigurationViewModel extends AndroidViewModel {
     }
 
     public void printGameState() {
-        Log.d("STATE", ModelFacade.getInstance().printPlayer());
-        Log.d("STATE", ModelFacade.getInstance().printUniverse());
+        Log.e("STATE", ModelFacade.getInstance().printPlayer());
+        Log.e("STATE", ModelFacade.getInstance().printUniverse());
     }
 }

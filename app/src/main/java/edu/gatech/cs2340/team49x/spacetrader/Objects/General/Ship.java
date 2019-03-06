@@ -72,4 +72,8 @@ public class Ship {
     public int cargoSpaceRemaining() {
         return type.getStorage() - cargo.getCount();
     }
+
+    public String getName() {
+        return type.name();
+    }
 }

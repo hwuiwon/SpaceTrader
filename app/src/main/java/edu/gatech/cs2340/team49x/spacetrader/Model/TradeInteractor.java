@@ -1,13 +1,10 @@
 package edu.gatech.cs2340.team49x.spacetrader.Model;
 
-import java.util.Map;
-
 import edu.gatech.cs2340.team49x.spacetrader.Objects.General.Player;
 import edu.gatech.cs2340.team49x.spacetrader.Objects.Trading.Inventory;
 import edu.gatech.cs2340.team49x.spacetrader.Objects.Trading.Tradable;
 import edu.gatech.cs2340.team49x.spacetrader.Objects.Trading.Trader;
 import edu.gatech.cs2340.team49x.spacetrader.Objects.Universe.SolarSystem;
-import edu.gatech.cs2340.team49x.spacetrader.Objects.Universe.TechLevel;
 
 /**
  * This class is used by MarketViewModel to connect with the backend.
