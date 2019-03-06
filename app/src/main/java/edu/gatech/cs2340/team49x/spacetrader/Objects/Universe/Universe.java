@@ -163,8 +163,7 @@ public class Universe {
                     name,
                     coordinate,
                     TechLevel.getRandom(random),
-                    Resources.getRandom(random),
-                    random
+                    Resources.getRandom(random)
             );
             this.solarSystems.add(newSystem);
             this.nameMap.put(name, newSystem);

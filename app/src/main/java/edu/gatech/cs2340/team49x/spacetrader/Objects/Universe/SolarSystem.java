@@ -2,7 +2,6 @@ package edu.gatech.cs2340.team49x.spacetrader.Objects.Universe;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
 
 import edu.gatech.cs2340.team49x.spacetrader.Objects.Trading.Market;
 
@@ -13,23 +12,21 @@ public class SolarSystem {
     private TechLevel techLevel;
     private List<Planet> planets;
     private Resources resources;
-    private Random random;
     private Market market;
 
     public SolarSystem(String name, Coordinate coordinate,
-                       TechLevel techLevel, Resources resources, Random random, List<Planet> planets) {
+                       TechLevel techLevel, Resources resources, List<Planet> planets) {
         this.name = name;
         this.coordinate = coordinate;
         this.techLevel = techLevel;
         this.resources = resources;
-        this.random = random;
         this.planets = planets;
-        this.market = new Market(techLevel, resources, random);
+        this.market = new Market(techLevel, resources);
     }
 
     public SolarSystem(String name, Coordinate coordinate,
-                       TechLevel techLevel, Resources resources, Random random) {
-        this(name, coordinate, techLevel, resources, random, new ArrayList<Planet>());
+                       TechLevel techLevel, Resources resources) {
+        this(name, coordinate, techLevel, resources, new ArrayList<Planet>());
     }
 
     public String getName() {
