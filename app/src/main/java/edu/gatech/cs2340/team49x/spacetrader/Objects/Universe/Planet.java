@@ -16,8 +16,4 @@ public class Planet {
         this.name = name;
     }
 
-    public boolean equals(Planet o) {
-        Planet planet = o;
-        return planet.getName().equals(name);
-    }
 }

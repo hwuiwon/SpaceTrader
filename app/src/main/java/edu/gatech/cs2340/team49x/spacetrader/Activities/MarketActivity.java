@@ -31,9 +31,6 @@ public class MarketActivity extends AppCompatActivity {
      */
     public ItemAdapter makeItemAdapter() {
         final ItemAdapter adapter = new ItemAdapter(this);
-
-        // Need to create items depending on resources and tech level and add them to Item[] items
-
         for (Item item : viewModel.getItems()) {
             adapter.addItem(item);
         }

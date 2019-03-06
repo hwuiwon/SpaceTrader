@@ -7,9 +7,20 @@
     tools:context=".Activities.GameActivity">
     
     <TextView
+        android:id="@+id/gameSelectTV"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/tmpScr"
-        android:layout_centerInParent="true" />
+        android:text="@string/select"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/margin2"
+        android:layout_marginBottom="@dimen/margin2"
+        android:fontFamily="@font/montserrat_regular"
+        android:textColor="@android:color/black"/>
+
+    <ListView
+        android:id="@+id/planetSelectLV"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/gameSelectTV"/>
 
 </RelativeLayout>

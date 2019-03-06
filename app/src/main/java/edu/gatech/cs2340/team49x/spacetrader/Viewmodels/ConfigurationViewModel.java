@@ -8,6 +8,7 @@ import android.util.Log;
 import edu.gatech.cs2340.team49x.spacetrader.Model.ModelFacade;
 import edu.gatech.cs2340.team49x.spacetrader.Objects.Difficulty;
 import edu.gatech.cs2340.team49x.spacetrader.Objects.General.Player;
+import edu.gatech.cs2340.team49x.spacetrader.Objects.Universe.Universe;
 
 public class ConfigurationViewModel extends AndroidViewModel {
 
@@ -21,6 +22,10 @@ public class ConfigurationViewModel extends AndroidViewModel {
 
     public Player getPlayer() {
         return ModelFacade.getInstance().getPlayer();
+    }
+
+    public Universe getUniverse() {
+        return ModelFacade.getInstance().getUniverse();
     }
 
     public Difficulty getDifficulty() {

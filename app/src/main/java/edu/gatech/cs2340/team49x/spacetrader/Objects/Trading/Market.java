@@ -45,7 +45,6 @@ public class Market implements Trader {
         if (buys != null) buys = canBuy.toArray(buys);
     }
 
-
     public RandomEvent getEvent() {
         return event;
     }

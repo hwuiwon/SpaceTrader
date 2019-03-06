@@ -43,10 +43,13 @@ public class Game {
         return player.toString();
     }
 
+    public Universe getUniverse() {
+        return universe;
+    }
+
     public String printUniverse() {
         return universe.toString();
     }
-
 
     public SolarSystem getCurrentSystem() {
         return currentSystem;
