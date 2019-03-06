@@ -1,14 +1,10 @@
 package edu.gatech.cs2340.team49x.spacetrader.Objects.Universe;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 import java.util.Random;
 
 import edu.gatech.cs2340.team49x.spacetrader.Objects.Trading.Market;
-import edu.gatech.cs2340.team49x.spacetrader.Objects.Trading.Tradable;
-import edu.gatech.cs2340.team49x.spacetrader.Objects.Trading.TradeGood;
 
 public class SolarSystem {
 

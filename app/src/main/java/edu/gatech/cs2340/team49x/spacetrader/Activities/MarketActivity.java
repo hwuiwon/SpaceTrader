@@ -9,7 +9,6 @@ import android.widget.ListView;
 import edu.gatech.cs2340.team49x.spacetrader.Adapters.ItemAdapter;
 import edu.gatech.cs2340.team49x.spacetrader.Objects.Item;
 import edu.gatech.cs2340.team49x.spacetrader.R;
-import edu.gatech.cs2340.team49x.spacetrader.Viewmodels.ConfigurationViewModel;
 import edu.gatech.cs2340.team49x.spacetrader.Viewmodels.MarketViewModel;
 
 public class MarketActivity extends AppCompatActivity {

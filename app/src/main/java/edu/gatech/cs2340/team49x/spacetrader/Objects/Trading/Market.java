@@ -12,8 +12,8 @@ import edu.gatech.cs2340.team49x.spacetrader.Objects.Universe.TechLevel;
 public class Market implements Trader {
     private Map<TradeGood, Integer> prices;
     private RandomEvent event;
-    private Tradable[] sells;
-    private Tradable[] buys;
+    private Tradable[] sells = null;
+    private Tradable[] buys = null;
 
     public Market(TechLevel techLevel, Resources resources, Random random) {
         List<Tradable> canSell = new ArrayList<>();
@@ -41,8 +41,8 @@ public class Market implements Trader {
                 prices.put(good, price);
             }
         }
-        sells = canSell.toArray(sells);
-        buys = canBuy.toArray(buys);
+        if (sells != null) sells = canSell.toArray(sells);
+        if (buys != null) buys = canBuy.toArray(buys);
     }
 
 
