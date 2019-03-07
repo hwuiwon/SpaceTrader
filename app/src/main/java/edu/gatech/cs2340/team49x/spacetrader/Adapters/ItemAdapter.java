@@ -46,11 +46,6 @@ public class ItemAdapter extends ArrayAdapter<Item> {
             tradeCountTV = findViewById(R.id.tradeCountTV);
             tradeIncreaseBT = findViewById(R.id.tradeIncreaseBT);
             tradeDecreaseBT = findViewById(R.id.tradeDecreaseBT);
-
-            itemNameTV.setText(item.getName());
-            itemPriceTV.setText(String.valueOf(item.getPrice()));
-            itemRemainTV.setText(String.valueOf(item.getRemaining()));
-
             setData(item);
         }
 
@@ -59,6 +54,7 @@ public class ItemAdapter extends ArrayAdapter<Item> {
             itemNameTV.setText(item.getName());
             itemPriceTV.setText(String.valueOf(item.getPrice()));
             itemRemainTV.setText(String.valueOf(item.getRemaining()));
+            update();
 
             tradeDecreaseBT.setOnClickListener(new View.OnClickListener() {
                 @Override
