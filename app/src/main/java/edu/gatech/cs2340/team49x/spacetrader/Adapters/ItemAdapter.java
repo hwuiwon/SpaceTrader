@@ -13,6 +13,7 @@ import android.widget.TextView;
 import java.util.List;
 
 import edu.gatech.cs2340.team49x.spacetrader.Objects.Item;
+import edu.gatech.cs2340.team49x.spacetrader.Objects.Trading.TradeGood;
 import edu.gatech.cs2340.team49x.spacetrader.R;
 import edu.gatech.cs2340.team49x.spacetrader.Viewmodels.MarketViewModel;
 
@@ -58,6 +59,7 @@ public class ItemAdapter extends ArrayAdapter<Item> {
             @Override
             public void onClick(View v) {
                 currentItem.removeQuantity();
+                viewModel.decreaseAmount(TradeGood.valueOf(String.valueOf(itemNameTV.getText()).toUpperCase()));
                 tradeCountTV.setText(Integer.toString(currentItem.getQuantity()));
                 notifyDataSetChanged();
             }
@@ -67,11 +69,11 @@ public class ItemAdapter extends ArrayAdapter<Item> {
             @Override
             public void onClick(View v) {
                 currentItem.addQuantity();
+                viewModel.increaseAmount(TradeGood.valueOf(String.valueOf(itemNameTV.getText()).toUpperCase()));
                 tradeCountTV.setText(Integer.toString(currentItem.getQuantity()));
                 notifyDataSetChanged();
             }
         });
-
         return listItemView;
     }
 }

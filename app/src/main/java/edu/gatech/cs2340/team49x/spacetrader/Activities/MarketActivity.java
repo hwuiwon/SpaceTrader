@@ -97,6 +97,7 @@ public class MarketActivity extends AppCompatActivity {
         if (viewModel.isBuying()) {
             if (viewModel.getTotal()
                     <= configurationViewModel.getPlayer().getCredits()) {
+                configurationViewModel.getPlayer().changeCredits(-viewModel.getTotal());
                 viewModel.done();
                 finish();
             } else {

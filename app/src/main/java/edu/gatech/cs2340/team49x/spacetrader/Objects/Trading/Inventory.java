@@ -110,7 +110,7 @@ public class Inventory {
      * Empties the inventory.
      */
     public void empty() {
-        quantities = new HashMap<>();
+        quantities.clear();
         count = 0;
     }
 
