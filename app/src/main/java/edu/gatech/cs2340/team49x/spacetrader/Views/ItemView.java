@@ -37,7 +37,7 @@ public class ItemView extends RelativeLayout {
      */
     public void setData(Item item) {
         itemNameTV.setText(item.getName());
-        itemRemainTV.setText(item.getRemaining());
+        itemRemainTV.setText(String.valueOf(item.getRemaining()));
         itemPriceTV.setText(String.valueOf(item.getPrice()));
     }
 }

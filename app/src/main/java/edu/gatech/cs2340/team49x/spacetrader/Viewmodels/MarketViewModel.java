@@ -19,8 +19,8 @@ public class MarketViewModel extends AndroidViewModel {
         super(application);
     }
 
-    private Item[] sellItems;
-    private Item[] buyItems;
+    private Item[] sellItems = {};
+    private Item[] buyItems = {};
     private Inventory selectedGoods;
     private TradeInteractor interactor;
     private boolean buying;
