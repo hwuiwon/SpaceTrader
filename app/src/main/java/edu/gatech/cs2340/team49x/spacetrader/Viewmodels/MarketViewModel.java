@@ -23,7 +23,7 @@ public class MarketViewModel extends AndroidViewModel {
     private Item[] buyItems = {};
     private Inventory selectedGoods;
     private TradeInteractor interactor;
-    private boolean buying;
+    private boolean buying = true;
     private int total;
 
     public void init() {
@@ -86,6 +86,10 @@ public class MarketViewModel extends AndroidViewModel {
         buying = !buying;
         selectedGoods.empty();
         total = 0;
+    }
+
+    public void setTotal(int price) {
+        total = price;
     }
 
     public int getAmountSelected(Tradable good) {

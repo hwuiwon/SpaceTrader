@@ -63,7 +63,7 @@
         android:weightSum="4">
 
         <Button
-            android:id="@+id/tradeIncreaseBT"
+            android:id="@+id/tradeDecreaseBT"
             android:layout_width="50dp"
             android:layout_height="wrap_content"
             android:text="@string/minus"
@@ -71,23 +71,23 @@
             android:layout_weight="1"/>
 
         <TextView
-            android:id="@+id/tradeCount"
+            android:id="@+id/tradeCountTV"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="1"
+            android:text="0"
             android:layout_marginStart="@dimen/margin3"
             android:layout_marginTop="@dimen/margin7"
             android:textColor="@android:color/white"
-            android:layout_toEndOf="@+id/tradeIncreaseBT"
+            android:layout_toEndOf="@+id/tradeDecreaseBT"
             android:layout_weight="2"
             android:fontFamily="@font/montserrat_semibold"/>
 
         <Button
-            android:id="@+id/tradeDecreaseBT"
+            android:id="@+id/tradeIncreaseBT"
             android:layout_width="50dp"
             android:layout_height="wrap_content"
             android:text="@string/plus"
-            android:layout_toEndOf="@id/tradeCount"
+            android:layout_toEndOf="@id/tradeCountTV"
             android:layout_marginTop="@dimen/margin7"
             android:layout_marginStart="@dimen/margin3"
             android:layout_weight="1"/>

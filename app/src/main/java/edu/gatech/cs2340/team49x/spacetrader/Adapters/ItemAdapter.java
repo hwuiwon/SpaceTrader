@@ -1,53 +1,72 @@
 package edu.gatech.cs2340.team49x.spacetrader.Adapters;
 
 import android.content.Context;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.BaseAdapter;
+import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.TextView;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import edu.gatech.cs2340.team49x.spacetrader.Objects.Item;
-import edu.gatech.cs2340.team49x.spacetrader.Views.ItemView;
+import edu.gatech.cs2340.team49x.spacetrader.R;
 
-public class ItemAdapter extends BaseAdapter {
+public class ItemAdapter extends ArrayAdapter<Item> {
 
     private Context context;
-    private List<Item> items = new ArrayList<>();
+    private List<Item> items;
+    private Button tradeDecreaseBT;
+    private Button tradeIncreaseBT;
+    private TextView tradeCountTV;
+    private TextView itemRemainTV;
+    private TextView itemNameTV;
+    private TextView itemPriceTV;
 
-    public ItemAdapter(Context context) {
-        this.context = context;
-    }
-
-    public void addItem(Item item) {
-        items.add(item);
-    }
-
-    @Override
-    public int getCount() {
-        return items.size();
-    }
-
-    @Override
-    public Object getItem(int position) {
-        return items.get(position);
-    }
-
-    @Override
-    public long getItemId(int position) {
-        return position;
+    public ItemAdapter(Context context, List<Item> items) {
+        super(context, 0, items);
     }
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        ItemView itemView;
-        if (convertView == null) {
-            itemView = new ItemView(context, items.get(position));
-        } else {
-            itemView = (ItemView) convertView;
-            itemView.setData(items.get(position));
+        View listItemView = convertView;
+        if (listItemView == null) {
+            listItemView = LayoutInflater.from(getContext())
+                    .inflate(R.layout.item,parent,false);
         }
-        return itemView;
+
+        final Item currentItem = getItem(position);
+
+        itemNameTV = listItemView.findViewById(R.id.itemNameTV);
+        itemPriceTV = listItemView.findViewById(R.id.itemPriceTV);
+        itemRemainTV = listItemView.findViewById(R.id.itemRemainTV);
+        tradeCountTV = listItemView.findViewById(R.id.tradeCountTV);
+        tradeIncreaseBT = listItemView.findViewById(R.id.tradeIncreaseBT);
+        tradeDecreaseBT = listItemView.findViewById(R.id.tradeDecreaseBT);
+
+        itemNameTV.setText(currentItem.getName());
+        itemPriceTV.setText(String.valueOf(currentItem.getPrice()));
+        itemRemainTV.setText(String.valueOf(currentItem.getRemaining()));
+
+        tradeDecreaseBT.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                currentItem.removeQuantity();
+                tradeCountTV.setText(Integer.toString(currentItem.getQuantity()));
+                notifyDataSetChanged();
+            }
+        });
+
+        tradeIncreaseBT.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                currentItem.addQuantity();
+                tradeCountTV.setText(Integer.toString(currentItem.getQuantity()));
+                notifyDataSetChanged();
+            }
+        });
+
+        return listItemView;
     }
 }

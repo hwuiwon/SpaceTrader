@@ -34,9 +34,9 @@
     <string name="sRem">2</string>
     <string name="inCargo">\tin Cargo</string>
     <string name="sPrice">(15.00)</string>
-    <string name="switchScreen">Switch to Buy</string>
+    <string name="switchScreen">Switch to Sell</string>
     <string name="ttlSale">Total Sale:\t</string>
-    <string name="sSale">1400</string>
+    <string name="sSale">0</string>
     <string name="urCredit">Your credits:\t</string>
-    <string name="sCredit">15000</string>
+    <string name="sCredit">1000</string>
 </resources>
