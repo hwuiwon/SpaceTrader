@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -29,13 +30,13 @@ public class GameActivity extends AppCompatActivity {
         currentSystemTV = findViewById(R.id.currentSystemTV);
         currentSystemTV.setText(viewModel.getCurrentSystem().getName());
 
-        planetSelectLV.setOnClickListener(new View.OnClickListener() {
+        planetSelectLV.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
-            public void onClick(View v) {
-//                viewModel.setCurrentSystem();
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                viewModel.setCurrentSystem(viewModel.getUniverse().getSolarSystem(position));
+                currentSystemTV.setText(viewModel.getCurrentSystem().getName());
             }
         });
-
     }
 
     public SolarSystemAdapter makePlanetAdapter() {
