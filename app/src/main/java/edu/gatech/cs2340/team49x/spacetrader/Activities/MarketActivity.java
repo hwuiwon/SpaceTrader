@@ -13,7 +13,6 @@ import java.util.ArrayList;
 
 import edu.gatech.cs2340.team49x.spacetrader.Adapters.ItemAdapter;
 import edu.gatech.cs2340.team49x.spacetrader.Objects.Item;
-import edu.gatech.cs2340.team49x.spacetrader.Objects.Trading.Inventory;
 import edu.gatech.cs2340.team49x.spacetrader.R;
 import edu.gatech.cs2340.team49x.spacetrader.Viewmodels.ConfigurationViewModel;
 import edu.gatech.cs2340.team49x.spacetrader.Viewmodels.MarketViewModel;
@@ -90,24 +89,21 @@ public class MarketActivity extends AppCompatActivity {
     }
 
     /**
-     * Check if the player can buy items he/she selected and make transaction
+     * Check if the player can buy or sell items he/she selected and make transaction
      *
      * @param view current View
      */
-    public void buy(View view) {
-        if (viewModel.getTotal()
-                <= configurationViewModel.getPlayer().getCredits()) {
-            Inventory inventory = new Inventory();
-            for (Item item : items) {
-                if (item.getQuantity() != 0) {
-                    inventory.add(item.getName(), item.getQuantity());
-                }
+    public void doTransaction(View view) {
+        if (viewModel.isBuying()) {
+            if (viewModel.getTotal()
+                    <= configurationViewModel.getPlayer().getCredits()) {
+                viewModel.done();
+                finish();
+            } else {
+                Toast.makeText(this, "Not enough credit", Toast.LENGTH_SHORT).show();
             }
-            viewModel.setSelectedGoods(inventory);
-            viewModel.done();
-            finish();
         } else {
-            Toast.makeText(this, "Not enough credit", Toast.LENGTH_SHORT).show();
+            // Selling function
         }
     }
 }

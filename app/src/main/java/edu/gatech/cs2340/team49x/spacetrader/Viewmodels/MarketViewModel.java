@@ -11,6 +11,7 @@ import edu.gatech.cs2340.team49x.spacetrader.Model.ModelFacade;
 import edu.gatech.cs2340.team49x.spacetrader.Model.TradeInteractor;
 import edu.gatech.cs2340.team49x.spacetrader.Objects.Item;
 import edu.gatech.cs2340.team49x.spacetrader.Objects.Trading.Inventory;
+import edu.gatech.cs2340.team49x.spacetrader.Objects.Trading.Tradable;
 
 public class MarketViewModel extends AndroidViewModel {
 
@@ -34,16 +35,16 @@ public class MarketViewModel extends AndroidViewModel {
         List<Item> sellList = new ArrayList<>();
         List<Item> buyList = new ArrayList<>();
 
-        for (String t : interactor.getBuyList()) {
+        for (Tradable t : interactor.getBuyList()) {
             sellList.add(new Item(
-                    t,
+                    t.getName(),
                     interactor.getPriceOf(t),
                     interactor.getCargoAmount(t)
             ));
         }
-        for (String t : interactor.getSellList()) {
+        for (Tradable t : interactor.getSellList()) {
             buyList.add(new Item(
-                    t,
+                    t.getName(),
                     interactor.getPriceOf(t),
                     interactor.getCargoAmount(t)
             ));
@@ -62,7 +63,7 @@ public class MarketViewModel extends AndroidViewModel {
      * @param good the Tradable selected
      * @return true if the increase was successful, false otherwise
      */
-    public boolean increaseAmount(String good) {
+    public boolean increaseAmount(Tradable good) {
         if (buying) {
             if (selectedGoods.getCount() >= interactor.getCargoRemaining()) {
                 return false;
@@ -75,7 +76,7 @@ public class MarketViewModel extends AndroidViewModel {
         return true;
     }
 
-    public boolean decreaseAmount(String good) {
+    public boolean decreaseAmount(Tradable good) {
         if (selectedGoods.getQuantity(good) <= 0) {
             return false;
         }
@@ -98,7 +99,11 @@ public class MarketViewModel extends AndroidViewModel {
         selectedGoods = inventory;
     }
 
-    public int getAmountSelected(String good) {
+    public Inventory getSelectedGoods() {
+        return selectedGoods;
+    }
+
+    public int getAmountSelected(Tradable good) {
         return selectedGoods.getQuantity(good);
     }
 

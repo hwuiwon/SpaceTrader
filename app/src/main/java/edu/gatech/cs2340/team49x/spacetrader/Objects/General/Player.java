@@ -1,6 +1,7 @@
 package edu.gatech.cs2340.team49x.spacetrader.Objects.General;
 
 import edu.gatech.cs2340.team49x.spacetrader.Objects.Trading.Inventory;
+import edu.gatech.cs2340.team49x.spacetrader.Objects.Trading.Tradable;
 
 public class Player {
 
@@ -92,7 +93,7 @@ public class Player {
         this.credits = credits;
     }
 
-    public void addToCargo(String good, int quantity) {
+    public void addToCargo(Tradable good, int quantity) {
         this.ship.addToCargo(good, quantity);
     }
 
@@ -100,7 +101,7 @@ public class Player {
         this.ship.addToCargo(items);
     }
 
-    public void removeFromCargo(String good, int quantity) {
+    public void removeFromCargo(Tradable good, int quantity) {
         this.ship.removeFromCargo(good, quantity);
     }
 
@@ -108,7 +109,7 @@ public class Player {
         this.ship.removeFromCargo(items);
     }
 
-    public int getAmountOf(String good) {
+    public int getAmountOf(Tradable good) {
         return this.ship.getAmountOf(good);
     }
 

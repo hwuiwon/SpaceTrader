@@ -1,6 +1,8 @@
 package edu.gatech.cs2340.team49x.spacetrader.Adapters;
 
+import android.arch.lifecycle.ViewModelProviders;
 import android.content.Context;
+import android.support.v4.app.FragmentActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,9 +14,11 @@ import java.util.List;
 
 import edu.gatech.cs2340.team49x.spacetrader.Objects.Item;
 import edu.gatech.cs2340.team49x.spacetrader.R;
+import edu.gatech.cs2340.team49x.spacetrader.Viewmodels.MarketViewModel;
 
 public class ItemAdapter extends ArrayAdapter<Item> {
 
+    private MarketViewModel viewModel;
     private Context context;
     private List<Item> items;
     private Button tradeDecreaseBT;
@@ -30,6 +34,7 @@ public class ItemAdapter extends ArrayAdapter<Item> {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
+        viewModel = ViewModelProviders.of((FragmentActivity) getContext()).get(MarketViewModel.class);
         View listItemView = convertView;
         if (listItemView == null) {
             listItemView = LayoutInflater.from(getContext())
