@@ -9,12 +9,10 @@ import android.widget.ListView;
 import edu.gatech.cs2340.team49x.spacetrader.Adapters.ItemAdapter;
 import edu.gatech.cs2340.team49x.spacetrader.Objects.Item;
 import edu.gatech.cs2340.team49x.spacetrader.R;
-import edu.gatech.cs2340.team49x.spacetrader.Viewmodels.ConfigurationViewModel;
 import edu.gatech.cs2340.team49x.spacetrader.Viewmodels.MarketViewModel;
 
 public class MarketActivity extends AppCompatActivity {
 
-    private ListView itemLV;
     private MarketViewModel viewModel;
 
     @Override
@@ -23,7 +21,7 @@ public class MarketActivity extends AppCompatActivity {
         setContentView(R.layout.activity_market);
         viewModel = ViewModelProviders.of(this).get(MarketViewModel.class);
         viewModel.init();
-        itemLV = findViewById(R.id.itemLV);
+        ListView itemLV = findViewById(R.id.itemLV);
         itemLV.setAdapter(makeItemAdapter());
     }
 
@@ -32,9 +30,6 @@ public class MarketActivity extends AppCompatActivity {
      */
     public ItemAdapter makeItemAdapter() {
         final ItemAdapter adapter = new ItemAdapter(this);
-
-        // Need to create items depending on resources and tech level and add them to Item[] items
-
         for (Item item : viewModel.getItems()) {
             adapter.addItem(item);
         }

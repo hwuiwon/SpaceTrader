@@ -3,6 +3,8 @@ package edu.gatech.cs2340.team49x.spacetrader.Model;
 import edu.gatech.cs2340.team49x.spacetrader.Objects.Difficulty;
 import edu.gatech.cs2340.team49x.spacetrader.Objects.General.Game;
 import edu.gatech.cs2340.team49x.spacetrader.Objects.General.Player;
+import edu.gatech.cs2340.team49x.spacetrader.Objects.Universe.SolarSystem;
+import edu.gatech.cs2340.team49x.spacetrader.Objects.Universe.Universe;
 
 public class ModelFacade {
     private final static int NUM_SYSTEMS = 100;
@@ -16,18 +18,28 @@ public class ModelFacade {
         game = new Game();
     }
 
-    public void configureGame(Player p, Difficulty d) {
-        game.setPlayer(p);
-        game.setDifficulty(d);
-        game.createUniverse(NUM_SYSTEMS);
+    public void configureGame(Player player, Difficulty difficulty) {
+        game = new Game(player, difficulty, NUM_SYSTEMS);
     }
 
     public Player getPlayer() {
         return  game.getPlayer();
     }
 
+    public Universe getUniverse() {
+        return game.getUniverse();
+    }
+
     public Difficulty getDifficulty() {
         return  game.getDifficulty();
+    }
+
+    public SolarSystem getCurrentSystem() {
+        return game.getCurrentSystem();
+    }
+
+    public void setCurrentSystem(SolarSystem system) {
+        game.setCurrentSystem(system);
     }
 
     public String printPlayer() {

@@ -163,23 +163,12 @@ public class Universe {
                     name,
                     coordinate,
                     TechLevel.getRandom(random),
-                    Resources.getRandom(random),
-                    random
+                    Resources.getRandom(random)
             );
             this.solarSystems.add(newSystem);
             this.nameMap.put(name, newSystem);
             this.coordMap.put(coordinate, newSystem);
         }
-    }
-
-    public boolean addSolarSystem(SolarSystem system) {
-        if (nameMap.containsKey(system.getName()) || coordMap.containsKey(system.getCoordinate())) {
-            return false;
-        }
-        this.solarSystems.add(system);
-        this.nameMap.put(system.getName(), system);
-        this.coordMap.put(system.getCoordinate(), system);
-        return true;
     }
 
     /**

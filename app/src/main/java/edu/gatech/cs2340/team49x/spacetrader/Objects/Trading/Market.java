@@ -14,8 +14,9 @@ public class Market implements Trader {
     private RandomEvent event;
     private Tradable[] sells = {};
     private Tradable[] buys = {};
+    private Random random = new Random();
 
-    public Market(TechLevel techLevel, Resources resources, Random random) {
+    public Market(TechLevel techLevel, Resources resources) {
         List<Tradable> canSell = new ArrayList<>();
         List<Tradable> canBuy = new ArrayList<>();
         prices = new HashMap<>();
@@ -44,7 +45,6 @@ public class Market implements Trader {
         sells = canSell.toArray(sells);
         buys = canBuy.toArray(buys);
     }
-
 
     public RandomEvent getEvent() {
         return event;

@@ -14,6 +14,7 @@ import edu.gatech.cs2340.team49x.spacetrader.Objects.Trading.Inventory;
 import edu.gatech.cs2340.team49x.spacetrader.Objects.Trading.Tradable;
 
 public class MarketViewModel extends AndroidViewModel {
+
     public MarketViewModel(@NonNull Application application) {
         super(application);
         selectedGoods = new Inventory();
@@ -28,7 +29,7 @@ public class MarketViewModel extends AndroidViewModel {
 
     public void init() {
         interactor = ModelFacade.getInstance().startTrade();
-        selectedGoods.empty();
+        selectedGoods = new Inventory();
         total = 0;
         //initialize item array by getting data from the interactor
         List<Item> sellList = new ArrayList<>();
