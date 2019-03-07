@@ -37,14 +37,14 @@ public class MarketViewModel extends AndroidViewModel {
 
         for (Tradable t : interactor.getBuyList()) {
             sellList.add(new Item(
-                    t.getName(),
+                    t,
                     interactor.getPriceOf(t),
                     interactor.getCargoAmount(t)
             ));
         }
         for (Tradable t : interactor.getSellList()) {
             buyList.add(new Item(
-                    t.getName(),
+                    t,
                     interactor.getPriceOf(t),
                     interactor.getCargoAmount(t)
             ));
@@ -113,6 +113,10 @@ public class MarketViewModel extends AndroidViewModel {
 
     public int getTotal() {
         return total;
+    }
+
+    public int getCredits() {
+        return interactor.getCredits();
     }
 
     public void done() {

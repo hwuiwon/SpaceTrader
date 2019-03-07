@@ -19,10 +19,10 @@ import edu.gatech.cs2340.team49x.spacetrader.Viewmodels.MarketViewModel;
 
 public class MarketActivity extends AppCompatActivity {
 
-    private ConfigurationViewModel configurationViewModel;
     private MarketViewModel viewModel;
     private ArrayList<Item> items;
     private ListView itemLV;
+    private ItemAdapter adapter;
     private TextView totalPriceTV;
     private TextView playerCreditTV;
 
@@ -33,16 +33,15 @@ public class MarketActivity extends AppCompatActivity {
 
         viewModel = ViewModelProviders.of(this).get(MarketViewModel.class);
         viewModel.init();
-        configurationViewModel = ViewModelProviders.of(this).get(ConfigurationViewModel.class);
 
         itemLV = findViewById(R.id.itemLV);
         items = getListItemData();
-        ItemAdapter adapter = new ItemAdapter(this, items);
+        adapter = new ItemAdapter(this, items);
         itemLV.setAdapter(adapter);
         adapter.registerDataSetObserver(observer);
         totalPriceTV = findViewById(R.id.totalPriceTV);
         playerCreditTV = findViewById(R.id.playerCreditTV);
-        playerCreditTV.setText(String.valueOf(configurationViewModel.getPlayer().getCredits()));
+        playerCreditTV.setText(String.valueOf(viewModel.getCredits()));
     }
 
     DataSetObserver observer = new DataSetObserver() {
@@ -54,16 +53,7 @@ public class MarketActivity extends AppCompatActivity {
     };
 
     public void setPriceTotal() {
-        totalPriceTV.setText(String.valueOf(calculateTotalPrice()));
-    }
-
-    public int calculateTotalPrice() {
-        int total = 0;
-        for (Item item : items) {
-            total += item.getPrice() * item.getQuantity();
-        }
-        viewModel.setTotal(total);
-        return total;
+        totalPriceTV.setText(String.valueOf(viewModel.getTotal()));
     }
 
     /**
@@ -86,6 +76,9 @@ public class MarketActivity extends AppCompatActivity {
         // Switch between buy and sell screen
         viewModel.toggleBuySell();
         // Update ListView with new items and change text
+        adapter.clear();
+        adapter.addAll(getListItemData());
+        adapter.notifyDataSetChanged();
     }
 
     /**
@@ -96,7 +89,7 @@ public class MarketActivity extends AppCompatActivity {
     public void doTransaction(View view) {
         if (viewModel.isBuying()) {
             if (viewModel.getTotal()
-                    <= configurationViewModel.getPlayer().getCredits()) {
+                    <= viewModel.getCredits()) {
                 viewModel.done();
                 finish();
             } else {
