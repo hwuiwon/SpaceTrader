@@ -12,13 +12,13 @@ import edu.gatech.cs2340.team49x.spacetrader.Objects.Universe.TechLevel;
 public class Market implements Trader {
     private Map<TradeGood, Integer> prices;
     private RandomEvent event;
-    private Tradable[] sells = {};
-    private Tradable[] buys = {};
+    private String[] sells = {};
+    private String[] buys = {};
     private Random random = new Random();
 
     public Market(TechLevel techLevel, Resources resources) {
-        List<Tradable> canSell = new ArrayList<>();
-        List<Tradable> canBuy = new ArrayList<>();
+        List<TradeGood> canSell = new ArrayList<>();
+        List<TradeGood> canBuy = new ArrayList<>();
         prices = new HashMap<>();
         for (TradeGood good : TradeGood.values()) {
             if (good.canBeProducedBy(techLevel)) {
@@ -55,19 +55,19 @@ public class Market implements Trader {
     }
 
     @Override
-    public Tradable[] sells() {
+    public String[] sells() {
         return sells;
     }
 
     @Override
-    public Tradable[] buys() {
+    public String[] buys() {
         return buys;
     }
 
     @Override
-    public int getPrice(Tradable t) {
+    public int getPrice(String t) {
         if (prices.containsKey(t)) {
-            TradeGood good = (TradeGood) t;
+            TradeGood good = TradeGood.valueOf(t);
             if (good.getPriceUP() == event) {
                 return prices.get(t) * 2;
             }

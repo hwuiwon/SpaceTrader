@@ -11,7 +11,6 @@ import edu.gatech.cs2340.team49x.spacetrader.Model.ModelFacade;
 import edu.gatech.cs2340.team49x.spacetrader.Model.TradeInteractor;
 import edu.gatech.cs2340.team49x.spacetrader.Objects.Item;
 import edu.gatech.cs2340.team49x.spacetrader.Objects.Trading.Inventory;
-import edu.gatech.cs2340.team49x.spacetrader.Objects.Trading.Tradable;
 
 public class MarketViewModel extends AndroidViewModel {
 
@@ -30,23 +29,26 @@ public class MarketViewModel extends AndroidViewModel {
         interactor = ModelFacade.getInstance().startTrade();
         selectedGoods = new Inventory();
         total = 0;
+
         //initialize item array by getting data from the interactor
         List<Item> sellList = new ArrayList<>();
         List<Item> buyList = new ArrayList<>();
-        for (Tradable t : interactor.getBuyList()) {
+
+        for (String t : interactor.getBuyList()) {
             sellList.add(new Item(
-                    t.getName(),
+                    t,
                     interactor.getPriceOf(t),
                     interactor.getCargoAmount(t)
             ));
         }
-        for (Tradable t : interactor.getSellList()) {
+        for (String t : interactor.getSellList()) {
             buyList.add(new Item(
-                    t.getName(),
+                    t,
                     interactor.getPriceOf(t),
                     interactor.getCargoAmount(t)
             ));
         }
+
         sellItems = sellList.toArray(sellItems);
         buyItems = buyList.toArray(buyItems);
     }
@@ -60,7 +62,7 @@ public class MarketViewModel extends AndroidViewModel {
      * @param good the Tradable selected
      * @return true if the increase was successful, false otherwise
      */
-    public boolean increaseAmount(Tradable good) {
+    public boolean increaseAmount(String good) {
         if (buying) {
             if (selectedGoods.getCount() >= interactor.getCargoRemaining()) {
                 return false;
@@ -73,7 +75,7 @@ public class MarketViewModel extends AndroidViewModel {
         return true;
     }
 
-    public boolean decreaseAmount(Tradable good) {
+    public boolean decreaseAmount(String good) {
         if (selectedGoods.getQuantity(good) <= 0) {
             return false;
         }
@@ -92,7 +94,11 @@ public class MarketViewModel extends AndroidViewModel {
         total = price;
     }
 
-    public int getAmountSelected(Tradable good) {
+    public void setSelectedGoods(Inventory inventory) {
+        selectedGoods = inventory;
+    }
+
+    public int getAmountSelected(String good) {
         return selectedGoods.getQuantity(good);
     }
 

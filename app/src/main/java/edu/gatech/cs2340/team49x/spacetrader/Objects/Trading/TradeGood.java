@@ -3,7 +3,7 @@ package edu.gatech.cs2340.team49x.spacetrader.Objects.Trading;
 import edu.gatech.cs2340.team49x.spacetrader.Objects.Universe.Resources;
 import edu.gatech.cs2340.team49x.spacetrader.Objects.Universe.TechLevel;
 
-public enum TradeGood implements Tradable{
+public enum TradeGood {
 
     WATER("Water", 0, 0, 2, 30, 3, 4, RandomEvent.DROUGHT, Resources.LOTSOFWATER, Resources.DESERT, 30, 50),
     FURS("Furs", 0, 0, 0, 250, 10, 10, RandomEvent.COLD, Resources.RICHFAUNA, Resources.LIFELESS, 230, 280),

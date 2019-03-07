@@ -1,7 +1,6 @@
 package edu.gatech.cs2340.team49x.spacetrader.Objects.General;
 
 import edu.gatech.cs2340.team49x.spacetrader.Objects.Trading.Inventory;
-import edu.gatech.cs2340.team49x.spacetrader.Objects.Trading.Tradable;
 
 public class Ship {
 
@@ -45,7 +44,7 @@ public class Ship {
         return cargo;
     }
 
-    public void addToCargo(Tradable good, int quantity) {
+    public void addToCargo(String good, int quantity) {
         cargo.add(good, quantity);
     }
 
@@ -53,7 +52,7 @@ public class Ship {
         cargo.add(items);
     }
 
-    public void removeFromCargo(Tradable good, int quantity) {
+    public void removeFromCargo(String good, int quantity) {
         cargo.add(good, -quantity);
     }
 
@@ -61,7 +60,7 @@ public class Ship {
         cargo.remove(items);
     }
 
-    public int getAmountOf(Tradable good) {
+    public int getAmountOf(String good) {
         return cargo.getQuantity(good);
     }
 

@@ -2,7 +2,6 @@ package edu.gatech.cs2340.team49x.spacetrader.Model;
 
 import edu.gatech.cs2340.team49x.spacetrader.Objects.General.Player;
 import edu.gatech.cs2340.team49x.spacetrader.Objects.Trading.Inventory;
-import edu.gatech.cs2340.team49x.spacetrader.Objects.Trading.Tradable;
 import edu.gatech.cs2340.team49x.spacetrader.Objects.Trading.Trader;
 import edu.gatech.cs2340.team49x.spacetrader.Objects.Universe.SolarSystem;
 
@@ -31,11 +30,11 @@ public class TradeInteractor {
         this.trader = system.getMarket();
     }
 
-    public int getPriceOf(Tradable good) {
+    public int getPriceOf(String good) {
         return trader.getPrice(good);
     }
 
-    public int getCargoAmount(Tradable good) {
+    public int getCargoAmount(String good) {
         return customer.getAmountOf(good);
     }
 
@@ -43,11 +42,11 @@ public class TradeInteractor {
         return customer.cargoSpaceRemaining();
     }
 
-    public Tradable[] getBuyList() {
+    public String[] getBuyList() {
         return trader.buys();
     }
 
-    public Tradable[] getSellList() {
+    public String[] getSellList() {
         return trader.sells();
     }
 
