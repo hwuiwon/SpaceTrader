@@ -74,15 +74,16 @@
             android:paddingBottom="@dimen/margin7">
 
             <Button
-                android:onClick="switchScreen"
-                android:background="@drawable/roundrectangle"
+                android:id="@+id/switchBT"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:text="@string/switchScreen"
-                android:textColor="@android:color/white"
-                android:layout_weight="1"
                 android:layout_marginEnd="@dimen/margin2"
-                android:fontFamily="@font/montserrat_regular"/>
+                android:layout_weight="1"
+                android:background="@drawable/roundrectangle"
+                android:fontFamily="@font/montserrat_regular"
+                android:onClick="switchScreen"
+                android:text="@string/switchScreen"
+                android:textColor="@android:color/white" />
 
             <Button
                 android:onClick="doTransaction"

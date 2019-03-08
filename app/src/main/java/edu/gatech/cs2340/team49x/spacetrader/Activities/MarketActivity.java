@@ -5,6 +5,7 @@ import android.database.DataSetObserver;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -25,6 +26,8 @@ public class MarketActivity extends AppCompatActivity {
     private ItemAdapter adapter;
     private TextView totalPriceTV;
     private TextView playerCreditTV;
+    private TextView totalTextTV;
+    private Button switchBT;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +43,8 @@ public class MarketActivity extends AppCompatActivity {
         itemLV.setAdapter(adapter);
         adapter.registerDataSetObserver(observer);
         totalPriceTV = findViewById(R.id.totalPriceTV);
+        totalTextTV = findViewById(R.id.marketTV);
+        switchBT = findViewById(R.id.switchBT);
         playerCreditTV = findViewById(R.id.playerCreditTV);
         playerCreditTV.setText(String.valueOf(viewModel.getCredits()));
     }
@@ -77,6 +82,14 @@ public class MarketActivity extends AppCompatActivity {
         viewModel.toggleBuySell();
         // Update ListView with new items and change text
         refreshAdapter();
+        if (viewModel.isBuying()) {
+            totalTextTV.setText("Total Cost:\t");
+            switchBT.setText("Switch to Sell");
+        } else {
+            totalTextTV.setText("Total Sale:\t");
+            switchBT.setText("Switch to Buy");
+        }
+
     }
 
     /**

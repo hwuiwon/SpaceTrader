@@ -32,7 +32,7 @@ public class MainActivity extends AppCompatActivity {
      * @param view current View
      */
     public void startGame(View view) {
-        Intent intent = new Intent(MainActivity.this, MarketActivity.class);
+        Intent intent = new Intent(MainActivity.this, GameActivity.class);
         startActivity(intent);
     }
 }
