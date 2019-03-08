@@ -26,6 +26,10 @@ public class Item {
         return remaining;
     }
 
+    public void setRemaining(int remaining) {
+        this.remaining = remaining;
+    }
+
     public void copyData(Item other) {
         this.good = other.good;
         this.price = other.price;

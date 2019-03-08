@@ -76,9 +76,7 @@ public class MarketActivity extends AppCompatActivity {
         // Switch between buy and sell screen
         viewModel.toggleBuySell();
         // Update ListView with new items and change text
-        adapter.clear();
-        adapter.addAll(getListItemData());
-        adapter.notifyDataSetChanged();
+        refreshAdapter();
     }
 
     /**
@@ -91,12 +89,22 @@ public class MarketActivity extends AppCompatActivity {
             if (viewModel.getTotal()
                     <= viewModel.getCredits()) {
                 viewModel.done();
-                finish();
+                refreshAdapter();
+                playerCreditTV.setText(String.valueOf(viewModel.getCredits()));
             } else {
                 Toast.makeText(this, "Not enough credit", Toast.LENGTH_SHORT).show();
             }
         } else {
             // Selling function
+            viewModel.done();
+            refreshAdapter();
+            playerCreditTV.setText(String.valueOf(viewModel.getCredits()));
         }
+    }
+
+    private void refreshAdapter() {
+        adapter.clear();
+        adapter.addAll(getListItemData());
+        adapter.notifyDataSetChanged();
     }
 }

@@ -53,14 +53,13 @@ public class ItemAdapter extends ArrayAdapter<Item> {
             this.item = inItem;
             itemNameTV.setText(item.getName());
             itemPriceTV.setText(String.valueOf(item.getPrice()));
-            itemRemainTV.setText(String.valueOf(item.getRemaining()));
             update();
 
             tradeDecreaseBT.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     viewModel.decreaseAmount(item.getGood());
-                    update();
+                    tradeCountTV.setText(Integer.toString(viewModel.getAmountSelected(item.getGood())));
                     notifyDataSetChanged();
                 }
             });
@@ -69,13 +68,15 @@ public class ItemAdapter extends ArrayAdapter<Item> {
                 @Override
                 public void onClick(View v) {
                     viewModel.increaseAmount(item.getGood());
-                    update();
+                    tradeCountTV.setText(Integer.toString(viewModel.getAmountSelected(item.getGood())));
                     notifyDataSetChanged();
                 }
             });
         }
 
         public void update() {
+            this.item.setRemaining(viewModel.getCargo(item.getGood()));
+            itemRemainTV.setText(String.valueOf(item.getRemaining()));
             tradeCountTV.setText(Integer.toString(viewModel.getAmountSelected(item.getGood())));
         }
     }

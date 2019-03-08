@@ -107,6 +107,10 @@ public class MarketViewModel extends AndroidViewModel {
         return selectedGoods.getQuantity(good);
     }
 
+    public int getCargo(Tradable good) {
+        return interactor.getCargoAmount(good);
+    }
+
     public boolean isBuying() {
         return buying;
     }
