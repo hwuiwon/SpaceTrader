@@ -62,4 +62,8 @@ public class TradeInteractor {
     public void changeCredits(int change) {
         customer.changeCredits(change);
     }
+
+    public int getCredits() {
+        return customer.getCredits();
+    }
 }

@@ -24,30 +24,33 @@ public class MarketViewModel extends AndroidViewModel {
     private Item[] buyItems = {};
     private Inventory selectedGoods;
     private TradeInteractor interactor;
-    private boolean buying;
+    private boolean buying = true;
     private int total;
 
     public void init() {
         interactor = ModelFacade.getInstance().startTrade();
         selectedGoods = new Inventory();
         total = 0;
+
         //initialize item array by getting data from the interactor
         List<Item> sellList = new ArrayList<>();
         List<Item> buyList = new ArrayList<>();
+
         for (Tradable t : interactor.getBuyList()) {
             sellList.add(new Item(
-                    t.getName(),
+                    t,
                     interactor.getPriceOf(t),
                     interactor.getCargoAmount(t)
             ));
         }
         for (Tradable t : interactor.getSellList()) {
             buyList.add(new Item(
-                    t.getName(),
+                    t,
                     interactor.getPriceOf(t),
                     interactor.getCargoAmount(t)
             ));
         }
+
         sellItems = sellList.toArray(sellItems);
         buyItems = buyList.toArray(buyItems);
     }
@@ -89,8 +92,24 @@ public class MarketViewModel extends AndroidViewModel {
         total = 0;
     }
 
+    public void setTotal(int price) {
+        total = price;
+    }
+
+    public void setSelectedGoods(Inventory inventory) {
+        selectedGoods = inventory;
+    }
+
+    public Inventory getSelectedGoods() {
+        return selectedGoods;
+    }
+
     public int getAmountSelected(Tradable good) {
         return selectedGoods.getQuantity(good);
+    }
+
+    public int getCargo(Tradable good) {
+        return interactor.getCargoAmount(good);
     }
 
     public boolean isBuying() {
@@ -99,6 +118,10 @@ public class MarketViewModel extends AndroidViewModel {
 
     public int getTotal() {
         return total;
+    }
+
+    public int getCredits() {
+        return interactor.getCredits();
     }
 
     public void done() {

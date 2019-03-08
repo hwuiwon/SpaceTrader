@@ -31,7 +31,7 @@
             android:fontFamily="@font/montserrat_light"/>
 
         <TextView
-            android:id="@+id/marketItemCountTV"
+            android:id="@+id/totalPriceTV"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/sSale"
@@ -55,6 +55,7 @@
             android:textStyle="bold"/>
 
         <TextView
+            android:id="@+id/playerCreditTV"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/sCredit"
@@ -84,7 +85,7 @@
                 android:fontFamily="@font/montserrat_regular"/>
 
             <Button
-                android:onClick="buy"
+                android:onClick="doTransaction"
                 android:background="@drawable/roundrectangle"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"

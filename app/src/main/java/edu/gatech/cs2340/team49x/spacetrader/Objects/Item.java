@@ -1,26 +1,42 @@
 package edu.gatech.cs2340.team49x.spacetrader.Objects;
 
+import edu.gatech.cs2340.team49x.spacetrader.Objects.Trading.Tradable;
+
 public class Item {
 
-    private String name;
-    private double price;
+    private Tradable good;
+    private int price;
     private int remaining;
 
-    public Item(String name, double price, int remaining) {
-        this.name = name;
+    public Item(Tradable good, int price, int remaining) {
+        this.good = good;
         this.price = price;
         this.remaining = remaining;
     }
 
     public String getName() {
-        return name;
+        return good.getName();
     }
 
-    public double getPrice() {
+    public int getPrice() {
         return price;
     }
 
     public int getRemaining() {
         return remaining;
+    }
+
+    public void setRemaining(int remaining) {
+        this.remaining = remaining;
+    }
+
+    public void copyData(Item other) {
+        this.good = other.good;
+        this.price = other.price;
+        this.remaining = other.remaining;
+    }
+
+    public Tradable getGood() {
+        return good;
     }
 }

@@ -37,8 +37,22 @@ public class Inventory {
      */
     public void add(Inventory inventory) {
         for (Tradable good : inventory.quantities.keySet()) {
-            add(good, quantities.get(good));
+            add(good, inventory.quantities.get(good));
         }
+    }
+
+    /**
+     * Adds a quantity of goods to this inventory
+     * @param good the good to add
+     * @param quantity the quantity to add
+     */
+    public void add(Tradable good, int quantity) {
+        if (quantities.containsKey(good)) {
+            quantities.put(good, quantities.get(good) + quantity);
+        } else {
+            quantities.put(good, quantity);
+        }
+        count += quantity;
     }
 
     /**
@@ -47,7 +61,7 @@ public class Inventory {
      */
     public void remove(Inventory inventory) {
         for (Tradable good : inventory.quantities.keySet()) {
-            add(good, quantities.get(good));
+            add(good, -quantities.get(good));
         }
     }
 
@@ -77,20 +91,6 @@ public class Inventory {
             }
         }
         return true;
-    }
-
-    /**
-     * Adds a quantity of goods to this inventory
-     * @param good the good to add
-     * @param quantity the quantity to add
-     */
-    public void add(Tradable good, int quantity) {
-        if (quantities.containsKey(good)) {
-            quantities.put(good, quantities.get(good) + quantity);
-        } else {
-            quantities.put(good, quantity);
-        }
-        count += quantity;
     }
 
     /**
