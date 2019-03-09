@@ -5,6 +5,7 @@ import android.database.DataSetObserver;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -19,12 +20,14 @@ import edu.gatech.cs2340.team49x.spacetrader.Viewmodels.MarketViewModel;
 
 public class MarketActivity extends AppCompatActivity {
 
-    private ConfigurationViewModel configurationViewModel;
     private MarketViewModel viewModel;
     private ArrayList<Item> items;
     private ListView itemLV;
+    private ItemAdapter adapter;
     private TextView totalPriceTV;
     private TextView playerCreditTV;
+    private TextView totalTextTV;
+    private Button switchBT;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,16 +36,17 @@ public class MarketActivity extends AppCompatActivity {
 
         viewModel = ViewModelProviders.of(this).get(MarketViewModel.class);
         viewModel.init();
-        configurationViewModel = ViewModelProviders.of(this).get(ConfigurationViewModel.class);
 
         itemLV = findViewById(R.id.itemLV);
         items = getListItemData();
-        ItemAdapter adapter = new ItemAdapter(this, items);
+        adapter = new ItemAdapter(this, items);
         itemLV.setAdapter(adapter);
         adapter.registerDataSetObserver(observer);
         totalPriceTV = findViewById(R.id.totalPriceTV);
+        totalTextTV = findViewById(R.id.marketTV);
+        switchBT = findViewById(R.id.switchBT);
         playerCreditTV = findViewById(R.id.playerCreditTV);
-        playerCreditTV.setText(String.valueOf(configurationViewModel.getPlayer().getCredits()));
+        playerCreditTV.setText(String.valueOf(viewModel.getCredits()));
     }
 
     DataSetObserver observer = new DataSetObserver() {
@@ -54,16 +58,7 @@ public class MarketActivity extends AppCompatActivity {
     };
 
     public void setPriceTotal() {
-        totalPriceTV.setText(String.valueOf(calculateTotalPrice()));
-    }
-
-    public int calculateTotalPrice() {
-        int total = 0;
-        for (Item item : items) {
-            total += item.getPrice() * item.getQuantity();
-        }
-        viewModel.setTotal(total);
-        return total;
+        totalPriceTV.setText(String.valueOf(viewModel.getTotal()));
     }
 
     /**
@@ -86,6 +81,15 @@ public class MarketActivity extends AppCompatActivity {
         // Switch between buy and sell screen
         viewModel.toggleBuySell();
         // Update ListView with new items and change text
+        refreshAdapter();
+        if (viewModel.isBuying()) {
+            totalTextTV.setText("Total Cost:\t");
+            switchBT.setText("Switch to Sell");
+        } else {
+            totalTextTV.setText("Total Sale:\t");
+            switchBT.setText("Switch to Buy");
+        }
+
     }
 
     /**
@@ -95,16 +99,24 @@ public class MarketActivity extends AppCompatActivity {
      */
     public void doTransaction(View view) {
         if (viewModel.isBuying()) {
-            if (viewModel.getTotal()
-                    <= configurationViewModel.getPlayer().getCredits()) {
-                configurationViewModel.getPlayer().changeCredits(-viewModel.getTotal());
+            if (viewModel.getTotal() <= viewModel.getCredits()) {
                 viewModel.done();
-                finish();
+                refreshAdapter();
+                playerCreditTV.setText(String.valueOf(viewModel.getCredits()));
             } else {
                 Toast.makeText(this, "Not enough credit", Toast.LENGTH_SHORT).show();
             }
         } else {
             // Selling function
+            viewModel.done();
+            refreshAdapter();
+            playerCreditTV.setText(String.valueOf(viewModel.getCredits()));
         }
+    }
+
+    private void refreshAdapter() {
+        adapter.clear();
+        adapter.addAll(getListItemData());
+        adapter.notifyDataSetChanged();
     }
 }

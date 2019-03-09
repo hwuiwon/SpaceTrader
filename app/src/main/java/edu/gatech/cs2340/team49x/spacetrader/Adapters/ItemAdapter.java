@@ -8,72 +8,92 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import java.util.List;
 
 import edu.gatech.cs2340.team49x.spacetrader.Objects.Item;
-import edu.gatech.cs2340.team49x.spacetrader.Objects.Trading.TradeGood;
 import edu.gatech.cs2340.team49x.spacetrader.R;
 import edu.gatech.cs2340.team49x.spacetrader.Viewmodels.MarketViewModel;
+import edu.gatech.cs2340.team49x.spacetrader.Views.SolarSystemView;
 
 public class ItemAdapter extends ArrayAdapter<Item> {
+    class ItemView extends RelativeLayout {
+        private MarketViewModel viewModel = null;
+        private Button tradeDecreaseBT;
+        private Button tradeIncreaseBT;
+        private TextView tradeCountTV;
+        private TextView itemRemainTV;
+        private TextView itemNameTV;
+        private TextView itemPriceTV;
+        private Item item = new Item(null, 0, 0);
 
-    private MarketViewModel viewModel;
-    private Context context;
-    private List<Item> items;
-    private Button tradeDecreaseBT;
-    private Button tradeIncreaseBT;
-    private TextView tradeCountTV;
-    private TextView itemRemainTV;
-    private TextView itemNameTV;
-    private TextView itemPriceTV;
+        public ItemView(Context context) {
+            super(context);
+        }
+
+        public ItemView(Context context, Item item) {
+            super(context);
+            this.viewModel = ViewModelProviders.of((FragmentActivity) getContext()).get(MarketViewModel.class);
+            ;
+            LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+            inflater.inflate(R.layout.item, this, true);
+
+            itemNameTV = findViewById(R.id.itemNameTV);
+            itemPriceTV = findViewById(R.id.itemPriceTV);
+            itemRemainTV = findViewById(R.id.itemRemainTV);
+            tradeCountTV = findViewById(R.id.tradeCountTV);
+            tradeIncreaseBT = findViewById(R.id.tradeIncreaseBT);
+            tradeDecreaseBT = findViewById(R.id.tradeDecreaseBT);
+            setData(item);
+        }
+
+        public void setData(Item inItem) {
+            this.item = inItem;
+            itemNameTV.setText(item.getName());
+            itemPriceTV.setText(String.valueOf(item.getPrice()));
+            update();
+
+            tradeDecreaseBT.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    viewModel.decreaseAmount(item.getGood());
+                    tradeCountTV.setText(Integer.toString(viewModel.getAmountSelected(item.getGood())));
+                    notifyDataSetChanged();
+                }
+            });
+
+            tradeIncreaseBT.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    viewModel.increaseAmount(item.getGood());
+                    tradeCountTV.setText(Integer.toString(viewModel.getAmountSelected(item.getGood())));
+                    notifyDataSetChanged();
+                }
+            });
+        }
+
+        public void update() {
+            this.item.setRemaining(viewModel.getCargo(item.getGood()));
+            itemRemainTV.setText(String.valueOf(item.getRemaining()));
+            tradeCountTV.setText(Integer.toString(viewModel.getAmountSelected(item.getGood())));
+        }
+    }
 
     public ItemAdapter(Context context, List<Item> items) {
         super(context, 0, items);
     }
 
     @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
-        viewModel = ViewModelProviders.of((FragmentActivity) getContext()).get(MarketViewModel.class);
-        View listItemView = convertView;
-        if (listItemView == null) {
-            listItemView = LayoutInflater.from(getContext())
-                    .inflate(R.layout.item,parent,false);
+    public View getView(final int position, View convertView, ViewGroup parent) {
+        ItemView view;
+        if (convertView == null) {
+            view = new ItemView(getContext(), getItem(position));
+        } else {
+            view = (ItemView) convertView;
+            view.setData(getItem(position));
         }
-
-        final Item currentItem = getItem(position);
-
-        itemNameTV = listItemView.findViewById(R.id.itemNameTV);
-        itemPriceTV = listItemView.findViewById(R.id.itemPriceTV);
-        itemRemainTV = listItemView.findViewById(R.id.itemRemainTV);
-        tradeCountTV = listItemView.findViewById(R.id.tradeCountTV);
-        tradeIncreaseBT = listItemView.findViewById(R.id.tradeIncreaseBT);
-        tradeDecreaseBT = listItemView.findViewById(R.id.tradeDecreaseBT);
-
-        itemNameTV.setText(currentItem.getName());
-        itemPriceTV.setText(String.valueOf(currentItem.getPrice()));
-        itemRemainTV.setText(String.valueOf(currentItem.getRemaining()));
-
-        tradeDecreaseBT.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                currentItem.removeQuantity();
-                viewModel.decreaseAmount(TradeGood.valueOf(String.valueOf(itemNameTV.getText()).toUpperCase()));
-                tradeCountTV.setText(Integer.toString(currentItem.getQuantity()));
-                notifyDataSetChanged();
-            }
-        });
-
-        tradeIncreaseBT.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                currentItem.addQuantity();
-                viewModel.increaseAmount(TradeGood.valueOf(String.valueOf(itemNameTV.getText()).toUpperCase()));
-                tradeCountTV.setText(Integer.toString(currentItem.getQuantity()));
-                notifyDataSetChanged();
-            }
-        });
-        return listItemView;
+        return view;
     }
 }
