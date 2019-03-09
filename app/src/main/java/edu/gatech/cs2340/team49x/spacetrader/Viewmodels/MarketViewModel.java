@@ -62,28 +62,24 @@ public class MarketViewModel extends AndroidViewModel {
     /**
      * Increments the amount of a good selected
      * @param good the Tradable selected
-     * @return true if the increase was successful, false otherwise
      */
-    public boolean increaseAmount(Tradable good) {
+    public void increaseAmount(Tradable good) {
         if (buying) {
             if (selectedGoods.getCount() >= interactor.getCargoRemaining()) {
-                return false;
+                return;
             }
         } else if (selectedGoods.getQuantity(good) >= interactor.getCargoAmount(good)) {
-            return false;
+            return;
         }
         selectedGoods.add(good, 1);
         total += interactor.getPriceOf(good);
-        return true;
     }
 
-    public boolean decreaseAmount(Tradable good) {
-        if (selectedGoods.getQuantity(good) <= 0) {
-            return false;
+    public void decreaseAmount(Tradable good) {
+        if (selectedGoods.getQuantity(good) > 0) {
+            selectedGoods.add(good, -1);
+            total -= interactor.getPriceOf(good);
         }
-        selectedGoods.add(good, -1);
-        total -= interactor.getPriceOf(good);
-        return true;
     }
 
     public void toggleBuySell() {
@@ -126,11 +122,15 @@ public class MarketViewModel extends AndroidViewModel {
 
     public void done() {
         if (buying) {
-            interactor.addToCargo(selectedGoods);
-            interactor.changeCredits(-total);
+            if (selectedGoods != null) {
+                interactor.addToCargo(selectedGoods);
+                interactor.changeCredits(-total);
+            }
         } else {
-            interactor.removeFromCargo(selectedGoods);
-            interactor.changeCredits(total);
+            if (selectedGoods != null) {
+                interactor.removeFromCargo(selectedGoods);
+                interactor.changeCredits(total);
+            }
         }
         selectedGoods.empty();
         total = 0;

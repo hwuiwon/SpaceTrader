@@ -99,8 +99,7 @@ public class MarketActivity extends AppCompatActivity {
      */
     public void doTransaction(View view) {
         if (viewModel.isBuying()) {
-            if (viewModel.getTotal()
-                    <= viewModel.getCredits()) {
+            if (viewModel.getTotal() <= viewModel.getCredits()) {
                 viewModel.done();
                 refreshAdapter();
                 playerCreditTV.setText(String.valueOf(viewModel.getCredits()));
