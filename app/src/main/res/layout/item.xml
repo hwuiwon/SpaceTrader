@@ -1,97 +1,101 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:padding="@dimen/fab_margin"
-    android:background="@android:color/black">
 
-    <TextView
-        android:id="@+id/itemNameTV"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/itemName"
-        android:textSize="20sp"
-        android:textColor="@android:color/white"
-        android:textStyle="bold"
-        android:paddingLeft="@dimen/fab_margin"
-        android:paddingTop="@dimen/margin2"
-        android:layout_alignParentTop="true"
-        android:fontFamily="@font/montserrat_light"/>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <TextView
-        android:id="@+id/itemRemainTV"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/sRem"
-        android:textSize="15sp"
-        android:textColor="@android:color/white"
-        android:paddingLeft="@dimen/fab_margin"
-        android:paddingTop="@dimen/margin6"
-        android:layout_below="@+id/itemNameTV"
-        android:fontFamily="@font/montserrat_semibold"/>
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/inCargo"
-        android:textSize="15sp"
-        android:textColor="@android:color/white"
-        android:paddingTop="5dp"
-        android:layout_below="@+id/itemNameTV"
-        android:layout_toEndOf="@id/itemRemainTV"
-        android:fontFamily="@font/montserrat_semibold"/>
-
-    <TextView
-        android:id="@+id/itemPriceTV"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/sPrice"
-        android:textSize="20sp"
-        android:textColor="@android:color/white"
-        android:paddingTop="@dimen/margin2"
-        android:paddingStart="@dimen/margin2"
-        android:layout_toEndOf="@id/itemNameTV"
-        android:fontFamily="@font/montserrat_light"/>
-
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:orientation="horizontal"
-        android:weightSum="4">
-
-        <Button
-            android:id="@+id/tradeDecreaseBT"
-            android:layout_width="50dp"
-            android:layout_height="wrap_content"
-            android:text="@string/minus"
-            android:layout_marginTop="@dimen/margin7"
-            android:layout_weight="1"/>
+    <RelativeLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="@dimen/fab_margin"
+        android:background="@android:color/black">
 
         <TextView
-            android:id="@+id/tradeCountTV"
+            android:id="@+id/itemNameTV"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="0"
-            android:layout_marginStart="@dimen/margin3"
-            android:layout_marginTop="@dimen/margin7"
+            android:text="@string/itemName"
+            android:textSize="20sp"
             android:textColor="@android:color/white"
-            android:layout_toEndOf="@+id/tradeDecreaseBT"
-            android:layout_weight="2"
+            android:textStyle="bold"
+            android:paddingLeft="@dimen/fab_margin"
+            android:paddingTop="@dimen/margin2"
+            android:layout_alignParentTop="true"
+            android:fontFamily="@font/montserrat_light"/>
+
+        <TextView
+            android:id="@+id/itemRemainTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/sRem"
+            android:textSize="15sp"
+            android:textColor="@android:color/white"
+            android:paddingLeft="@dimen/fab_margin"
+            android:paddingTop="@dimen/margin6"
+            android:layout_below="@+id/itemNameTV"
             android:fontFamily="@font/montserrat_semibold"/>
 
-        <Button
-            android:id="@+id/tradeIncreaseBT"
-            android:layout_width="50dp"
+        <TextView
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/plus"
-            android:layout_toEndOf="@id/tradeCountTV"
-            android:layout_marginTop="@dimen/margin7"
-            android:layout_marginStart="@dimen/margin3"
-            android:layout_weight="1"/>
+            android:text="@string/inCargo"
+            android:textSize="15sp"
+            android:textColor="@android:color/white"
+            android:paddingTop="5dp"
+            android:layout_below="@+id/itemNameTV"
+            android:layout_toEndOf="@id/itemRemainTV"
+            android:fontFamily="@font/montserrat_semibold"/>
 
-    </LinearLayout>
+        <TextView
+            android:id="@+id/itemPriceTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/sPrice"
+            android:textSize="20sp"
+            android:textColor="@android:color/white"
+            android:paddingTop="@dimen/margin2"
+            android:paddingStart="@dimen/margin2"
+            android:layout_toEndOf="@id/itemNameTV"
+            android:fontFamily="@font/montserrat_light"/>
 
-</RelativeLayout>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:orientation="horizontal"
+            android:weightSum="4">
+
+            <Button
+                android:id="@+id/tradeDecreaseBT"
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                android:text="@string/minus"
+                android:layout_marginTop="@dimen/margin7"
+                android:layout_weight="1"/>
+
+            <TextView
+                android:id="@+id/tradeCountTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0"
+                android:layout_marginStart="@dimen/margin3"
+                android:layout_marginTop="@dimen/margin7"
+                android:textColor="@android:color/white"
+                android:layout_toEndOf="@+id/tradeDecreaseBT"
+                android:layout_weight="2"
+                android:fontFamily="@font/montserrat_semibold"/>
+
+            <Button
+                android:id="@+id/tradeIncreaseBT"
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                android:text="@string/plus"
+                android:layout_toEndOf="@id/tradeCountTV"
+                android:layout_marginTop="@dimen/margin7"
+                android:layout_marginStart="@dimen/margin3"
+                android:layout_weight="1"/>
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+</layout>

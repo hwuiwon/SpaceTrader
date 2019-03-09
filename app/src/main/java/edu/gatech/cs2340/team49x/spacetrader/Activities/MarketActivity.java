@@ -2,51 +2,42 @@ package edu.gatech.cs2340.team49x.spacetrader.Activities;
 
 import android.arch.lifecycle.ViewModelProviders;
 import android.database.DataSetObserver;
+import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-import android.widget.Button;
-import android.widget.ListView;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 import edu.gatech.cs2340.team49x.spacetrader.Adapters.ItemAdapter;
 import edu.gatech.cs2340.team49x.spacetrader.Objects.Item;
 import edu.gatech.cs2340.team49x.spacetrader.R;
-import edu.gatech.cs2340.team49x.spacetrader.Viewmodels.ConfigurationViewModel;
 import edu.gatech.cs2340.team49x.spacetrader.Viewmodels.MarketViewModel;
+import edu.gatech.cs2340.team49x.spacetrader.databinding.ActivityMarketBinding;
 
 public class MarketActivity extends AppCompatActivity {
 
+    ActivityMarketBinding binding;
     private MarketViewModel viewModel;
     private ArrayList<Item> items;
-    private ListView itemLV;
     private ItemAdapter adapter;
-    private TextView totalPriceTV;
-    private TextView playerCreditTV;
-    private TextView totalTextTV;
-    private Button switchBT;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_market);
 
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_market);
         viewModel = ViewModelProviders.of(this).get(MarketViewModel.class);
         viewModel.init();
 
-        itemLV = findViewById(R.id.itemLV);
         items = getListItemData();
         adapter = new ItemAdapter(this, items);
-        itemLV.setAdapter(adapter);
+        binding.itemLV.setAdapter(adapter);
         adapter.registerDataSetObserver(observer);
-        totalPriceTV = findViewById(R.id.totalPriceTV);
-        totalTextTV = findViewById(R.id.marketTV);
-        switchBT = findViewById(R.id.switchBT);
-        playerCreditTV = findViewById(R.id.playerCreditTV);
-        playerCreditTV.setText(String.valueOf(viewModel.getCredits()));
+        binding.playerCreditTV.setText(String.valueOf(viewModel.getCredits()));
     }
 
     DataSetObserver observer = new DataSetObserver() {
@@ -58,7 +49,7 @@ public class MarketActivity extends AppCompatActivity {
     };
 
     public void setPriceTotal() {
-        totalPriceTV.setText(String.valueOf(viewModel.getTotal()));
+        binding.totalPriceTV.setText(String.valueOf(viewModel.getTotal()));
     }
 
     /**
@@ -66,9 +57,7 @@ public class MarketActivity extends AppCompatActivity {
      */
     public ArrayList<Item> getListItemData() {
         items = new ArrayList<>();
-        for (Item item : viewModel.getItems()) {
-            items.add(item);
-        }
+        Collections.addAll(items, viewModel.getItems());
         return items;
     }
 
@@ -83,11 +72,11 @@ public class MarketActivity extends AppCompatActivity {
         // Update ListView with new items and change text
         refreshAdapter();
         if (viewModel.isBuying()) {
-            totalTextTV.setText("Total Cost:\t");
-            switchBT.setText("Switch to Sell");
+            binding.marketTV.setText(R.string.ttlCost);
+            binding.switchBT.setText(R.string.switchSell);
         } else {
-            totalTextTV.setText("Total Sale:\t");
-            switchBT.setText("Switch to Buy");
+            binding.marketTV.setText(R.string.ttlSale);
+            binding.switchBT.setText(R.string.switchBuy);
         }
 
     }
@@ -102,7 +91,7 @@ public class MarketActivity extends AppCompatActivity {
             if (viewModel.getTotal() <= viewModel.getCredits()) {
                 viewModel.done();
                 refreshAdapter();
-                playerCreditTV.setText(String.valueOf(viewModel.getCredits()));
+                binding.playerCreditTV.setText(String.valueOf(viewModel.getCredits()));
             } else {
                 Toast.makeText(this, "Not enough credit", Toast.LENGTH_SHORT).show();
             }
@@ -110,7 +99,7 @@ public class MarketActivity extends AppCompatActivity {
             // Selling function
             viewModel.done();
             refreshAdapter();
-            playerCreditTV.setText(String.valueOf(viewModel.getCredits()));
+            binding.playerCreditTV.setText(String.valueOf(viewModel.getCredits()));
         }
     }
 

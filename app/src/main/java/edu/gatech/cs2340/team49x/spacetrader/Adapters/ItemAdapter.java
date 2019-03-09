@@ -16,7 +16,6 @@ import java.util.List;
 import edu.gatech.cs2340.team49x.spacetrader.Objects.Item;
 import edu.gatech.cs2340.team49x.spacetrader.R;
 import edu.gatech.cs2340.team49x.spacetrader.Viewmodels.MarketViewModel;
-import edu.gatech.cs2340.team49x.spacetrader.Views.SolarSystemView;
 
 public class ItemAdapter extends ArrayAdapter<Item> {
     class ItemView extends RelativeLayout {
@@ -36,7 +35,6 @@ public class ItemAdapter extends ArrayAdapter<Item> {
         public ItemView(Context context, Item item) {
             super(context);
             this.viewModel = ViewModelProviders.of((FragmentActivity) getContext()).get(MarketViewModel.class);
-            ;
             LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             inflater.inflate(R.layout.item, this, true);
 

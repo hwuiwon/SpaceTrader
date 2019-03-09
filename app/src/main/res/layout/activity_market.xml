@@ -82,7 +82,7 @@
                 android:background="@drawable/roundrectangle"
                 android:fontFamily="@font/montserrat_regular"
                 android:onClick="switchScreen"
-                android:text="@string/switchScreen"
+                android:text="@string/switchSell"
                 android:textColor="@android:color/white" />
 
             <Button
