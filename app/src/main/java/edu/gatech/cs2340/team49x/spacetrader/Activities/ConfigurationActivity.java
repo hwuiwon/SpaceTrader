@@ -18,7 +18,7 @@ import edu.gatech.cs2340.team49x.spacetrader.databinding.ActivityConfigBinding;
 @SuppressLint("SetTextI18n")
 public class ConfigurationActivity extends AppCompatActivity {
 
-    ActivityConfigBinding binding;
+    private ActivityConfigBinding binding;
     private ConfigurationViewModel viewModel;
     private Player player;
 

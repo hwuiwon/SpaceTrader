@@ -19,7 +19,7 @@ import edu.gatech.cs2340.team49x.spacetrader.databinding.ActivityMarketBinding;
 
 public class MarketActivity extends AppCompatActivity {
 
-    ActivityMarketBinding binding;
+    private ActivityMarketBinding binding;
     private MarketViewModel viewModel;
     private ArrayList<Item> items;
     private ItemAdapter adapter;
@@ -96,7 +96,6 @@ public class MarketActivity extends AppCompatActivity {
                 Toast.makeText(this, "Not enough credit", Toast.LENGTH_SHORT).show();
             }
         } else {
-            // Selling function
             viewModel.done();
             refreshAdapter();
             binding.playerCreditTV.setText(String.valueOf(viewModel.getCredits()));

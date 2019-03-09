@@ -8,6 +8,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.AdapterView;
 
+import java.util.ArrayList;
+
 import edu.gatech.cs2340.team49x.spacetrader.Adapters.SolarSystemAdapter;
 import edu.gatech.cs2340.team49x.spacetrader.Objects.Universe.SolarSystem;
 import edu.gatech.cs2340.team49x.spacetrader.R;
@@ -16,16 +18,19 @@ import edu.gatech.cs2340.team49x.spacetrader.databinding.ActivityGameBinding;
 
 public class GameActivity extends AppCompatActivity {
 
-    ActivityGameBinding binding;
+    private ActivityGameBinding binding;
     private ConfigurationViewModel viewModel;
+    private ArrayList<SolarSystem> solarSystems;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game);
+
         binding = DataBindingUtil.setContentView(this, R.layout.activity_game);
         viewModel = ViewModelProviders.of(this).get(ConfigurationViewModel.class);
-        binding.planetSelectLV.setAdapter(makePlanetAdapter());
+        solarSystems = getListItemData();
+        binding.planetSelectLV.setAdapter(new SolarSystemAdapter(this, solarSystems));
         binding.currentSystemTV.setText(viewModel.getCurrentSystem().getName());
 
         binding.planetSelectLV.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -37,14 +42,22 @@ public class GameActivity extends AppCompatActivity {
         });
     }
 
-    public SolarSystemAdapter makePlanetAdapter() {
-        final SolarSystemAdapter adapter = new SolarSystemAdapter(this);
+    /**
+     * Creates SolarSystem Adapter
+     */
+    public ArrayList<SolarSystem> getListItemData() {
+        solarSystems = new ArrayList<>();
         for (SolarSystem system : viewModel.getUniverse().getSolarSystems()) {
-            adapter.addSolarSystem(system);
+            solarSystems.add(system);
         }
-        return adapter;
+        return solarSystems;
     }
 
+    /**
+     * Starts Market Activity
+     *
+     * @param view current View
+     */
     public void enterMarket(View view) {
         Intent intent = new Intent(GameActivity.this, MarketActivity.class);
         startActivity(intent);

@@ -70,7 +70,7 @@ public class Inventory {
      *
      * @param good the Tradable to test.
      * @param quantity the amount the inventory must contain.
-     * @return
+     * @return if inventory has certain quantity of a good
      */
     public boolean has(Tradable good, int quantity) {
         if (quantities.containsKey(good)) {

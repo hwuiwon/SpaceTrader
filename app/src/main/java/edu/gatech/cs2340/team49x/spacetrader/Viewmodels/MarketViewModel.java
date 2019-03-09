@@ -132,7 +132,7 @@ public class MarketViewModel extends AndroidViewModel {
                 interactor.changeCredits(total);
             }
         }
-        selectedGoods.empty();
+        if (selectedGoods != null) selectedGoods.empty();
         total = 0;
     }
 }

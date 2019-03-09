@@ -13,19 +13,20 @@
             android:id="@+id/pnameTV"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:maxLines="1"
+            android:fontFamily="@font/montserrat_semibold"
             android:padding="@dimen/margin2"
-            android:text="@string/pName"
-            android:textStyle="bold"
-            android:maxLines="1"/>
+            android:text="@string/pName" />
 
         <EditText
             android:id="@+id/pnameET"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_toEndOf="@id/pnameTV"
-            android:hint="@string/oNameHint"
             android:inputType="text"
-            android:singleLine="true" />
+            android:singleLine="true"
+            android:fontFamily="@font/montserrat_regular"
+            android:hint="@string/oNameHint" />
 
         <TextView
             android:id="@+id/spTV"
@@ -34,7 +35,7 @@
             android:layout_below="@id/pnameTV"
             android:padding="@dimen/margin2"
             android:text="@string/sPoints"
-            android:textStyle="bold" />
+            android:fontFamily="@font/montserrat_semibold"/>
 
         <TextView
             android:id="@+id/sPointsTV"
@@ -43,6 +44,7 @@
             android:layout_below="@id/pnameTV"
             android:layout_toEndOf="@id/spTV"
             android:paddingTop="@dimen/margin2"
+            android:fontFamily="@font/montserrat_regular"
             android:text="@string/defaultTtlSP" />
 
         <LinearLayout
@@ -58,23 +60,27 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:layout_marginBottom="@dimen/margin3"
+                android:fontFamily="@font/montserrat_regular"
                 android:text="@string/sk1" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="@dimen/margin3"
+                android:fontFamily="@font/montserrat_regular"
                 android:text="@string/sk2" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="@dimen/margin3"
+                android:fontFamily="@font/montserrat_regular"
                 android:text="@string/sk3" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/montserrat_regular"
                 android:text="@string/sk4" />
 
         </LinearLayout>
@@ -93,28 +99,32 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:onClick="updateSkill"
-                android:text="@string/minus" />
+                android:fontFamily="@font/montserrat_regular"
+                android:text="@string/minus"/>
 
             <Button
                 android:id="@+id/skill2minusBT"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:onClick="updateSkill"
-                android:text="@string/minus" />
+                android:fontFamily="@font/montserrat_regular"
+                android:text="@string/minus"/>
 
             <Button
                 android:id="@+id/skill3minusBT"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:onClick="updateSkill"
-                android:text="@string/minus" />
+                android:fontFamily="@font/montserrat_regular"
+                android:text="@string/minus"/>
 
             <Button
                 android:id="@+id/skill4minusBT"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:onClick="updateSkill"
-                android:text="@string/minus" />
+                android:fontFamily="@font/montserrat_regular"
+                android:text="@string/minus"/>
         </LinearLayout>
 
         <LinearLayout
@@ -132,27 +142,31 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="2dp"
                 android:layout_marginBottom="@dimen/margin3"
-                android:text="@string/defaultSKL" />
+                android:fontFamily="@font/montserrat_regular"
+                android:text="@string/defaultSKL"/>
 
             <TextView
                 android:id="@+id/fighterSkillTV"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="@dimen/margin3"
-                android:text="@string/defaultSKL" />
+                android:fontFamily="@font/montserrat_regular"
+                android:text="@string/defaultSKL"/>
 
             <TextView
                 android:id="@+id/traderSkillTV"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="@dimen/margin3"
-                android:text="@string/defaultSKL" />
+                android:fontFamily="@font/montserrat_regular"
+                android:text="@string/defaultSKL"/>
 
             <TextView
                 android:id="@+id/engineerSkillTV"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/defaultSKL" />
+                android:fontFamily="@font/montserrat_regular"
+                android:text="@string/defaultSKL"/>
 
         </LinearLayout>
 
@@ -169,28 +183,32 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:onClick="updateSkill"
-                android:text="@string/plus" />
+                android:fontFamily="@font/montserrat_regular"
+                android:text="@string/plus"/>
 
             <Button
                 android:id="@+id/skill2plusBT"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:onClick="updateSkill"
-                android:text="@string/plus" />
+                android:fontFamily="@font/montserrat_regular"
+                android:text="@string/plus"/>
 
             <Button
                 android:id="@+id/skill3plusBT"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:onClick="updateSkill"
-                android:text="@string/plus" />
+                android:fontFamily="@font/montserrat_regular"
+                android:text="@string/plus"/>
 
             <Button
                 android:id="@+id/skill4plusBT"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:onClick="updateSkill"
-                android:text="@string/plus" />
+                android:fontFamily="@font/montserrat_regular"
+                android:text="@string/plus"/>
         </LinearLayout>
 
         <TextView
@@ -200,8 +218,8 @@
             android:layout_below="@id/skillTVContainer"
             android:paddingStart="@dimen/margin2"
             android:paddingTop="@dimen/margin3"
-            android:text="@string/difficulty"
-            android:textStyle="bold" />
+            android:fontFamily="@font/montserrat_semibold"
+            android:text="@string/difficulty" />
 
         <LinearLayout
             android:id="@+id/difContainer"
@@ -216,8 +234,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="@string/leftDF"
-                android:onClick="updateDifficulty"/>
+                android:onClick="updateDifficulty"
+                android:fontFamily="@font/montserrat_regular"
+                android:text="@string/leftDF"/>
 
             <TextView
                 android:id="@+id/difTV"
@@ -225,15 +244,17 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="8"
                 android:gravity="center"
-                android:text="@string/defaultDif" />
+                android:fontFamily="@font/montserrat_regular"
+                android:text="@string/defaultDif"/>
 
             <Button
                 android:id="@+id/highDifBT"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="@string/rightDF"
-                android:onClick="updateDifficulty"/>
+                android:onClick="updateDifficulty"
+                android:fontFamily="@font/montserrat_regular"
+                android:text="@string/rightDF" />
 
         </LinearLayout>
 
@@ -243,6 +264,7 @@
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
             android:onClick="onConfirmPressed"
+            android:fontFamily="@font/montserrat_semibold"
             android:text="@string/save" />
 
     </RelativeLayout>

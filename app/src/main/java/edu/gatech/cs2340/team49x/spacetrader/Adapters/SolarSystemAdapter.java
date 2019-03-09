@@ -1,52 +1,53 @@
 package edu.gatech.cs2340.team49x.spacetrader.Adapters;
 
 import android.content.Context;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.BaseAdapter;
+import android.widget.ArrayAdapter;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import edu.gatech.cs2340.team49x.spacetrader.Objects.Universe.SolarSystem;
-import edu.gatech.cs2340.team49x.spacetrader.Views.SolarSystemView;
+import edu.gatech.cs2340.team49x.spacetrader.R;
 
-public class SolarSystemAdapter extends BaseAdapter {
+public class SolarSystemAdapter extends ArrayAdapter<SolarSystem> {
 
-    private Context context;
-    private List<SolarSystem> solarSystems = new ArrayList<>();
+    class SolarSystemView extends RelativeLayout {
 
-    public SolarSystemAdapter(Context context) {
-        this.context = context;
+        TextView solarSystemTV;
+
+        public SolarSystemView(Context context) {
+            super(context);
+        }
+
+        public SolarSystemView(Context context, SolarSystem solarSystem) {
+            super(context);
+            LayoutInflater inflater = (LayoutInflater)context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+            inflater.inflate(R.layout.solarsystem, this, true);
+            solarSystemTV = findViewById(R.id.solarSystemTV);
+            setData(solarSystem);
+        }
+
+        public void setData(SolarSystem solarSystem) {
+            solarSystemTV.setText(solarSystem.getName());
+        }
     }
 
-    public void addSolarSystem(SolarSystem solarSystem) {
-        solarSystems.add(solarSystem);
-    }
-
-    @Override
-    public int getCount() {
-        return solarSystems.size();
-    }
-
-    @Override
-    public Object getItem(int position) {
-        return solarSystems.get(position);
-    }
-
-    @Override
-    public long getItemId(int position) {
-        return position;
+    public SolarSystemAdapter(Context context, List<SolarSystem> resource) {
+        super(context, 0, resource);
     }
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         SolarSystemView view;
         if (convertView == null) {
-            view = new SolarSystemView(context, solarSystems.get(position));
+            view = new SolarSystemView(getContext(), getItem(position));
         } else {
             view = (SolarSystemView) convertView;
-            view.setData(solarSystems.get(position));
+            view.setData(getItem(position));
         }
         return view;
     }

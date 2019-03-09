@@ -18,7 +18,9 @@ import edu.gatech.cs2340.team49x.spacetrader.R;
 import edu.gatech.cs2340.team49x.spacetrader.Viewmodels.MarketViewModel;
 
 public class ItemAdapter extends ArrayAdapter<Item> {
+
     class ItemView extends RelativeLayout {
+
         private MarketViewModel viewModel = null;
         private Button tradeDecreaseBT;
         private Button tradeIncreaseBT;
