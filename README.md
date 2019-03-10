@@ -13,14 +13,19 @@ Team 49x
 
 - [x] Game Configuration
 - [x] Universe Creation
-- [ ] Trade Transaction
-- [ ] Travel Function
+- [x] Trade Transaction
+- [x] Travel Function
+- [ ] Random Events
+- [ ] Skill Points & Abilities
 
 
 ## Team members
 
-Hwuiwon Kim (hwuiwon.kim@gatech.edu)<br>
-Hyup Kim (hyupkim@gatech.edu)<br>
-Ye Jun Kim (rladpwns@gatech.edu)<br>
-Kalen Rohan Patton (kpatton33@gatech.edu)<br>
-Jeremy Qiushi Zou (jzou40@gatech.edu)
+Programmers
+- Hwuiwon Kim (hwuiwon.kim@gatech.edu)<br>
+- Kalen Rohan Patton (kpatton33@gatech.edu)<br>
+
+Story Writers
+- Hyup Kim (hyupkim@gatech.edu)<br>
+- Ye Jun Kim (rladpwns@gatech.edu)<br>
+- Jeremy Qiushi Zou (jzou40@gatech.edu)
