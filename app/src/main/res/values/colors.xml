@@ -4,10 +4,14 @@
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#D81B60</color>
 
-    <color name="STPrimary">#554EBB</color>
+    <color name="STPrimary">#000000</color>
     <color name="STPrimaryDark">#8B4EBB</color>
     <color name="STAccent">#BB554E</color>
 
     <color name="space">#000000</color>
+    <color name="neonBlue">#42DFF4</color>
+    <color name="neonRed">#FF5858</color>
+    <color name="neonGreen">#6BDD4D</color>
+    <color name="neonPurple">#E03CF2</color>
 
 </resources>

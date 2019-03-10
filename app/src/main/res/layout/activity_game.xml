@@ -15,8 +15,8 @@
             android:layout_height="wrap_content"
             android:text="@string/select"
             android:layout_centerHorizontal="true"
-            android:textSize="20sp"
-            android:layout_marginTop="@dimen/margin2"
+            android:textSize="23sp"
+            android:layout_marginTop="@dimen/margin7"
             android:fontFamily="@font/montserrat_semibold"
             android:textColor="@android:color/white"/>
 
@@ -34,7 +34,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/currentSys"
                 android:paddingTop="@dimen/margin2"
-                android:textSize="15sp"
+                android:textSize="17sp"
                 android:fontFamily="@font/montserrat_regular"
                 android:textColor="@android:color/white" />
 
@@ -44,9 +44,9 @@
                 android:layout_height="wrap_content"
                 android:paddingTop="@dimen/margin2"
                 android:text="@string/tmpSys"
-                android:textSize="15sp"
+                android:textSize="17sp"
                 android:fontFamily="@font/montserrat_semibold"
-                android:textColor="@android:color/white"
+                android:textColor="@color/neonBlue"
                 android:layout_toEndOf="@id/currSysTV"/>
 
         </RelativeLayout>
@@ -59,15 +59,15 @@
             android:layout_below="@+id/currSys" />
 
         <Button
+            android:background="@drawable/rrred"
             android:onClick="enterMarket"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/openMarket"
             android:textSize="20sp"
-            android:textColor="@android:color/white"
-            android:fontFamily="@font/montserrat_regular"
-            android:background="@android:color/black"
-            android:layout_alignParentBottom="true"/>
+            android:textColor="@color/neonRed"
+            android:fontFamily="@font/montserrat_semibold"
+            android:layout_alignParentBottom="true" />
 
     </RelativeLayout>
 

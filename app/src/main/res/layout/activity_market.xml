@@ -79,19 +79,19 @@
                 android:layout_height="match_parent"
                 android:layout_marginEnd="@dimen/margin2"
                 android:layout_weight="1"
-                android:background="@drawable/roundrectangle"
+                android:background="@drawable/rrred"
                 android:fontFamily="@font/montserrat_regular"
                 android:onClick="switchScreen"
                 android:text="@string/switchSell"
-                android:textColor="@android:color/white" />
+                android:textColor="@color/neonRed" />
 
             <Button
                 android:onClick="doTransaction"
-                android:background="@drawable/roundrectangle"
+                android:background="@drawable/rrgreen"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:text="@string/done"
-                android:textColor="@android:color/white"
+                android:textColor="@color/neonGreen"
                 android:layout_weight="1"
                 android:fontFamily="@font/montserrat_regular"/>
 
