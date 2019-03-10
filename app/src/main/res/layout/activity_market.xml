@@ -12,7 +12,7 @@
         <ListView
             android:id="@+id/itemLV"
             android:layout_width="match_parent"
-            android:layout_height="450dp"
+            android:layout_height="500dp"
             android:divider="@android:color/white"
             android:dividerHeight="1dp">
         </ListView>
@@ -20,7 +20,7 @@
         <TextView
             android:id="@+id/marketTV"
             android:paddingStart="@dimen/margin3"
-            android:paddingTop="@dimen/margin2"
+            android:paddingTop="@dimen/margin3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/ttlSale"
@@ -35,7 +35,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/sSale"
-            android:paddingTop="@dimen/margin2"
+            android:paddingTop="@dimen/margin3"
             android:textColor="@android:color/white"
             android:textSize="20sp"
             android:layout_toEndOf="@id/marketTV"

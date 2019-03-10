@@ -92,6 +92,7 @@ public class MarketActivity extends AppCompatActivity {
                 viewModel.done();
                 refreshAdapter();
                 binding.playerCreditTV.setText(String.valueOf(viewModel.getCredits()));
+                finish();
             } else {
                 Toast.makeText(this, "Not enough credit", Toast.LENGTH_SHORT).show();
             }
@@ -99,6 +100,7 @@ public class MarketActivity extends AppCompatActivity {
             viewModel.done();
             refreshAdapter();
             binding.playerCreditTV.setText(String.valueOf(viewModel.getCredits()));
+            finish();
         }
     }
 

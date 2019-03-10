@@ -6,7 +6,8 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:background="@android:color/black">
 
         <TextView
             android:id="@+id/gameSelectTV"
@@ -17,7 +18,7 @@
             android:textSize="20sp"
             android:layout_marginTop="@dimen/margin2"
             android:fontFamily="@font/montserrat_semibold"
-            android:textColor="@android:color/black"/>
+            android:textColor="@android:color/white"/>
 
         <RelativeLayout
             android:id="@+id/currSys"
@@ -32,26 +33,29 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/currentSys"
+                android:paddingTop="@dimen/margin2"
                 android:textSize="15sp"
                 android:fontFamily="@font/montserrat_regular"
-                android:textColor="@android:color/black" />
+                android:textColor="@android:color/white" />
 
             <TextView
                 android:id="@+id/currentSystemTV"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:paddingTop="@dimen/margin2"
                 android:text="@string/tmpSys"
                 android:textSize="15sp"
                 android:fontFamily="@font/montserrat_semibold"
-                android:textColor="@android:color/black"
+                android:textColor="@android:color/white"
                 android:layout_toEndOf="@id/currSysTV"/>
 
         </RelativeLayout>
 
         <ListView
+            android:paddingTop="@dimen/margin3"
             android:id="@+id/planetSelectLV"
             android:layout_width="match_parent"
-            android:layout_height="500dp"
+            android:layout_height="550dp"
             android:layout_below="@+id/currSys" />
 
         <Button
