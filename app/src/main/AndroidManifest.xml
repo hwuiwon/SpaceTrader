@@ -14,7 +14,7 @@
             android:label="@string/action_market"
             android:theme="@style/AppTheme.NoActionBar.FullScreen"/>
         <activity
-            android:name=".Activities.GameActivity"
+            android:name=".Activities.TravelActivity"
             android:label="@string/action_game"
             android:theme="@style/AppTheme.NoActionBar.FullScreen"/>
         <activity

@@ -19,7 +19,7 @@ import edu.gatech.cs2340.team49x.spacetrader.R;
 import edu.gatech.cs2340.team49x.spacetrader.Viewmodels.ConfigurationViewModel;
 import edu.gatech.cs2340.team49x.spacetrader.databinding.ActivityGameBinding;
 
-public class GameActivity extends AppCompatActivity {
+public class TravelActivity extends AppCompatActivity {
 
     private ActivityGameBinding binding;
     private ConfigurationViewModel viewModel;
@@ -42,7 +42,7 @@ public class GameActivity extends AppCompatActivity {
                 final int pos = position;
                 final double distance = viewModel.getUniverse().getSolarSystem(position).getCoordinate()
                         .getDistance(viewModel.getCurrentSystem().getCoordinate());
-                AlertDialog.Builder builder = new AlertDialog.Builder(GameActivity.this);
+                AlertDialog.Builder builder = new AlertDialog.Builder(TravelActivity.this);
                 builder.setCancelable(true);
                 builder.setTitle("Traveling...");
                 builder.setMessage("Distance: " + distance + " km\nEstimated time: "
@@ -97,7 +97,7 @@ public class GameActivity extends AppCompatActivity {
      * @param view current View
      */
     public void enterMarket(View view) {
-        Intent intent = new Intent(GameActivity.this, MarketActivity.class);
+        Intent intent = new Intent(TravelActivity.this, MarketActivity.class);
         startActivity(intent);
     }
 }

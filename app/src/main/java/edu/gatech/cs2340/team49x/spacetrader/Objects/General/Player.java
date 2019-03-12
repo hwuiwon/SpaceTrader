@@ -93,16 +93,8 @@ public class Player {
         this.credits = credits;
     }
 
-    public void addToCargo(Tradable good, int quantity) {
-        this.ship.addToCargo(good, quantity);
-    }
-
     public void addToCargo(Inventory items) {
         this.ship.addToCargo(items);
-    }
-
-    public void removeFromCargo(Tradable good, int quantity) {
-        this.ship.removeFromCargo(good, quantity);
     }
 
     public void removeFromCargo(Inventory items) {
@@ -111,10 +103,6 @@ public class Player {
 
     public int getAmountOf(Tradable good) {
         return this.ship.getAmountOf(good);
-    }
-
-    public boolean has(Inventory items) {
-        return ship.has(items);
     }
 
     public int cargoSpaceRemaining() {

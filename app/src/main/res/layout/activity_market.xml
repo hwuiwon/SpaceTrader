@@ -12,7 +12,7 @@
         <ListView
             android:id="@+id/itemLV"
             android:layout_width="match_parent"
-            android:layout_height="500dp"
+            android:layout_height="480dp"
             android:divider="@android:color/white"
             android:dividerHeight="1dp">
         </ListView>
