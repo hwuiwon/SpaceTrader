@@ -11,7 +11,8 @@ public class Coordinate {
     }
 
     public double getDistance(Coordinate coordinate) {
-        return Math.sqrt((this.x - coordinate.x)^2 + (this.y - coordinate.y)^2);
+        return Math.round(Math.sqrt((this.x - coordinate.x) * (this.x - coordinate.x)
+                + (this.y - coordinate.y) * (this.y - coordinate.y)) * 100000.0) / 100.0;
     }
 
     @Override

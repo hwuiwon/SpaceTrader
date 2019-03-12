@@ -7,25 +7,31 @@ public class Ship {
 
     public enum ShipType {
 
-        GNAT(5),
-        FLEA(10),
-        FIREFLY(15),
-        MOSQUITO(20),
-        BUMBLEBEE(25),
-        BEETLE(30),
-        HORNET(35),
-        GRASSHOPPER(40),
-        TERMITE(45),
-        WASP(50);
+        GNAT(5, 20000),
+        FLEA(10, 22500),
+        FIREFLY(15, 25000),
+        MOSQUITO(20, 27500),
+        BUMBLEBEE(25, 30000),
+        BEETLE(30, 32500),
+        HORNET(35, 35000),
+        GRASSHOPPER(40, 37500),
+        TERMITE(45, 40000),
+        WASP(50, 42500);
 
         private int storage;
+        private int speed;
 
-        ShipType(int storage) {
+        ShipType(int storage, int speed) {
             this.storage = storage;
+            this.speed = speed;
         }
 
         public int getStorage() {
             return storage;
+        }
+
+        public int getSpeed() {
+            return speed;
         }
     }
 
@@ -75,5 +81,9 @@ public class Ship {
 
     public String getName() {
         return type.name();
+    }
+
+    public int getSpeed() {
+        return type.getSpeed();
     }
 }
