@@ -74,9 +74,11 @@ public class MarketActivity extends AppCompatActivity {
         if (viewModel.isBuying()) {
             binding.marketTV.setText(R.string.ttlCost);
             binding.switchBT.setText(R.string.switchSell);
+            binding.buyBT.setText("Buy");
         } else {
             binding.marketTV.setText(R.string.ttlSale);
             binding.switchBT.setText(R.string.switchBuy);
+            binding.buyBT.setText("Sell");
         }
 
     }
@@ -92,7 +94,6 @@ public class MarketActivity extends AppCompatActivity {
                 viewModel.done();
                 refreshAdapter();
                 binding.playerCreditTV.setText(String.valueOf(viewModel.getCredits()));
-                finish();
             } else {
                 Toast.makeText(this, "Not enough credit", Toast.LENGTH_SHORT).show();
             }
@@ -100,7 +101,6 @@ public class MarketActivity extends AppCompatActivity {
             viewModel.done();
             refreshAdapter();
             binding.playerCreditTV.setText(String.valueOf(viewModel.getCredits()));
-            finish();
         }
     }
 
@@ -108,5 +108,9 @@ public class MarketActivity extends AppCompatActivity {
         adapter.clear();
         adapter.addAll(getListItemData());
         adapter.notifyDataSetChanged();
+    }
+
+    public void done(View view) {
+        finish();
     }
 }

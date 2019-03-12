@@ -12,7 +12,7 @@
         <ListView
             android:id="@+id/itemLV"
             android:layout_width="match_parent"
-            android:layout_height="480dp"
+            android:layout_height="450dp"
             android:divider="@android:color/white"
             android:dividerHeight="1dp">
         </ListView>
@@ -67,34 +67,54 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="70dp"
-            android:orientation="horizontal"
+            android:layout_height="130dp"
             android:layout_alignParentBottom="true"
+            android:layout_marginBottom="0dp"
             android:paddingHorizontal="@dimen/margin3"
-            android:paddingBottom="@dimen/margin7">
+            android:paddingVertical="@dimen/margin2"
+            android:layout_weight="1"
+            android:orientation="vertical">
 
             <Button
-                android:id="@+id/switchBT"
-                android:layout_width="wrap_content"
+                android:id="@+id/buyBT"
+                android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginEnd="@dimen/margin2"
                 android:layout_weight="1"
-                android:background="@drawable/rrred"
-                android:fontFamily="@font/montserrat_regular"
-                android:onClick="switchScreen"
-                android:text="@string/switchSell"
-                android:textColor="@color/neonRed" />
-
-            <Button
-                android:onClick="doTransaction"
                 android:background="@drawable/rrgreen"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:text="@string/done"
-                android:textColor="@color/neonGreen"
-                android:layout_weight="1"
-                android:fontFamily="@font/montserrat_regular"/>
+                android:fontFamily="@font/montserrat_regular"
+                android:onClick="doTransaction"
+                android:text="Buy"
+                android:textColor="@color/neonGreen" />
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:orientation="horizontal"
+                android:paddingTop="@dimen/margin2">
+
+                <Button
+                    android:id="@+id/switchBT"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginEnd="@dimen/margin2"
+                    android:layout_weight="1"
+                    android:background="@drawable/rrgrey"
+                    android:fontFamily="@font/montserrat_regular"
+                    android:onClick="switchScreen"
+                    android:text="@string/switchSell"
+                    android:textColor="@color/grey" />
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@drawable/rrred"
+                    android:fontFamily="@font/montserrat_regular"
+                    android:onClick="done"
+                    android:text="@string/done"
+                    android:textColor="@color/neonRed" />
+
+            </LinearLayout>
         </LinearLayout>
 
     </RelativeLayout>
