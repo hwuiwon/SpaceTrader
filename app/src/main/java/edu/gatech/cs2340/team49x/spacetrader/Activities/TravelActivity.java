@@ -21,6 +21,8 @@ import edu.gatech.cs2340.team49x.spacetrader.databinding.ActivityGameBinding;
 
 public class TravelActivity extends AppCompatActivity {
 
+    // activity_game.xml
+
     private ActivityGameBinding binding;
     private ConfigurationViewModel viewModel;
     private ArrayList<SolarSystem> solarSystems;
@@ -85,9 +87,7 @@ public class TravelActivity extends AppCompatActivity {
      */
     public ArrayList<SolarSystem> getListItemData() {
         solarSystems = new ArrayList<>();
-        for (SolarSystem system : viewModel.getUniverse().getSolarSystems()) {
-            solarSystems.add(system);
-        }
+        solarSystems.addAll(viewModel.getUniverse().getSolarSystems());
         return solarSystems;
     }
 

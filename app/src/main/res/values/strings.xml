@@ -3,12 +3,16 @@
     <string name="action_settings">Player Settings</string>
     <string name="action_market">Market</string>
     <string name="action_game">Travel</string>
+    <string name="action_select">Select</string>
 
     <string name="name_main">S P A C E\nT R A D E R S</string>
     <string name="play">PLAY</string>
 
     <string name="pName">Player Name: </string>
     <string name="oNameHint">Type player name</string>
+    <string name="pInfo">Player Information</string>
+    <string name="buyShip">Buy Ship</string>
+    <string name="startTr">Travel</string>
 
     <string name="sPoints">Skill Points: </string>
     <string name="defaultTtlSP">16</string>
