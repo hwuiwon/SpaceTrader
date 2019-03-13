@@ -105,14 +105,28 @@ public class MarketActivity extends AppCompatActivity {
         }
     }
 
+    /**
+     * Refreshes adapter
+     */
     private void refreshAdapter() {
         adapter.clear();
         adapter.addAll(getListItemData());
         adapter.notifyDataSetChanged();
     }
 
+    /**
+     * Ends Market Activity
+     *
+     * @param view current View
+     */
     public void done(View view) {
         finish();
+        overridePendingTransition(R.anim.fadein, R.anim.fadeout);
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
         overridePendingTransition(R.anim.fadein, R.anim.fadeout);
     }
 }

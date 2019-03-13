@@ -101,4 +101,10 @@ public class TravelActivity extends AppCompatActivity {
         Intent intent = new Intent(TravelActivity.this, MarketActivity.class);
         startActivity(intent);
     }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        overridePendingTransition(R.anim.fadein, R.anim.fadeout);
+    }
 }

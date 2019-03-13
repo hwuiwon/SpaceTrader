@@ -35,4 +35,10 @@ public class SelectActivity extends AppCompatActivity {
         Intent intent = new Intent(SelectActivity.this, ConfigurationActivity.class);
         startActivity(intent);
     }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        overridePendingTransition(R.anim.fadein, R.anim.fadeout);
+    }
 }
