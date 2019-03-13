@@ -30,6 +30,7 @@ public class TravelActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        overridePendingTransition(R.anim.fadein, R.anim.fadeout);
         setContentView(R.layout.activity_game);
 
         binding = DataBindingUtil.setContentView(this, R.layout.activity_game);

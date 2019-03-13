@@ -27,6 +27,7 @@ public class MarketActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        overridePendingTransition(R.anim.fadein, R.anim.fadeout);
         setContentView(R.layout.activity_market);
 
         binding = DataBindingUtil.setContentView(this, R.layout.activity_market);
@@ -112,5 +113,6 @@ public class MarketActivity extends AppCompatActivity {
 
     public void done(View view) {
         finish();
+        overridePendingTransition(R.anim.fadein, R.anim.fadeout);
     }
 }

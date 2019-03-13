@@ -12,11 +12,27 @@ public class SelectActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        overridePendingTransition(R.anim.fadein, R.anim.fadeout);
         setContentView(R.layout.activity_select);
     }
 
+    /**
+     * Opens Travel Activity
+     *
+     * @param view current View
+     */
     public void startTravel(View view) {
         Intent intent = new Intent(SelectActivity.this, TravelActivity.class);
+        startActivity(intent);
+    }
+
+    /**
+     * Opens Setting Activity
+     *
+     * @param view current View
+     */
+    public void openSettings(View view) {
+        Intent intent = new Intent(SelectActivity.this, ConfigurationActivity.class);
         startActivity(intent);
     }
 }
