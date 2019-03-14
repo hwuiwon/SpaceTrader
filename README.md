@@ -14,7 +14,8 @@ Team 49x
 - [x] Game Configuration
 - [x] Universe Creation
 - [x] Trade Transaction
-- [x] Travel Function
+- [x] Travel Function & Fuel
+- [x] Player Inventory
 - [ ] Random Events
 - [ ] Skill Points & Abilities
 
