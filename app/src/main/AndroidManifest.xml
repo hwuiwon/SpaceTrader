@@ -10,9 +10,13 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
+            android:name=".Activities.InfoActivity"
+            android:label="@string/action_info"
+            android:theme="@style/AppTheme.NoActionBar.FullScreen"/>
+        <activity
             android:name=".Activities.SelectActivity"
             android:label="@string/action_select"
-            android:theme="@style/AppTheme.NoActionBar.FullScreen"/>
+            android:theme="@style/AppTheme.NoActionBar.FullScreen" />
         <activity
             android:name=".Activities.MarketActivity"
             android:label="@string/action_market"

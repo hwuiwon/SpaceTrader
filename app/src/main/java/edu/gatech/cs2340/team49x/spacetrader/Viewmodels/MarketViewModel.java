@@ -9,7 +9,7 @@ import java.util.List;
 
 import edu.gatech.cs2340.team49x.spacetrader.Model.ModelFacade;
 import edu.gatech.cs2340.team49x.spacetrader.Model.TradeInteractor;
-import edu.gatech.cs2340.team49x.spacetrader.Objects.Item;
+import edu.gatech.cs2340.team49x.spacetrader.Objects.Trading.Item;
 import edu.gatech.cs2340.team49x.spacetrader.Objects.Trading.Inventory;
 import edu.gatech.cs2340.team49x.spacetrader.Objects.Trading.Tradable;
 

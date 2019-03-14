@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".Activities.InfoActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@android:color/black"
+        android:padding="@dimen/margin4">
+
+        <TextView
+            android:id="@+id/infoNTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/pName"
+            android:textColor="@color/neonBlue"
+            android:fontFamily="@font/montserrat_semibold"
+            android:textSize="20sp"/>
+
+        <TextView
+            android:id="@+id/infoNameTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Test"
+            android:textColor="@android:color/white"
+            android:fontFamily="@font/montserrat_regular"
+            android:textSize="20sp"
+            android:layout_toEndOf="@id/infoNTV"/>
+
+        <TextView
+            android:id="@+id/invenInfoTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/cargo"
+            android:textColor="@color/neonRed"
+            android:fontFamily="@font/montserrat_semibold"
+            android:textSize="20sp"
+            android:layout_below="@id/infoNTV"
+            android:paddingTop="@dimen/margin7"
+            android:paddingBottom="@dimen/margin7"/>
+
+        <ListView
+            android:id="@+id/invenInfoLV"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/invenInfoTV" />
+    </RelativeLayout>
+
+</layout>

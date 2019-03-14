@@ -1,5 +1,6 @@
 package edu.gatech.cs2340.team49x.spacetrader.Objects.Trading;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -7,6 +8,7 @@ import java.util.Map;
  * This class is used to represent a collection of Tradables and their quantities.
  */
 public class Inventory {
+
     private Map<Tradable, Integer> quantities;
     private int count;
 
@@ -29,6 +31,18 @@ public class Inventory {
             total += trader.getPrice(item.getKey()) * item.getValue();
         }
         return total;
+    }
+
+    /**
+     * Returns inventory of a player
+     * @return inventory
+     */
+    public ArrayList<InvenItem> getQuantities() {
+        ArrayList<InvenItem> invenItems = new ArrayList<>();
+        for (Map.Entry<Tradable, Integer> entry : quantities.entrySet()) {
+            invenItems.add(new InvenItem(entry.getKey().getName(), entry.getValue()));
+        }
+        return invenItems;
     }
 
     /**

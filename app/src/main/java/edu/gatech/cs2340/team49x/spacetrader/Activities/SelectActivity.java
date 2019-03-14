@@ -36,6 +36,16 @@ public class SelectActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    /**
+     * Opens Player Information
+     *
+     * @param view current View
+     */
+    public void openPlayerInfo(View view) {
+        Intent intent = new Intent(SelectActivity.this, InfoActivity.class);
+        startActivity(intent);
+    }
+
     @Override
     public void onBackPressed() {
         super.onBackPressed();

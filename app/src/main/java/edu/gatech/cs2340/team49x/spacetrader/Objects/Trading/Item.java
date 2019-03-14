@@ -1,6 +1,4 @@
-package edu.gatech.cs2340.team49x.spacetrader.Objects;
-
-import edu.gatech.cs2340.team49x.spacetrader.Objects.Trading.Tradable;
+package edu.gatech.cs2340.team49x.spacetrader.Objects.Trading;
 
 public class Item {
 
@@ -28,12 +26,6 @@ public class Item {
 
     public void setRemaining(int remaining) {
         this.remaining = remaining;
-    }
-
-    public void copyData(Item other) {
-        this.good = other.good;
-        this.price = other.price;
-        this.remaining = other.remaining;
     }
 
     public Tradable getGood() {
