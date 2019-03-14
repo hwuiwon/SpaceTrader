@@ -47,4 +47,6 @@
     <string name="sSale">0</string>
     <string name="urCredit">Your credits:\t</string>
     <string name="sCredit">1000</string>
+    <string name="fuelLeft">\t| Fuel:\t</string>
+    <string name="sFuel">2000000</string>
 </resources>

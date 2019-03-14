@@ -10,6 +10,7 @@ import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -38,6 +39,7 @@ public class TravelActivity extends AppCompatActivity {
         solarSystems = getListItemData();
         binding.planetSelectLV.setAdapter(new SolarSystemAdapter(this, solarSystems));
         binding.currentSystemTV.setText(viewModel.getCurrentSystem().getName());
+        binding.currentFuelTV.setText(String.valueOf(viewModel.getPlayer().getShip().getFuel()));
 
         binding.planetSelectLV.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -45,40 +47,47 @@ public class TravelActivity extends AppCompatActivity {
                 final int pos = position;
                 final double distance = viewModel.getUniverse().getSolarSystem(position).getCoordinate()
                         .getDistance(viewModel.getCurrentSystem().getCoordinate());
-                AlertDialog.Builder builder = new AlertDialog.Builder(TravelActivity.this);
-                builder.setCancelable(true);
-                builder.setTitle("Traveling...");
-                builder.setMessage("Distance: " + distance + " km\nEstimated time: "
-                        + (int) distance / viewModel.getPlayer().getShip().getSpeed() + " seconds");
-                builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        dialog.cancel();
-                    }
-                });
-                final AlertDialog alertDialog = builder.create();
-                alertDialog.show();
 
-                final Handler handler = new Handler();
-                final Runnable runnable = new Runnable() {
-                    @Override
-                    public void run() {
-                        if (alertDialog.isShowing()) {
-                            alertDialog.dismiss();
-                            viewModel.setCurrentSystem(viewModel.getUniverse().getSolarSystem(pos));
-                            binding.currentSystemTV.setText(viewModel.getCurrentSystem().getName());
+                if (viewModel.getPlayer().getShip().getFuel() >= distance) {
+                    AlertDialog.Builder builder = new AlertDialog.Builder(TravelActivity.this);
+                    builder.setCancelable(true);
+                    builder.setTitle("Traveling...");
+                    builder.setMessage("Distance: " + distance + " km\nEstimated time: "
+                            + (int) distance / viewModel.getPlayer().getShip().getSpeed() + " seconds");
+                    builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            dialog.cancel();
                         }
-                    }
-                };
+                    });
+                    final AlertDialog alertDialog = builder.create();
+                    alertDialog.show();
 
-                alertDialog.setOnDismissListener(new DialogInterface.OnDismissListener() {
-                    @Override
-                    public void onDismiss(DialogInterface dialog) {
-                        handler.removeCallbacks(runnable);
-                    }
-                });
-                handler.postDelayed(runnable, (int) (distance
-                        / viewModel.getPlayer().getShip().getSpeed()) * 1000);
+                    final Handler handler = new Handler();
+                    final Runnable runnable = new Runnable() {
+                        @Override
+                        public void run() {
+                            if (alertDialog.isShowing()) {
+                                alertDialog.dismiss();
+                                viewModel.setCurrentSystem(viewModel.getUniverse().getSolarSystem(pos));
+                                binding.currentSystemTV.setText(viewModel.getCurrentSystem().getName());
+                                viewModel.getPlayer().getShip().setFuel((int) -distance);
+                                binding.currentFuelTV.setText(String.valueOf(viewModel.getPlayer().getShip().getFuel()));
+                            }
+                        }
+                    };
+
+                    alertDialog.setOnDismissListener(new DialogInterface.OnDismissListener() {
+                        @Override
+                        public void onDismiss(DialogInterface dialog) {
+                            handler.removeCallbacks(runnable);
+                        }
+                    });
+                    handler.postDelayed(runnable, (int) (distance
+                            / viewModel.getPlayer().getShip().getSpeed()) * 1000);
+                } else {
+                    Toast.makeText(getApplicationContext(), "Not enough fuel", Toast.LENGTH_SHORT).show();
+                }
             }
         });
     }

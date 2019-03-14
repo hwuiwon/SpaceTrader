@@ -49,6 +49,28 @@
                 android:textColor="@color/neonBlue"
                 android:layout_toEndOf="@id/currSysTV"/>
 
+            <TextView
+                android:id="@+id/fuelTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingTop="@dimen/margin2"
+                android:text="@string/fuelLeft"
+                android:textColor="@android:color/white"
+                android:textSize="17sp"
+                android:fontFamily="@font/montserrat_regular"
+                android:layout_toEndOf="@id/currentSystemTV"/>
+
+            <TextView
+                android:id="@+id/currentFuelTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingTop="@dimen/margin2"
+                android:text="@string/sFuel"
+                android:textColor="@color/neonPurple"
+                android:textSize="17sp"
+                android:fontFamily="@font/montserrat_semibold"
+                android:layout_toEndOf="@id/fuelTV"/>
+
         </RelativeLayout>
 
         <ListView
@@ -59,6 +81,7 @@
             android:layout_below="@+id/currSys" />
 
         <Button
+            android:layout_margin="@dimen/margin2"
             android:background="@drawable/rrred"
             android:onClick="enterMarket"
             android:layout_width="match_parent"

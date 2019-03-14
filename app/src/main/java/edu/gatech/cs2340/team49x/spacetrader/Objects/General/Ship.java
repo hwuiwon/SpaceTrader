@@ -7,23 +7,25 @@ public class Ship {
 
     public enum ShipType {
 
-        GNAT(5, 20000),
-        FLEA(10, 22500),
-        FIREFLY(15, 25000),
-        MOSQUITO(20, 27500),
-        BUMBLEBEE(25, 30000),
-        BEETLE(30, 32500),
-        HORNET(35, 35000),
-        GRASSHOPPER(40, 37500),
-        TERMITE(45, 40000),
-        WASP(50, 42500);
+        GNAT(5, 20000, 500000),
+        FLEA(10, 22500, 1000000),
+        FIREFLY(15, 25000, 1500000),
+        MOSQUITO(20, 27500, 2000000),
+        BUMBLEBEE(25, 30000, 2500000),
+        BEETLE(30, 32500, 3000000),
+        HORNET(35, 35000, 3500000),
+        GRASSHOPPER(40, 37500, 4000000),
+        TERMITE(45, 40000, 4500000),
+        WASP(50, 42500, 5000000);
 
         private int storage;
         private int speed;
+        private int maxFuel;
 
-        ShipType(int storage, int speed) {
+        ShipType(int storage, int speed, int maxFuel) {
             this.storage = storage;
             this.speed = speed;
+            this.maxFuel = maxFuel;
         }
 
         public int getStorage() {
@@ -33,14 +35,20 @@ public class Ship {
         public int getSpeed() {
             return speed;
         }
+
+        public int getMaxFuel() {
+            return maxFuel;
+        }
     }
 
     private ShipType type;
     private Inventory cargo;
+    private int fuel;
 
     public Ship(ShipType type) {
         this.type = type;
-        cargo = new Inventory();
+        this.cargo = new Inventory();
+        this.fuel = type.getMaxFuel();
     }
 
     public ShipType getType() {
@@ -49,6 +57,14 @@ public class Ship {
 
     public Inventory getCargo() {
         return cargo;
+    }
+
+    public int getFuel() {
+        return fuel;
+    }
+
+    public void setFuel(int fuel) {
+        this.fuel += fuel;
     }
 
     public void addToCargo(Tradable good, int quantity) {
