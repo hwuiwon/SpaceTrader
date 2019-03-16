@@ -75,7 +75,7 @@ public class Inventory {
      */
     public void remove(Inventory inventory) {
         for (Tradable good : inventory.quantities.keySet()) {
-            add(good, -quantities.get(good));
+            add(good, -inventory.quantities.get(good));
         }
     }
 
