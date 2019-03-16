@@ -1,108 +1,110 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@android:color/black"
     tools:context=".Activities.SelectActivity">
 
-    <pl.droidsonroids.gif.GifImageView
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:src="@drawable/moving"
-        android:background="@color/space"/>
+        android:background="@android:color/black">
 
-    <TextView
-        android:id="@+id/youAreOnTV"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_marginStart="@dimen/margin4"
-        android:layout_marginTop="@dimen/margin4"
-        android:text="TextView"
-        android:textAlignment="viewStart"
-        android:textColor="@android:color/white"
-        tools:text="You are currently on " />
+        <pl.droidsonroids.gif.GifImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/moving"
+            android:background="@color/space"/>
 
-    <TextView
-        android:id="@+id/nameTV"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="@dimen/margin4"
-        android:layout_toEndOf="@+id/youAreOnTV"
-        android:text="TextView"
-        android:textAlignment="viewStart"
-        android:textColor="@color/neonBlue"
-        tools:text="Name" />
+        <TextView
+            android:id="@+id/youAreOnTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="@dimen/margin4"
+            android:layout_marginTop="@dimen/margin4"
+            android:text="@string/currOn"
+            android:textAlignment="viewStart"
+            android:textColor="@android:color/white"
+            android:fontFamily="@font/montserrat_regular"/>
 
-    <TextView
-        android:id="@+id/techlevelTV"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/nameTV"
-        android:layout_marginStart="@dimen/margin4"
-        android:layout_marginEnd="@dimen/margin4"
-        android:text="TextView"
-        android:textAlignment="viewStart"
-        android:textColor="@color/neonGreen"
-        tools:text="TechLevel" />
+        <TextView
+            android:id="@+id/nameTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="@dimen/margin4"
+            android:layout_toEndOf="@+id/youAreOnTV"
+            android:text="@string/tmpSys"
+            android:textAlignment="viewStart"
+            android:textColor="@color/neonBlue" />
 
-    <TextView
-        android:id="@+id/resourcesTV"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/techlevelTV"
-        android:layout_marginStart="@dimen/margin4"
-        android:layout_marginEnd="@dimen/margin4"
-        android:text="TextView"
-        android:textAlignment="viewStart"
-        android:textColor="@color/neonRed"
-        tools:text="Resources" />
+        <TextView
+            android:id="@+id/techlevelTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/nameTV"
+            android:layout_marginStart="@dimen/margin4"
+            android:layout_marginEnd="@dimen/margin4"
+            android:text="@string/tmpTLv"
+            android:textAlignment="viewStart"
+            android:textColor="@color/neonGreen" />
 
-    <Button
-        android:onClick="openPlayerInfo"
-        android:id="@+id/selectBT1"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/margin7"
-        android:background="@drawable/roundrectangle"
-        android:fontFamily="@font/montserrat_regular"
-        android:text="@string/pInfo"
-        android:textSize="20sp"
-        android:layout_above="@id/selectBT2"
-        android:textColor="@android:color/white"
-        android:layout_marginStart="@dimen/margin4"
-        android:layout_marginEnd="@dimen/margin4"/>
+        <TextView
+            android:id="@+id/resourcesTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/techlevelTV"
+            android:layout_marginStart="@dimen/margin4"
+            android:layout_marginEnd="@dimen/margin4"
+            android:text="@string/tmpRsr"
+            android:textAlignment="viewStart"
+            android:textColor="@color/neonRed" />
 
-    <Button
-        android:id="@+id/selectBT2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/margin7"
-        android:background="@drawable/roundrectangle"
-        android:fontFamily="@font/montserrat_regular"
-        android:text="@string/buyShip"
-        android:textSize="20sp"
-        android:layout_above="@id/selectBT3"
-        android:textColor="@android:color/white"
-        android:layout_marginStart="@dimen/margin4"
-        android:layout_marginEnd="@dimen/margin4"/>
+        <Button
+            android:onClick="openPlayerInfo"
+            android:id="@+id/selectBT1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin7"
+            android:background="@drawable/roundrectangle"
+            android:fontFamily="@font/montserrat_regular"
+            android:text="@string/pInfo"
+            android:textSize="20sp"
+            android:layout_above="@id/selectBT2"
+            android:textColor="@android:color/white"
+            android:layout_marginStart="@dimen/margin4"
+            android:layout_marginEnd="@dimen/margin4"/>
 
-    <Button
-        android:id="@+id/selectBT3"
-        android:onClick="startTravel"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/margin7"
-        android:layout_alignParentBottom="true"
-        android:background="@drawable/roundrectangle"
-        android:fontFamily="@font/montserrat_regular"
-        android:text="@string/startTr"
-        android:textSize="20sp"
-        android:textColor="@android:color/white"
-        android:layout_marginBottom="@dimen/mainTopMargin"
-        android:layout_marginStart="@dimen/margin4"
-        android:layout_marginEnd="@dimen/margin4"/>
+        <Button
+            android:id="@+id/selectBT2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin7"
+            android:background="@drawable/roundrectangle"
+            android:fontFamily="@font/montserrat_regular"
+            android:text="@string/buyShip"
+            android:textSize="20sp"
+            android:layout_above="@id/selectBT3"
+            android:textColor="@android:color/white"
+            android:layout_marginStart="@dimen/margin4"
+            android:layout_marginEnd="@dimen/margin4"/>
 
-</RelativeLayout>
+        <Button
+            android:id="@+id/selectBT3"
+            android:onClick="startTravel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin7"
+            android:layout_alignParentBottom="true"
+            android:background="@drawable/roundrectangle"
+            android:fontFamily="@font/montserrat_regular"
+            android:text="@string/startTr"
+            android:textSize="20sp"
+            android:textColor="@android:color/white"
+            android:layout_marginBottom="@dimen/mainTopMargin"
+            android:layout_marginStart="@dimen/margin4"
+            android:layout_marginEnd="@dimen/margin4"/>
+
+    </RelativeLayout>
+
+</layout>

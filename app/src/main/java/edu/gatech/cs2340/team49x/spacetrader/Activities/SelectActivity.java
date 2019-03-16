@@ -9,17 +9,25 @@ import android.view.View;
 
 import edu.gatech.cs2340.team49x.spacetrader.R;
 import edu.gatech.cs2340.team49x.spacetrader.Viewmodels.SelectViewModel;
-import edu.gatech.cs2340.team49x.spacetrader.databinding.ActivityMarketBinding;
+import edu.gatech.cs2340.team49x.spacetrader.databinding.ActivitySelectBinding;
 
 public class SelectActivity extends AppCompatActivity {
+
     private SelectViewModel viewModel;
+    private ActivitySelectBinding binding;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        viewModel = ViewModelProviders.of(this).get(SelectViewModel.class);
         overridePendingTransition(R.anim.fadein, R.anim.fadeout);
         setContentView(R.layout.activity_select);
+
+        viewModel = ViewModelProviders.of(this).get(SelectViewModel.class);
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_select);
+
+        binding.nameTV.setText(viewModel.getSystemName());
+        binding.techlevelTV.setText(viewModel.getTechLevelDiscription());
+        binding.resourcesTV.setText(viewModel.getResourceDiscription());
     }
 
     /**
@@ -56,5 +64,13 @@ public class SelectActivity extends AppCompatActivity {
     public void onBackPressed() {
         super.onBackPressed();
         overridePendingTransition(R.anim.fadein, R.anim.fadeout);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        binding.nameTV.setText(viewModel.getSystemName());
+        binding.techlevelTV.setText(viewModel.getTechLevelDiscription());
+        binding.resourcesTV.setText(viewModel.getResourceDiscription());
     }
 }

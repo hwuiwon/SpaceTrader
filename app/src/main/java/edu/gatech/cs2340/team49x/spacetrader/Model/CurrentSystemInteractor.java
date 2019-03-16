@@ -9,6 +9,7 @@ import edu.gatech.cs2340.team49x.spacetrader.Objects.Universe.TechLevel;
 import edu.gatech.cs2340.team49x.spacetrader.Objects.Universe.Universe;
 
 public class CurrentSystemInteractor {
+
     SolarSystem currentSystem;
     Universe universe;
     Game game;
