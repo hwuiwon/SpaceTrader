@@ -14,7 +14,7 @@ public class Player {
     private Ship ship;
     private int credits;
 
-    public Player(String name, int skillPt, int pilotPt, int fighterPt, int tradePt, int engineerPt, Ship ship) {
+    private Player(String name, int skillPt, int pilotPt, int fighterPt, int tradePt, int engineerPt, Ship ship) {
         this.name = name;
         this.skillPt = skillPt;
         this.pilotPt = pilotPt;
@@ -89,8 +89,8 @@ public class Player {
         return credits;
     }
 
-    public void setCredits(int credits) {
-        this.credits = credits;
+    public void changeCredits(int amount) {
+        credits += amount;
     }
 
     public void addToCargo(Inventory items) {
@@ -107,10 +107,6 @@ public class Player {
 
     public int cargoSpaceRemaining() {
         return ship.cargoSpaceRemaining();
-    }
-
-    public void changeCredits(int amount) {
-        credits += amount;
     }
 
     @Override

@@ -7,6 +7,7 @@ import edu.gatech.cs2340.team49x.spacetrader.Objects.Universe.SolarSystem;
 import edu.gatech.cs2340.team49x.spacetrader.Objects.Universe.Universe;
 
 public class ModelFacade {
+
     private final static int NUM_SYSTEMS = 100;
     private static ModelFacade instance = new ModelFacade();
 

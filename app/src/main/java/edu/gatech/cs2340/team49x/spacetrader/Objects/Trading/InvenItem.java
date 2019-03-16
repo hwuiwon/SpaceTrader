@@ -5,7 +5,7 @@ public class InvenItem {
     private String name;
     private int quantity;
 
-    public InvenItem(String name, int quantity) {
+    InvenItem(String name, int quantity) {
         this.name = name;
         this.quantity = quantity;
     }

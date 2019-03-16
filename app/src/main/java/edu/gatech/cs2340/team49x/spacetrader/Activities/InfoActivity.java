@@ -13,7 +13,6 @@ import edu.gatech.cs2340.team49x.spacetrader.databinding.ActivityInfoBinding;
 
 public class InfoActivity extends AppCompatActivity {
 
-    private ActivityInfoBinding binding;
     private ConfigurationViewModel viewModel;
 
     @Override
@@ -22,7 +21,8 @@ public class InfoActivity extends AppCompatActivity {
         overridePendingTransition(R.anim.fadein, R.anim.fadeout);
         setContentView(R.layout.activity_info);
 
-        binding = DataBindingUtil.setContentView(this, R.layout.activity_info);
+        ActivityInfoBinding binding =
+                DataBindingUtil.setContentView(this, R.layout.activity_info);
         viewModel = ViewModelProviders.of(this).get(ConfigurationViewModel.class);
 
         binding.infoNameTV.setText(viewModel.getPlayer().getName());

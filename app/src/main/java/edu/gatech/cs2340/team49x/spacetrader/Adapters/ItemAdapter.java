@@ -59,7 +59,7 @@ public class ItemAdapter extends ArrayAdapter<Item> {
                 @Override
                 public void onClick(View v) {
                     viewModel.decreaseAmount(item.getGood());
-                    tradeCountTV.setText(Integer.toString(viewModel.getAmountSelected(item.getGood())));
+                    tradeCountTV.setText(String.valueOf(viewModel.getAmountSelected(item.getGood())));
                     notifyDataSetChanged();
                 }
             });
@@ -68,7 +68,7 @@ public class ItemAdapter extends ArrayAdapter<Item> {
                 @Override
                 public void onClick(View v) {
                     viewModel.increaseAmount(item.getGood());
-                    tradeCountTV.setText(Integer.toString(viewModel.getAmountSelected(item.getGood())));
+                    tradeCountTV.setText(String.valueOf(viewModel.getAmountSelected(item.getGood())));
                     notifyDataSetChanged();
                 }
             });
@@ -77,7 +77,7 @@ public class ItemAdapter extends ArrayAdapter<Item> {
         public void update() {
             this.item.setRemaining(viewModel.getCargo(item.getGood()));
             itemRemainTV.setText(String.valueOf(item.getRemaining()));
-            tradeCountTV.setText(Integer.toString(viewModel.getAmountSelected(item.getGood())));
+            tradeCountTV.setText(String.valueOf(viewModel.getAmountSelected(item.getGood())));
         }
     }
 

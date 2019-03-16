@@ -10,11 +10,11 @@ import edu.gatech.cs2340.team49x.spacetrader.Objects.Universe.Resources;
 import edu.gatech.cs2340.team49x.spacetrader.Objects.Universe.TechLevel;
 
 public class Market implements Trader {
+
     private Map<TradeGood, Integer> prices;
-    private RandomEvent event;
+    private RandomCondition event;
     private Tradable[] sells = {};
     private Tradable[] buys = {};
-    private Random random = new Random();
 
     public Market(TechLevel techLevel, Resources resources) {
         List<Tradable> canSell = new ArrayList<>();
@@ -29,6 +29,7 @@ public class Market implements Trader {
                 int price = good.getBasePrice();
                 //Do price initialization stuff
                 price += good.getPriceIcrTech() * (techLevel.ordinal() - good.getMinTechProduce());
+                Random random = new Random();
                 if (random.nextBoolean()){
                     price += random.nextInt(good.getVariance() + 1);
                 } else {
@@ -46,11 +47,11 @@ public class Market implements Trader {
         buys = canBuy.toArray(buys);
     }
 
-    public RandomEvent getEvent() {
+    public RandomCondition getEvent() {
         return event;
     }
 
-    public void setEvent(RandomEvent event) {
+    public void setEvent(RandomCondition event) {
         this.event = event;
     }
 

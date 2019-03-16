@@ -75,11 +75,11 @@ public class MarketActivity extends AppCompatActivity {
         if (viewModel.isBuying()) {
             binding.marketTV.setText(R.string.ttlCost);
             binding.switchBT.setText(R.string.switchSell);
-            binding.buyBT.setText("Buy");
+            binding.buyBT.setText(R.string.buy);
         } else {
             binding.marketTV.setText(R.string.ttlSale);
             binding.switchBT.setText(R.string.switchBuy);
-            binding.buyBT.setText("Sell");
+            binding.buyBT.setText(R.string.sell);
         }
 
     }

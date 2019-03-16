@@ -14,8 +14,8 @@ public class SolarSystem {
     private Resources resources;
     private Market market;
 
-    public SolarSystem(String name, Coordinate coordinate,
-                       TechLevel techLevel, Resources resources, List<Planet> planets) {
+    private SolarSystem(String name, Coordinate coordinate,
+                        TechLevel techLevel, Resources resources, List<Planet> planets) {
         this.name = name;
         this.coordinate = coordinate;
         this.techLevel = techLevel;
@@ -24,8 +24,8 @@ public class SolarSystem {
         this.market = new Market(techLevel, resources);
     }
 
-    public SolarSystem(String name, Coordinate coordinate,
-                       TechLevel techLevel, Resources resources) {
+    SolarSystem(String name, Coordinate coordinate,
+                TechLevel techLevel, Resources resources) {
         this(name, coordinate, techLevel, resources, new ArrayList<Planet>());
     }
 

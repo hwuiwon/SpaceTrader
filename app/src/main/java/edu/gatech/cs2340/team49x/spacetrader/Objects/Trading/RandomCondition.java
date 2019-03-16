@@ -1,6 +1,7 @@
 package edu.gatech.cs2340.team49x.spacetrader.Objects.Trading;
 
-public enum RandomEvent {
+public enum RandomCondition {
+
     DROUGHT,
     COLD,
     CROPFAIL,

@@ -50,6 +50,8 @@
     <string name="sCredit">1000</string>
     <string name="fuelLeft">\t| Fuel:\t</string>
     <string name="sFuel">2000000</string>
+    <string name="buy">Buy</string>
+    <string name="sell">Sell</string>
 
     <string name="cargo">My items:\t</string>
 </resources>
