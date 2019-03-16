@@ -11,6 +11,10 @@ public class ModelFacade {
     private final static int NUM_SYSTEMS = 100;
     private static ModelFacade instance = new ModelFacade();
 
+    private TradeInteractor tradeInteractor = new TradeInteractor();
+    private CurrentSystemInteractor systemInteractor = new CurrentSystemInteractor();
+    private PlayerInteractor playerInteractor = new PlayerInteractor();
+
     public static ModelFacade getInstance() { return instance; }
 
     private Game game;
@@ -48,7 +52,18 @@ public class ModelFacade {
     }
 
     public TradeInteractor startTrade() {
-        return new TradeInteractor(game.getPlayer(), game.getCurrentSystem());
+        tradeInteractor.init(game.getPlayer(), game.getCurrentSystem());
+        return tradeInteractor;
+    }
+
+    public CurrentSystemInteractor getSystemInteractor() {
+        systemInteractor.init(game);
+        return systemInteractor;
+    }
+
+    public PlayerInteractor getPlayerInteractor() {
+        playerInteractor.init(game.getPlayer());
+        return playerInteractor;
     }
 
     public String printUniverse() {

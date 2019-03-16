@@ -18,6 +18,7 @@ import edu.gatech.cs2340.team49x.spacetrader.Adapters.SolarSystemAdapter;
 import edu.gatech.cs2340.team49x.spacetrader.Objects.Universe.SolarSystem;
 import edu.gatech.cs2340.team49x.spacetrader.R;
 import edu.gatech.cs2340.team49x.spacetrader.Viewmodels.ConfigurationViewModel;
+import edu.gatech.cs2340.team49x.spacetrader.Viewmodels.TravelViewModel;
 import edu.gatech.cs2340.team49x.spacetrader.databinding.ActivityGameBinding;
 
 public class TravelActivity extends AppCompatActivity {
@@ -25,8 +26,7 @@ public class TravelActivity extends AppCompatActivity {
     // activity_game.xml
 
     private ActivityGameBinding binding;
-    private ConfigurationViewModel viewModel;
-    private ArrayList<SolarSystem> solarSystems;
+    private TravelViewModel viewModel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,25 +35,24 @@ public class TravelActivity extends AppCompatActivity {
         setContentView(R.layout.activity_game);
 
         binding = DataBindingUtil.setContentView(this, R.layout.activity_game);
-        viewModel = ViewModelProviders.of(this).get(ConfigurationViewModel.class);
-        solarSystems = getListItemData();
-        binding.planetSelectLV.setAdapter(new SolarSystemAdapter(this, solarSystems));
-        binding.currentSystemTV.setText(viewModel.getCurrentSystem().getName());
-        binding.currentFuelTV.setText(String.valueOf(viewModel.getPlayer().getShip().getFuel()));
+        viewModel = ViewModelProviders.of(this).get(TravelViewModel.class);
+        viewModel.init();
+        binding.planetSelectLV.setAdapter(new SolarSystemAdapter(this, viewModel.getNearbySystems()));
+        binding.currentSystemTV.setText(viewModel.getName());
+        binding.currentFuelTV.setText(String.valueOf(viewModel.getFuel()));
 
         binding.planetSelectLV.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 final int pos = position;
-                final double distance = viewModel.getUniverse().getSolarSystem(position).getCoordinate()
-                        .getDistance(viewModel.getCurrentSystem().getCoordinate());
+                final double distance = viewModel.getDistanceTo(pos);
 
-                if (viewModel.getPlayer().getShip().getFuel() >= distance) {
+                if (viewModel.getFuel() >= distance) {
                     AlertDialog.Builder builder = new AlertDialog.Builder(TravelActivity.this);
                     builder.setCancelable(true);
                     builder.setTitle("Traveling...");
                     builder.setMessage("Distance: " + distance + " km\nEstimated time: "
-                            + (int) distance / viewModel.getPlayer().getShip().getSpeed() + " seconds");
+                            + (int) viewModel.getTimeToTravel(pos) + " seconds");
                     builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
@@ -69,10 +68,9 @@ public class TravelActivity extends AppCompatActivity {
                         public void run() {
                             if (alertDialog.isShowing()) {
                                 alertDialog.dismiss();
-                                viewModel.setCurrentSystem(viewModel.getUniverse().getSolarSystem(pos));
-                                binding.currentSystemTV.setText(viewModel.getCurrentSystem().getName());
-                                viewModel.getPlayer().getShip().setFuel((int) -distance);
-                                binding.currentFuelTV.setText(String.valueOf(viewModel.getPlayer().getShip().getFuel()));
+                                viewModel.goTo(pos);
+                                binding.currentSystemTV.setText(viewModel.getName());
+                                binding.currentFuelTV.setText(String.valueOf(viewModel.getFuel()));
                             }
                         }
                     };
@@ -83,22 +81,12 @@ public class TravelActivity extends AppCompatActivity {
                             handler.removeCallbacks(runnable);
                         }
                     });
-                    handler.postDelayed(runnable, (int) (distance
-                            / viewModel.getPlayer().getShip().getSpeed()) * 1000);
+                    handler.postDelayed(runnable, (int) (viewModel.getTimeToTravel(pos) * 1000));
                 } else {
                     Toast.makeText(getApplicationContext(), "Not enough fuel", Toast.LENGTH_SHORT).show();
                 }
             }
         });
-    }
-
-    /**
-     * Creates SolarSystem Adapter
-     */
-    public ArrayList<SolarSystem> getListItemData() {
-        solarSystems = new ArrayList<>();
-        solarSystems.addAll(viewModel.getUniverse().getSolarSystems());
-        return solarSystems;
     }
 
     /**

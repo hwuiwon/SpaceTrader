@@ -1,5 +1,8 @@
 package edu.gatech.cs2340.team49x.spacetrader.Objects.General;
 
+import android.os.Debug;
+import android.util.Log;
+
 import edu.gatech.cs2340.team49x.spacetrader.Objects.Trading.Inventory;
 import edu.gatech.cs2340.team49x.spacetrader.Objects.Trading.Tradable;
 
@@ -87,7 +90,21 @@ public class Ship {
         return type.name();
     }
 
+
     public int getSpeed() {
         return type.getSpeed();
+    }
+
+    public double fuelRequiredToTravel(double distance) {
+        return distance;
+    }
+
+    public double getMaxTravelDistance() {
+        return type.getMaxFuel();
+    }
+
+    public void useFuel(double distance) {
+        fuel -= (int) fuelRequiredToTravel(distance);
+        Log.e("STATE", "Fuel used: " + distance + ". New fuel: " + fuel);
     }
 }

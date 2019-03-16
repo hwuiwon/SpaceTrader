@@ -14,17 +14,13 @@ public class TradeInteractor {
     private Player customer;
     private Trader trader;
 
-    private TradeInteractor(Player customer, Trader trader) {
-        init(customer, trader);
-    }
-
-    TradeInteractor(Player customer, SolarSystem system) {
-        this(customer, system.getMarket());
-    }
-
-    private void init(Player customer, Trader trader) {
+    public void init(Player customer, Trader trader) {
         this.customer = customer;
         this.trader = trader;
+    }
+
+    public void init(Player customer, SolarSystem system) {
+        init(customer, system.getMarket());
     }
 
     public int getPriceOf(Tradable good) {

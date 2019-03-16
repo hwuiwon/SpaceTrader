@@ -185,6 +185,16 @@ public class Universe {
         return solarSystems;
     }
 
+    public List<SolarSystem> getSystemsInRange(SolarSystem system, double range) {
+        List<SolarSystem> inRange = new ArrayList<>();
+        for (SolarSystem other : solarSystems) {
+            if (!system.equals(other) && system.distanceTo(other) <= range) {
+                inRange.add(other);
+            }
+        }
+        return inRange;
+    }
+
     @Override
     public String toString() {
         return "Universe{" +

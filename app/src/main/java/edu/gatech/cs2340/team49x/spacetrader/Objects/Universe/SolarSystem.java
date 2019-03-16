@@ -73,6 +73,10 @@ public class SolarSystem {
         return market;
     }
 
+    public double distanceTo(SolarSystem other) {
+        return coordinate.getDistance(other.coordinate);
+    }
+
     @Override
     public String toString() {
         return "\nSolarSystem {" +
