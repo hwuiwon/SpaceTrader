@@ -4,21 +4,22 @@ import java.util.Random;
 
 public enum Resources {
 
-    NOSPECIALRESOURCES(9),
-    MINERALRICH(1),
-    MINERALPOOR(1),
-    DESERT(1),
-    LOTSOFWATER(1),
-    RICHSOIL(1),
-    POORSOIL(1),
-    RICHFAUNA(1),
-    LIFELESS(1),
-    WEIRDMUSHROOMS(1),
-    LOTSOFHERBS(1),
-    ARTISTIC(1),
-    WARLIKE(1);
+    NOSPECIALRESOURCES(9, "No Special Resources"),
+    MINERALRICH(1, "Mineral Rich"),
+    MINERALPOOR(1, "Mineral Poor"),
+    DESERT(1, "Desert"),
+    LOTSOFWATER(1, "Lots of Water"),
+    RICHSOIL(1, "Rich Soil"),
+    POORSOIL(1, "Poor Soil"),
+    RICHFAUNA(1, "Rich Fauna"),
+    LIFELESS(1, "Lifeless"),
+    WEIRDMUSHROOMS(1, "Weird Mushrooms"),
+    LOTSOFHERBS(1, "Lots of Herbs"),
+    ARTISTIC(1, "Artistic"),
+    WARLIKE(1, "War-Like");
 
     private double chance;
+    private String name;
     private static double totalChance;
 
     static {
@@ -27,8 +28,9 @@ public enum Resources {
         }
     }
 
-    Resources(double chance) {
+    Resources(double chance, String name) {
         this.chance = chance;
+        this.name = name;
     }
 
     public static Resources getRandom(Random random) {
@@ -40,5 +42,9 @@ public enum Resources {
             }
         }
         return null;
+    }
+
+    public String getName() {
+        return name;
     }
 }

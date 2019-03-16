@@ -16,12 +16,12 @@ public class SelectViewModel extends AndroidViewModel {
         interactor = ModelFacade.getInstance().getSystemInteractor();
     }
 
-    public String getResourceDiscription() {
-        return interactor.getResources().name();
+    public String getResourceDescription() {
+        return interactor.getResources().getName();
     }
 
-    public String getTechLevelDiscription() {
-        return interactor.getTechLevel().name();
+    public String getTechLevelDescription() {
+        return interactor.getTechLevel().getName();
     }
 
     public String getSystemName() {

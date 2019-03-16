@@ -15,50 +15,60 @@
             android:src="@drawable/moving"
             android:background="@color/space"/>
 
-        <TextView
-            android:id="@+id/youAreOnTV"
+        <RelativeLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
-            android:layout_marginStart="@dimen/margin4"
-            android:layout_marginTop="@dimen/margin4"
-            android:text="@string/currOn"
-            android:textAlignment="viewStart"
-            android:textColor="@android:color/white"
-            android:fontFamily="@font/montserrat_regular"/>
+            android:id="@+id/rLayselect"
+            android:layout_centerHorizontal="true"
+            android:paddingTop="@dimen/mainTopMargin">
 
-        <TextView
-            android:id="@+id/nameTV"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
-            android:layout_marginTop="@dimen/margin4"
-            android:layout_toEndOf="@+id/youAreOnTV"
-            android:text="@string/tmpSys"
-            android:textAlignment="viewStart"
-            android:textColor="@color/neonBlue" />
+            <TextView
+                android:id="@+id/youAreOnTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_marginTop="@dimen/margin4"
+                android:text="@string/currOn"
+                android:textAlignment="viewStart"
+                android:textColor="@android:color/white"
+                android:fontFamily="@font/montserrat_regular"/>
+
+            <TextView
+                android:id="@+id/nameTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_marginTop="@dimen/margin4"
+                android:layout_toEndOf="@+id/youAreOnTV"
+                android:text="@string/tmpSys"
+                android:textAlignment="viewStart"
+                android:textColor="@color/neonBlue"
+                android:fontFamily="@font/montserrat_semibold"/>
+
+        </RelativeLayout>
 
         <TextView
             android:id="@+id/techlevelTV"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/nameTV"
-            android:layout_marginStart="@dimen/margin4"
+            android:layout_below="@+id/rLayselect"
             android:layout_marginEnd="@dimen/margin4"
             android:text="@string/tmpTLv"
             android:textAlignment="viewStart"
-            android:textColor="@color/neonGreen" />
+            android:textColor="@color/neonGreen"
+            android:fontFamily="@font/montserrat_regular"
+            android:layout_centerInParent="true"/>
 
         <TextView
             android:id="@+id/resourcesTV"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/techlevelTV"
-            android:layout_marginStart="@dimen/margin4"
-            android:layout_marginEnd="@dimen/margin4"
             android:text="@string/tmpRsr"
             android:textAlignment="viewStart"
-            android:textColor="@color/neonRed" />
+            android:textColor="@color/neonRed"
+            android:fontFamily="@font/montserrat_regular"
+            android:layout_centerInParent="true"/>
 
         <Button
             android:onClick="openPlayerInfo"
