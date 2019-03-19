@@ -3,8 +3,11 @@ package edu.gatech.cs2340.team49x.spacetrader.Objects.General;
 import android.os.Debug;
 import android.util.Log;
 
+import java.util.Set;
+
 import edu.gatech.cs2340.team49x.spacetrader.Objects.Trading.Inventory;
 import edu.gatech.cs2340.team49x.spacetrader.Objects.Trading.Tradable;
+import edu.gatech.cs2340.team49x.spacetrader.Viewmodels.TravelViewModel;
 
 public class Ship {
 
@@ -58,8 +61,8 @@ public class Ship {
         return type;
     }
 
-    public Inventory getCargo() {
-        return cargo;
+    public Set<Tradable> getCargoSet() {
+        return cargo.getItemSet();
     }
 
     public int getFuel() {
