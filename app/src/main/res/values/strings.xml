@@ -15,6 +15,7 @@
     <string name="pInfo">Player Information</string>
     <string name="buyShip">Buy Ship</string>
     <string name="startTr">Travel</string>
+    <string name="profile">Profile</string>
 
     <string name="sPoints">Skill Points: </string>
     <string name="defaultTtlSP">16</string>

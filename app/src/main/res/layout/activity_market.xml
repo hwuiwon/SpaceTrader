@@ -70,20 +70,21 @@
             android:layout_height="130dp"
             android:layout_alignParentBottom="true"
             android:layout_marginBottom="0dp"
-            android:paddingHorizontal="@dimen/margin3"
-            android:paddingVertical="@dimen/margin2"
-            android:layout_weight="1"
+            android:paddingStart="@dimen/margin3"
+            android:paddingEnd="@dimen/margin3"
+            android:paddingTop="@dimen/margin2"
+            android:paddingBottom="@dimen/margin2"
             android:orientation="vertical">
 
             <Button
                 android:id="@+id/buyBT"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="0dp"
                 android:layout_weight="1"
                 android:background="@drawable/rrgreen"
                 android:fontFamily="@font/montserrat_regular"
                 android:onClick="doTransaction"
-                android:text="Buy"
+                android:text="@string/buy"
                 android:textColor="@color/neonGreen" />
 
             <LinearLayout
