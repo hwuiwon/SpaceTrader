@@ -10,6 +10,7 @@ import java.util.List;
 
 import edu.gatech.cs2340.team49x.spacetrader.Model.ModelFacade;
 import edu.gatech.cs2340.team49x.spacetrader.Model.PlayerInteractor;
+import edu.gatech.cs2340.team49x.spacetrader.Objects.General.Player;
 import edu.gatech.cs2340.team49x.spacetrader.Objects.Trading.InvenItem;
 import edu.gatech.cs2340.team49x.spacetrader.Objects.Trading.Inventory;
 import edu.gatech.cs2340.team49x.spacetrader.Objects.Trading.Tradable;
@@ -26,6 +27,10 @@ public class InfoViewModel extends AndroidViewModel {
 
     public String getName() {
         return interactor.getName();
+    }
+
+    public Player getPlayer() {
+        return interactor.getPlayer();
     }
 
     public List<InvenItem> getInvenItems() {

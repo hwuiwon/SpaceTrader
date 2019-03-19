@@ -19,6 +19,7 @@ public class PlayerInteractor {
     public String getName() {
         return player.getName();
     }
+
     public int getFuel() {
         return ship.getFuel();
     }
@@ -31,6 +32,9 @@ public class PlayerInteractor {
         return ship.getMaxTravelDistance();
     }
 
+    public Player getPlayer() {
+        return player;
+    }
 
     public double fuelRequiredToTravel(double distance) {
         return ship.fuelRequiredToTravel(distance);
