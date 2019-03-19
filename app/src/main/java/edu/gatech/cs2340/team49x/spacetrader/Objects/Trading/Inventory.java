@@ -2,7 +2,9 @@ package edu.gatech.cs2340.team49x.spacetrader.Objects.Trading;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 /**
  * This class is used to represent a collection of Tradables and their quantities.
@@ -34,18 +36,6 @@ public class Inventory {
     }
 
     /**
-     * Returns inventory of a player
-     * @return inventory
-     */
-    public ArrayList<InvenItem> getQuantities() {
-        ArrayList<InvenItem> invenItems = new ArrayList<>();
-        for (Map.Entry<Tradable, Integer> entry : quantities.entrySet()) {
-            invenItems.add(new InvenItem(entry.getKey().getName(), entry.getValue()));
-        }
-        return invenItems;
-    }
-
-    /**
      * Adds the items from another inventory to this one.
      * @param inventory the items to add
      */
@@ -62,10 +52,16 @@ public class Inventory {
      */
     public void add(Tradable good, int quantity) {
         if (quantities.containsKey(good)) {
-            quantities.put(good, quantities.get(good) + quantity);
-        } else {
+            int result = quantities.get(good) + quantity;
+            if (result != 0) {
+                quantities.put(good, result);
+            } else {
+                quantities.remove(good);
+            }
+        } else if (quantity != 0) {
             quantities.put(good, quantity);
         }
+
         count += quantity;
     }
 
@@ -118,6 +114,15 @@ public class Inventory {
             return quantities.get(good);
         }
         return 0;
+    }
+
+    /**
+     * Returns the set of Tradables that this inventory contains at least one of.
+     *
+     * @return
+     */
+    public Set<Tradable> getItemSet() {
+        return quantities.keySet();
     }
 
     /**
