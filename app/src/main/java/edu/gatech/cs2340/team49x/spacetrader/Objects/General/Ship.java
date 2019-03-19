@@ -90,7 +90,6 @@ public class Ship {
         return type.name();
     }
 
-
     public int getSpeed() {
         return type.getSpeed();
     }

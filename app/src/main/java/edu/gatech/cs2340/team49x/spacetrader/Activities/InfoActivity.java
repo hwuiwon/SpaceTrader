@@ -29,6 +29,7 @@ public class InfoActivity extends AppCompatActivity {
         if (viewModel.getPlayer().getShip().getCargo().getQuantities() != null) {
             binding.invenInfoLV.setAdapter(makeInvenItemAdapter());
         }
+        binding.totalInvenTV.setText(String.valueOf(viewModel.getPlayer().getCredits()));
     }
 
     /**
