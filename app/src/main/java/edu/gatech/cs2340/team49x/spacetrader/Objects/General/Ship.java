@@ -1,13 +1,11 @@
 package edu.gatech.cs2340.team49x.spacetrader.Objects.General;
 
-import android.os.Debug;
 import android.util.Log;
 
 import java.util.Set;
 
 import edu.gatech.cs2340.team49x.spacetrader.Objects.Trading.Inventory;
 import edu.gatech.cs2340.team49x.spacetrader.Objects.Trading.Tradable;
-import edu.gatech.cs2340.team49x.spacetrader.Viewmodels.TravelViewModel;
 
 public class Ship {
 
