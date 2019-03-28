@@ -1,5 +1,6 @@
 package edu.gatech.cs2340.team49x.spacetrader.Objects.Universe;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
@@ -7,7 +8,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.Random;
 
-public class Universe {
+public class Universe implements Serializable {
+    static final long serialVersionUID = 1L;
 
     private static final List<String> systemNames = Arrays.asList(
             "Acamar",

@@ -1,6 +1,9 @@
 package edu.gatech.cs2340.team49x.spacetrader.Objects.Universe;
 
-public class Planet {
+import java.io.Serializable;
+
+public class Planet implements Serializable {
+    static final long serialVersionUID = 1L;
 
     private String name;
 

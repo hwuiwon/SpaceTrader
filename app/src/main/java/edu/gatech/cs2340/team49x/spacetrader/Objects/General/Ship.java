@@ -2,12 +2,14 @@ package edu.gatech.cs2340.team49x.spacetrader.Objects.General;
 
 import android.util.Log;
 
+import java.io.Serializable;
 import java.util.Set;
 
 import edu.gatech.cs2340.team49x.spacetrader.Objects.Trading.Inventory;
 import edu.gatech.cs2340.team49x.spacetrader.Objects.Trading.Tradable;
 
-public class Ship {
+public class Ship implements Serializable {
+    static final long serialVersionUID = 1L;
 
     public enum ShipType {
 

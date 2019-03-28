@@ -1,5 +1,6 @@
 package edu.gatech.cs2340.team49x.spacetrader.Objects.Trading;
 
+import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
@@ -7,7 +8,8 @@ import java.util.Set;
 /**
  * This class is used to represent a collection of Tradables and their quantities.
  */
-public class Inventory {
+public class Inventory implements Serializable {
+    static final long serialVersionUID = 1L;
 
     private Map<Tradable, Integer> quantities;
     private int count;

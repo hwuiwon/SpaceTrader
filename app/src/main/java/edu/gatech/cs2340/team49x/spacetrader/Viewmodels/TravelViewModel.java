@@ -2,9 +2,12 @@ package edu.gatech.cs2340.team49x.spacetrader.Viewmodels;
 
 import android.app.Application;
 import android.arch.lifecycle.AndroidViewModel;
+import android.content.Context;
 import android.support.annotation.NonNull;
 import android.util.Log;
 
+import java.io.IOException;
+import java.net.ContentHandler;
 import java.util.List;
 
 import edu.gatech.cs2340.team49x.spacetrader.Model.CurrentSystemInteractor;
@@ -17,8 +20,10 @@ public class TravelViewModel extends AndroidViewModel {
     private CurrentSystemInteractor systemInteractor;
     private PlayerInteractor playerInteractor;
     private List<SolarSystem> systemsList;
+    private Context appContext;
     public TravelViewModel(@NonNull Application application) {
         super(application);
+        appContext = application.getApplicationContext();
     }
 
     public void init() {
@@ -55,6 +60,12 @@ public class TravelViewModel extends AndroidViewModel {
     public void goTo(int pos) {
         playerInteractor.decreaseFuel(getDistanceTo(pos));
         systemInteractor.setCurrentSystem(systemsList.get(pos));
+        try {
+            ModelFacade.getInstance().saveGame(appContext);
+            Log.d("GAME", "Game saved.");
+        } catch (IOException e) {
+            Log.e("GAME", "Failed to save game.", e);
+        }
         Log.d("STATE", "Moved to " + systemsList.get(pos).getName());
     }
 }

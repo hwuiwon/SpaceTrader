@@ -13,7 +13,7 @@ import android.widget.TextView;
 
 import java.util.List;
 
-import edu.gatech.cs2340.team49x.spacetrader.Objects.Trading.Item;
+import edu.gatech.cs2340.team49x.spacetrader.ViewObjects.Item;
 import edu.gatech.cs2340.team49x.spacetrader.R;
 import edu.gatech.cs2340.team49x.spacetrader.Viewmodels.MarketViewModel;
 

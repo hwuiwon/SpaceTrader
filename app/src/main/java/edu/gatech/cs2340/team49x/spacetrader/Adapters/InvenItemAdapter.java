@@ -10,7 +10,7 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
-import edu.gatech.cs2340.team49x.spacetrader.Objects.Trading.InvenItem;
+import edu.gatech.cs2340.team49x.spacetrader.ViewObjects.InvenItem;
 import edu.gatech.cs2340.team49x.spacetrader.R;
 
 public class InvenItemAdapter extends BaseAdapter {

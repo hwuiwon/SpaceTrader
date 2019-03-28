@@ -2,21 +2,25 @@ package edu.gatech.cs2340.team49x.spacetrader.Viewmodels;
 
 import android.app.Application;
 import android.arch.lifecycle.AndroidViewModel;
+import android.content.Context;
 import android.support.annotation.NonNull;
+import android.util.Log;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
 import edu.gatech.cs2340.team49x.spacetrader.Model.ModelFacade;
 import edu.gatech.cs2340.team49x.spacetrader.Model.TradeInteractor;
-import edu.gatech.cs2340.team49x.spacetrader.Objects.Trading.Item;
+import edu.gatech.cs2340.team49x.spacetrader.ViewObjects.Item;
 import edu.gatech.cs2340.team49x.spacetrader.Objects.Trading.Inventory;
 import edu.gatech.cs2340.team49x.spacetrader.Objects.Trading.Tradable;
 
 public class MarketViewModel extends AndroidViewModel {
-
+    private Context appContext;
     public MarketViewModel(@NonNull Application application) {
         super(application);
+        appContext = application.getApplicationContext();
         selectedGoods = new Inventory();
     }
 
@@ -134,5 +138,11 @@ public class MarketViewModel extends AndroidViewModel {
         }
         if (selectedGoods != null) selectedGoods.empty();
         total = 0;
+        try {
+            ModelFacade.getInstance().saveGame(appContext);
+            Log.d("GAME", "Game saved.");
+        } catch (IOException e) {
+            Log.e("GAME", "Failed to save game.", e);
+        }
     }
 }

@@ -1,11 +1,13 @@
 package edu.gatech.cs2340.team49x.spacetrader.Objects.Universe;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
 import edu.gatech.cs2340.team49x.spacetrader.Objects.Trading.Market;
 
-public class SolarSystem {
+public class SolarSystem implements Serializable {
+    static final long serialVersionUID = 1L;
 
     private String name;
     private Coordinate coordinate;

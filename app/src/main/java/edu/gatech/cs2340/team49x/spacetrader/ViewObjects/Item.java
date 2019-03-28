@@ -1,4 +1,6 @@
-package edu.gatech.cs2340.team49x.spacetrader.Objects.Trading;
+package edu.gatech.cs2340.team49x.spacetrader.ViewObjects;
+
+import edu.gatech.cs2340.team49x.spacetrader.Objects.Trading.Tradable;
 
 public class Item {
 

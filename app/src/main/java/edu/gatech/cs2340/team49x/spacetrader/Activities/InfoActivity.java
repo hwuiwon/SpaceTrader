@@ -2,14 +2,12 @@ package edu.gatech.cs2340.team49x.spacetrader.Activities;
 
 import android.arch.lifecycle.ViewModelProviders;
 import android.databinding.DataBindingUtil;
-import android.icu.text.IDNA;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
 import edu.gatech.cs2340.team49x.spacetrader.Adapters.InvenItemAdapter;
-import edu.gatech.cs2340.team49x.spacetrader.Objects.Trading.InvenItem;
+import edu.gatech.cs2340.team49x.spacetrader.ViewObjects.InvenItem;
 import edu.gatech.cs2340.team49x.spacetrader.R;
-import edu.gatech.cs2340.team49x.spacetrader.Viewmodels.ConfigurationViewModel;
 import edu.gatech.cs2340.team49x.spacetrader.Viewmodels.InfoViewModel;
 import edu.gatech.cs2340.team49x.spacetrader.databinding.ActivityInfoBinding;
 

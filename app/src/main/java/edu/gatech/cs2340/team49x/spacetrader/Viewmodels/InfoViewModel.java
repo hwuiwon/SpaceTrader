@@ -5,14 +5,12 @@ import android.arch.lifecycle.AndroidViewModel;
 import android.support.annotation.NonNull;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 import edu.gatech.cs2340.team49x.spacetrader.Model.ModelFacade;
 import edu.gatech.cs2340.team49x.spacetrader.Model.PlayerInteractor;
 import edu.gatech.cs2340.team49x.spacetrader.Objects.General.Player;
-import edu.gatech.cs2340.team49x.spacetrader.Objects.Trading.InvenItem;
-import edu.gatech.cs2340.team49x.spacetrader.Objects.Trading.Inventory;
+import edu.gatech.cs2340.team49x.spacetrader.ViewObjects.InvenItem;
 import edu.gatech.cs2340.team49x.spacetrader.Objects.Trading.Tradable;
 
 public class InfoViewModel extends AndroidViewModel {
