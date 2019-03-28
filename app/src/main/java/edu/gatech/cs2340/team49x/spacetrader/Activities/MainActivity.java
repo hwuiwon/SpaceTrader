@@ -42,21 +42,22 @@ public class MainActivity extends AppCompatActivity {
      * @param view current View
      */
     public void startGame(View view) {
-        Intent intent;
-        try {
-            viewModel.loadGame();
-        } catch (IOException e){
-            Log.d("GAME", "No save file found.");
-        } catch (ClassNotFoundException e) {
-            Log.e("GAME", "Invalid save file.", e);
-        }
         if (viewModel.gameConfigured()) {
             viewModel.saveGame();
-            intent = new Intent(MainActivity.this, SelectActivity.class);
-            startActivity(intent);
+            launchGame();
         } else {
-            intent = new Intent(MainActivity.this, ConfigurationActivity.class);
-            startActivityForResult(intent, CONFIG_COMPLETE);
+            try {
+                viewModel.loadGame();
+            } catch (IOException e){
+                Log.d("GAME", "No save file found.");
+            } catch (ClassNotFoundException e) {
+                Log.e("GAME", "Invalid save file.", e);
+            }
+            if (viewModel.gameConfigured()) {
+                launchGame();
+            } else {
+                launchNewGame();
+            }
         }
     }
 
@@ -65,9 +66,18 @@ public class MainActivity extends AppCompatActivity {
         if (requestCode == CONFIG_COMPLETE) {
             if (resultCode == RESULT_OK) {
                 viewModel.saveGame();
-                Intent intent = new Intent(MainActivity.this, SelectActivity.class);
-                startActivity(intent);
+                launchGame();
             }
         }
+    }
+
+    private void launchNewGame() {
+        Intent intent = new Intent(MainActivity.this, ConfigurationActivity.class);
+        startActivityForResult(intent, CONFIG_COMPLETE);
+    }
+
+    private void launchGame() {
+        Intent intent = new Intent(MainActivity.this, SelectActivity.class);
+        startActivity(intent);
     }
 }

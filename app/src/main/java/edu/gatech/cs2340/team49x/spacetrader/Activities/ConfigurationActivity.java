@@ -61,6 +61,8 @@ public class ConfigurationActivity extends AppCompatActivity {
         else if (getVal(binding.sPointsTV) > 0)
             Toast.makeText(this, "You have unused skill points.", Toast.LENGTH_LONG).show();
         else {
+            player = new Player("");
+
             player.setName(binding.pnameET.getText().toString());
             player.setSkillPt(getVal(binding.sPointsTV));
             player.setPilotPt(getVal(binding.pilotSkillTV));
