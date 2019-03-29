@@ -16,6 +16,7 @@ import edu.gatech.cs2340.team49x.spacetrader.Viewmodels.ConfigurationViewModel;
 import edu.gatech.cs2340.team49x.spacetrader.Viewmodels.MainViewModel;
 
 public class MainActivity extends AppCompatActivity {
+
     private MainViewModel viewModel;
     private static final int CONFIG_COMPLETE = 1;
 

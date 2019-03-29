@@ -12,12 +12,8 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Toast;
 
-import java.util.ArrayList;
-
 import edu.gatech.cs2340.team49x.spacetrader.Adapters.SolarSystemAdapter;
-import edu.gatech.cs2340.team49x.spacetrader.Objects.Universe.SolarSystem;
 import edu.gatech.cs2340.team49x.spacetrader.R;
-import edu.gatech.cs2340.team49x.spacetrader.Viewmodels.ConfigurationViewModel;
 import edu.gatech.cs2340.team49x.spacetrader.Viewmodels.TravelViewModel;
 import edu.gatech.cs2340.team49x.spacetrader.databinding.ActivityGameBinding;
 

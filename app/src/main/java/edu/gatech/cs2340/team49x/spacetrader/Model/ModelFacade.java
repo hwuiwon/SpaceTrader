@@ -35,6 +35,7 @@ public class ModelFacade {
     public boolean gameConfigured() {
         return game.getPlayer() != null;
     }
+
     public void configureGame(Player player, Difficulty difficulty) {
         game = new Game(player, difficulty, NUM_SYSTEMS);
     }

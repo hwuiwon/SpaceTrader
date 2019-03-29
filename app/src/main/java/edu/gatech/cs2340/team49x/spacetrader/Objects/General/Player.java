@@ -6,6 +6,7 @@ import edu.gatech.cs2340.team49x.spacetrader.Objects.Trading.Inventory;
 import edu.gatech.cs2340.team49x.spacetrader.Objects.Trading.Tradable;
 
 public class Player implements Serializable {
+
     static final long serialVersionUID = 1L;
     private String name;
     private int skillPt;

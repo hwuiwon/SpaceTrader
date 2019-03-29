@@ -11,7 +11,9 @@ import java.io.IOException;
 import edu.gatech.cs2340.team49x.spacetrader.Model.ModelFacade;
 
 public class MainViewModel extends AndroidViewModel {
+
     private Context appContext;
+
     public MainViewModel(@NonNull Application application) {
         super(application);
         appContext = application.getApplicationContext();

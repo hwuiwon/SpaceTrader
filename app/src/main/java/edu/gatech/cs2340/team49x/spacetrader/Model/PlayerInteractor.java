@@ -8,6 +8,7 @@ import edu.gatech.cs2340.team49x.spacetrader.Objects.Trading.Inventory;
 import edu.gatech.cs2340.team49x.spacetrader.Objects.Trading.Tradable;
 
 public class PlayerInteractor {
+
     private Player player;
     private Ship ship;
 

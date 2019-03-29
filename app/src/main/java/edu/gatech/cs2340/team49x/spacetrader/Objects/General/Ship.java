@@ -9,6 +9,7 @@ import edu.gatech.cs2340.team49x.spacetrader.Objects.Trading.Inventory;
 import edu.gatech.cs2340.team49x.spacetrader.Objects.Trading.Tradable;
 
 public class Ship implements Serializable {
+
     static final long serialVersionUID = 1L;
 
     public enum ShipType {
@@ -67,10 +68,6 @@ public class Ship implements Serializable {
 
     public int getFuel() {
         return fuel;
-    }
-
-    public void setFuel(int fuel) {
-        this.fuel += fuel;
     }
 
     public void addToCargo(Inventory items) {

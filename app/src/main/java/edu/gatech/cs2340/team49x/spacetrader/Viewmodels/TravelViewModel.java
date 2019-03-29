@@ -7,20 +7,20 @@ import android.support.annotation.NonNull;
 import android.util.Log;
 
 import java.io.IOException;
-import java.net.ContentHandler;
 import java.util.List;
 
 import edu.gatech.cs2340.team49x.spacetrader.Model.CurrentSystemInteractor;
 import edu.gatech.cs2340.team49x.spacetrader.Model.ModelFacade;
 import edu.gatech.cs2340.team49x.spacetrader.Model.PlayerInteractor;
-import edu.gatech.cs2340.team49x.spacetrader.Objects.General.Player;
 import edu.gatech.cs2340.team49x.spacetrader.Objects.Universe.SolarSystem;
 
 public class TravelViewModel extends AndroidViewModel {
+
     private CurrentSystemInteractor systemInteractor;
     private PlayerInteractor playerInteractor;
     private List<SolarSystem> systemsList;
     private Context appContext;
+
     public TravelViewModel(@NonNull Application application) {
         super(application);
         appContext = application.getApplicationContext();

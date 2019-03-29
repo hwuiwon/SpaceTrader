@@ -8,6 +8,7 @@ import edu.gatech.cs2340.team49x.spacetrader.Objects.Universe.SolarSystem;
 import edu.gatech.cs2340.team49x.spacetrader.Objects.Universe.Universe;
 
 public class Game implements Serializable {
+
     static final long serialVersionUID = 1L;
     private Player player;
     private Difficulty difficulty;

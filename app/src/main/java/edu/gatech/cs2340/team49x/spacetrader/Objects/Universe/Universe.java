@@ -9,8 +9,8 @@ import java.util.Map;
 import java.util.Random;
 
 public class Universe implements Serializable {
-    static final long serialVersionUID = 1L;
 
+    static final long serialVersionUID = 1L;
     private static final List<String> systemNames = Arrays.asList(
             "Acamar",
             "Adahn",

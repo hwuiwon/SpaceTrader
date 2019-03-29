@@ -10,15 +10,16 @@ import edu.gatech.cs2340.team49x.spacetrader.Objects.Universe.Universe;
 
 public class CurrentSystemInteractor {
 
-    SolarSystem currentSystem;
-    Universe universe;
-    Game game;
+    private SolarSystem currentSystem;
+    private Universe universe;
+    private Game game;
 
     public void init(Game game) {
         this.game = game;
         this.currentSystem = game.getCurrentSystem();
         this.universe = game.getUniverse();
     }
+
     public Resources getResources() {
         return currentSystem.getResources();
     }

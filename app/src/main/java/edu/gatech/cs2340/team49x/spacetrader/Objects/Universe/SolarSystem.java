@@ -7,8 +7,8 @@ import java.util.List;
 import edu.gatech.cs2340.team49x.spacetrader.Objects.Trading.Market;
 
 public class SolarSystem implements Serializable {
-    static final long serialVersionUID = 1L;
 
+    static final long serialVersionUID = 1L;
     private String name;
     private Coordinate coordinate;
     private TechLevel techLevel;

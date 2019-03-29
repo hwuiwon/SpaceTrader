@@ -6,9 +6,10 @@ import java.util.Map;
 import java.util.Set;
 
 /**
- * This class is used to represent a collection of Tradables and their quantities.
+ * This class is used to represent a collection of Tradable and their quantities.
  */
 public class Inventory implements Serializable {
+
     static final long serialVersionUID = 1L;
 
     private Map<Tradable, Integer> quantities;
