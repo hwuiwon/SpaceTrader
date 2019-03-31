@@ -12,9 +12,9 @@ import java.util.List;
 
 import edu.gatech.cs2340.team49x.spacetrader.Model.ModelFacade;
 import edu.gatech.cs2340.team49x.spacetrader.Model.TradeInteractor;
-import edu.gatech.cs2340.team49x.spacetrader.ViewObjects.Item;
 import edu.gatech.cs2340.team49x.spacetrader.Objects.Trading.Inventory;
 import edu.gatech.cs2340.team49x.spacetrader.Objects.Trading.Tradable;
+import edu.gatech.cs2340.team49x.spacetrader.ViewObjects.Item;
 
 public class MarketViewModel extends AndroidViewModel {
 
@@ -92,18 +92,6 @@ public class MarketViewModel extends AndroidViewModel {
         buying = !buying;
         selectedGoods.empty();
         total = 0;
-    }
-
-    public void setTotal(int price) {
-        total = price;
-    }
-
-    public void setSelectedGoods(Inventory inventory) {
-        selectedGoods = inventory;
-    }
-
-    public Inventory getSelectedGoods() {
-        return selectedGoods;
     }
 
     public int getAmountSelected(Tradable good) {

@@ -11,7 +11,6 @@ import java.io.ObjectOutputStream;
 import edu.gatech.cs2340.team49x.spacetrader.Objects.Difficulty;
 import edu.gatech.cs2340.team49x.spacetrader.Objects.General.Game;
 import edu.gatech.cs2340.team49x.spacetrader.Objects.General.Player;
-import edu.gatech.cs2340.team49x.spacetrader.Objects.Universe.SolarSystem;
 import edu.gatech.cs2340.team49x.spacetrader.Objects.Universe.Universe;
 
 public class ModelFacade {
@@ -68,14 +67,6 @@ public class ModelFacade {
         return  game.getDifficulty();
     }
 
-    public SolarSystem getCurrentSystem() {
-        return game.getCurrentSystem();
-    }
-
-    public void setCurrentSystem(SolarSystem system) {
-        game.setCurrentSystem(system);
-    }
-
     public String printPlayer() {
         return game.printPlayer();
     }
@@ -93,9 +84,5 @@ public class ModelFacade {
     public PlayerInteractor getPlayerInteractor() {
         playerInteractor.init(game.getPlayer());
         return playerInteractor;
-    }
-
-    public String printUniverse() {
-        return game.printUniverse();
     }
 }

@@ -4,7 +4,6 @@ import java.util.Set;
 
 import edu.gatech.cs2340.team49x.spacetrader.Objects.General.Player;
 import edu.gatech.cs2340.team49x.spacetrader.Objects.General.Ship;
-import edu.gatech.cs2340.team49x.spacetrader.Objects.Trading.Inventory;
 import edu.gatech.cs2340.team49x.spacetrader.Objects.Trading.Tradable;
 
 public class PlayerInteractor {
@@ -35,10 +34,6 @@ public class PlayerInteractor {
 
     public Player getPlayer() {
         return player;
-    }
-
-    public double fuelRequiredToTravel(double distance) {
-        return ship.fuelRequiredToTravel(distance);
     }
 
     public void decreaseFuel(double distance) {

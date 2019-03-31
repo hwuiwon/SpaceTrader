@@ -10,9 +10,7 @@ import android.view.View;
 
 import java.io.IOException;
 
-import edu.gatech.cs2340.team49x.spacetrader.Model.ModelFacade;
 import edu.gatech.cs2340.team49x.spacetrader.R;
-import edu.gatech.cs2340.team49x.spacetrader.Viewmodels.ConfigurationViewModel;
 import edu.gatech.cs2340.team49x.spacetrader.Viewmodels.MainViewModel;
 
 public class MainActivity extends AppCompatActivity {

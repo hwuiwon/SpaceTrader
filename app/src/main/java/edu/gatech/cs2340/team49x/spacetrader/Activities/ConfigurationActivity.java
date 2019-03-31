@@ -21,7 +21,6 @@ public class ConfigurationActivity extends AppCompatActivity {
     private ActivityConfigBinding binding;
     private ConfigurationViewModel viewModel;
     private Player player;
-//    private Boolean isFirstRun;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,8 +28,6 @@ public class ConfigurationActivity extends AppCompatActivity {
         setContentView(R.layout.activity_config);
         binding = DataBindingUtil.setContentView(this, R.layout.activity_config);
         viewModel = ViewModelProviders.of(this).get(ConfigurationViewModel.class);
-//        isFirstRun = getSharedPreferences("PREFERENCE", MODE_PRIVATE)
-//                .getBoolean("isFirstRun", true);
 
         player = viewModel.getPlayer();
         Difficulty difficulty = viewModel.getDifficulty();
