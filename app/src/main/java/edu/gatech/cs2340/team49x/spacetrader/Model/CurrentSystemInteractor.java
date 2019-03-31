@@ -3,6 +3,7 @@ package edu.gatech.cs2340.team49x.spacetrader.Model;
 import java.util.List;
 
 import edu.gatech.cs2340.team49x.spacetrader.Objects.General.Game;
+import edu.gatech.cs2340.team49x.spacetrader.Objects.General.Player;
 import edu.gatech.cs2340.team49x.spacetrader.Objects.Universe.Resources;
 import edu.gatech.cs2340.team49x.spacetrader.Objects.Universe.SolarSystem;
 import edu.gatech.cs2340.team49x.spacetrader.Objects.Universe.TechLevel;
@@ -43,5 +44,9 @@ public class CurrentSystemInteractor {
 
     public double distanceTo(SolarSystem other) {
         return currentSystem.distanceTo(other);
+    }
+
+    public Player getPlayer() {
+        return game.getPlayer();
     }
 }

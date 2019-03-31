@@ -12,6 +12,7 @@ import java.util.List;
 import edu.gatech.cs2340.team49x.spacetrader.Model.CurrentSystemInteractor;
 import edu.gatech.cs2340.team49x.spacetrader.Model.ModelFacade;
 import edu.gatech.cs2340.team49x.spacetrader.Model.PlayerInteractor;
+import edu.gatech.cs2340.team49x.spacetrader.Objects.General.Player;
 import edu.gatech.cs2340.team49x.spacetrader.Objects.Universe.SolarSystem;
 
 public class TravelViewModel extends AndroidViewModel {
@@ -38,6 +39,10 @@ public class TravelViewModel extends AndroidViewModel {
 
     public String getName() {
         return systemInteractor.getName();
+    }
+
+    public Player getPlayer() {
+        return systemInteractor.getPlayer();
     }
 
     public int getFuel() {

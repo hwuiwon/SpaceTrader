@@ -12,7 +12,11 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Toast;
 
+import java.util.Random;
+
 import edu.gatech.cs2340.team49x.spacetrader.Adapters.SolarSystemAdapter;
+import edu.gatech.cs2340.team49x.spacetrader.Objects.Trading.Inventory;
+import edu.gatech.cs2340.team49x.spacetrader.Objects.Trading.TradeGood;
 import edu.gatech.cs2340.team49x.spacetrader.R;
 import edu.gatech.cs2340.team49x.spacetrader.Viewmodels.TravelViewModel;
 import edu.gatech.cs2340.team49x.spacetrader.databinding.ActivityGameBinding;
@@ -40,10 +44,58 @@ public class TravelActivity extends AppCompatActivity {
         binding.planetSelectLV.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
                 final int pos = position;
                 final double distance = viewModel.getDistanceTo(pos);
 
                 if (viewModel.getFuel() >= distance) {
+                    int n = new Random().nextInt(10);
+                    AlertDialog.Builder eventBuilder = null;
+                    switch (n) {
+                        case 0:
+                            viewModel.getPlayer().changeCredits(777);
+                            eventBuilder = new AlertDialog.Builder(TravelActivity.this);
+                            eventBuilder.setTitle("Congratulations!");
+                            eventBuilder.setMessage("You have found an abandoned ship!\nYou have earned" +
+                                    " 777 credits!");
+                            eventBuilder.setPositiveButton("Thank you", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                    dialog.dismiss();
+                                }
+                            });
+                        case 1:
+                            viewModel.getPlayer().getShip().useFuel(1000);
+                            eventBuilder = new AlertDialog.Builder(TravelActivity.this);
+                            eventBuilder.setTitle("Oops!");
+                            eventBuilder.setMessage("Meteor shower created a hole!\nYou lost 1000 extra fuel");
+                            eventBuilder.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                    dialog.dismiss();
+                                }
+                            });
+                        case 2:
+                            if (viewModel.getPlayer().getShip().cargoSpaceRemaining() >= 1) {
+                                Inventory inventory = new Inventory();
+                                inventory.add(TradeGood.WATER, 1);
+                                viewModel.getPlayer().addToCargo(new Inventory());
+                            }
+                            eventBuilder = new AlertDialog.Builder(TravelActivity.this);
+                            eventBuilder.setTitle("Congratulations!");
+                            eventBuilder.setMessage("Earth is near you!\n You have obtained 1 WATER");
+                            eventBuilder.setPositiveButton("Thank you", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                    dialog.dismiss();
+                                }
+                            });
+                    }
+                    if (eventBuilder != null) {
+                        final AlertDialog randomEventBuilder = eventBuilder.create();
+                        randomEventBuilder.show();
+                    }
+
                     AlertDialog.Builder builder = new AlertDialog.Builder(TravelActivity.this);
                     builder.setCancelable(true);
                     builder.setTitle("Traveling...");
