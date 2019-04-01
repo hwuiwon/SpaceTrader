@@ -8,11 +8,13 @@ import android.util.Log;
 
 import java.io.IOException;
 import java.util.List;
+import java.util.Random;
 
 import edu.gatech.cs2340.team49x.spacetrader.Model.CurrentSystemInteractor;
 import edu.gatech.cs2340.team49x.spacetrader.Model.ModelFacade;
 import edu.gatech.cs2340.team49x.spacetrader.Model.PlayerInteractor;
 import edu.gatech.cs2340.team49x.spacetrader.Objects.General.Player;
+import edu.gatech.cs2340.team49x.spacetrader.Objects.General.RandomEvents.RandomEvent;
 import edu.gatech.cs2340.team49x.spacetrader.Objects.Universe.SolarSystem;
 
 public class TravelViewModel extends AndroidViewModel {
@@ -21,6 +23,7 @@ public class TravelViewModel extends AndroidViewModel {
     private PlayerInteractor playerInteractor;
     private List<SolarSystem> systemsList;
     private Context appContext;
+    private RandomEvent event;
 
     public TravelViewModel(@NonNull Application application) {
         super(application);
@@ -57,14 +60,26 @@ public class TravelViewModel extends AndroidViewModel {
         return getDistanceTo(pos) / playerInteractor.getSpeed();
     }
 
+    public String getEventTitle() {
+        return event == null ? null : event.getTitle();
+    }
+
+    public String getEventMessage() {
+        return event == null ? null : event.getMessage();
+    }
+
     /**
      * Travels to the SolarSystem at position pos.
      *
      * @param pos the index of the destination system.
      */
     public void goTo(int pos) {
+        SolarSystem system = systemsList.get(pos);
         playerInteractor.decreaseFuel(getDistanceTo(pos));
-        systemInteractor.setCurrentSystem(systemsList.get(pos));
+        systemInteractor.setCurrentSystem(system);
+        event = RandomEvent.makeRandomEvent(new Random()); // change this random later
+        if (event != null) event.doAction(playerInteractor.getPlayer(), system);
+
         try {
             ModelFacade.getInstance().saveGame(appContext);
             Log.d("GAME", "Game saved.");

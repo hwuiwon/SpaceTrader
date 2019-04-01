@@ -49,40 +49,6 @@ public class TravelActivity extends AppCompatActivity {
                 final double distance = viewModel.getDistanceTo(pos);
 
                 if (viewModel.getFuel() >= distance) {
-                    AlertDialog.Builder eventBuilder = null;
-                    switch (new Random().nextInt(10)) {
-                        case 0:
-                            viewModel.getPlayer().changeCredits(777);
-                            eventBuilder = new AlertDialog.Builder(TravelActivity.this);
-                            eventBuilder.setTitle("Congratulations!");
-                            eventBuilder.setMessage("You have found an abandoned ship!\nYou have earned" +
-                                    " 777 credits!");
-                        case 1:
-                            viewModel.getPlayer().getShip().useFuel(1000);
-                            eventBuilder = new AlertDialog.Builder(TravelActivity.this);
-                            eventBuilder.setTitle("Oops!");
-                            eventBuilder.setMessage("Meteor shower created a hole!\nYou lost 1000 extra fuel");
-                        case 2:
-                            if (viewModel.getPlayer().getShip().cargoSpaceRemaining() >= 1) {
-                                Inventory inventory = new Inventory();
-                                inventory.add(TradeGood.WATER, 1);
-                                viewModel.getPlayer().addToCargo(new Inventory());
-                            }
-                            eventBuilder = new AlertDialog.Builder(TravelActivity.this);
-                            eventBuilder.setTitle("Congratulations!");
-                            eventBuilder.setMessage("Earth is near you!\n You have obtained 1 WATER");
-                    }
-                    if (eventBuilder != null) {
-                        eventBuilder.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialog, int which) {
-                                dialog.dismiss();
-                            }
-                        });
-                        final AlertDialog randomEventBuilder = eventBuilder.create();
-                        randomEventBuilder.show();
-                    }
-
                     AlertDialog.Builder builder = new AlertDialog.Builder(TravelActivity.this);
                     builder.setCancelable(true);
                     builder.setTitle("Traveling...");
@@ -106,6 +72,7 @@ public class TravelActivity extends AppCompatActivity {
                                 viewModel.goTo(pos);
                                 binding.currentSystemTV.setText(viewModel.getName());
                                 binding.currentFuelTV.setText(String.valueOf(viewModel.getFuel()));
+                                doRandomEvent();
                             }
                         }
                     };
@@ -138,5 +105,42 @@ public class TravelActivity extends AppCompatActivity {
     public void onBackPressed() {
         super.onBackPressed();
         overridePendingTransition(R.anim.fadein, R.anim.fadeout);
+    }
+
+    private void doRandomEvent() {
+
+        //Random event handling
+//                    AlertDialog.Builder eventBuilder = null;
+//                    switch (new Random().nextInt(10)) {
+//                        case 0:
+//                            viewModel.getPlayer().changeCredits(777);
+//                            eventBuilder = new AlertDialog.Builder(TravelActivity.this);
+//                            eventBuilder.setTitle("Congratulations!");
+//                            eventBuilder.setMessage("You have found an abandoned ship!\nYou have earned" +
+//                                    " 777 credits!");
+//                        case 1:
+//                            viewModel.getPlayer().getShip().useFuel(1000);
+//                            eventBuilder = new AlertDialog.Builder(TravelActivity.this);
+//                            eventBuilder.setTitle("Oops!");
+//                            eventBuilder.setMessage("Meteor shower created a hole!\nYou lost 1000 extra fuel");
+//                        case 2:
+//                            if (viewModel.getPlayer().getShip().cargoSpaceRemaining() >= 1) {
+//                                Inventory inventory = new Inventory();
+//                                inventory.add(TradeGood.WATER, 1);
+//                                viewModel.getPlayer().addToCargo(new Inventory());
+//                            }
+//                            eventBuilder = new AlertDialog.Builder(TravelActivity.this);
+//                            eventBuilder.setTitle("Congratulations!");
+//                            eventBuilder.setMessage("Earth is near you!\n You have obtained 1 WATER");
+//                    }
+        String eventTitle = viewModel.getEventTitle();
+        if (eventTitle != null) {
+            AlertDialog.Builder eventBuilder = new AlertDialog.Builder(TravelActivity.this);
+            eventBuilder.setTitle(eventTitle);
+            eventBuilder.setMessage(viewModel.getEventMessage());
+            eventBuilder.setPositiveButton("Ok", ((dialog, which) -> dialog.dismiss()));
+            final AlertDialog randomEvent = eventBuilder.create();
+            randomEvent.show();
+        }
     }
 }
