@@ -7,9 +7,10 @@ import edu.gatech.cs2340.team49x.spacetrader.Objects.Trading.RandomCondition;
 import edu.gatech.cs2340.team49x.spacetrader.Objects.Universe.SolarSystem;
 
 public class MarketConditionEvent extends RandomEvent{
-    RandomCondition condition;
 
-    public MarketConditionEvent(Random random) {
+    private RandomCondition condition;
+
+    MarketConditionEvent(Random random) {
         condition = RandomCondition.getRandom(random);
     }
 
@@ -26,7 +27,7 @@ public class MarketConditionEvent extends RandomEvent{
     }
 
     @Override
-    public void doAction(Player p, SolarSystem s) {
-        s.setCondition(condition);
+    public void doAction(Player player, SolarSystem solarSystem) {
+        solarSystem.setCondition(condition);
     }
 }

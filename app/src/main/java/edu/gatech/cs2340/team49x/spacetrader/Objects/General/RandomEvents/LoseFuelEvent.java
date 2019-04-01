@@ -7,10 +7,11 @@ import edu.gatech.cs2340.team49x.spacetrader.Objects.General.Ship;
 import edu.gatech.cs2340.team49x.spacetrader.Objects.Universe.SolarSystem;
 
 public class LoseFuelEvent extends RandomEvent {
+
     private int distance;
     private Ship ship;
 
-    public LoseFuelEvent(Random random) {
+    LoseFuelEvent(Random random) {
         distance = random.nextInt(1000);
     }
 
@@ -26,8 +27,8 @@ public class LoseFuelEvent extends RandomEvent {
     }
 
     @Override
-    public void doAction(Player p, SolarSystem s) {
-        ship = p.getShip();
+    public void doAction(Player player, SolarSystem solarSystem) {
+        ship = player.getShip();
         ship.useFuel(distance);
     }
 }

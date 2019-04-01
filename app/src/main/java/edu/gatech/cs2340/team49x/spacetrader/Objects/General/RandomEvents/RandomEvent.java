@@ -9,18 +9,23 @@ import java.util.Random;
 import edu.gatech.cs2340.team49x.spacetrader.Objects.General.Player;
 import edu.gatech.cs2340.team49x.spacetrader.Objects.Universe.SolarSystem;
 
-public abstract class RandomEvent{
+public abstract class RandomEvent {
+
     private static final double NULL_CHANCE = 0.6;
     private static List<Function<Random,RandomEvent>> events = new ArrayList<>();
-    static{
+
+    static {
         events.add(GetCreditsEvent::new);
         events.add(LoseFuelEvent::new);
         events.add(GetWaterEvent::new);
         events.add(MarketConditionEvent::new);
     }
+
     public abstract String getTitle();
+
     public abstract String getMessage();
-    public abstract void doAction(Player p, SolarSystem s);
+
+    public abstract void doAction(Player player, SolarSystem solarSystem);
 
     public static RandomEvent makeRandomEvent(Random random) {
         if (random.nextDouble() < NULL_CHANCE) {
