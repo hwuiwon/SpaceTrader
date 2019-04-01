@@ -16,6 +16,7 @@ public abstract class RandomEvent{
         events.add(GetCreditsEvent::new);
         events.add(LoseFuelEvent::new);
         events.add(GetWaterEvent::new);
+        events.add(MarketConditionEvent::new);
     }
     public abstract String getTitle();
     public abstract String getMessage();

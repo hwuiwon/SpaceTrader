@@ -12,7 +12,7 @@ import edu.gatech.cs2340.team49x.spacetrader.Objects.Universe.TechLevel;
 public class Market implements Trader {
 
     private Map<TradeGood, Integer> prices;
-    private RandomCondition event;
+    private RandomCondition condition;
     private Tradable[] sells = {};
     private Tradable[] buys = {};
 
@@ -48,11 +48,11 @@ public class Market implements Trader {
     }
 
     public RandomCondition getEvent() {
-        return event;
+        return condition;
     }
 
-    public void setEvent(RandomCondition event) {
-        this.event = event;
+    public void setCondition(RandomCondition condition) {
+        this.condition = condition;
     }
 
     @Override
@@ -69,8 +69,8 @@ public class Market implements Trader {
     public int getPrice(Tradable t) {
         if (prices.containsKey(t)) {
             TradeGood good = (TradeGood) t;
-            if (good.getPriceUP() == event) {
-                return prices.get(t) * 2;
+            if (good.getPriceUP() == condition) {
+                return prices.get(t) * 4;
             }
             return prices.get(t);
         }

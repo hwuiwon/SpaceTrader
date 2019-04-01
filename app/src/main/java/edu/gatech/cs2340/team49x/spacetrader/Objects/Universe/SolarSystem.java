@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import edu.gatech.cs2340.team49x.spacetrader.Objects.Trading.Market;
+import edu.gatech.cs2340.team49x.spacetrader.Objects.Trading.RandomCondition;
 
 public class SolarSystem implements Serializable {
 
@@ -12,23 +13,16 @@ public class SolarSystem implements Serializable {
     private String name;
     private Coordinate coordinate;
     private TechLevel techLevel;
-    private List<Planet> planets;
     private Resources resources;
     private Market market;
 
-    private SolarSystem(String name, Coordinate coordinate,
-                        TechLevel techLevel, Resources resources, List<Planet> planets) {
+    public SolarSystem(String name, Coordinate coordinate,
+                        TechLevel techLevel, Resources resources) {
         this.name = name;
         this.coordinate = coordinate;
         this.techLevel = techLevel;
         this.resources = resources;
-        this.planets = planets;
         this.market = new Market(techLevel, resources);
-    }
-
-    SolarSystem(String name, Coordinate coordinate,
-                TechLevel techLevel, Resources resources) {
-        this(name, coordinate, techLevel, resources, new ArrayList<Planet>());
     }
 
     public String getName() {
@@ -63,16 +57,12 @@ public class SolarSystem implements Serializable {
         this.resources = resources;
     }
 
-    public List<Planet> getPlanets() {
-        return planets;
-    }
-
-    public void setPlanets(ArrayList<Planet> planets) {
-        this.planets = planets;
-    }
-
     public Market getMarket() {
         return market;
+    }
+
+    public void setCondition(RandomCondition condition) {
+        market.setCondition(condition);
     }
 
     public double distanceTo(SolarSystem other) {

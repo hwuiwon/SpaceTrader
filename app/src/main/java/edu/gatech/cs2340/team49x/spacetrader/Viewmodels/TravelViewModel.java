@@ -77,6 +77,7 @@ public class TravelViewModel extends AndroidViewModel {
         SolarSystem system = systemsList.get(pos);
         playerInteractor.decreaseFuel(getDistanceTo(pos));
         systemInteractor.setCurrentSystem(system);
+        system.setCondition(null);
         event = RandomEvent.makeRandomEvent(new Random()); // change this random later
         if (event != null) event.doAction(playerInteractor.getPlayer(), system);
 
