@@ -82,7 +82,7 @@
 
         <Button
             android:layout_margin="@dimen/margin2"
-            android:background="@drawable/rrred"
+            android:background="@drawable/round_rectangle_red"
             android:onClick="enterMarket"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

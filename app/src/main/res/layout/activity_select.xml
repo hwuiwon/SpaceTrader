@@ -12,7 +12,7 @@
         <pl.droidsonroids.gif.GifImageView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:src="@drawable/moving"
+            android:src="@drawable/background"
             android:background="@color/space"/>
 
         <RelativeLayout
@@ -76,7 +76,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/margin7"
-            android:background="@drawable/roundrectangle"
+            android:background="@drawable/round_rectangle"
             android:fontFamily="@font/montserrat_regular"
             android:text="@string/pInfo"
             android:textSize="20sp"
@@ -90,7 +90,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/margin7"
-            android:background="@drawable/roundrectangle"
+            android:background="@drawable/round_rectangle"
             android:fontFamily="@font/montserrat_regular"
             android:text="@string/buyShip"
             android:textSize="20sp"
@@ -106,7 +106,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/margin7"
             android:layout_alignParentBottom="true"
-            android:background="@drawable/roundrectangle"
+            android:background="@drawable/round_rectangle"
             android:fontFamily="@font/montserrat_regular"
             android:text="@string/startTr"
             android:textSize="20sp"

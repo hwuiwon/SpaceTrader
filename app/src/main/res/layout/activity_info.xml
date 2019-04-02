@@ -29,7 +29,7 @@
         <ImageView
             android:layout_width="100dp"
             android:layout_height="100dp"
-            android:src="@drawable/userimage"
+            android:src="@drawable/user_image"
             android:layout_marginTop="@dimen/margin8"
             android:layout_marginStart="@dimen/margin4"
             android:contentDescription="@string/action_info" />

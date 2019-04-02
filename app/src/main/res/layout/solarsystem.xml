@@ -7,7 +7,7 @@
     android:padding="@dimen/fab_margin">
 
     <TextView
-        android:background="@drawable/roundrectangle"
+        android:background="@drawable/round_rectangle"
         android:id="@+id/solarSystemTV"
         android:layout_width="match_parent"
         android:layout_height="50dp"

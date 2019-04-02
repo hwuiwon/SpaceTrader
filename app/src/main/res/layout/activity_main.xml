@@ -10,7 +10,7 @@
     <pl.droidsonroids.gif.GifImageView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:src="@drawable/moving"
+        android:src="@drawable/background"
         android:background="@color/space"/>
 
     <LinearLayout
@@ -27,7 +27,7 @@
         android:onClick="openSettings"
         android:layout_width="50dp"
         android:layout_height="50dp"
-        android:background="@drawable/roundrectangle"
+        android:background="@drawable/round_rectangle"
         android:layout_alignParentEnd="true"
         android:layout_marginEnd="@dimen/margin3"
         android:layout_marginTop="@dimen/margin3"/>
@@ -35,7 +35,7 @@
     <LinearLayout
         android:layout_width="30dp"
         android:layout_height="30dp"
-        android:background="@drawable/ic_person_add_black_24dp"
+        android:background="@drawable/new_player"
         android:layout_alignParentEnd="true"
         android:layout_marginEnd="@dimen/margin4"
         android:layout_marginTop="@dimen/margin4">
