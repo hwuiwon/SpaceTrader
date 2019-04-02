@@ -69,7 +69,7 @@ public class TradeInteractor {
 
     /**
      * Gets list of sellable items
-     * @return
+     * @return list of items
      */
     public Tradable[] getSellList() {
         return trader.sells();
