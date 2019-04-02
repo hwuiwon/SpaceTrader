@@ -27,7 +27,6 @@ public class MainActivity extends AppCompatActivity {
 
     /**
      * Opens Setting Activity
-     *
      * @param view current View
      */
     public void openSettings(View view) {
@@ -37,7 +36,6 @@ public class MainActivity extends AppCompatActivity {
 
     /**
      * Starts Game Activity
-     *
      * @param view current View
      */
     public void startGame(View view) {
@@ -60,6 +58,22 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    /**
+     * Open ConfigurationActivity if there is no saved data
+     */
+    private void launchNewGame() {
+        Intent intent = new Intent(MainActivity.this, ConfigurationActivity.class);
+        startActivityForResult(intent, CONFIG_COMPLETE);
+    }
+
+    /**
+     * Launch SelectActivity
+     */
+    private void launchGame() {
+        Intent intent = new Intent(MainActivity.this, SelectActivity.class);
+        startActivity(intent);
+    }
+
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         if (requestCode == CONFIG_COMPLETE) {
@@ -68,15 +82,5 @@ public class MainActivity extends AppCompatActivity {
                 launchGame();
             }
         }
-    }
-
-    private void launchNewGame() {
-        Intent intent = new Intent(MainActivity.this, ConfigurationActivity.class);
-        startActivityForResult(intent, CONFIG_COMPLETE);
-    }
-
-    private void launchGame() {
-        Intent intent = new Intent(MainActivity.this, SelectActivity.class);
-        startActivity(intent);
     }
 }

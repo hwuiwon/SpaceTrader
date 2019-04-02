@@ -3,6 +3,7 @@ package edu.gatech.cs2340.team49x.spacetrader.Objects.Trading;
 import java.util.Random;
 
 public enum RandomCondition {
+
     DROUGHT,
     COLD,
     CROPFAIL,

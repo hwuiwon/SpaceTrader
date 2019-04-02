@@ -4,7 +4,6 @@ import java.util.List;
 
 import edu.gatech.cs2340.team49x.spacetrader.Objects.General.Game;
 import edu.gatech.cs2340.team49x.spacetrader.Objects.General.Player;
-import edu.gatech.cs2340.team49x.spacetrader.Objects.Trading.RandomCondition;
 import edu.gatech.cs2340.team49x.spacetrader.Objects.Universe.Resources;
 import edu.gatech.cs2340.team49x.spacetrader.Objects.Universe.SolarSystem;
 import edu.gatech.cs2340.team49x.spacetrader.Objects.Universe.TechLevel;
@@ -41,10 +40,6 @@ public class CurrentSystemInteractor {
 
     public List<SolarSystem> getSystemsWithinRange(double range) {
         return universe.getSystemsInRange(currentSystem, range);
-    }
-
-    public void setCondition(RandomCondition condition) {
-        currentSystem.setCondition(condition);
     }
 
     public double distanceTo(SolarSystem other) {

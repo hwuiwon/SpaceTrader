@@ -43,10 +43,6 @@ public class Game implements Serializable {
         return universe;
     }
 
-    public String printUniverse() {
-        return universe.toString();
-    }
-
     public SolarSystem getCurrentSystem() {
         return currentSystem;
     }

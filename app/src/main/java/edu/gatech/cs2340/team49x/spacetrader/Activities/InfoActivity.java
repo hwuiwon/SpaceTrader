@@ -2,12 +2,12 @@ package edu.gatech.cs2340.team49x.spacetrader.Activities;
 
 import android.arch.lifecycle.ViewModelProviders;
 import android.databinding.DataBindingUtil;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 
 import edu.gatech.cs2340.team49x.spacetrader.Adapters.InvenItemAdapter;
-import edu.gatech.cs2340.team49x.spacetrader.ViewObjects.InvenItem;
 import edu.gatech.cs2340.team49x.spacetrader.R;
+import edu.gatech.cs2340.team49x.spacetrader.ViewObjects.InvenItem;
 import edu.gatech.cs2340.team49x.spacetrader.Viewmodels.InfoViewModel;
 import edu.gatech.cs2340.team49x.spacetrader.databinding.ActivityInfoBinding;
 
@@ -33,7 +33,6 @@ public class InfoActivity extends AppCompatActivity {
 
     /**
      * Make InvenItem Adapter
-     *
      * @return adapter that is created
      */
     private InvenItemAdapter makeInvenItemAdapter() {

@@ -38,7 +38,6 @@ public class MarketViewModel extends AndroidViewModel {
         selectedGoods = new Inventory();
         total = 0;
 
-        //initialize item array by getting data from the interactor
         List<Item> sellList = new ArrayList<>();
         List<Item> buyList = new ArrayList<>();
 
@@ -61,6 +60,10 @@ public class MarketViewModel extends AndroidViewModel {
         buyItems = buyList.toArray(buyItems);
     }
 
+    /**
+     * Gets list of items depending on current transaction mode
+     * @return item array
+     */
     public Item[] getItems() {
         return buying ? buyItems : sellItems;
     }
@@ -81,6 +84,10 @@ public class MarketViewModel extends AndroidViewModel {
         total += interactor.getPriceOf(good);
     }
 
+    /**
+     * Decreases amount of selected item
+     * @param good item that player selected
+     */
     public void decreaseAmount(Tradable good) {
         if (selectedGoods.getQuantity(good) > 0) {
             selectedGoods.add(good, -1);
@@ -88,6 +95,9 @@ public class MarketViewModel extends AndroidViewModel {
         }
     }
 
+    /**
+     * Changes transaction mode
+     */
     public void toggleBuySell() {
         buying = !buying;
         selectedGoods.empty();
@@ -98,22 +108,42 @@ public class MarketViewModel extends AndroidViewModel {
         return selectedGoods.getQuantity(good);
     }
 
+    /**
+     * Gets items in cargo
+     * @param good type of item
+     * @return number of good that player owns
+     */
     public int getCargo(Tradable good) {
         return interactor.getCargoAmount(good);
     }
 
+    /**
+     * Checks if player is buying
+     * @return true if player is buying or false if selling
+     */
     public boolean isBuying() {
         return buying;
     }
 
+    /**
+     * Gets total value
+     * @return total value of items player selected
+     */
     public int getTotal() {
         return total;
     }
 
+    /**
+     * Gets credits
+     * @return total credits of current player
+     */
     public int getCredits() {
         return interactor.getCredits();
     }
 
+    /**
+     * Performs transaction
+     */
     public void done() {
         if (buying) {
             if (selectedGoods != null) {

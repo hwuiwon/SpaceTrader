@@ -19,15 +19,26 @@ public class MainViewModel extends AndroidViewModel {
         appContext = application.getApplicationContext();
     }
 
+    /**
+     * Checks if game is configured
+     * @return true if there is configured game or false
+     */
     public boolean gameConfigured() {
         return ModelFacade.getInstance().gameConfigured();
     }
 
+    /**
+     * Loads game from saved data
+     * @throws IOException exception
+     * @throws ClassNotFoundException exception
+     */
     public void loadGame() throws IOException, ClassNotFoundException {
         ModelFacade.getInstance().loadGame(appContext);
     }
 
-
+    /**
+     * Saves current game progress
+     */
     public void saveGame() {
         try {
             ModelFacade.getInstance().saveGame(appContext);

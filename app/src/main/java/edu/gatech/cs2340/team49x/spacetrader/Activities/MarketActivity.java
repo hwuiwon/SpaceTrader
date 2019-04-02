@@ -12,8 +12,8 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 import edu.gatech.cs2340.team49x.spacetrader.Adapters.ItemAdapter;
-import edu.gatech.cs2340.team49x.spacetrader.ViewObjects.Item;
 import edu.gatech.cs2340.team49x.spacetrader.R;
+import edu.gatech.cs2340.team49x.spacetrader.ViewObjects.Item;
 import edu.gatech.cs2340.team49x.spacetrader.Viewmodels.MarketViewModel;
 import edu.gatech.cs2340.team49x.spacetrader.databinding.ActivityMarketBinding;
 
@@ -49,6 +49,9 @@ public class MarketActivity extends AppCompatActivity {
         }
     };
 
+    /**
+     * Calculate total price
+     */
     public void setPriceTotal() {
         binding.totalPriceTV.setText(String.valueOf(viewModel.getTotal()));
     }
@@ -64,13 +67,10 @@ public class MarketActivity extends AppCompatActivity {
 
     /**
      * Switches screen between buy and sell
-     *
      * @param view current View
      */
     public void switchScreen(View view) {
-        // Switch between buy and sell screen
         viewModel.toggleBuySell();
-        // Update ListView with new items and change text
         refreshAdapter();
         if (viewModel.isBuying()) {
             binding.marketTV.setText(R.string.ttlCost);
@@ -86,7 +86,6 @@ public class MarketActivity extends AppCompatActivity {
 
     /**
      * Check if the player can buy or sell items he/she selected and make transaction
-     *
      * @param view current View
      */
     public void doTransaction(View view) {
@@ -116,7 +115,6 @@ public class MarketActivity extends AppCompatActivity {
 
     /**
      * Ends Market Activity
-     *
      * @param view current View
      */
     public void done(View view) {

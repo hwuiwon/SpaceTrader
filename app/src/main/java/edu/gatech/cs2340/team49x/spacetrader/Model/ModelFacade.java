@@ -50,7 +50,7 @@ public class ModelFacade {
     public void loadGame(Context context) throws IOException, ClassNotFoundException {
         FileInputStream file = context.openFileInput(SAVE_NAME);
         ObjectInputStream in = new ObjectInputStream(file);
-        this.game = (Game) in.readObject();
+        game = (Game) in.readObject();
         in.close();
         file.close();
     }

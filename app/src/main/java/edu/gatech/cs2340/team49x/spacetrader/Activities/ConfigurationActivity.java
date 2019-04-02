@@ -48,7 +48,6 @@ public class ConfigurationActivity extends AppCompatActivity {
 
     /**
      * Creates player with values in configuration screen
-     *
      * @param view current View
      */
     public void onConfirmPressed(View view) {
@@ -76,7 +75,6 @@ public class ConfigurationActivity extends AppCompatActivity {
 
     /**
      * Updates the value of TextView depending on the button pressed
-     *
      * @param view current View
      */
     public void updateSkill(View view) {
@@ -114,7 +112,6 @@ public class ConfigurationActivity extends AppCompatActivity {
 
     /**
      * Gets integer value
-     *
      * @param view TextView that will get converted
      * @return the integer value of TextView
      */
@@ -124,7 +121,6 @@ public class ConfigurationActivity extends AppCompatActivity {
 
     /**
      * Decreases integer value of TextView by 1
-     *
      * @param view TextView that will be modified
      */
     private void decrease(TextView view) {
@@ -136,7 +132,6 @@ public class ConfigurationActivity extends AppCompatActivity {
 
     /**
      * Increases integer value of TextView by 1
-     *
      * @param view TextView that will be modified
      */
     private void increase(TextView view) {
@@ -148,7 +143,6 @@ public class ConfigurationActivity extends AppCompatActivity {
 
     /**
      * Updates difficulty of a game
-     *
      * @param view current View
      */
     public void updateDifficulty(View view) {

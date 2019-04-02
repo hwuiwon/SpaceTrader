@@ -11,7 +11,6 @@ import java.util.Set;
 public class Inventory implements Serializable {
 
     static final long serialVersionUID = 1L;
-
     private Map<Tradable, Integer> quantities;
     private int count;
 
@@ -77,36 +76,7 @@ public class Inventory implements Serializable {
     }
 
     /**
-     * Returns true if this inventory as at least a certain quantity of a good.
-     *
-     * @param good the Tradable to test.
-     * @param quantity the amount the inventory must contain.
-     * @return if inventory has certain quantity of a good
-     */
-    public boolean has(Tradable good, int quantity) {
-        if (quantities.containsKey(good)) {
-            return quantity <= quantities.get(good);
-        }
-        return quantity <= 0;
-    }
-
-    /**
-     * Tests if this inventory contains another as a subset.
-     * @param inventory the items to test for
-     * @return true if this inventory contains the given items
-     */
-    public boolean has(Inventory inventory) {
-        for (Tradable good : inventory.quantities.keySet()) {
-            if (!has(good, inventory.quantities.get(good))) {
-                return false;
-            }
-        }
-        return true;
-    }
-
-    /**
      * Returns the quantity of a good in this inventory
-     *
      * @param good the good to test for
      * @return the quantity of the good
      */
@@ -119,8 +89,7 @@ public class Inventory implements Serializable {
 
     /**
      * Returns the set of Tradables that this inventory contains at least one of.
-     *
-     * @return
+     * @return keySet of quantities
      */
     public Set<Tradable> getItemSet() {
         return quantities.keySet();

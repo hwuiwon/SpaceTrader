@@ -1,8 +1,6 @@
 package edu.gatech.cs2340.team49x.spacetrader.Objects.Universe;
 
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
 
 import edu.gatech.cs2340.team49x.spacetrader.Objects.Trading.Market;
 import edu.gatech.cs2340.team49x.spacetrader.Objects.Trading.RandomCondition;
@@ -37,24 +35,12 @@ public class SolarSystem implements Serializable {
         return coordinate;
     }
 
-    public void setCoordinate(Coordinate coordinate) {
-        this.coordinate = coordinate;
-    }
-
     public TechLevel getTechLevel() {
         return techLevel;
     }
 
-    public void setTechLevel(TechLevel techLevel) {
-        this.techLevel = techLevel;
-    }
-
     public Resources getResources() {
         return resources;
-    }
-
-    public void setResources(Resources resources) {
-        this.resources = resources;
     }
 
     public Market getMarket() {

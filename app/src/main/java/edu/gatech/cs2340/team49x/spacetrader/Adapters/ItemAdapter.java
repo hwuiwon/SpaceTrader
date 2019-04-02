@@ -13,8 +13,8 @@ import android.widget.TextView;
 
 import java.util.List;
 
-import edu.gatech.cs2340.team49x.spacetrader.ViewObjects.Item;
 import edu.gatech.cs2340.team49x.spacetrader.R;
+import edu.gatech.cs2340.team49x.spacetrader.ViewObjects.Item;
 import edu.gatech.cs2340.team49x.spacetrader.Viewmodels.MarketViewModel;
 
 public class ItemAdapter extends ArrayAdapter<Item> {
@@ -55,22 +55,16 @@ public class ItemAdapter extends ArrayAdapter<Item> {
             itemPriceTV.setText(String.valueOf(item.getPrice()));
             update();
 
-            tradeDecreaseBT.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    viewModel.decreaseAmount(item.getGood());
-                    tradeCountTV.setText(String.valueOf(viewModel.getAmountSelected(item.getGood())));
-                    notifyDataSetChanged();
-                }
+            tradeDecreaseBT.setOnClickListener(v -> {
+                viewModel.decreaseAmount(item.getGood());
+                tradeCountTV.setText(String.valueOf(viewModel.getAmountSelected(item.getGood())));
+                notifyDataSetChanged();
             });
 
-            tradeIncreaseBT.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    viewModel.increaseAmount(item.getGood());
-                    tradeCountTV.setText(String.valueOf(viewModel.getAmountSelected(item.getGood())));
-                    notifyDataSetChanged();
-                }
+            tradeIncreaseBT.setOnClickListener(v -> {
+                viewModel.increaseAmount(item.getGood());
+                tradeCountTV.setText(String.valueOf(viewModel.getAmountSelected(item.getGood())));
+                notifyDataSetChanged();
             });
         }
 

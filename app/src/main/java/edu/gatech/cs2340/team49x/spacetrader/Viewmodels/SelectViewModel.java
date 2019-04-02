@@ -16,14 +16,26 @@ public class SelectViewModel extends AndroidViewModel {
         interactor = ModelFacade.getInstance().getSystemInteractor();
     }
 
+    /**
+     * Gets resource
+     * @return resource of current SolarSystem
+     */
     public String getResourceDescription() {
         return interactor.getResources().getName();
     }
 
+    /**
+     * Gets tech level
+     * @return tech level of current SolarSystem
+     */
     public String getTechLevelDescription() {
         return interactor.getTechLevel().getName();
     }
 
+    /**
+     * Gets name of a system
+     * @return name of current SolarSystem
+     */
     public String getSystemName() {
         return interactor.getName();
     }

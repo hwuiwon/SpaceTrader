@@ -30,47 +30,83 @@ public class TravelViewModel extends AndroidViewModel {
         appContext = application.getApplicationContext();
     }
 
+    /**
+     * Initializes interactors
+     */
     public void init() {
         systemInteractor = ModelFacade.getInstance().getSystemInteractor();
         playerInteractor = ModelFacade.getInstance().getPlayerInteractor();
         systemsList = systemInteractor.getSystemsWithinRange(playerInteractor.getMaxTravelDistance());
     }
 
+    /**
+     * Gets nearby SolarSystems
+     * @return list of SolarSystems
+     */
     public List<SolarSystem> getNearbySystems() {
         return systemsList;
     }
 
+    /**
+     * Gets name
+     * @return name of current SolarSystem
+     */
     public String getName() {
         return systemInteractor.getName();
     }
 
+    /**
+     * Gets player
+     * @return name of current player
+     */
     public Player getPlayer() {
         return systemInteractor.getPlayer();
     }
 
+    /**
+     * Gets remaining fuel
+     * @return remaining fuel of a ship
+     */
     public int getFuel() {
         return playerInteractor.getFuel();
     }
 
+    /**
+     * Gets distance between two position
+     * @param pos position
+     * @return distance
+     */
     public double getDistanceTo(int pos) {
         return systemInteractor.distanceTo(systemsList.get(pos));
     }
 
+    /**
+     * Gets time that takes to travel to other position
+     * @param pos position
+     * @return time
+     */
     public double getTimeToTravel(int pos) {
         return getDistanceTo(pos) / playerInteractor.getSpeed();
     }
 
+    /**
+     * Gets title of an event
+     * @return event title
+     */
     public String getEventTitle() {
         return event == null ? null : event.getTitle();
     }
 
+    /**
+     * Gets message of an event
+     * @return event message
+     */
     public String getEventMessage() {
         return event == null ? null : event.getMessage();
     }
 
     /**
      * Travels to the SolarSystem at position pos.
-     *
      * @param pos the index of the destination system.
      */
     public void goTo(int pos) {

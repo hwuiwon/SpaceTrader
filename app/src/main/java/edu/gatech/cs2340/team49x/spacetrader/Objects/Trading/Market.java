@@ -27,7 +27,7 @@ public class Market implements Trader {
             if (good.canBeUsedBy(techLevel)) {
                 canBuy.add(good);
                 int price = good.getBasePrice();
-                //Do price initialization stuff
+
                 price += good.getPriceIcrTech() * (techLevel.ordinal() - good.getMinTechProduce());
                 Random random = new Random();
                 if (random.nextBoolean()){
@@ -47,24 +47,37 @@ public class Market implements Trader {
         buys = canBuy.toArray(buys);
     }
 
-    public RandomCondition getEvent() {
-        return condition;
-    }
-
+    /**
+     * Sets condition of Market
+     * @param condition random condition
+     */
     public void setCondition(RandomCondition condition) {
         this.condition = condition;
     }
 
+    /**
+     * Items that market can sell
+     * @return list of items
+     */
     @Override
     public Tradable[] sells() {
         return sells;
     }
 
+    /**
+     * Items player can buy on that Market
+     * @return list of items
+     */
     @Override
     public Tradable[] buys() {
         return buys;
     }
 
+    /**
+     * Determines price of an item
+     * @param t Tradable
+     * @return price of an item
+     */
     @Override
     public int getPrice(Tradable t) {
         if (prices.containsKey(t)) {
