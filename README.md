@@ -16,7 +16,7 @@ Team 49x
 - [x] Trade Transaction
 - [x] Travel Function & Fuel
 - [x] Player Inventory
-- [ ] Random Events
+- [x] Random Events
 - [ ] Skill Points & Abilities
 
 
