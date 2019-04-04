@@ -20,6 +20,11 @@ public class InvenItemAdapter extends BaseAdapter {
         private TextView invenNameTV;
         private TextView invenQuantityTv;
 
+        /**
+         * Creates new IvenItemView
+         * @param context The context of the application
+         * @param invenItem The item to be viewed
+         */
         public InvenItemView(Context context, InvenItem invenItem) {
             super(context);
 
@@ -30,6 +35,10 @@ public class InvenItemAdapter extends BaseAdapter {
             setData(invenItem);
         }
 
+        /**
+         * Sets the TextViews to the data of the item passed in
+         * @param invenItem The item passed in
+         */
         public void setData(InvenItem invenItem) {
             invenNameTV.setText(invenItem.getName());
             invenQuantityTv.setText(String.valueOf(invenItem.getQuantity()));
@@ -39,10 +48,18 @@ public class InvenItemAdapter extends BaseAdapter {
     private Context context;
     private ArrayList<InvenItem> invenItems = new ArrayList<>();
 
+    /**
+     * Creates new IvenItemAdapter
+     * @param context The appln's context
+     */
     public InvenItemAdapter(Context context) {
         this.context = context;
     }
 
+    /**
+     * Adds an invenitem
+     * @param invenItem the IvenItem to be added
+     */
     public void addInvenItem(InvenItem invenItem) {
         invenItems.add(invenItem);
     }
