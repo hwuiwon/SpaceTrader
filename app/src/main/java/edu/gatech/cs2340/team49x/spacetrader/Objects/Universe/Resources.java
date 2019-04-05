@@ -20,7 +20,7 @@ public enum Resources {
 
     private final double chance;
     private final String name;
-    private static double totalChance;
+    private static double totalChance = 0;
 
     static {
         for (Resources value : values()) {
