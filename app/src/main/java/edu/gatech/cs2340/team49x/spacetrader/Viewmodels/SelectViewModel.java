@@ -21,7 +21,7 @@ public class SelectViewModel extends AndroidViewModel {
      * @return resource of current SolarSystem
      */
     public String getResourceDescription() {
-        return interactor.getResources().getName();
+        return interactor.getResourceName();
     }
 
     /**
@@ -29,7 +29,7 @@ public class SelectViewModel extends AndroidViewModel {
      * @return tech level of current SolarSystem
      */
     public String getTechLevelDescription() {
-        return interactor.getTechLevel().getName();
+        return interactor.getTechLevelName();
     }
 
     /**

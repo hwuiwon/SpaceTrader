@@ -62,6 +62,7 @@ public enum TradeGood implements Tradable {
         return minTechProduce;
     }
 
+    @Override
     public String getName() {
         return name;
     }

@@ -27,12 +27,12 @@ public class SolarSystem implements Serializable {
         return name;
     }
 
-    public TechLevel getTechLevel() {
-        return techLevel;
+    public String techLevelName() {
+        return techLevel.getName();
     }
 
-    public Resources getResources() {
-        return resources;
+    public String resourceName() {
+        return resources.getName();
     }
 
     public Market getMarket() {

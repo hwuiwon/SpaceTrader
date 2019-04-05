@@ -45,6 +45,14 @@ public class InfoViewModel extends AndroidViewModel {
     }
 
     /**
+     * Gets player credit
+     * @return credit of a player
+     */
+    public int getCredit() {
+        return interactor.getCredit();
+    }
+
+    /**
      * Gets items in inven
      * @return list of items in inventory of a player
      */

@@ -6,6 +6,7 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
+import java.io.ObjectOutput;
 import java.io.ObjectOutputStream;
 
 import edu.gatech.cs2340.team49x.spacetrader.Objects.Difficulty;
@@ -40,7 +41,7 @@ public final class ModelFacade {
 
     public void saveGame(Context context) throws IOException {
         FileOutputStream file = context.openFileOutput(SAVE_NAME, Context.MODE_PRIVATE);
-        ObjectOutputStream out = new ObjectOutputStream(file);
+        ObjectOutput out = new ObjectOutputStream(file);
         out.writeObject(game);
         out.close();
         file.close();

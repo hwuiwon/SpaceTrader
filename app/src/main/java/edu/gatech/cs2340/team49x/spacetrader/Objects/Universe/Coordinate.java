@@ -5,6 +5,8 @@ import java.io.Serializable;
 public class Coordinate implements Serializable {
 
     static final long serialVersionUID = 1L;
+    private static final double MULTIPLIER = 100000.0;
+    private static final double DIVIDER = 100.0;
 
     private final int x;
     private final int y;
@@ -16,7 +18,7 @@ public class Coordinate implements Serializable {
 
     public double getDistance(Coordinate coordinate) {
         return Math.round(Math.sqrt(((this.x - coordinate.x) * (this.x - coordinate.x))
-                + ((this.y - coordinate.y) * (this.y - coordinate.y))) * 100000.0) / 100.0;
+                + ((this.y - coordinate.y) * (this.y - coordinate.y))) * MULTIPLIER) / DIVIDER;
     }
 
     @Override

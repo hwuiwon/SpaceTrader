@@ -15,7 +15,7 @@ public class Player implements Serializable {
     private int fighterPt;
     private int tradePt;
     private int engineerPt;
-    private Ship ship;
+    private final Ship ship;
     private int credits;
 
     private Player(String name, Ship ship) {

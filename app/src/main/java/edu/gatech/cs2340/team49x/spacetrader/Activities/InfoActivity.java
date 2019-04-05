@@ -28,7 +28,7 @@ public class InfoActivity extends AppCompatActivity {
 
         binding.infoNameTV.setText(viewModel.getName());
         binding.invenInfoLV.setAdapter(makeInvenItemAdapter());
-        binding.totalInvenTV.setText(String.valueOf(viewModel.getPlayer().getCredits()));
+        binding.totalInvenTV.setText(String.valueOf(viewModel.getCredit()));
     }
 
     /**

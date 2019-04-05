@@ -118,6 +118,5 @@ public class TravelViewModel extends AndroidViewModel {
         } catch (IOException e) {
             Log.e("GAME", "Failed to save game.", e);
         }
-        Log.d("STATE", "Moved to " + systemsList.get(pos).getName());
     }
 }

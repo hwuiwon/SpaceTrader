@@ -56,6 +56,10 @@ public class PlayerInteractor {
         return player;
     }
 
+    public int getCredit() {
+        return player.getCredits();
+    }
+
     /**
      * Decreases fuel
      * @param distance distance that player traveled
