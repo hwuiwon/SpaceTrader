@@ -36,8 +36,10 @@ public class ItemAdapter extends ArrayAdapter<Item> {
 
         ItemView(Context context, Item item) {
             super(context);
-            this.viewModel = ViewModelProviders.of((FragmentActivity) getContext()).get(MarketViewModel.class);
-            LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+            this.viewModel = ViewModelProviders.of(
+                    (FragmentActivity) getContext()).get(MarketViewModel.class);
+            LayoutInflater inflater =
+                    (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             inflater.inflate(R.layout.item, this, true);
 
             itemNameTV = findViewById(R.id.itemNameTV);

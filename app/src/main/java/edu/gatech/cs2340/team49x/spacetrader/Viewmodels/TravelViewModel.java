@@ -35,7 +35,8 @@ public class TravelViewModel extends AndroidViewModel {
     public void init() {
         systemInteractor = ModelFacade.getInstance().getSystemInteractor();
         playerInteractor = ModelFacade.getInstance().getPlayerInteractor();
-        systemsList = systemInteractor.getSystemsWithinRange(playerInteractor.getMaxTravelDistance());
+        systemsList =
+                systemInteractor.getSystemsWithinRange(playerInteractor.getMaxTravelDistance());
     }
 
     /**

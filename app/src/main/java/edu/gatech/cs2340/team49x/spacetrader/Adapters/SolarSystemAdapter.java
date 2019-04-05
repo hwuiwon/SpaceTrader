@@ -25,7 +25,8 @@ public class SolarSystemAdapter extends ArrayAdapter<SolarSystem> {
 
         SolarSystemView(Context context, SolarSystem solarSystem) {
             super(context);
-            LayoutInflater inflater = (LayoutInflater)context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+            LayoutInflater inflater =
+                    (LayoutInflater)context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             inflater.inflate(R.layout.solarsystem, this, true);
             solarSystemTV = findViewById(R.id.solarSystemTV);
             setData(solarSystem);

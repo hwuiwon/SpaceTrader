@@ -23,7 +23,8 @@ public class InvenItemAdapter extends BaseAdapter {
         InvenItemView(Context context, InvenItem invenItem) {
             super(context);
 
-            LayoutInflater inflater = (LayoutInflater)context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+            LayoutInflater inflater =
+                    (LayoutInflater)context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             inflater.inflate(R.layout.invenitem, this, true);
             invenNameTV = findViewById(R.id.invenNameTV);
             invenQuantityTv = findViewById(R.id.invenQuantityTV);

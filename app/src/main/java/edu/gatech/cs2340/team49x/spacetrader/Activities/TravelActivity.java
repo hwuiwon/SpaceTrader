@@ -31,7 +31,8 @@ public class TravelActivity extends AppCompatActivity {
         binding = DataBindingUtil.setContentView(this, R.layout.activity_game);
         viewModel = ViewModelProviders.of(this).get(TravelViewModel.class);
         viewModel.init();
-        binding.planetSelectLV.setAdapter(new SolarSystemAdapter(this, viewModel.getNearbySystems()));
+        binding.planetSelectLV.setAdapter(
+                new SolarSystemAdapter(this, viewModel.getNearbySystems()));
         binding.currentSystemTV.setText(viewModel.getName());
         binding.currentFuelTV.setText(String.valueOf(viewModel.getFuel()));
 
@@ -64,7 +65,8 @@ public class TravelActivity extends AppCompatActivity {
                 alertDialog.setOnDismissListener(dialog -> handler.removeCallbacks(runnable));
                 handler.postDelayed(runnable, (int) (viewModel.getTimeToTravel(pos) * 1000));
             } else {
-                Toast.makeText(getApplicationContext(), "Not enough fuel", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(),
+                        "Not enough fuel", Toast.LENGTH_SHORT).show();
             }
         });
     }
