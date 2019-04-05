@@ -18,10 +18,10 @@ public class InvenItemAdapter extends BaseAdapter {
     class InvenItemView extends RelativeLayout {
 
         private TextView invenNameTV;
-        private TextView invenQuantityTv;
+        private TextView invenQuantityTV;
 
         /**
-         * Creates new IvenItemView
+         * Creates new InvenItemView
          * @param context The context of the application
          * @param invenItem The item to be viewed
          */
@@ -31,7 +31,7 @@ public class InvenItemAdapter extends BaseAdapter {
             LayoutInflater inflater = (LayoutInflater)context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             inflater.inflate(R.layout.invenitem, this, true);
             invenNameTV = findViewById(R.id.invenNameTV);
-            invenQuantityTv = findViewById(R.id.invenQuantityTV);
+            invenQuantityTV = findViewById(R.id.invenQuantityTV);
             setData(invenItem);
         }
 
@@ -41,7 +41,7 @@ public class InvenItemAdapter extends BaseAdapter {
          */
         public void setData(InvenItem invenItem) {
             invenNameTV.setText(invenItem.getName());
-            invenQuantityTv.setText(String.valueOf(invenItem.getQuantity()));
+            invenQuantityTV.setText(String.valueOf(invenItem.getQuantity()));
         }
     }
 
