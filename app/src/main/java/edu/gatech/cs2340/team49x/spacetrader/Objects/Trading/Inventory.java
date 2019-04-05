@@ -8,6 +8,7 @@ import java.util.Set;
 /**
  * This class is used to represent a collection of Tradable and their quantities.
  */
+@SuppressWarnings("ConstantConditions")
 public class Inventory implements Serializable {
 
     static final long serialVersionUID = 1L;

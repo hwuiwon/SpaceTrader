@@ -36,15 +36,13 @@ public class InfoViewModel extends AndroidViewModel {
         return interactor.getName();
     }
 
-// --Commented out by Inspection START (4/5/2019 4:30 PM):
-//    /**
-//     * Gets player
-//     * @return current player
-//     */
-//    public Player getPlayer() {
-//        return interactor.getPlayer();
-//    }
-// --Commented out by Inspection STOP (4/5/2019 4:30 PM)
+    /**
+     * Gets player
+     * @return current player
+     */
+    public Player getPlayer() {
+        return interactor.getPlayer();
+    }
 
     /**
      * Gets player credit

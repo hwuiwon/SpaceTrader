@@ -28,7 +28,8 @@
             android:textSize="20sp"
             android:layout_below="@+id/itemLV"
             android:textStyle="bold"
-            android:fontFamily="@font/montserrat_light"/>
+            android:fontFamily="@font/montserrat_light"
+            tools:ignore="RtlSymmetry" />
 
         <TextView
             android:id="@+id/totalPriceTV"
@@ -52,7 +53,8 @@
             android:textSize="20sp"
             android:layout_below="@+id/marketTV"
             android:fontFamily="@font/montserrat_light"
-            android:textStyle="bold"/>
+            android:textStyle="bold"
+            tools:ignore="RtlSymmetry" />
 
         <TextView
             android:id="@+id/playerCreditTV"

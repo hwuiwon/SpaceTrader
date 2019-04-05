@@ -220,7 +220,8 @@
             android:paddingStart="@dimen/margin2"
             android:paddingTop="@dimen/margin3"
             android:fontFamily="@font/montserrat_semibold"
-            android:text="@string/difficulty" />
+            android:text="@string/difficulty"
+            tools:ignore="RtlSymmetry" />
 
         <LinearLayout
             android:id="@+id/difContainer"

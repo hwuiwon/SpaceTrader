@@ -2,7 +2,6 @@ package edu.gatech.cs2340.team49x.spacetrader.Viewmodels;
 
 import android.app.Application;
 import android.arch.lifecycle.AndroidViewModel;
-import android.content.Context;
 import android.support.annotation.NonNull;
 import android.util.Log;
 
@@ -18,11 +17,8 @@ import edu.gatech.cs2340.team49x.spacetrader.ViewObjects.Item;
 
 public class MarketViewModel extends AndroidViewModel {
 
-    private final Context appContext;
-
     public MarketViewModel(@NonNull Application application) {
         super(application);
-        appContext = application.getApplicationContext();
         selectedGoods = new Inventory();
     }
 
@@ -161,7 +157,7 @@ public class MarketViewModel extends AndroidViewModel {
         }
         total = 0;
         try {
-            ModelFacade.getInstance().saveGame(appContext);
+            ModelFacade.getInstance().saveGame(getApplication().getApplicationContext());
             Log.d("GAME", "Game saved.");
         } catch (IOException e) {
             Log.e("GAME", "Failed to save game.", e);

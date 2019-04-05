@@ -2,7 +2,6 @@ package edu.gatech.cs2340.team49x.spacetrader.Viewmodels;
 
 import android.app.Application;
 import android.arch.lifecycle.AndroidViewModel;
-import android.content.Context;
 import android.support.annotation.NonNull;
 import android.util.Log;
 
@@ -22,12 +21,10 @@ public class TravelViewModel extends AndroidViewModel {
     private CurrentSystemInteractor systemInteractor;
     private PlayerInteractor playerInteractor;
     private List<SolarSystem> systemsList;
-    private final Context appContext;
     private RandomEvent event;
 
     public TravelViewModel(@NonNull Application application) {
         super(application);
-        appContext = application.getApplicationContext();
     }
 
     /**
@@ -113,7 +110,7 @@ public class TravelViewModel extends AndroidViewModel {
         }
 
         try {
-            ModelFacade.getInstance().saveGame(appContext);
+            ModelFacade.getInstance().saveGame(getApplication().getApplicationContext());
             Log.d("GAME", "Game saved.");
         } catch (IOException e) {
             Log.e("GAME", "Failed to save game.", e);

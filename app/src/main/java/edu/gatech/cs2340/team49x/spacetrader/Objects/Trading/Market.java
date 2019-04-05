@@ -9,6 +9,7 @@ import java.util.Random;
 import edu.gatech.cs2340.team49x.spacetrader.Objects.Universe.Resources;
 import edu.gatech.cs2340.team49x.spacetrader.Objects.Universe.TechLevel;
 
+@SuppressWarnings("ConstantConditions")
 public class Market implements Trader {
 
     private final Map<TradeGood, Integer> prices;
