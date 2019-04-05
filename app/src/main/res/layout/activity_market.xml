@@ -103,7 +103,8 @@
                     android:fontFamily="@font/montserrat_regular"
                     android:onClick="switchScreen"
                     android:text="@string/switchSell"
-                    android:textColor="@color/grey" />
+                    android:textColor="@color/grey"
+                    style="?android:attr/buttonBarButtonStyle"/>
 
                 <Button
                     android:layout_width="wrap_content"
@@ -113,7 +114,8 @@
                     android:fontFamily="@font/montserrat_regular"
                     android:onClick="done"
                     android:text="@string/done"
-                    android:textColor="@color/neonRed" />
+                    android:textColor="@color/neonRed"
+                    style="?android:attr/buttonBarButtonStyle"/>
 
             </LinearLayout>
         </LinearLayout>

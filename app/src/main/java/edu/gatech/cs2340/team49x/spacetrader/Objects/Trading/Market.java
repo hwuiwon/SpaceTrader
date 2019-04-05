@@ -11,7 +11,7 @@ import edu.gatech.cs2340.team49x.spacetrader.Objects.Universe.TechLevel;
 
 public class Market implements Trader {
 
-    private Map<TradeGood, Integer> prices;
+    private final Map<TradeGood, Integer> prices;
     private RandomCondition condition;
     private Tradable[] sells = {};
     private Tradable[] buys = {};

@@ -36,7 +36,7 @@
     <string name="select">Select solar system to travel</string>
     <string name="currentSys">Current system:\t</string>
     <string name="currOn">You are currently on\t\t</string>
-    <string name="tmpSys">Pluto</string>
+    <string name="tmpSys">Mars</string>
     <string name="tmpTLv">MEDIEVAL</string>
     <string name="tmpRsr">RICHSOIL</string>
     <string name="openMarket">Enter Market</string>

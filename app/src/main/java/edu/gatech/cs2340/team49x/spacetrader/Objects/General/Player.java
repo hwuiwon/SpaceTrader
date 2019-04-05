@@ -8,6 +8,7 @@ import edu.gatech.cs2340.team49x.spacetrader.Objects.Trading.Tradable;
 public class Player implements Serializable {
 
     static final long serialVersionUID = 1L;
+    private static final int POINT = 16;
     private String name;
     private int skillPt;
     private int pilotPt;
@@ -17,19 +18,19 @@ public class Player implements Serializable {
     private Ship ship;
     private int credits;
 
-    private Player(String name, int skillPt, int pilotPt, int fighterPt, int tradePt, int engineerPt, Ship ship) {
+    private Player(String name, Ship ship) {
         this.name = name;
-        this.skillPt = skillPt;
-        this.pilotPt = pilotPt;
-        this.fighterPt = fighterPt;
-        this.tradePt = tradePt;
-        this.engineerPt = engineerPt;
+        this.skillPt = POINT;
+        this.pilotPt = 0;
+        this.fighterPt = 0;
+        this.tradePt = 0;
+        this.engineerPt = 0;
         this.ship = ship;
         this.credits = 1000;
     }
 
     public Player(String name) {
-        this(name, 16, 0,0,0,0,new Ship(Ship.ShipType.GNAT));
+        this(name, new Ship(Ship.ShipType.GNAT));
     }
 
     public String getName() {

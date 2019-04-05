@@ -34,7 +34,7 @@ public class ItemAdapter extends ArrayAdapter<Item> {
             super(context);
         }
 
-        public ItemView(Context context, Item item) {
+        ItemView(Context context, Item item) {
             super(context);
             this.viewModel = ViewModelProviders.of((FragmentActivity) getContext()).get(MarketViewModel.class);
             LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
@@ -49,7 +49,7 @@ public class ItemAdapter extends ArrayAdapter<Item> {
             setData(item);
         }
 
-        public void setData(Item inItem) {
+        void setData(Item inItem) {
             this.item = inItem;
             itemNameTV.setText(item.getName());
             itemPriceTV.setText(String.valueOf(item.getPrice()));
@@ -68,7 +68,7 @@ public class ItemAdapter extends ArrayAdapter<Item> {
             });
         }
 
-        public void update() {
+        void update() {
             this.item.setRemaining(viewModel.getCargo(item.getGood()));
             itemRemainTV.setText(String.valueOf(item.getRemaining()));
             tradeCountTV.setText(String.valueOf(viewModel.getAmountSelected(item.getGood())));

@@ -11,17 +11,16 @@ import java.io.ObjectOutputStream;
 import edu.gatech.cs2340.team49x.spacetrader.Objects.Difficulty;
 import edu.gatech.cs2340.team49x.spacetrader.Objects.General.Game;
 import edu.gatech.cs2340.team49x.spacetrader.Objects.General.Player;
-import edu.gatech.cs2340.team49x.spacetrader.Objects.Universe.Universe;
 
-public class ModelFacade {
+public final class ModelFacade {
 
     private final static int NUM_SYSTEMS = 100;
     private final static String SAVE_NAME = "game.ser";
-    private static ModelFacade instance = new ModelFacade();
+    private static final ModelFacade instance = new ModelFacade();
 
-    private TradeInteractor tradeInteractor = new TradeInteractor();
-    private CurrentSystemInteractor systemInteractor = new CurrentSystemInteractor();
-    private PlayerInteractor playerInteractor = new PlayerInteractor();
+    private final TradeInteractor tradeInteractor = new TradeInteractor();
+    private final CurrentSystemInteractor systemInteractor = new CurrentSystemInteractor();
+    private final PlayerInteractor playerInteractor = new PlayerInteractor();
 
     public static ModelFacade getInstance() { return instance; }
 
@@ -57,10 +56,6 @@ public class ModelFacade {
 
     public Player getPlayer() {
         return  game.getPlayer();
-    }
-
-    public Universe getUniverse() {
-        return game.getUniverse();
     }
 
     public Difficulty getDifficulty() {

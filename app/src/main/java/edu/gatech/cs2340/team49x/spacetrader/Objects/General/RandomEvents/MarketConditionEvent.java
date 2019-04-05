@@ -8,7 +8,7 @@ import edu.gatech.cs2340.team49x.spacetrader.Objects.Universe.SolarSystem;
 
 public class MarketConditionEvent extends RandomEvent{
 
-    private RandomCondition condition;
+    private final RandomCondition condition;
 
     MarketConditionEvent(Random random) {
         condition = RandomCondition.getRandom(random);

@@ -6,8 +6,8 @@ public class Coordinate implements Serializable {
 
     static final long serialVersionUID = 1L;
 
-    private int x;
-    private int y;
+    final private int x;
+    final private int y;
 
     Coordinate(int x, int y) {
         this.x = x;

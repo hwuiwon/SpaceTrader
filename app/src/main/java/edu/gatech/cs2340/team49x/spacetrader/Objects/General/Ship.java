@@ -25,9 +25,9 @@ public class Ship implements Serializable {
         TERMITE(45, 40000, 4500000),
         WASP(50, 42500, 5000000);
 
-        private int storage;
-        private int speed;
-        private int maxFuel;
+        private final int storage;
+        private final int speed;
+        private final int maxFuel;
 
         ShipType(int storage, int speed, int maxFuel) {
             this.storage = storage;
@@ -35,21 +35,21 @@ public class Ship implements Serializable {
             this.maxFuel = maxFuel;
         }
 
-        public int getStorage() {
+        int getStorage() {
             return storage;
         }
 
-        public int getSpeed() {
+        int getSpeed() {
             return speed;
         }
 
-        public int getMaxFuel() {
+        int getMaxFuel() {
             return maxFuel;
         }
     }
 
-    private ShipType type;
-    private Inventory cargo;
+    private final ShipType type;
+    private final Inventory cargo;
     private int fuel;
 
     public Ship(ShipType type) {

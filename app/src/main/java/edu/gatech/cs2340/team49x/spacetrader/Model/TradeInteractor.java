@@ -19,7 +19,7 @@ public class TradeInteractor {
      * @param customer current player
      * @param trader trader used for trade
      */
-    public void init(Player customer, Trader trader) {
+    private void init(Player customer, Trader trader) {
         this.customer = customer;
         this.trader = trader;
     }

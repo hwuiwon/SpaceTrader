@@ -9,7 +9,7 @@ import edu.gatech.cs2340.team49x.spacetrader.Objects.Universe.SolarSystem;
 
 public class GetWaterEvent extends RandomEvent {
 
-    private int num;
+    final private int num;
 
     GetWaterEvent(Random random) {
         num = random.nextInt(2) + 1;

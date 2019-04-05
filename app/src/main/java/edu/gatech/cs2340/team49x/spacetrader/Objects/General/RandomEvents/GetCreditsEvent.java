@@ -8,7 +8,7 @@ import edu.gatech.cs2340.team49x.spacetrader.Objects.Universe.SolarSystem;
 public class GetCreditsEvent extends RandomEvent {
 
     private static final int MAX_CREDITS_FOUND = 1000;
-    private int credits;
+    final private int credits;
 
     GetCreditsEvent(Random random) {
         credits = random.nextInt(MAX_CREDITS_FOUND);

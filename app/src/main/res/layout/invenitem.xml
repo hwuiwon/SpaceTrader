@@ -17,7 +17,7 @@
             android:textSize="20sp"
             android:textColor="@android:color/white"
             android:textStyle="bold"
-            android:paddingLeft="@dimen/fab_margin"
+            android:paddingStart="@dimen/fab_margin"
             android:paddingTop="@dimen/margin2"
             android:layout_alignParentTop="true"
             android:fontFamily="@font/montserrat_light"/>

@@ -13,7 +13,6 @@ import java.util.Random;
 import edu.gatech.cs2340.team49x.spacetrader.Model.CurrentSystemInteractor;
 import edu.gatech.cs2340.team49x.spacetrader.Model.ModelFacade;
 import edu.gatech.cs2340.team49x.spacetrader.Model.PlayerInteractor;
-import edu.gatech.cs2340.team49x.spacetrader.Objects.General.Player;
 import edu.gatech.cs2340.team49x.spacetrader.Objects.General.RandomEvents.RandomEvent;
 import edu.gatech.cs2340.team49x.spacetrader.Objects.Universe.SolarSystem;
 
@@ -22,7 +21,7 @@ public class TravelViewModel extends AndroidViewModel {
     private CurrentSystemInteractor systemInteractor;
     private PlayerInteractor playerInteractor;
     private List<SolarSystem> systemsList;
-    private Context appContext;
+    private final Context appContext;
     private RandomEvent event;
 
     public TravelViewModel(@NonNull Application application) {
@@ -53,14 +52,6 @@ public class TravelViewModel extends AndroidViewModel {
      */
     public String getName() {
         return systemInteractor.getName();
-    }
-
-    /**
-     * Gets player
-     * @return name of current player
-     */
-    public Player getPlayer() {
-        return systemInteractor.getPlayer();
     }
 
     /**

@@ -4,8 +4,8 @@ import edu.gatech.cs2340.team49x.spacetrader.Objects.Trading.Tradable;
 
 public class Item {
 
-    private Tradable good;
-    private int price;
+    private final Tradable good;
+    private final int price;
     private int remaining;
 
     public Item(Tradable good, int price, int remaining) {

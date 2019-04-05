@@ -41,7 +41,7 @@ public class MarketActivity extends AppCompatActivity {
         binding.playerCreditTV.setText(String.valueOf(viewModel.getCredits()));
     }
 
-    DataSetObserver observer = new DataSetObserver() {
+    private final DataSetObserver observer = new DataSetObserver() {
         @Override
         public void onChanged() {
             super.onChanged();
@@ -52,14 +52,14 @@ public class MarketActivity extends AppCompatActivity {
     /**
      * Calculate total price
      */
-    public void setPriceTotal() {
+    private void setPriceTotal() {
         binding.totalPriceTV.setText(String.valueOf(viewModel.getTotal()));
     }
 
     /**
      * Creates item adapter
      */
-    public ArrayList<Item> getListItemData() {
+    private ArrayList<Item> getListItemData() {
         items = new ArrayList<>();
         Collections.addAll(items, viewModel.getItems());
         return items;

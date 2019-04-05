@@ -5,45 +5,39 @@ import edu.gatech.cs2340.team49x.spacetrader.Objects.Universe.TechLevel;
 
 public enum TradeGood implements Tradable {
 
-    WATER("Water", 0, 0, 2, 30, 3, 4, RandomCondition.DROUGHT, Resources.LOTSOFWATER, Resources.DESERT, 30, 50),
-    FURS("Furs", 0, 0, 0, 250, 10, 10, RandomCondition.COLD, Resources.RICHFAUNA, Resources.LIFELESS, 230, 280),
-    FOOD("Food", 1, 0, 1, 100, 5, 5, RandomCondition.CROPFAIL, Resources.RICHSOIL, Resources.POORSOIL, 90, 160),
-    ORE("Ore", 2, 2, 3, 350, 20, 10, RandomCondition.WAR, Resources.MINERALRICH, Resources.MINERALPOOR, 350, 420),
-    GAMES("Games", 3, 1, 6, 250, -10, 5, RandomCondition.BOREDOM, Resources.ARTISTIC, null, 160, 270),
-    FIREARMS("Firearms", 3, 1, 5, 1250, -75, 100, RandomCondition.WAR, Resources.WARLIKE, null, 600, 1100),
-    MEDICINE("Medicine", 4, 1, 6, 650, -20, 10, RandomCondition.PLAGUE, Resources.LOTSOFHERBS, null, 400, 700),
-    MACHINES("Machines", 4, 3, 5, 900, -30, 5, RandomCondition.LACKOFWORKERS, null, null, 600, 800),
-    NARCOTICS("Narcotics", 5, 0, 5, 3500, -125, 150, RandomCondition.BOREDOM, Resources.WEIRDMUSHROOMS, null, 2000, 3000),
-    ROBOTS("Robots", 6, 4, 7, 5000, -150, 100, RandomCondition.LACKOFWORKERS, null, null, 3500, 5000);
+    WATER("Water", 0, 0, 30, 3, 4, RandomCondition.DROUGHT, Resources.LOTSOFWATER, Resources.DESERT),
+    FURS("Furs", 0, 0, 250, 10, 10, RandomCondition.COLD, Resources.RICHFAUNA, Resources.LIFELESS),
+    FOOD("Food", 1, 0, 100, 5, 5, RandomCondition.CROPFAIL, Resources.RICHSOIL, Resources.POORSOIL),
+    ORE("Ore", 2, 2, 350, 20, 10, RandomCondition.WAR, Resources.MINERALRICH, Resources.MINERALPOOR),
+    GAMES("Games", 3, 1, 250, -10, 5, RandomCondition.BOREDOM, Resources.ARTISTIC, null),
+    FIREARMS("Firearms", 3, 1, 1250, -75, 100, RandomCondition.WAR, Resources.WARLIKE, null),
+    MEDICINE("Medicine", 4, 1, 650, -20, 10, RandomCondition.PLAGUE, Resources.LOTSOFHERBS, null),
+    MACHINES("Machines", 4, 3, 900, -30, 5, RandomCondition.LACKOFWORKERS, null, null),
+    NARCOTICS("Narcotics", 5, 0, 3500, -125, 150, RandomCondition.BOREDOM, Resources.WEIRDMUSHROOMS, null),
+    ROBOTS("Robots", 6, 4, 5000, -150, 100, RandomCondition.LACKOFWORKERS, null, null);
 
-    private String name;
-    private int minTechProduce;
-    private int minTechUse;
-    private int mostProduced;
-    private int basePrice;
-    private int priceIcrTech;
-    private int variance;
-    private RandomCondition priceUP;
-    private Resources lowWhenPresent;
-    private Resources highWhenPresent;
-    private int minPrice;
-    private int maxPrice;
+    private final String name;
+    private final int minTechProduce;
+    private final int minTechUse;
+    private final int basePrice;
+    private final int priceIcrTech;
+    private final int variance;
+    private final RandomCondition priceUP;
+    private final Resources lowWhenPresent;
+    private final Resources highWhenPresent;
 
-    TradeGood(String name, int minTechProduce, int minTechUse, int mostProduced,
+    TradeGood(String name, int minTechProduce, int minTechUse,
               int basePrice, int priceIcrTech, int variance, RandomCondition priceUP,
-              Resources lowWhenPresent, Resources highWhenPresent, int minPrice, int maxPrice) {
+              Resources lowWhenPresent, Resources highWhenPresent) {
         this.name = name;
         this.minTechProduce = minTechProduce;
         this.minTechUse = minTechUse;
-        this.mostProduced = mostProduced;
         this.basePrice = basePrice;
         this.priceIcrTech = priceIcrTech;
         this.variance = variance;
         this.priceUP = priceUP;
         this.lowWhenPresent = lowWhenPresent;
         this.highWhenPresent = highWhenPresent;
-        this.minPrice = minPrice;
-        this.maxPrice = maxPrice;
     }
 
     public boolean canBeProducedBy(TechLevel tl) {
@@ -54,20 +48,8 @@ public enum TradeGood implements Tradable {
         return tl.ordinal() >= this.minTechUse;
     }
 
-    public boolean isTopTechLevel(TechLevel tl) {
-        return tl.ordinal() == this.mostProduced;
-    }
-
     public int getMinTechProduce() {
         return minTechProduce;
-    }
-
-    public int getMinTechUse() {
-        return minTechUse;
-    }
-
-    public int getMostProduced() {
-        return mostProduced;
     }
 
     public String getName() {
@@ -98,11 +80,4 @@ public enum TradeGood implements Tradable {
         return highWhenPresent;
     }
 
-    public int getMinPrice() {
-        return minPrice;
-    }
-
-    public int getMaxPrice() {
-        return maxPrice;
-    }
 }

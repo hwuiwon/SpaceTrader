@@ -18,7 +18,7 @@ import edu.gatech.cs2340.team49x.spacetrader.ViewObjects.Item;
 
 public class MarketViewModel extends AndroidViewModel {
 
-    private Context appContext;
+    private final Context appContext;
 
     public MarketViewModel(@NonNull Application application) {
         super(application);

@@ -12,7 +12,7 @@ import edu.gatech.cs2340.team49x.spacetrader.Objects.Universe.SolarSystem;
 public abstract class RandomEvent {
 
     private static final double NULL_CHANCE = 0.6;
-    private static List<Function<Random,RandomEvent>> events = new ArrayList<>();
+    private static final List<Function<Random,RandomEvent>> events = new ArrayList<>();
 
     static {
         events.add(GetCreditsEvent::new);

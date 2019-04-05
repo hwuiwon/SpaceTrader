@@ -8,7 +8,7 @@ import edu.gatech.cs2340.team49x.spacetrader.Objects.Universe.SolarSystem;
 
 public class LoseFuelEvent extends RandomEvent {
 
-    private int distance;
+    private final int distance;
     private Ship ship;
 
     LoseFuelEvent(Random random) {

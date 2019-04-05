@@ -11,7 +11,7 @@ import java.util.Set;
 public class Inventory implements Serializable {
 
     static final long serialVersionUID = 1L;
-    private Map<Tradable, Integer> quantities;
+    private final Map<Tradable, Integer> quantities;
     private int count;
 
     /**
@@ -20,19 +20,6 @@ public class Inventory implements Serializable {
     public Inventory() {
         quantities = new HashMap<>();
         count = 0;
-    }
-
-    /**
-     * Returns the price of this inventory for a certain trader.
-     * @param trader the trader to use for computing prices
-     * @return the price of this inventory
-     */
-    public int getPrice(Trader trader) {
-        int total = 0;
-        for (Map.Entry<Tradable, Integer> item : quantities.entrySet()) {
-            total += trader.getPrice(item.getKey()) * item.getValue();
-        }
-        return total;
     }
 
     /**

@@ -10,17 +10,17 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
-import edu.gatech.cs2340.team49x.spacetrader.ViewObjects.InvenItem;
 import edu.gatech.cs2340.team49x.spacetrader.R;
+import edu.gatech.cs2340.team49x.spacetrader.ViewObjects.InvenItem;
 
 public class InvenItemAdapter extends BaseAdapter {
 
     class InvenItemView extends RelativeLayout {
 
-        private TextView invenNameTV;
-        private TextView invenQuantityTv;
+        final private TextView invenNameTV;
+        final private TextView invenQuantityTv;
 
-        public InvenItemView(Context context, InvenItem invenItem) {
+        InvenItemView(Context context, InvenItem invenItem) {
             super(context);
 
             LayoutInflater inflater = (LayoutInflater)context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
@@ -30,14 +30,14 @@ public class InvenItemAdapter extends BaseAdapter {
             setData(invenItem);
         }
 
-        public void setData(InvenItem invenItem) {
+        void setData(InvenItem invenItem) {
             invenNameTV.setText(invenItem.getName());
             invenQuantityTv.setText(String.valueOf(invenItem.getQuantity()));
         }
     }
 
-    private Context context;
-    private ArrayList<InvenItem> invenItems = new ArrayList<>();
+    private final Context context;
+    private final ArrayList<InvenItem> invenItems = new ArrayList<>();
 
     public InvenItemAdapter(Context context) {
         this.context = context;

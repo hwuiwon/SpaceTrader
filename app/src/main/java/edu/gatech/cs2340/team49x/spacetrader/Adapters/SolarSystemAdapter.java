@@ -23,7 +23,7 @@ public class SolarSystemAdapter extends ArrayAdapter<SolarSystem> {
             super(context);
         }
 
-        public SolarSystemView(Context context, SolarSystem solarSystem) {
+        SolarSystemView(Context context, SolarSystem solarSystem) {
             super(context);
             LayoutInflater inflater = (LayoutInflater)context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             inflater.inflate(R.layout.solarsystem, this, true);
@@ -31,7 +31,7 @@ public class SolarSystemAdapter extends ArrayAdapter<SolarSystem> {
             setData(solarSystem);
         }
 
-        public void setData(SolarSystem solarSystem) {
+        void setData(SolarSystem solarSystem) {
             solarSystemTV.setText(solarSystem.getName());
         }
     }

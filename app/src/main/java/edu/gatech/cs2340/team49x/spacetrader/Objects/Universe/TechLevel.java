@@ -4,14 +4,14 @@ import java.util.Random;
 
 public enum TechLevel {
 
-    PREAGRICULTURE(1, "Pre-Agriculture"),
-    AGRICULTURE(1, "Agriculture"),
-    MEDIEVAL(1, "Medieval"),
-    RENAISSANCE(1, "Renaissance"),
-    EARLYINDUSTRIAL(1, "Early Industrial"),
-    INDUSTRIAL(1, "Industrial"),
-    POSTINDUSTRIAL(1, "Post-Industrial"),
-    HITECH(1, "Hi-Tech");
+    PREAGRICULTURE("Pre-Agriculture"),
+    AGRICULTURE("Agriculture"),
+    MEDIEVAL("Medieval"),
+    RENAISSANCE("Renaissance"),
+    EARLYINDUSTRIAL("Early Industrial"),
+    INDUSTRIAL("Industrial"),
+    POSTINDUSTRIAL("Post-Industrial"),
+    HITECH("Hi-Tech");
 
     private double chance;
     private String name;
@@ -23,8 +23,8 @@ public enum TechLevel {
         }
     }
 
-    TechLevel(double chance, String name) {
-        this.chance = chance;
+    TechLevel(String name) {
+        this.chance = (double) 1;
         this.name = name;
     }
 

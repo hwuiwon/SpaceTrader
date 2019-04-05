@@ -12,7 +12,7 @@ import edu.gatech.cs2340.team49x.spacetrader.Model.ModelFacade;
 
 public class MainViewModel extends AndroidViewModel {
 
-    private Context appContext;
+    private final Context appContext;
 
     public MainViewModel(@NonNull Application application) {
         super(application);

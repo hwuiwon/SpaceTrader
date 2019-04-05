@@ -8,11 +8,11 @@ import edu.gatech.cs2340.team49x.spacetrader.Objects.Trading.RandomCondition;
 public class SolarSystem implements Serializable {
 
     static final long serialVersionUID = 1L;
-    private String name;
-    private Coordinate coordinate;
-    private TechLevel techLevel;
-    private Resources resources;
-    private Market market;
+    private final String name;
+    private final Coordinate coordinate;
+    private final TechLevel techLevel;
+    private final Resources resources;
+    private final Market market;
 
     public SolarSystem(String name, Coordinate coordinate,
                         TechLevel techLevel, Resources resources) {
@@ -25,14 +25,6 @@ public class SolarSystem implements Serializable {
 
     public String getName() {
         return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public Coordinate getCoordinate() {
-        return coordinate;
     }
 
     public TechLevel getTechLevel() {

@@ -134,23 +134,21 @@ public class Universe implements Serializable {
             "Zuul"
     );
 
-    private List<SolarSystem> solarSystems;
-    private Map<String, SolarSystem> nameMap;
-    private Map<Coordinate, SolarSystem> coordMap;
-    private Random random;
+    private final List<SolarSystem> solarSystems;
+    private final Map<String, SolarSystem> nameMap;
+    private final Map<Coordinate, SolarSystem> coordMap;
     private static final int WIDTH = 150;
     private static final int HEIGHT = 100;
     private static final int NUM_NAMES = systemNames.size();
 
-    public Universe(Random random) {
+    private Universe() {
         this.solarSystems = new ArrayList<>();
-        this.random = random;
         this.nameMap = new HashMap<>();
         this.coordMap = new HashMap<>();
     }
 
     public Universe(Random random, int numSystems) {
-        this(random);
+        this();
         while (solarSystems.size() < numSystems
                 && solarSystems.size() < WIDTH * HEIGHT
                 && solarSystems.size() < NUM_NAMES) {
@@ -182,10 +180,6 @@ public class Universe implements Serializable {
      */
     public SolarSystem getSolarSystem(int i) {
         return solarSystems.get(i);
-    }
-
-    public List<SolarSystem> getSolarSystems() {
-        return solarSystems;
     }
 
     public List<SolarSystem> getSystemsInRange(SolarSystem system, double range) {

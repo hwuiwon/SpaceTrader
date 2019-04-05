@@ -9,7 +9,7 @@ import edu.gatech.cs2340.team49x.spacetrader.Model.ModelFacade;
 
 public class SelectViewModel extends AndroidViewModel {
 
-    private CurrentSystemInteractor interactor;
+    private final CurrentSystemInteractor interactor;
 
     public SelectViewModel(@NonNull Application application) {
         super(application);
