@@ -9,7 +9,7 @@ import edu.gatech.cs2340.team49x.spacetrader.Objects.Universe.SolarSystem;
 
 public class GetWaterEvent extends RandomEvent {
 
-    final private int num;
+    private final int num;
 
     GetWaterEvent(Random random) {
         num = random.nextInt(2) + 1;
@@ -30,7 +30,7 @@ public class GetWaterEvent extends RandomEvent {
     public void doAction(Player player, SolarSystem solarSystem) {
         Inventory toAdd = new Inventory();
         toAdd.add(TradeGood.WATER,
-                num > player.cargoSpaceRemaining() ? player.cargoSpaceRemaining() : num);
+                (num > player.cargoSpaceRemaining()) ? player.cargoSpaceRemaining() : num);
         player.addToCargo(toAdd);
     }
 }

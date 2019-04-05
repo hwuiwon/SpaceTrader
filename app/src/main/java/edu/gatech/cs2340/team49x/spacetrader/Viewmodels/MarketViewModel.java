@@ -156,7 +156,9 @@ public class MarketViewModel extends AndroidViewModel {
                 interactor.changeCredits(total);
             }
         }
-        if (selectedGoods != null) selectedGoods.empty();
+        if (selectedGoods != null) {
+            selectedGoods.empty();
+        }
         total = 0;
         try {
             ModelFacade.getInstance().saveGame(appContext);

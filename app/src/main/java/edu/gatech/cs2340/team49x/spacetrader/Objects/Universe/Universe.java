@@ -149,9 +149,9 @@ public class Universe implements Serializable {
 
     public Universe(Random random, int numSystems) {
         this();
-        while (solarSystems.size() < numSystems
-                && solarSystems.size() < WIDTH * HEIGHT
-                && solarSystems.size() < NUM_NAMES) {
+        while ((solarSystems.size() < numSystems)
+                && (solarSystems.size() < (WIDTH * HEIGHT))
+                && (solarSystems.size() < NUM_NAMES)) {
             String name = systemNames.get(random.nextInt(systemNames.size()));
             Coordinate coordinate = new Coordinate(random.nextInt(WIDTH), random.nextInt(HEIGHT));
             while (nameMap.containsKey(name)) {
@@ -185,7 +185,7 @@ public class Universe implements Serializable {
     public List<SolarSystem> getSystemsInRange(SolarSystem system, double range) {
         List<SolarSystem> inRange = new ArrayList<>();
         for (SolarSystem other : solarSystems) {
-            if (!system.equals(other) && system.distanceTo(other) <= range) {
+            if (!system.equals(other) && (system.distanceTo(other) <= range)) {
                 inRange.add(other);
             }
         }

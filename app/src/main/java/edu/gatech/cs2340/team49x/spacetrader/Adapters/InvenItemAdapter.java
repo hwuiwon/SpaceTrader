@@ -17,8 +17,8 @@ public class InvenItemAdapter extends BaseAdapter {
 
     class InvenItemView extends RelativeLayout {
 
-        final private TextView invenNameTV;
-        final private TextView invenQuantityTv;
+        private final TextView invenNameTV;
+        private final TextView invenQuantityTv;
 
         InvenItemView(Context context, InvenItem invenItem) {
             super(context);

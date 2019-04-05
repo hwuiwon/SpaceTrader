@@ -85,10 +85,6 @@ public class Player implements Serializable {
         return ship;
     }
 
-    public void setShip(Ship ship) {
-        this.ship = ship;
-    }
-
     public int getCredits() {
         return credits;
     }

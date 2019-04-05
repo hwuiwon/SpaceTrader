@@ -18,8 +18,8 @@ public enum Resources {
     ARTISTIC(1, "Artistic"),
     WARLIKE(1, "War-Like");
 
-    private double chance;
-    private String name;
+    private final double chance;
+    private final String name;
     private static double totalChance;
 
     static {

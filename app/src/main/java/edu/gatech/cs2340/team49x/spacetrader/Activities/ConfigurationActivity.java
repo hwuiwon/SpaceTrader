@@ -52,11 +52,11 @@ public class ConfigurationActivity extends AppCompatActivity {
      */
     public void onConfirmPressed(View view) {
         String name = binding.pnameET.getText().toString().trim();
-        if (name.length() == 0)
+        if (name.isEmpty()) {
             Toast.makeText(this, "Please enter a valid name.", Toast.LENGTH_LONG).show();
-        else if (getVal(binding.sPointsTV) > 0)
+        } else if (getVal(binding.sPointsTV) > 0) {
             Toast.makeText(this, "You have unused skill points.", Toast.LENGTH_LONG).show();
-        else {
+        } else {
             player = new Player("");
 
             player.setName(binding.pnameET.getText().toString());
@@ -135,7 +135,7 @@ public class ConfigurationActivity extends AppCompatActivity {
      * @param view TextView that will be modified
      */
     private void increase(TextView view) {
-        if (!(getVal(binding.sPointsTV) - 1 < 0)) {
+        if (!((getVal(binding.sPointsTV) - 1) < 0)) {
             view.setText(Integer.toString(getVal(view) + 1));
             binding.sPointsTV.setText(Integer.toString(getVal(binding.sPointsTV) - 1));
         }

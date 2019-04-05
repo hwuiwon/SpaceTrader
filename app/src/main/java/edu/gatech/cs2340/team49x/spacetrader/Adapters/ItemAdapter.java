@@ -21,7 +21,7 @@ public class ItemAdapter extends ArrayAdapter<Item> {
 
     class ItemView extends RelativeLayout {
 
-        private MarketViewModel viewModel = null;
+        private MarketViewModel viewModel;
         private Button tradeDecreaseBT;
         private Button tradeIncreaseBT;
         private TextView tradeCountTV;

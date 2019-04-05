@@ -14,25 +14,16 @@ public class Ship implements Serializable {
 
     public enum ShipType {
 
-        GNAT(5, 20000, 500000),
-        FLEA(10, 22500, 1000000),
-        FIREFLY(15, 25000, 1500000),
-        MOSQUITO(20, 27500, 2000000),
-        BUMBLEBEE(25, 30000, 2500000),
-        BEETLE(30, 32500, 3000000),
-        HORNET(35, 35000, 3500000),
-        GRASSHOPPER(40, 37500, 4000000),
-        TERMITE(45, 40000, 4500000),
-        WASP(50, 42500, 5000000);
+        GNAT();
 
         private final int storage;
         private final int speed;
         private final int maxFuel;
 
-        ShipType(int storage, int speed, int maxFuel) {
-            this.storage = storage;
-            this.speed = speed;
-            this.maxFuel = maxFuel;
+        ShipType() {
+            this.storage = 5;
+            this.speed = 20000;
+            this.maxFuel = 500000;
         }
 
         int getStorage() {
@@ -56,10 +47,6 @@ public class Ship implements Serializable {
         this.type = type;
         this.cargo = new Inventory();
         this.fuel = type.getMaxFuel();
-    }
-
-    public ShipType getType() {
-        return type;
     }
 
     public Set<Tradable> getCargoSet() {

@@ -61,7 +61,7 @@ public class Market implements Trader {
      */
     @Override
     public Tradable[] sells() {
-        return sells;
+        return sells.clone();
     }
 
     /**
@@ -70,7 +70,7 @@ public class Market implements Trader {
      */
     @Override
     public Tradable[] buys() {
-        return buys;
+        return buys.clone();
     }
 
     /**

@@ -13,8 +13,8 @@ public enum TechLevel {
     POSTINDUSTRIAL("Post-Industrial"),
     HITECH("Hi-Tech");
 
-    private double chance;
-    private String name;
+    private final double chance;
+    private final String name;
     private static double totalChance;
 
     static {

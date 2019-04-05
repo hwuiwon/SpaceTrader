@@ -14,8 +14,8 @@ import edu.gatech.cs2340.team49x.spacetrader.Objects.General.Player;
 
 public final class ModelFacade {
 
-    private final static int NUM_SYSTEMS = 100;
-    private final static String SAVE_NAME = "game.ser";
+    private static final int NUM_SYSTEMS = 100;
+    private static final String SAVE_NAME = "game.ser";
     private static final ModelFacade instance = new ModelFacade();
 
     private final TradeInteractor tradeInteractor = new TradeInteractor();

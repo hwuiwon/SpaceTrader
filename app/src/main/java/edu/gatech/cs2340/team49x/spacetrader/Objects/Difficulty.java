@@ -7,15 +7,15 @@ public enum Difficulty {
     HARD,
     IMPOSSIBLE;
 
-    final private static Difficulty[] vals = values();
+    private static final Difficulty[] vals = values();
 
     public String next() {
         return vals[(this.ordinal() + 1) % vals.length].toString();
     }
 
     public String prev() {
-        if (this.ordinal() - 1 < 0) {
-            return vals[Math.abs((this.ordinal() - vals.length + 1) % vals.length)].toString();
+        if ((this.ordinal() - 1) < 0) {
+            return vals[Math.abs(((this.ordinal() - vals.length) + 1) % vals.length)].toString();
         }
         return vals[(this.ordinal() - 1) % vals.length].toString();
     }

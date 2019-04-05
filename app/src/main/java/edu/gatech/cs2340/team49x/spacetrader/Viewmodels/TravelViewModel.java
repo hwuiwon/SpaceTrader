@@ -7,6 +7,7 @@ import android.support.annotation.NonNull;
 import android.util.Log;
 
 import java.io.IOException;
+import java.util.Collections;
 import java.util.List;
 import java.util.Random;
 
@@ -44,7 +45,7 @@ public class TravelViewModel extends AndroidViewModel {
      * @return list of SolarSystems
      */
     public List<SolarSystem> getNearbySystems() {
-        return systemsList;
+        return Collections.unmodifiableList(systemsList);
     }
 
     /**
@@ -86,7 +87,7 @@ public class TravelViewModel extends AndroidViewModel {
      * @return event title
      */
     public String getEventTitle() {
-        return event == null ? null : event.getTitle();
+        return (event == null) ? null : event.getTitle();
     }
 
     /**
@@ -94,7 +95,7 @@ public class TravelViewModel extends AndroidViewModel {
      * @return event message
      */
     public String getEventMessage() {
-        return event == null ? null : event.getMessage();
+        return (event == null) ? null : event.getMessage();
     }
 
     /**
@@ -107,7 +108,9 @@ public class TravelViewModel extends AndroidViewModel {
         systemInteractor.setCurrentSystem(system);
         system.setCondition(null);
         event = RandomEvent.makeRandomEvent(new Random()); // change this random later
-        if (event != null) event.doAction(playerInteractor.getPlayer(), system);
+        if (event != null) {
+            event.doAction(playerInteractor.getPlayer(), system);
+        }
 
         try {
             ModelFacade.getInstance().saveGame(appContext);
