@@ -1,7 +1,7 @@
 package edu.gatech.cs2340.team49x.spacetrader.Objects.Trading;
 
-import edu.gatech.cs2340.team49x.spacetrader.Objects.Universe.Resources;
-import edu.gatech.cs2340.team49x.spacetrader.Objects.Universe.TechLevel;
+import edu.gatech.cs2340.team49x.spacetrader.Objects.Resources;
+import edu.gatech.cs2340.team49x.spacetrader.Objects.TechLevel;
 
 public enum TradeGood implements Tradable {
 

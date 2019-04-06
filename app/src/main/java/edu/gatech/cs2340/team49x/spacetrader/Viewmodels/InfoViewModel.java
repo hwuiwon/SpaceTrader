@@ -9,7 +9,6 @@ import java.util.List;
 
 import edu.gatech.cs2340.team49x.spacetrader.Model.ModelFacade;
 import edu.gatech.cs2340.team49x.spacetrader.Model.PlayerInteractor;
-import edu.gatech.cs2340.team49x.spacetrader.Objects.General.Player;
 import edu.gatech.cs2340.team49x.spacetrader.Objects.Trading.Tradable;
 import edu.gatech.cs2340.team49x.spacetrader.ViewObjects.InvenItem;
 
@@ -36,20 +35,22 @@ public class InfoViewModel extends AndroidViewModel {
         return interactor.getName();
     }
 
-    /**
-     * Gets player
-     * @return current player
-     */
-    public Player getPlayer() {
-        return interactor.getPlayer();
-    }
+// --Commented out by Inspection START (4/6/2019 5:34 AM):
+//    /**
+//     * Gets player
+//     * @return current player
+//     */
+//    public Player getPlayer() {
+//        return interactor.getPlayer();
+//    }
+// --Commented out by Inspection STOP (4/6/2019 5:34 AM)
 
     /**
      * Gets player credit
      * @return credit of a player
      */
     public int getCredit() {
-        return interactor.getCredit();
+        return interactor.getCredits();
     }
 
     /**

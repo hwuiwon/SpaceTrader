@@ -3,6 +3,7 @@ package edu.gatech.cs2340.team49x.spacetrader.Model;
 import java.util.List;
 
 import edu.gatech.cs2340.team49x.spacetrader.Objects.General.Game;
+import edu.gatech.cs2340.team49x.spacetrader.Objects.Trading.RandomCondition;
 import edu.gatech.cs2340.team49x.spacetrader.Objects.Universe.SolarSystem;
 import edu.gatech.cs2340.team49x.spacetrader.Objects.Universe.Universe;
 
@@ -33,6 +34,10 @@ public class CurrentSystemInteractor {
     public void setCurrentSystem(SolarSystem newSystem) {
         game.setCurrentSystem(newSystem);
         init(game);
+    }
+
+    public void setCondition(RandomCondition condition) {
+        currentSystem.setCondition(condition);
     }
 
     public List<SolarSystem> getSystemsWithinRange(double range) {

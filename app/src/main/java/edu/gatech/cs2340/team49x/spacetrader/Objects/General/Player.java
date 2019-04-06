@@ -1,9 +1,8 @@
 package edu.gatech.cs2340.team49x.spacetrader.Objects.General;
 
-import java.io.Serializable;
+import android.support.annotation.NonNull;
 
-import edu.gatech.cs2340.team49x.spacetrader.Objects.Trading.Inventory;
-import edu.gatech.cs2340.team49x.spacetrader.Objects.Trading.Tradable;
+import java.io.Serializable;
 
 public class Player implements Serializable {
 
@@ -93,22 +92,32 @@ public class Player implements Serializable {
         credits += amount;
     }
 
-    public void addToCargo(Inventory items) {
-        this.ship.addToCargo(items);
-    }
+// --Commented out by Inspection START (4/6/2019 5:57 AM):
+// --Commented out by Inspection START (4/6/2019 5:57 AM):
+////    public void addToCargo(Inventory items) {
+////        this.ship.addToCargo(items);
+////    }
+//// --Commented out by Inspection START (4/6/2019 5:57 AM):
+// --Commented out by Inspection STOP (4/6/2019 5:57 AM)
+//// --Commented out by Inspection STOP (4/6/2019 5:57 AM)
+//
+//    public void removeFromCargo(Inventory items) {
+//// --Commented out by Inspection START (4/6/2019 5:57 AM):
+// --Commented out by Inspection STOP (4/6/2019 5:57 AM)
+//        this.ship.removeFromCargo(items);
+//    }
+//
+//    public int getAmountOf(Tradable good) {
+//        return this.ship.getAmountOf(good);
+// --Commented out by Inspection STOP (4/6/2019 5:57 AM)
 
-    public void removeFromCargo(Inventory items) {
-        this.ship.removeFromCargo(items);
-    }
+// --Commented out by Inspection START (4/6/2019 6:26 AM):
+//    public int cargoSpaceRemaining() {
+//        return ship.cargoSpaceRemaining();
+//    }
+// --Commented out by Inspection STOP (4/6/2019 6:26 AM)
 
-    public int getAmountOf(Tradable good) {
-        return this.ship.getAmountOf(good);
-    }
-
-    public int cargoSpaceRemaining() {
-        return ship.cargoSpaceRemaining();
-    }
-
+    @NonNull
     @Override
     public String toString() {
         return "\nPlayer{" +

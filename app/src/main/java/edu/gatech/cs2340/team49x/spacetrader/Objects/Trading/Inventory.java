@@ -1,5 +1,7 @@
 package edu.gatech.cs2340.team49x.spacetrader.Objects.Trading;
 
+import android.support.annotation.NonNull;
+
 import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Map;
@@ -8,7 +10,6 @@ import java.util.Set;
 /**
  * This class is used to represent a collection of Tradable and their quantities.
  */
-@SuppressWarnings("ConstantConditions")
 public class Inventory implements Serializable {
 
     static final long serialVersionUID = 1L;
@@ -27,9 +28,9 @@ public class Inventory implements Serializable {
      * Adds the items from another inventory to this one.
      * @param inventory the items to add
      */
-    public void add(Inventory inventory) {
+    public void add(@NonNull Inventory inventory) {
         for (Tradable good : inventory.quantities.keySet()) {
-            add(good, inventory.quantities.get(good));
+            add(good, inventory.getQuantity(good));
         }
     }
 
@@ -40,7 +41,7 @@ public class Inventory implements Serializable {
      */
     public void add(Tradable good, int quantity) {
         if (quantities.containsKey(good)) {
-            int result = quantities.get(good) + quantity;
+            int result = getQuantity(good) + quantity;
             if (result != 0) {
                 quantities.put(good, result);
             } else {
@@ -59,7 +60,7 @@ public class Inventory implements Serializable {
      */
     public void remove(Inventory inventory) {
         for (Tradable good : inventory.quantities.keySet()) {
-            add(good, -inventory.quantities.get(good));
+            add(good, -inventory.getQuantity(good));
         }
     }
 
@@ -70,7 +71,8 @@ public class Inventory implements Serializable {
      */
     public int getQuantity(Tradable good) {
         if (quantities.containsKey(good)) {
-            return quantities.get(good);
+            Integer amount = quantities.get(good);
+            return (amount == null) ? 0 : amount;
         }
         return 0;
     }
@@ -98,6 +100,7 @@ public class Inventory implements Serializable {
         return count;
     }
 
+    @NonNull
     @Override
     public String toString() {
         return "Inventory{" +

@@ -36,39 +36,8 @@ public class TravelActivity extends AppCompatActivity {
         binding.currentSystemTV.setText(viewModel.getName());
         binding.currentFuelTV.setText(String.valueOf(viewModel.getFuel()));
 
-        binding.planetSelectLV.setOnItemClickListener((parent, view, position, id) -> {
-
-            final int pos = position;
-            final double distance = viewModel.getDistanceTo(pos);
-
-            if (viewModel.getFuel() >= distance) {
-                AlertDialog.Builder builder = new AlertDialog.Builder(TravelActivity.this);
-                builder.setCancelable(true);
-                builder.setTitle("Traveling...");
-                builder.setMessage("Distance: " + distance + " km\nEstimated time: "
-                        + (int) viewModel.getTimeToTravel(pos) + " seconds");
-                builder.setNegativeButton("Cancel", (dialog, which) -> dialog.cancel());
-                final AlertDialog alertDialog = builder.create();
-                alertDialog.show();
-
-                final Handler handler = new Handler();
-                final Runnable runnable = () -> {
-                    if (alertDialog.isShowing()) {
-                        alertDialog.dismiss();
-                        viewModel.goTo(pos);
-                        binding.currentSystemTV.setText(viewModel.getName());
-                        binding.currentFuelTV.setText(String.valueOf(viewModel.getFuel()));
-                        doRandomEvent();
-                    }
-                };
-
-                alertDialog.setOnDismissListener(dialog -> handler.removeCallbacks(runnable));
-                handler.postDelayed(runnable, (int) (viewModel.getTimeToTravel(pos) * 1000));
-            } else {
-                Toast.makeText(getApplicationContext(),
-                        "Not enough fuel", Toast.LENGTH_SHORT).show();
-            }
-        });
+        binding.planetSelectLV.setOnItemClickListener((parent, view, position, id) ->
+                onItemClicked(position));
     }
 
     /**
@@ -92,6 +61,39 @@ public class TravelActivity extends AppCompatActivity {
             eventBuilder.setPositiveButton("Ok", ((dialog, which) -> dialog.dismiss()));
             final AlertDialog randomEvent = eventBuilder.create();
             randomEvent.show();
+        }
+    }
+
+    private void onItemClicked(int position) {
+        final int pos = position;
+        final double distance = viewModel.getDistanceTo(pos);
+
+        if (viewModel.getFuel() >= distance) {
+            AlertDialog.Builder builder = new AlertDialog.Builder(TravelActivity.this);
+            builder.setCancelable(true);
+            builder.setTitle("Traveling...");
+            builder.setMessage("Distance: " + distance + " km\nEstimated time: "
+                    + (int) viewModel.getTimeToTravel(pos) + " seconds");
+            builder.setNegativeButton("Cancel", (dialog, which) -> dialog.cancel());
+            final AlertDialog alertDialog = builder.create();
+            alertDialog.show();
+
+            final Handler handler = new Handler();
+            final Runnable runnable = () -> {
+                if (alertDialog.isShowing()) {
+                    alertDialog.dismiss();
+                    viewModel.goTo(pos);
+                    binding.currentSystemTV.setText(viewModel.getName());
+                    binding.currentFuelTV.setText(String.valueOf(viewModel.getFuel()));
+                    doRandomEvent();
+                }
+            };
+
+            alertDialog.setOnDismissListener(dialog -> handler.removeCallbacks(runnable));
+            handler.postDelayed(runnable, (int) (viewModel.getTimeToTravel(pos) * 1000));
+        } else {
+            Toast.makeText(getApplicationContext(),
+                    "Not enough fuel", Toast.LENGTH_SHORT).show();
         }
     }
 

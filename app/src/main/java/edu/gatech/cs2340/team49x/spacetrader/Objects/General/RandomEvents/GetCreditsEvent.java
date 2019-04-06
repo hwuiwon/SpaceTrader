@@ -2,8 +2,8 @@ package edu.gatech.cs2340.team49x.spacetrader.Objects.General.RandomEvents;
 
 import java.util.Random;
 
-import edu.gatech.cs2340.team49x.spacetrader.Objects.General.Player;
-import edu.gatech.cs2340.team49x.spacetrader.Objects.Universe.SolarSystem;
+import edu.gatech.cs2340.team49x.spacetrader.Model.CurrentSystemInteractor;
+import edu.gatech.cs2340.team49x.spacetrader.Model.PlayerInteractor;
 
 public class GetCreditsEvent extends RandomEvent {
 
@@ -26,7 +26,8 @@ public class GetCreditsEvent extends RandomEvent {
     }
 
     @Override
-    public void doAction(Player player, SolarSystem solarSystem) {
-        player.changeCredits(credits);
+    public void doAction(PlayerInteractor playerInteractor,
+                         CurrentSystemInteractor systemInteractor) {
+        playerInteractor.changeCredits(credits);
     }
 }

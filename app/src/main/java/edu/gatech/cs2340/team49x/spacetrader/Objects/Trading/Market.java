@@ -6,10 +6,9 @@ import java.util.List;
 import java.util.Map;
 import java.util.Random;
 
-import edu.gatech.cs2340.team49x.spacetrader.Objects.Universe.Resources;
-import edu.gatech.cs2340.team49x.spacetrader.Objects.Universe.TechLevel;
+import edu.gatech.cs2340.team49x.spacetrader.Objects.Resources;
+import edu.gatech.cs2340.team49x.spacetrader.Objects.TechLevel;
 
-@SuppressWarnings("ConstantConditions")
 public class Market implements Trader {
 
     private final Map<TradeGood, Integer> prices;
@@ -81,13 +80,15 @@ public class Market implements Trader {
      */
     @Override
     public int getPrice(Tradable t) {
-        if (prices.containsKey(t)) {
-            TradeGood good = (TradeGood) t;
-            if (good.getPriceUP() == condition) {
-                return prices.get(t) * 4;
-            }
-            return prices.get(t);
+        if (!(t instanceof TradeGood)) {
+            return 0;
         }
-        return 0;
+        TradeGood good = (TradeGood) t;
+        Integer priceObj = prices.get(good);
+        int price = (priceObj == null) ? 0 : priceObj;
+        if (good.getPriceUP() == condition) {
+            return price * 4;
+        }
+        return price;
     }
 }

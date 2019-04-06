@@ -2,10 +2,10 @@ package edu.gatech.cs2340.team49x.spacetrader.Objects.General.RandomEvents;
 
 import java.util.Random;
 
-import edu.gatech.cs2340.team49x.spacetrader.Objects.General.Player;
+import edu.gatech.cs2340.team49x.spacetrader.Model.CurrentSystemInteractor;
+import edu.gatech.cs2340.team49x.spacetrader.Model.PlayerInteractor;
 import edu.gatech.cs2340.team49x.spacetrader.Objects.Trading.Inventory;
 import edu.gatech.cs2340.team49x.spacetrader.Objects.Trading.TradeGood;
-import edu.gatech.cs2340.team49x.spacetrader.Objects.Universe.SolarSystem;
 
 public class GetWaterEvent extends RandomEvent {
 
@@ -27,10 +27,12 @@ public class GetWaterEvent extends RandomEvent {
     }
 
     @Override
-    public void doAction(Player player, SolarSystem solarSystem) {
+    public void doAction(PlayerInteractor playerInteractor,
+                         CurrentSystemInteractor systemInteractor) {
         Inventory toAdd = new Inventory();
+        int space = playerInteractor.getCargoRemaining();
         toAdd.add(TradeGood.WATER,
-                (num > player.cargoSpaceRemaining()) ? player.cargoSpaceRemaining() : num);
-        player.addToCargo(toAdd);
+                (num > space) ? space : num);
+        playerInteractor.addToCargo(toAdd);
     }
 }

@@ -1,4 +1,4 @@
-package edu.gatech.cs2340.team49x.spacetrader.Objects.Universe;
+package edu.gatech.cs2340.team49x.spacetrader.Objects;
 
 import java.util.Random;
 
@@ -15,7 +15,7 @@ public enum TechLevel {
 
     private final double chance;
     private final String name;
-    private static double totalChance = 0;
+    private static double totalChance;
 
     static {
         for (TechLevel value : values()) {

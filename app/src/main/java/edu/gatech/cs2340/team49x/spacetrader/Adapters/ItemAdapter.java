@@ -2,6 +2,7 @@ package edu.gatech.cs2340.team49x.spacetrader.Adapters;
 
 import android.arch.lifecycle.ViewModelProviders;
 import android.content.Context;
+import android.support.annotation.NonNull;
 import android.support.v4.app.FragmentActivity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -81,8 +82,9 @@ public class ItemAdapter extends ArrayAdapter<Item> {
         super(context, 0, items);
     }
 
+    @NonNull
     @Override
-    public View getView(final int position, View convertView, ViewGroup parent) {
+    public View getView(final int position, View convertView, @NonNull ViewGroup parent) {
         ItemView view;
         if (convertView == null) {
             view = new ItemView(getContext(), getItem(position));

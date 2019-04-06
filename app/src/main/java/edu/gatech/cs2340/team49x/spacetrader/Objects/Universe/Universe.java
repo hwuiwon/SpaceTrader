@@ -1,5 +1,7 @@
 package edu.gatech.cs2340.team49x.spacetrader.Objects.Universe;
 
+import android.support.annotation.NonNull;
+
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -7,6 +9,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Random;
+
+import edu.gatech.cs2340.team49x.spacetrader.Objects.Resources;
+import edu.gatech.cs2340.team49x.spacetrader.Objects.TechLevel;
 
 public class Universe implements Serializable {
 
@@ -192,6 +197,7 @@ public class Universe implements Serializable {
         return inRange;
     }
 
+    @NonNull
     @Override
     public String toString() {
         return "Universe{" +

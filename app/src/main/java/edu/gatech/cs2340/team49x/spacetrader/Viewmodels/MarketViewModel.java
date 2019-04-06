@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import edu.gatech.cs2340.team49x.spacetrader.Model.ModelFacade;
+import edu.gatech.cs2340.team49x.spacetrader.Model.PlayerInteractor;
 import edu.gatech.cs2340.team49x.spacetrader.Model.TradeInteractor;
 import edu.gatech.cs2340.team49x.spacetrader.Objects.Trading.Inventory;
 import edu.gatech.cs2340.team49x.spacetrader.Objects.Trading.Tradable;
@@ -25,30 +26,32 @@ public class MarketViewModel extends AndroidViewModel {
     private Item[] sellItems = {};
     private Item[] buyItems = {};
     private Inventory selectedGoods;
-    private TradeInteractor interactor;
+    private TradeInteractor tradeInteractor;
+    private PlayerInteractor playerInteractor;
     private boolean buying = true;
     private int total;
 
     public void init() {
-        interactor = ModelFacade.getInstance().startTrade();
+        tradeInteractor = ModelFacade.getInstance().startTrade();
+        playerInteractor = ModelFacade.getInstance().getPlayerInteractor();
         selectedGoods = new Inventory();
         total = 0;
 
         List<Item> sellList = new ArrayList<>();
         List<Item> buyList = new ArrayList<>();
 
-        for (Tradable t : interactor.getBuyList()) {
+        for (Tradable t : tradeInteractor.getBuyList()) {
             sellList.add(new Item(
                     t,
-                    interactor.getPriceOf(t),
-                    interactor.getCargoAmount(t)
+                    tradeInteractor.getPriceOf(t),
+                    playerInteractor.getCargoAmount(t)
             ));
         }
-        for (Tradable t : interactor.getSellList()) {
+        for (Tradable t : tradeInteractor.getSellList()) {
             buyList.add(new Item(
                     t,
-                    interactor.getPriceOf(t),
-                    interactor.getCargoAmount(t)
+                    tradeInteractor.getPriceOf(t),
+                    playerInteractor.getCargoAmount(t)
             ));
         }
 
@@ -70,14 +73,14 @@ public class MarketViewModel extends AndroidViewModel {
      */
     public void increaseAmount(Tradable good) {
         if (buying) {
-            if (selectedGoods.getCount() >= interactor.getCargoRemaining()) {
+            if (selectedGoods.getCount() >= playerInteractor.getCargoRemaining()) {
                 return;
             }
-        } else if (selectedGoods.getQuantity(good) >= interactor.getCargoAmount(good)) {
+        } else if (selectedGoods.getQuantity(good) >= playerInteractor.getCargoAmount(good)) {
             return;
         }
         selectedGoods.add(good, 1);
-        total += interactor.getPriceOf(good);
+        total += tradeInteractor.getPriceOf(good);
     }
 
     /**
@@ -87,7 +90,7 @@ public class MarketViewModel extends AndroidViewModel {
     public void decreaseAmount(Tradable good) {
         if (selectedGoods.getQuantity(good) > 0) {
             selectedGoods.add(good, -1);
-            total -= interactor.getPriceOf(good);
+            total -= tradeInteractor.getPriceOf(good);
         }
     }
 
@@ -110,7 +113,7 @@ public class MarketViewModel extends AndroidViewModel {
      * @return number of good that player owns
      */
     public int getCargo(Tradable good) {
-        return interactor.getCargoAmount(good);
+        return playerInteractor.getCargoAmount(good);
     }
 
     /**
@@ -134,7 +137,7 @@ public class MarketViewModel extends AndroidViewModel {
      * @return total credits of current player
      */
     public int getCredits() {
-        return interactor.getCredits();
+        return playerInteractor.getCredits();
     }
 
     /**
@@ -143,13 +146,13 @@ public class MarketViewModel extends AndroidViewModel {
     public void done() {
         if (buying) {
             if (selectedGoods != null) {
-                interactor.addToCargo(selectedGoods);
-                interactor.changeCredits(-total);
+                playerInteractor.addToCargo(selectedGoods);
+                playerInteractor.changeCredits(-total);
             }
         } else {
             if (selectedGoods != null) {
-                interactor.removeFromCargo(selectedGoods);
-                interactor.changeCredits(total);
+                playerInteractor.removeFromCargo(selectedGoods);
+                playerInteractor.changeCredits(total);
             }
         }
         if (selectedGoods != null) {

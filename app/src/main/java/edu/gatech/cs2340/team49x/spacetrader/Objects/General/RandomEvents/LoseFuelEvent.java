@@ -2,14 +2,13 @@ package edu.gatech.cs2340.team49x.spacetrader.Objects.General.RandomEvents;
 
 import java.util.Random;
 
-import edu.gatech.cs2340.team49x.spacetrader.Objects.General.Player;
-import edu.gatech.cs2340.team49x.spacetrader.Objects.General.Ship;
-import edu.gatech.cs2340.team49x.spacetrader.Objects.Universe.SolarSystem;
+import edu.gatech.cs2340.team49x.spacetrader.Model.CurrentSystemInteractor;
+import edu.gatech.cs2340.team49x.spacetrader.Model.PlayerInteractor;
 
 public class LoseFuelEvent extends RandomEvent {
 
     private final int distance;
-    private Ship ship;
+    private double fuelLost;
 
     LoseFuelEvent(Random random) {
         distance = random.nextInt(1000);
@@ -23,12 +22,13 @@ public class LoseFuelEvent extends RandomEvent {
     @Override
     public String getMessage() {
         return "Meteor shower created a hole!\n" +
-                "You lost " + ship.fuelRequiredToTravel(distance) + " extra fuel";
+                "You lost " + fuelLost + " extra fuel";
     }
 
     @Override
-    public void doAction(Player player, SolarSystem solarSystem) {
-        ship = player.getShip();
-        ship.useFuel(distance);
+    public void doAction(PlayerInteractor playerInteractor,
+                         CurrentSystemInteractor systemInteractor) {
+        fuelLost = playerInteractor.getFuelRequired(distance);
+        playerInteractor.decreaseFuel(distance);
     }
 }

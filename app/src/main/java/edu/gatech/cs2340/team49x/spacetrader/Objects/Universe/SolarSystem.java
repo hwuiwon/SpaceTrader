@@ -1,7 +1,11 @@
 package edu.gatech.cs2340.team49x.spacetrader.Objects.Universe;
 
+import android.support.annotation.NonNull;
+
 import java.io.Serializable;
 
+import edu.gatech.cs2340.team49x.spacetrader.Objects.Resources;
+import edu.gatech.cs2340.team49x.spacetrader.Objects.TechLevel;
 import edu.gatech.cs2340.team49x.spacetrader.Objects.Trading.Market;
 import edu.gatech.cs2340.team49x.spacetrader.Objects.Trading.RandomCondition;
 
@@ -47,6 +51,7 @@ public class SolarSystem implements Serializable {
         return coordinate.getDistance(other.coordinate);
     }
 
+    @NonNull
     @Override
     public String toString() {
         return "\nSolarSystem {" +

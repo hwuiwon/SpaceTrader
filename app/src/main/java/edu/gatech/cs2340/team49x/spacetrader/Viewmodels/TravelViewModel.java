@@ -14,6 +14,7 @@ import edu.gatech.cs2340.team49x.spacetrader.Model.CurrentSystemInteractor;
 import edu.gatech.cs2340.team49x.spacetrader.Model.ModelFacade;
 import edu.gatech.cs2340.team49x.spacetrader.Model.PlayerInteractor;
 import edu.gatech.cs2340.team49x.spacetrader.Objects.General.RandomEvents.RandomEvent;
+import edu.gatech.cs2340.team49x.spacetrader.Objects.General.RandomEvents.RandomEventGenerator;
 import edu.gatech.cs2340.team49x.spacetrader.Objects.Universe.SolarSystem;
 
 public class TravelViewModel extends AndroidViewModel {
@@ -104,9 +105,9 @@ public class TravelViewModel extends AndroidViewModel {
         playerInteractor.decreaseFuel(getDistanceTo(pos));
         systemInteractor.setCurrentSystem(system);
         system.setCondition(null);
-        event = RandomEvent.makeRandomEvent(new Random()); // change this random later
+        event = new RandomEventGenerator().getRandomEvent(new Random()); // change this random later
         if (event != null) {
-            event.doAction(playerInteractor.getPlayer(), system);
+            event.doAction(playerInteractor, systemInteractor);
         }
 
         try {

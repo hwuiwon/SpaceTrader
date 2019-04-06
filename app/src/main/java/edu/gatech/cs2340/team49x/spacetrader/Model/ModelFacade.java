@@ -68,7 +68,7 @@ public final class ModelFacade {
     }
 
     public TradeInteractor startTrade() {
-        tradeInteractor.init(game.getPlayer(), game.getCurrentSystem());
+        tradeInteractor.init(game.getCurrentSystem());
         return tradeInteractor;
     }
 

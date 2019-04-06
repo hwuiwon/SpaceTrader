@@ -4,6 +4,7 @@ import java.util.Set;
 
 import edu.gatech.cs2340.team49x.spacetrader.Objects.General.Player;
 import edu.gatech.cs2340.team49x.spacetrader.Objects.General.Ship;
+import edu.gatech.cs2340.team49x.spacetrader.Objects.Trading.Inventory;
 import edu.gatech.cs2340.team49x.spacetrader.Objects.Trading.Tradable;
 
 public class PlayerInteractor {
@@ -33,6 +34,15 @@ public class PlayerInteractor {
     }
 
     /**
+     * Gets fuel required to travel a certain distance
+     * @param distance distance to travel
+     * @return fuel required
+     */
+    public double getFuelRequired(double distance) {
+        return ship.fuelRequiredToTravel(distance);
+    }
+
+    /**
      * Gets speed
      * @return speed of a ship
      */
@@ -48,17 +58,15 @@ public class PlayerInteractor {
         return ship.getMaxTravelDistance();
     }
 
-    /**
-     * Gets player
-     * @return current player
-     */
-    public Player getPlayer() {
-        return player;
-    }
-
-    public int getCredit() {
-        return player.getCredits();
-    }
+// --Commented out by Inspection START (4/6/2019 6:42 AM):
+//    /**
+//     * Gets player
+//     * @return current player
+//     */
+//    public Player getPlayer() {
+//        return player;
+//    }
+// --Commented out by Inspection STOP (4/6/2019 6:42 AM)
 
     /**
      * Decreases fuel
@@ -83,5 +91,55 @@ public class PlayerInteractor {
      */
     public int amountOf(Tradable good) {
         return ship.getAmountOf(good);
+    }
+
+    /**
+     * Removes item from cargo
+     * @param items selected item
+     */
+    public void removeFromCargo(Inventory items) {
+        ship.removeFromCargo(items);
+    }
+
+    /**
+     * Adds item to cargo
+     * @param items selected item
+     */
+    public void addToCargo(Inventory items) {
+        ship.addToCargo(items);
+    }
+
+    /**
+     * Changes player credit
+     * @param change amount that will be changed
+     */
+    public void changeCredits(int change) {
+        player.changeCredits(change);
+    }
+
+    /**
+     * Get credits
+     * @return credits that player owns
+     */
+    public int getCredits() {
+        return player.getCredits();
+    }
+
+
+    /**
+     * Gets item amount in cargo
+     * @param good selected item
+     * @return number of items that player owns
+     */
+    public int getCargoAmount(Tradable good) {
+        return ship.getAmountOf(good);
+    }
+
+    /**
+     * Gets remaining space
+     * @return remaining space of a ship
+     */
+    public int getCargoRemaining() {
+        return ship.cargoSpaceRemaining();
     }
 }

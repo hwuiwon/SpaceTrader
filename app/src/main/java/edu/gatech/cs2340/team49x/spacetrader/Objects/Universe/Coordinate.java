@@ -1,5 +1,7 @@
 package edu.gatech.cs2340.team49x.spacetrader.Objects.Universe;
 
+import android.support.annotation.NonNull;
+
 import java.io.Serializable;
 
 class Coordinate implements Serializable {
@@ -39,6 +41,7 @@ class Coordinate implements Serializable {
         return (x << 15) | y;
     }
 
+    @NonNull
     @Override
     public String toString() {
         return "Coordinate{" +
