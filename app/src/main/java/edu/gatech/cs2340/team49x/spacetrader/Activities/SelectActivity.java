@@ -29,7 +29,7 @@ public class SelectActivity extends AppCompatActivity {
         binding = DataBindingUtil.setContentView(this, R.layout.activity_select);
 
         binding.nameTV.setText(viewModel.getSystemName());
-        binding.techlevelTV.setText(viewModel.getTechLevelDescription());
+        binding.techLevelTV.setText(viewModel.getTechLevelDescription());
         binding.resourcesTV.setText(viewModel.getResourceDescription());
     }
 
@@ -67,7 +67,7 @@ public class SelectActivity extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
         binding.nameTV.setText(viewModel.getSystemName());
-        binding.techlevelTV.setText(viewModel.getTechLevelDescription());
+        binding.techLevelTV.setText(viewModel.getTechLevelDescription());
         binding.resourcesTV.setText(viewModel.getResourceDescription());
     }
 

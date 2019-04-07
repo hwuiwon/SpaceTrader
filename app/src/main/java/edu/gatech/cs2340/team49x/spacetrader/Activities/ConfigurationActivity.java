@@ -40,7 +40,7 @@ public class ConfigurationActivity extends AppCompatActivity {
         if (difficulty == null) {
             difficulty = Difficulty.EASY;
         }
-        binding.pnameET.setText(player.getName());
+        binding.playerNameET.setText(player.getName());
         binding.sPointsTV.setText(String.valueOf(player.getSkillPt()));
         binding.pilotSkillTV.setText(String.valueOf(player.getPilotPt()));
         binding.fighterSkillTV.setText(String.valueOf(player.getFighterPt()));
@@ -54,7 +54,7 @@ public class ConfigurationActivity extends AppCompatActivity {
      * @param view current View
      */
     public void onConfirmPressed(View view) {
-        String name = binding.pnameET.getText().toString().trim();
+        String name = binding.playerNameET.getText().toString().trim();
         if (name.isEmpty()) {
             Toast.makeText(this, "Please enter a valid name.", Toast.LENGTH_LONG).show();
         } else if (getVal(binding.sPointsTV) > 0) {
@@ -62,7 +62,7 @@ public class ConfigurationActivity extends AppCompatActivity {
         } else {
             player = new Player("");
 
-            player.setName(binding.pnameET.getText().toString());
+            player.setName(binding.playerNameET.getText().toString());
             player.setSkillPt(getVal(binding.sPointsTV));
             player.setPilotPt(getVal(binding.pilotSkillTV));
             player.setFighterPt(getVal(binding.fighterSkillTV));

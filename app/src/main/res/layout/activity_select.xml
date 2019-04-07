@@ -18,7 +18,7 @@
         <RelativeLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/rLayselect"
+            android:id="@+id/rLayoutSelect"
             android:layout_centerHorizontal="true"
             android:paddingTop="@dimen/mainTopMargin">
 
@@ -48,10 +48,10 @@
         </RelativeLayout>
 
         <TextView
-            android:id="@+id/techlevelTV"
+            android:id="@+id/techLevelTV"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/rLayselect"
+            android:layout_below="@+id/rLayoutSelect"
             android:layout_marginEnd="@dimen/margin4"
             android:text="@string/tmpTLv"
             android:textAlignment="viewStart"
@@ -63,7 +63,7 @@
             android:id="@+id/resourcesTV"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/techlevelTV"
+            android:layout_below="@+id/techLevelTV"
             android:text="@string/tmpRsr"
             android:textAlignment="viewStart"
             android:textColor="@color/neonRed"

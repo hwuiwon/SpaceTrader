@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<lint>
+    <issue id="GifUsage">
+        <ignore path="src/main/res/drawable/background.gif" />
+    </issue>
+    <issue id="IconLocation">
+        <ignore path="src/main/res/drawable/background.gif" />
+        <ignore path="src/main/res/drawable/background.gif" />
+        <ignore path="src/main/res/drawable/user_image.png" />
+    </issue>
+</lint>
