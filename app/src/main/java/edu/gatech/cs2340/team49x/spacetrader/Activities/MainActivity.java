@@ -13,6 +13,9 @@ import java.io.IOException;
 import edu.gatech.cs2340.team49x.spacetrader.R;
 import edu.gatech.cs2340.team49x.spacetrader.Viewmodels.MainViewModel;
 
+/**
+ * Starting screen of game
+ */
 public class MainActivity extends AppCompatActivity {
 
     private MainViewModel viewModel;

@@ -9,8 +9,15 @@ import java.io.IOException;
 
 import edu.gatech.cs2340.team49x.spacetrader.Model.ModelFacade;
 
+/**
+ * ViewModel used for MainActivity
+ */
 public class MainViewModel extends AndroidViewModel {
 
+    /**
+     * Default constructor
+     * @param application application
+     */
     public MainViewModel(@NonNull Application application) {
         super(application);
     }

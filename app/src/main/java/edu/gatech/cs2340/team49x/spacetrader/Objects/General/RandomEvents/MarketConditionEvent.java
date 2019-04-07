@@ -6,6 +6,9 @@ import edu.gatech.cs2340.team49x.spacetrader.Model.CurrentSystemInteractor;
 import edu.gatech.cs2340.team49x.spacetrader.Model.PlayerInteractor;
 import edu.gatech.cs2340.team49x.spacetrader.Objects.Trading.RandomCondition;
 
+/**
+ * RandomEvent - market condition
+ */
 public class MarketConditionEvent extends RandomEvent{
 
     private final RandomCondition condition;

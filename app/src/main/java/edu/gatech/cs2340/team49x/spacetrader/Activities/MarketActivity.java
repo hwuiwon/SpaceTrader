@@ -17,6 +17,9 @@ import edu.gatech.cs2340.team49x.spacetrader.ViewObjects.Item;
 import edu.gatech.cs2340.team49x.spacetrader.Viewmodels.MarketViewModel;
 import edu.gatech.cs2340.team49x.spacetrader.databinding.ActivityMarketBinding;
 
+/**
+ * Player can make transaction in this activity
+ */
 public class MarketActivity extends AppCompatActivity {
 
     private ActivityMarketBinding binding;

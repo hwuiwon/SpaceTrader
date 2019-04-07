@@ -13,6 +13,9 @@ import java.util.Random;
 import edu.gatech.cs2340.team49x.spacetrader.Objects.Resources;
 import edu.gatech.cs2340.team49x.spacetrader.Objects.TechLevel;
 
+/**
+ * Universe object
+ */
 public class Universe implements Serializable {
 
     static final long serialVersionUID = 1L;
@@ -152,6 +155,11 @@ public class Universe implements Serializable {
         this.coordMap = new HashMap<>();
     }
 
+    /**
+     * Default constructor
+     * @param random random object for randomizing
+     * @param numSystems number of systems
+     */
     public Universe(Random random, int numSystems) {
         this();
         while ((solarSystems.size() < numSystems)
@@ -187,6 +195,12 @@ public class Universe implements Serializable {
         return solarSystems.get(i);
     }
 
+    /**
+     * Gets systems in range
+     * @param system solar system
+     * @param range distance
+     * @return list of solar system within distance
+     */
     public List<SolarSystem> getSystemsInRange(SolarSystem system, double range) {
         List<SolarSystem> inRange = new ArrayList<>();
         for (SolarSystem other : solarSystems) {

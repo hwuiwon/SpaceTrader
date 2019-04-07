@@ -7,11 +7,19 @@ import edu.gatech.cs2340.team49x.spacetrader.Objects.General.Ship;
 import edu.gatech.cs2340.team49x.spacetrader.Objects.Trading.Inventory;
 import edu.gatech.cs2340.team49x.spacetrader.Objects.Trading.Tradable;
 
+/**
+ * This class is used by InfoViewModel, MarketViewModel, and TravelViewModel
+ * to connect with the backend.
+ */
 public class PlayerInteractor {
 
     private Player player;
     private Ship ship;
 
+    /**
+     * Initialize PlayerInteractor
+     * @param player current player
+     */
     public void init(Player player) {
         this.player = player;
         this.ship = player.getShip();

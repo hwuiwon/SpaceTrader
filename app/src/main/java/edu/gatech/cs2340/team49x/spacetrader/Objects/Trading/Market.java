@@ -9,6 +9,9 @@ import java.util.Random;
 import edu.gatech.cs2340.team49x.spacetrader.Objects.Resources;
 import edu.gatech.cs2340.team49x.spacetrader.Objects.TechLevel;
 
+/**
+ * Market class for MarketActivity
+ */
 public class Market implements Trader {
 
     private final Map<TradeGood, Integer> prices;
@@ -16,6 +19,11 @@ public class Market implements Trader {
     private Tradable[] sells = {};
     private Tradable[] buys = {};
 
+    /**
+     * Default constructor to set-up market
+     * @param techLevel tech level of current system
+     * @param resources resources in current system
+     */
     public Market(TechLevel techLevel, Resources resources) {
         List<Tradable> canSell = new ArrayList<>();
         List<Tradable> canBuy = new ArrayList<>();

@@ -11,6 +11,9 @@ import edu.gatech.cs2340.team49x.spacetrader.R;
 import edu.gatech.cs2340.team49x.spacetrader.Viewmodels.SelectViewModel;
 import edu.gatech.cs2340.team49x.spacetrader.databinding.ActivitySelectBinding;
 
+/**
+ * Activity where user can select to travel or view his/her information
+ */
 public class SelectActivity extends AppCompatActivity {
 
     private SelectViewModel viewModel;

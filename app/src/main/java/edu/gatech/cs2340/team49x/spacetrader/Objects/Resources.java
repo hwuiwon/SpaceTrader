@@ -2,6 +2,9 @@ package edu.gatech.cs2340.team49x.spacetrader.Objects;
 
 import java.util.Random;
 
+/**
+ * Resource object
+ */
 public enum Resources {
 
     NOSPECIALRESOURCES(9, "No Special Resources"),
@@ -33,6 +36,11 @@ public enum Resources {
         this.name = name;
     }
 
+    /**
+     * Gets resource
+     * @param random random object for randomizing
+     * @return resource
+     */
     public static Resources getRandom(Random random) {
         double z = random.nextDouble() * totalChance;
         for (Resources value : values()) {
@@ -44,6 +52,10 @@ public enum Resources {
         return null;
     }
 
+    /**
+     * Gets name
+     * @return name of a resource
+     */
     public String getName() {
         return name;
     }

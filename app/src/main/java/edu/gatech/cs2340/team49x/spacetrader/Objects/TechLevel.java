@@ -2,6 +2,9 @@ package edu.gatech.cs2340.team49x.spacetrader.Objects;
 
 import java.util.Random;
 
+/**
+ * Tech level of a SolarSystem
+ */
 public enum TechLevel {
 
     PREAGRICULTURE("Pre-Agriculture"),
@@ -28,6 +31,11 @@ public enum TechLevel {
         this.name = name;
     }
 
+    /**
+     * Gets random tech level
+     * @param random random object for randomizing
+     * @return tech level
+     */
     public static TechLevel getRandom(Random random) {
         double z = random.nextDouble() * totalChance;
         for (TechLevel value : values()) {
@@ -39,6 +47,10 @@ public enum TechLevel {
         return null;
     }
 
+    /**
+     * Gets name
+     * @return name of tech level
+     */
     public String getName() {
         return name;
     }

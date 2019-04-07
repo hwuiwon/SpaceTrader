@@ -16,8 +16,15 @@ import edu.gatech.cs2340.team49x.spacetrader.Objects.Trading.Inventory;
 import edu.gatech.cs2340.team49x.spacetrader.Objects.Trading.Tradable;
 import edu.gatech.cs2340.team49x.spacetrader.ViewObjects.Item;
 
+/**
+ * ViewModel used for MarketActivity
+ */
 public class MarketViewModel extends AndroidViewModel {
 
+    /**
+     * Default constructor
+     * @param application application
+     */
     public MarketViewModel(@NonNull Application application) {
         super(application);
         selectedGoods = new Inventory();
@@ -31,6 +38,9 @@ public class MarketViewModel extends AndroidViewModel {
     private boolean buying = true;
     private int total;
 
+    /**
+     * Initialize MarketViewModel
+     */
     public void init() {
         tradeInteractor = ModelFacade.getInstance().startTrade();
         playerInteractor = ModelFacade.getInstance().getPlayerInteractor();
@@ -103,6 +113,11 @@ public class MarketViewModel extends AndroidViewModel {
         total = 0;
     }
 
+    /**
+     * Gets number of selected item
+     * @param good item
+     * @return number of selected item
+     */
     public int getAmountSelected(Tradable good) {
         return selectedGoods.getQuantity(good);
     }

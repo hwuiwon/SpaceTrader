@@ -18,6 +18,9 @@ import edu.gatech.cs2340.team49x.spacetrader.R;
 import edu.gatech.cs2340.team49x.spacetrader.ViewObjects.Item;
 import edu.gatech.cs2340.team49x.spacetrader.Viewmodels.MarketViewModel;
 
+/**
+ * Adapter for item ListView in MarketActivity
+ */
 public class ItemAdapter extends ArrayAdapter<Item> {
 
     class ItemView extends RelativeLayout {
@@ -78,6 +81,11 @@ public class ItemAdapter extends ArrayAdapter<Item> {
         }
     }
 
+    /**
+     * Default constructor
+     * @param context context
+     * @param items list of items
+     */
     public ItemAdapter(Context context, List<Item> items) {
         super(context, 0, items);
     }

@@ -5,6 +5,9 @@ import java.util.Random;
 import edu.gatech.cs2340.team49x.spacetrader.Model.CurrentSystemInteractor;
 import edu.gatech.cs2340.team49x.spacetrader.Model.PlayerInteractor;
 
+/**
+ * RandomEvent - lose fuel
+ */
 public class LoseFuelEvent extends RandomEvent {
 
     private final int distance;

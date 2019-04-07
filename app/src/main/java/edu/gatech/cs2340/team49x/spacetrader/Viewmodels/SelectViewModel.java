@@ -7,10 +7,17 @@ import android.support.annotation.NonNull;
 import edu.gatech.cs2340.team49x.spacetrader.Model.CurrentSystemInteractor;
 import edu.gatech.cs2340.team49x.spacetrader.Model.ModelFacade;
 
+/**
+ * ViewModel used for SelectActivity
+ */
 public class SelectViewModel extends AndroidViewModel {
 
     private final CurrentSystemInteractor interactor;
 
+    /**
+     * Default constructor
+     * @param application application
+     */
     public SelectViewModel(@NonNull Application application) {
         super(application);
         interactor = ModelFacade.getInstance().getSystemInteractor();

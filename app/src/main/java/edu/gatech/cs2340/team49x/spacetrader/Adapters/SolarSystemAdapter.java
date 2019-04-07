@@ -14,6 +14,9 @@ import java.util.List;
 import edu.gatech.cs2340.team49x.spacetrader.Objects.Universe.SolarSystem;
 import edu.gatech.cs2340.team49x.spacetrader.R;
 
+/**
+ * Adapter for TravelActivity
+ */
 public class SolarSystemAdapter extends ArrayAdapter<SolarSystem> {
 
     class SolarSystemView extends RelativeLayout {
@@ -38,8 +41,13 @@ public class SolarSystemAdapter extends ArrayAdapter<SolarSystem> {
         }
     }
 
-    public SolarSystemAdapter(Context context, List<SolarSystem> resource) {
-        super(context, 0, resource);
+    /**
+     * Default constructor
+     * @param context context
+     * @param solarSystems list of solar systems in universe
+     */
+    public SolarSystemAdapter(Context context, List<SolarSystem> solarSystems) {
+        super(context, 0, solarSystems);
     }
 
     @NonNull

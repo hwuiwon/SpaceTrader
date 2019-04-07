@@ -15,6 +15,9 @@ import edu.gatech.cs2340.team49x.spacetrader.R;
 import edu.gatech.cs2340.team49x.spacetrader.Viewmodels.TravelViewModel;
 import edu.gatech.cs2340.team49x.spacetrader.databinding.ActivityGameBinding;
 
+/**
+ * Activity where user can select solar systems to travel
+ */
 public class TravelActivity extends AppCompatActivity {
 
     // activity_game.xml

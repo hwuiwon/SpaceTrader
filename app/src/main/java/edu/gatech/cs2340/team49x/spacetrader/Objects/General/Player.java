@@ -4,6 +4,9 @@ import android.support.annotation.NonNull;
 
 import java.io.Serializable;
 
+/**
+ * Player object class
+ */
 public class Player implements Serializable {
 
     static final long serialVersionUID = 1L;
@@ -28,94 +31,133 @@ public class Player implements Serializable {
         this.credits = 1000;
     }
 
+    /**
+     * Default constructor
+     * @param name name of a player
+     */
     public Player(String name) {
         this(name, new Ship(Ship.ShipType.GNAT));
     }
 
+    /**
+     * Gets player name
+     * @return player name
+     */
     public String getName() {
         return name;
     }
 
+    /**
+     * Sets player name
+     * @param name new name of a player
+     */
     public void setName(String name) {
         this.name = name;
     }
 
+    /**
+     * Gets skill points
+     * @return total skill points of a player
+     */
     public int getSkillPt() {
         return skillPt;
     }
 
+    /**
+     * Sets skill points
+     * @param skillPt number of points
+     */
     public void setSkillPt(int skillPt) {
         this.skillPt = skillPt;
     }
 
+    /**
+     * Gets skill points (pilot)
+     * @return total skill points of a player
+     */
     public int getPilotPt() {
         return pilotPt;
     }
 
+    /**
+     * Sets skill points (pilot)
+     * @param pilotPt number of points
+     */
     public void setPilotPt(int pilotPt) {
         this.pilotPt = pilotPt;
     }
 
+    /**
+     * Gets skill points (engineer)
+     * @return total skill points of a player
+     */
     public int getEngineerPt() {
         return engineerPt;
     }
 
+    /**
+     * Sets skill points
+     * @param engineerPt number of points
+     */
     public void setEngineerPt(int engineerPt) {
         this.engineerPt = engineerPt;
     }
 
+    /**
+     * Gets skill points (trade)
+     * @return total skill points of a player
+     */
     public int getTradePt() {
         return tradePt;
     }
 
+    /**
+     * Sets skill points
+     * @param tradePt number of points
+     */
     public void setTradePt(int tradePt) {
         this.tradePt = tradePt;
     }
 
+    /**
+     * Gets skill points (fighter)
+     * @return total skill points of a player
+     */
     public int getFighterPt() {
         return fighterPt;
     }
 
+    /**
+     * Sets skill points
+     * @param fighterPt number of points
+     */
     public void setFighterPt(int fighterPt) {
         this.fighterPt = fighterPt;
     }
 
+    /**
+     * Gets ship
+     * @return current player ship
+     */
     public Ship getShip() {
         return ship;
     }
 
+    /**
+     * Gets credits
+     * @return credits of a player
+     */
     public int getCredits() {
         return credits;
     }
 
+    /**
+     * Change credits
+     * @param amount changed credit
+     */
     public void changeCredits(int amount) {
         credits += amount;
     }
-
-// --Commented out by Inspection START (4/6/2019 5:57 AM):
-// --Commented out by Inspection START (4/6/2019 5:57 AM):
-////    public void addToCargo(Inventory items) {
-////        this.ship.addToCargo(items);
-////    }
-//// --Commented out by Inspection START (4/6/2019 5:57 AM):
-// --Commented out by Inspection STOP (4/6/2019 5:57 AM)
-//// --Commented out by Inspection STOP (4/6/2019 5:57 AM)
-//
-//    public void removeFromCargo(Inventory items) {
-//// --Commented out by Inspection START (4/6/2019 5:57 AM):
-// --Commented out by Inspection STOP (4/6/2019 5:57 AM)
-//        this.ship.removeFromCargo(items);
-//    }
-//
-//    public int getAmountOf(Tradable good) {
-//        return this.ship.getAmountOf(good);
-// --Commented out by Inspection STOP (4/6/2019 5:57 AM)
-
-// --Commented out by Inspection START (4/6/2019 6:26 AM):
-//    public int cargoSpaceRemaining() {
-//        return ship.cargoSpaceRemaining();
-//    }
-// --Commented out by Inspection STOP (4/6/2019 6:26 AM)
 
     @NonNull
     @Override

@@ -17,6 +17,9 @@ import edu.gatech.cs2340.team49x.spacetrader.Objects.General.RandomEvents.Random
 import edu.gatech.cs2340.team49x.spacetrader.Objects.General.RandomEvents.RandomEventGenerator;
 import edu.gatech.cs2340.team49x.spacetrader.Objects.Universe.SolarSystem;
 
+/**
+ * ViewModel used for TravelActivity
+ */
 public class TravelViewModel extends AndroidViewModel {
 
     private CurrentSystemInteractor systemInteractor;
@@ -24,6 +27,10 @@ public class TravelViewModel extends AndroidViewModel {
     private List<SolarSystem> systemsList;
     private RandomEvent event;
 
+    /**
+     * Default constructor
+     * @param application application
+     */
     public TravelViewModel(@NonNull Application application) {
         super(application);
     }

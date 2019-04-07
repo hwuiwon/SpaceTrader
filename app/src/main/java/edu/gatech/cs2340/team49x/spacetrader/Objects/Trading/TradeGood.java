@@ -3,6 +3,9 @@ package edu.gatech.cs2340.team49x.spacetrader.Objects.Trading;
 import edu.gatech.cs2340.team49x.spacetrader.Objects.Resources;
 import edu.gatech.cs2340.team49x.spacetrader.Objects.TechLevel;
 
+/**
+ * Items that are sold in solar systems
+ */
 public enum TradeGood implements Tradable {
 
     WATER("Water", 0, 0, 30, 3, 4,
@@ -50,45 +53,86 @@ public enum TradeGood implements Tradable {
         this.highWhenPresent = highWhenPresent;
     }
 
-    public boolean canBeProducedBy(TechLevel tl) {
-        return tl.ordinal() >= this.minTechProduce;
+    /**
+     * Checks if item can be produced in current solar system
+     * @param techLevel current tech level
+     * @return if item can be produced in current tech level
+     */
+    public boolean canBeProducedBy(TechLevel techLevel) {
+        return techLevel.ordinal() >= this.minTechProduce;
     }
 
-    public boolean canBeUsedBy(TechLevel tl) {
-        return tl.ordinal() >= this.minTechUse;
+    /**
+     * Checks if item can be used in current solar system
+     * @param techLevel current tech level
+     * @return whether item can be used
+     */
+    public boolean canBeUsedBy(TechLevel techLevel) {
+        return techLevel.ordinal() >= this.minTechUse;
     }
 
+    /**
+     * Minimum tech level to produce
+     * @return int value of tech level
+     */
     public int getMinTechProduce() {
         return minTechProduce;
     }
 
+    /**
+     * Get name
+     * @return name of an item
+     */
     @Override
     public String getName() {
         return name;
     }
 
+    /**
+     * Gets base price of an item
+     * @return base price of an item
+     */
     public int getBasePrice() {
         return basePrice;
     }
 
+    /**
+     * Gets price change range
+     * @return price change range
+     */
     public int getPriceIcrTech() {
         return priceIcrTech;
     }
 
+    /**
+     * Gets variance
+     * @return variance
+     */
     public int getVariance() {
         return variance;
     }
 
+    /**
+     * Gets condition
+     * @return condition that makes price go up
+     */
     public RandomCondition getPriceUP() {
         return priceUP;
     }
 
+    /**
+     * Gets resource
+     * @return resource that are produced less
+     */
     public Resources getLowWhenPresent() {
         return lowWhenPresent;
     }
 
+    /**
+     * Gets resource
+     * @return resource that are produced more
+     */
     public Resources getHighWhenPresent() {
         return highWhenPresent;
     }
-
 }

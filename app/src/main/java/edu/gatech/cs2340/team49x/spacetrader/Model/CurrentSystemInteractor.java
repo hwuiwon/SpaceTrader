@@ -7,6 +7,10 @@ import edu.gatech.cs2340.team49x.spacetrader.Objects.Trading.RandomCondition;
 import edu.gatech.cs2340.team49x.spacetrader.Objects.Universe.SolarSystem;
 import edu.gatech.cs2340.team49x.spacetrader.Objects.Universe.Universe;
 
+/**
+ * This class is used by SelectViewModel and TravelViewModel
+ * to connect with the backend.
+ */
 public class CurrentSystemInteractor {
 
     private SolarSystem currentSystem;
