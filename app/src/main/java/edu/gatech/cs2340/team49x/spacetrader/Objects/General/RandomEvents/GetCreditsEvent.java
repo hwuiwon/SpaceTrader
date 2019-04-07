@@ -5,6 +5,9 @@ import java.util.Random;
 import edu.gatech.cs2340.team49x.spacetrader.Model.CurrentSystemInteractor;
 import edu.gatech.cs2340.team49x.spacetrader.Model.PlayerInteractor;
 
+/**
+ * RandomEvent - get credit
+ */
 public class GetCreditsEvent extends RandomEvent {
 
     private static final int MAX_CREDITS_FOUND = 1000;

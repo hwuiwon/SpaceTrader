@@ -11,6 +11,9 @@ import edu.gatech.cs2340.team49x.spacetrader.ViewObjects.InvenItem;
 import edu.gatech.cs2340.team49x.spacetrader.Viewmodels.InfoViewModel;
 import edu.gatech.cs2340.team49x.spacetrader.databinding.ActivityInfoBinding;
 
+/**
+ * Shows player's name, credit, and current inventory
+ */
 public class InfoActivity extends AppCompatActivity {
 
     private InfoViewModel viewModel;

@@ -7,6 +7,9 @@ import edu.gatech.cs2340.team49x.spacetrader.Model.PlayerInteractor;
 import edu.gatech.cs2340.team49x.spacetrader.Objects.Trading.Inventory;
 import edu.gatech.cs2340.team49x.spacetrader.Objects.Trading.TradeGood;
 
+/**
+ * RandomEvent - get water
+ */
 public class GetWaterEvent extends RandomEvent {
 
     private final int num;

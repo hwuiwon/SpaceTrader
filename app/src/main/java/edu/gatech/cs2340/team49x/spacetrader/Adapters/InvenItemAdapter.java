@@ -13,6 +13,9 @@ import java.util.ArrayList;
 import edu.gatech.cs2340.team49x.spacetrader.R;
 import edu.gatech.cs2340.team49x.spacetrader.ViewObjects.InvenItem;
 
+/**
+ * Adapter for InvenItem.java
+ */
 public class InvenItemAdapter extends BaseAdapter {
 
     class InvenItemView extends RelativeLayout {
@@ -40,10 +43,18 @@ public class InvenItemAdapter extends BaseAdapter {
     private final Context context;
     private final ArrayList<InvenItem> invenItems = new ArrayList<>();
 
+    /**
+     * Default constructor
+     * @param context context
+     */
     public InvenItemAdapter(Context context) {
         this.context = context;
     }
 
+    /**
+     * Adds InvenItem to list
+     * @param invenItem InvenItem object
+     */
     public void addInvenItem(InvenItem invenItem) {
         invenItems.add(invenItem);
     }

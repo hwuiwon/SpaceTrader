@@ -15,6 +15,9 @@ import edu.gatech.cs2340.team49x.spacetrader.R;
 import edu.gatech.cs2340.team49x.spacetrader.Viewmodels.ConfigurationViewModel;
 import edu.gatech.cs2340.team49x.spacetrader.databinding.ActivityConfigBinding;
 
+/**
+ * Configures game with new player
+ */
 @SuppressLint("SetTextI18n")
 public class ConfigurationActivity extends AppCompatActivity {
 

@@ -35,7 +35,7 @@
             android:paddingEnd="@dimen/fab_margin"
             android:paddingTop="@dimen/margin2"
             android:fontFamily="@font/montserrat_semibold"
-            tools:ignore="RtlSymmetry" />
+            tools:ignore="RelativeOverlap,RtlSymmetry" />
 
     </RelativeLayout>
 

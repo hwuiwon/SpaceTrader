@@ -12,10 +12,17 @@ import edu.gatech.cs2340.team49x.spacetrader.Model.PlayerInteractor;
 import edu.gatech.cs2340.team49x.spacetrader.Objects.Trading.Tradable;
 import edu.gatech.cs2340.team49x.spacetrader.ViewObjects.InvenItem;
 
+/**
+ * ViewModel used for InfoActivity
+ */
 public class InfoViewModel extends AndroidViewModel {
 
     private PlayerInteractor interactor;
 
+    /**
+     * Default Constructor
+     * @param application application
+     */
     public InfoViewModel(@NonNull Application application) {
         super(application);
     }
@@ -34,16 +41,6 @@ public class InfoViewModel extends AndroidViewModel {
     public String getName() {
         return interactor.getName();
     }
-
-// --Commented out by Inspection START (4/6/2019 5:34 AM):
-//    /**
-//     * Gets player
-//     * @return current player
-//     */
-//    public Player getPlayer() {
-//        return interactor.getPlayer();
-//    }
-// --Commented out by Inspection STOP (4/6/2019 5:34 AM)
 
     /**
      * Gets player credit

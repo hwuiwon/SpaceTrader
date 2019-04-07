@@ -9,12 +9,24 @@ import edu.gatech.cs2340.team49x.spacetrader.Model.ModelFacade;
 import edu.gatech.cs2340.team49x.spacetrader.Objects.Difficulty;
 import edu.gatech.cs2340.team49x.spacetrader.Objects.General.Player;
 
+/**
+ * ViewModel used for ConfigurationActivity
+ */
 public class ConfigurationViewModel extends AndroidViewModel {
 
+    /**
+     * Default Constructor
+     * @param application application
+     */
     public ConfigurationViewModel(@NonNull Application application) {
         super(application);
     }
 
+    /**
+     * Configures ConfigurationViewModel
+     * @param p current player
+     * @param d current game difficulty
+     */
     public void configure(Player p, Difficulty d) {
         ModelFacade.getInstance().configureGame(p, d);
     }
