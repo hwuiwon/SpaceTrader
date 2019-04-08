@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Random;
 
 import edu.gatech.cs2340.team49x.spacetrader.Objects.Resources;
 import edu.gatech.cs2340.team49x.spacetrader.Objects.TechLevel;
@@ -34,21 +33,7 @@ public class Market implements Trader {
             }
             if (good.canBeUsedBy(techLevel)) {
                 canBuy.add(good);
-                int price = good.getBasePrice();
-
-                price += good.getPriceIcrTech() * (techLevel.ordinal() - good.getMinTechProduce());
-                Random random = new Random();
-                if (random.nextBoolean()){
-                    price += random.nextInt(good.getVariance() + 1);
-                } else {
-                    price -= random.nextInt(good.getVariance() + 1);
-                }
-                if (resources == good.getLowWhenPresent()) {
-                    price /= 2;
-                } else if (resources == good.getHighWhenPresent()) {
-                    price *= 2 + random.nextInt(2);
-                }
-                prices.put(good, price);
+                prices.put(good, good.initPrice(techLevel, resources));
             }
         }
         sells = canSell.toArray(sells);

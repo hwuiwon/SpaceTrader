@@ -18,12 +18,14 @@ public enum TechLevel {
 
     private final double chance;
     private final String name;
-    private static double totalChance;
+    private static final double totalChance;
 
     static {
+        double total = 0;
         for (TechLevel value : values()) {
-            totalChance += value.chance;
+            total += value.chance;
         }
+        totalChance = total;
     }
 
     TechLevel(String name) {

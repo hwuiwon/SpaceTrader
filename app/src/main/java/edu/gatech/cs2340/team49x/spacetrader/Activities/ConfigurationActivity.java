@@ -24,6 +24,7 @@ public class ConfigurationActivity extends AppCompatActivity {
     private ActivityConfigBinding binding;
     private ConfigurationViewModel viewModel;
     private Player player;
+    private Difficulty difficulty;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,7 +34,7 @@ public class ConfigurationActivity extends AppCompatActivity {
         viewModel = ViewModelProviders.of(this).get(ConfigurationViewModel.class);
 
         player = viewModel.getPlayer();
-        Difficulty difficulty = viewModel.getDifficulty();
+        difficulty = viewModel.getDifficulty();
         if (player == null) {
             player = new Player("");
         }
@@ -69,7 +70,7 @@ public class ConfigurationActivity extends AppCompatActivity {
             player.setTradePt(getVal(binding.traderSkillTV));
             player.setEngineerPt(getVal(binding.engineerSkillTV));
 
-            viewModel.configure(player, Difficulty.valueOf(binding.difTV.getText().toString()));
+            viewModel.configure(player, difficulty);
             viewModel.printGameState();
             setResult(RESULT_OK);
             finish();
@@ -151,13 +152,12 @@ public class ConfigurationActivity extends AppCompatActivity {
     public void updateDifficulty(View view) {
         switch (view.getId()) {
             case R.id.lowDifBT:
-                binding.difTV.setText(
-                        Difficulty.valueOf((String) binding.difTV.getText()).prev());
+                difficulty = difficulty.prev();
                 break;
             case R.id.highDifBT:
-                binding.difTV.setText(
-                        Difficulty.valueOf((String) binding.difTV.getText()).next());
+                difficulty = difficulty.next();
                 break;
         }
+        binding.difTV.setText(difficulty.toString());
     }
 }

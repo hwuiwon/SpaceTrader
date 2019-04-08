@@ -1,5 +1,7 @@
 package edu.gatech.cs2340.team49x.spacetrader.Objects.Trading;
 
+import java.util.Random;
+
 import edu.gatech.cs2340.team49x.spacetrader.Objects.Resources;
 import edu.gatech.cs2340.team49x.spacetrader.Objects.TechLevel;
 
@@ -54,6 +56,29 @@ public enum TradeGood implements Tradable {
     }
 
     /**
+     * Initializes the price of this good on a system with a give tech level and resources
+     * @param techLevel the tech level of the system
+     * @param resources the resources of the system
+     * @return the price of the good on the system, randomized with variance
+     */
+    public int initPrice(TechLevel techLevel, Resources resources) {
+        int price = basePrice;
+        price += priceIcrTech * (techLevel.ordinal() - minTechProduce);
+        Random random = new Random();
+        if (random.nextBoolean()){
+            price += random.nextInt(variance + 1);
+        } else {
+            price -= random.nextInt(variance + 1);
+        }
+        if (resources == lowWhenPresent) {
+            price /= 2;
+        } else if (resources == highWhenPresent) {
+            price *= 2 + random.nextInt(2);
+        }
+        return price;
+    }
+
+    /**
      * Checks if item can be produced in current solar system
      * @param techLevel current tech level
      * @return if item can be produced in current tech level
@@ -71,13 +96,15 @@ public enum TradeGood implements Tradable {
         return techLevel.ordinal() >= this.minTechUse;
     }
 
-    /**
-     * Minimum tech level to produce
-     * @return int value of tech level
-     */
-    public int getMinTechProduce() {
-        return minTechProduce;
-    }
+// --Commented out by Inspection START (4/8/2019 6:20 PM):
+//    /**
+//     * Minimum tech level to produce
+//     * @return int value of tech level
+//     */
+//    public int getMinTechProduce() {
+//        return minTechProduce;
+//    }
+// --Commented out by Inspection STOP (4/8/2019 6:20 PM)
 
     /**
      * Get name
@@ -88,51 +115,67 @@ public enum TradeGood implements Tradable {
         return name;
     }
 
-    /**
-     * Gets base price of an item
-     * @return base price of an item
-     */
-    public int getBasePrice() {
-        return basePrice;
-    }
+// --Commented out by Inspection START (4/8/2019 6:20 PM):
+//// --Commented out by Inspection START (4/8/2019 6:20 PM):
+////    /**
+////     * Gets base price of an item
+// --Commented out by Inspection START (4/8/2019 6:20 PM):
+//////     * @return base price of an item
+//////     */
+//////    public int getBasePrice() {
+//// --Commented out by Inspection STOP (4/8/2019 6:20 PM)
+// --Commented out by Inspection STOP (4/8/2019 6:20 PM)
+//        return basePrice;
+//    }
+// --Commented out by Inspection STOP (4/8/2019 6:20 PM)
 
-    /**
-     * Gets price change range
-     * @return price change range
-     */
-    public int getPriceIcrTech() {
-        return priceIcrTech;
-    }
+// --Commented out by Inspection START (4/8/2019 6:27 PM):
+//    /**
+//     * Gets price change range
+//     * @return price change range
+//     */
+// --Commented out by Inspection START (4/8/2019 6:27 PM):
+////    public int getPriceIcrTech() {
+////        return priceIcrTech;
+////    }
+//// --Commented out by Inspection STOP (4/8/2019 6:27 PM)
+// --Commented out by Inspection STOP (4/8/2019 6:27 PM)
 
-    /**
-     * Gets variance
-     * @return variance
-     */
-    public int getVariance() {
-        return variance;
-    }
+//    /**
+//     * Gets variance
+//     * @return variance
+//     */
+//    public int getVariance() {
+//        return variance;
+//    }
 
     /**
      * Gets condition
+ --Commented out by Inspection START (4/8/2019 6:20 PM):
      * @return condition that makes price go up
      */
     public RandomCondition getPriceUP() {
         return priceUP;
     }
-
-    /**
-     * Gets resource
-     * @return resource that are produced less
-     */
-    public Resources getLowWhenPresent() {
-        return lowWhenPresent;
-    }
-
-    /**
-     * Gets resource
-     * @return resource that are produced more
-     */
-    public Resources getHighWhenPresent() {
-        return highWhenPresent;
-    }
+//
+//    /**
+//     * Gets resource
+//// --Commented out by Inspection START (4/8/2019 6:20 PM):
+// --Commented out by Inspection STOP (4/8/2019 6:20 PM)
+//     * @return resource that are produced less
+//     */
+//    public Resources getLowWhenPresent() {
+//        return lowWhenPresent;
+//    }
+// --Commented out by Inspection STOP (4/8/2019 6:20 PM)
+//
+// --Commented out by Inspection START (4/8/2019 6:27 PM):
+//    /**
+//     * Gets resource
+//     * @return resource that are produced more
+//     */
+//    public Resources getHighWhenPresent() {
+//        return highWhenPresent;
+//    }
+// --Commented out by Inspection STOP (4/8/2019 6:27 PM)
 }

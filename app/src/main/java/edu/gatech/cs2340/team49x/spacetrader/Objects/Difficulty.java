@@ -16,19 +16,19 @@ public enum Difficulty {
      * Gets next difficulty
      * @return name of next difficulty
      */
-    public String next() {
-        return values[(this.ordinal() + 1) % values.length].toString();
+    public Difficulty next() {
+        return values[(this.ordinal() + 1) % values.length];
     }
 
     /**
      * Gets previous difficulty
      * @return name of previous difficulty
      */
-    public String prev() {
+    public Difficulty prev() {
         if ((this.ordinal() - 1) < 0) {
             return values[Math.abs(
-                    ((this.ordinal() - values.length) + 1) % values.length)].toString();
+                    ((this.ordinal() - values.length) + 1) % values.length)];
         }
-        return values[(this.ordinal() - 1) % values.length].toString();
+        return values[(this.ordinal() - 1) % values.length];
     }
 }

@@ -23,12 +23,14 @@ public enum Resources {
 
     private final double chance;
     private final String name;
-    private static double totalChance;
+    private static final double totalChance;
 
     static {
+        double total = 0;
         for (Resources value : values()) {
-            totalChance += value.chance;
+            total += value.chance;
         }
+        totalChance = total;
     }
 
     Resources(double chance, String name) {
