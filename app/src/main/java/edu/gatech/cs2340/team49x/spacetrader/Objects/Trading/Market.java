@@ -68,15 +68,15 @@ public class Market implements Trader {
 
     /**
      * Determines price of an item
-     * @param t Tradable
+     * @param tradable Tradable
      * @return price of an item
      */
     @Override
-    public int getPrice(Tradable t) {
-        if (!(t instanceof TradeGood)) {
+    public int getPrice(Tradable tradable) {
+        if (!(tradable instanceof TradeGood)) {
             return 0;
         }
-        TradeGood good = (TradeGood) t;
+        TradeGood good = (TradeGood) tradable;
         Integer priceObj = prices.get(good);
         int price = (priceObj == null) ? 0 : priceObj;
         if (good.getPriceUP() == condition) {

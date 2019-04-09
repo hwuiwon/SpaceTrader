@@ -96,18 +96,8 @@ public enum TradeGood implements Tradable {
         return techLevel.ordinal() >= this.minTechUse;
     }
 
-// --Commented out by Inspection START (4/8/2019 6:20 PM):
-//    /**
-//     * Minimum tech level to produce
-//     * @return int value of tech level
-//     */
-//    public int getMinTechProduce() {
-//        return minTechProduce;
-//    }
-// --Commented out by Inspection STOP (4/8/2019 6:20 PM)
-
     /**
-     * Get name
+     * Gets name
      * @return name of an item
      */
     @Override
@@ -115,67 +105,11 @@ public enum TradeGood implements Tradable {
         return name;
     }
 
-// --Commented out by Inspection START (4/8/2019 6:20 PM):
-//// --Commented out by Inspection START (4/8/2019 6:20 PM):
-////    /**
-////     * Gets base price of an item
-// --Commented out by Inspection START (4/8/2019 6:20 PM):
-//////     * @return base price of an item
-//////     */
-//////    public int getBasePrice() {
-//// --Commented out by Inspection STOP (4/8/2019 6:20 PM)
-// --Commented out by Inspection STOP (4/8/2019 6:20 PM)
-//        return basePrice;
-//    }
-// --Commented out by Inspection STOP (4/8/2019 6:20 PM)
-
-// --Commented out by Inspection START (4/8/2019 6:27 PM):
-//    /**
-//     * Gets price change range
-//     * @return price change range
-//     */
-// --Commented out by Inspection START (4/8/2019 6:27 PM):
-////    public int getPriceIcrTech() {
-////        return priceIcrTech;
-////    }
-//// --Commented out by Inspection STOP (4/8/2019 6:27 PM)
-// --Commented out by Inspection STOP (4/8/2019 6:27 PM)
-
-//    /**
-//     * Gets variance
-//     * @return variance
-//     */
-//    public int getVariance() {
-//        return variance;
-//    }
-
     /**
      * Gets condition
- --Commented out by Inspection START (4/8/2019 6:20 PM):
      * @return condition that makes price go up
      */
     public RandomCondition getPriceUP() {
         return priceUP;
     }
-//
-//    /**
-//     * Gets resource
-//// --Commented out by Inspection START (4/8/2019 6:20 PM):
-// --Commented out by Inspection STOP (4/8/2019 6:20 PM)
-//     * @return resource that are produced less
-//     */
-//    public Resources getLowWhenPresent() {
-//        return lowWhenPresent;
-//    }
-// --Commented out by Inspection STOP (4/8/2019 6:20 PM)
-//
-// --Commented out by Inspection START (4/8/2019 6:27 PM):
-//    /**
-//     * Gets resource
-//     * @return resource that are produced more
-//     */
-//    public Resources getHighWhenPresent() {
-//        return highWhenPresent;
-//    }
-// --Commented out by Inspection STOP (4/8/2019 6:27 PM)
 }
