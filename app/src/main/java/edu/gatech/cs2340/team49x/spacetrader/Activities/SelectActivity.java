@@ -8,7 +8,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
 import edu.gatech.cs2340.team49x.spacetrader.R;
-import edu.gatech.cs2340.team49x.spacetrader.Viewmodels.SelectViewModel;
+import edu.gatech.cs2340.team49x.spacetrader.ViewModels.SelectViewModel;
 import edu.gatech.cs2340.team49x.spacetrader.databinding.ActivitySelectBinding;
 
 /**

@@ -12,7 +12,7 @@ import android.widget.Toast;
 
 import edu.gatech.cs2340.team49x.spacetrader.Adapters.SolarSystemAdapter;
 import edu.gatech.cs2340.team49x.spacetrader.R;
-import edu.gatech.cs2340.team49x.spacetrader.Viewmodels.TravelViewModel;
+import edu.gatech.cs2340.team49x.spacetrader.ViewModels.TravelViewModel;
 import edu.gatech.cs2340.team49x.spacetrader.databinding.ActivityGameBinding;
 
 /**
