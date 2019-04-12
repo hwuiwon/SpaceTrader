@@ -62,22 +62,22 @@ public class ItemAdapter extends ArrayAdapter<Item> {
             update();
 
             tradeDecreaseBT.setOnClickListener(v -> {
-                viewModel.decreaseAmount(item.getGood());
-                tradeCountTV.setText(String.valueOf(viewModel.getAmountSelected(item.getGood())));
+                viewModel.decreaseAmount(item.getName());
+                tradeCountTV.setText(String.valueOf(viewModel.getAmountSelected(item.getName())));
                 notifyDataSetChanged();
             });
 
             tradeIncreaseBT.setOnClickListener(v -> {
-                viewModel.increaseAmount(item.getGood());
-                tradeCountTV.setText(String.valueOf(viewModel.getAmountSelected(item.getGood())));
+                viewModel.increaseAmount(item.getName());
+                tradeCountTV.setText(String.valueOf(viewModel.getAmountSelected(item.getName())));
                 notifyDataSetChanged();
             });
         }
 
         void update() {
-            this.item.setRemaining(viewModel.getCargo(item.getGood()));
+            this.item.setRemaining(viewModel.getCargo(item.getName()));
             itemRemainTV.setText(String.valueOf(item.getRemaining()));
-            tradeCountTV.setText(String.valueOf(viewModel.getAmountSelected(item.getGood())));
+            tradeCountTV.setText(String.valueOf(viewModel.getAmountSelected(item.getName())));
         }
     }
 

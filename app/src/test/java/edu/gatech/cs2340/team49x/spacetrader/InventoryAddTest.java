@@ -12,13 +12,13 @@ import edu.gatech.cs2340.team49x.spacetrader.Objects.Trading.Tradable;
 
 public class InventoryAddTest {
     private Inventory inventory;
-    private Tradable item1 = new Tradable() {
+    private final Tradable item1 = new Tradable() {
         @Override
         public String getName() {
             return "Item 1";
         }
     };
-    private Tradable item2 = new Tradable() {
+    private final Tradable item2 = new Tradable() {
         @Override
         public String getName() {
             return "Item 2";

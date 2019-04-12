@@ -1,6 +1,7 @@
 package edu.gatech.cs2340.team49x.spacetrader.Model;
 
 import edu.gatech.cs2340.team49x.spacetrader.Objects.Trading.Tradable;
+import edu.gatech.cs2340.team49x.spacetrader.Objects.Trading.TradableMap;
 import edu.gatech.cs2340.team49x.spacetrader.Objects.Trading.Trader;
 import edu.gatech.cs2340.team49x.spacetrader.Objects.Universe.SolarSystem;
 
@@ -11,6 +12,7 @@ public class TradeInteractor {
 
     // --Commented out by Inspection (4/6/2019 5:57 AM):private Player customer;
     private Trader trader;
+    private TradableMap map;
 
     /**
      * Initializes interactor
@@ -18,6 +20,7 @@ public class TradeInteractor {
      */
     private void init(Trader trader) {
         this.trader = trader;
+        this.map = new TradableMap();
     }
 
     /**
@@ -51,6 +54,15 @@ public class TradeInteractor {
      */
     public Tradable[] getSellList() {
         return trader.sells();
+    }
+
+    /**
+     * Returns the Tradable with this name
+     * @param name the name of the Tradable
+     * @return the Tradable object
+     */
+    public Tradable getTradable(String name) {
+        return map.getTradable(name);
     }
 
 

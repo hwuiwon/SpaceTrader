@@ -2,6 +2,7 @@ package edu.gatech.cs2340.team49x.spacetrader.ViewModels;
 
 import android.app.Application;
 import android.arch.lifecycle.AndroidViewModel;
+import android.content.Context;
 import android.support.annotation.NonNull;
 import android.util.Log;
 
@@ -37,13 +38,15 @@ public class MarketViewModel extends AndroidViewModel {
     private PlayerInteractor playerInteractor;
     private boolean buying = true;
     private int total;
+    private Context app;
 
     /**
      * Initialize MarketViewModel
      */
     public void init() {
-        tradeInteractor = ModelFacade.getInstance().startTrade();
-        playerInteractor = ModelFacade.getInstance().getPlayerInteractor();
+        ModelFacade mf = ModelFacade.getInstance();
+        tradeInteractor = mf.startTrade();
+        playerInteractor = mf.getPlayerInteractor();
         selectedGoods = new Inventory();
         total = 0;
 
@@ -52,14 +55,14 @@ public class MarketViewModel extends AndroidViewModel {
 
         for (Tradable t : tradeInteractor.getBuyList()) {
             sellList.add(new Item(
-                    t,
+                    t.getName(),
                     tradeInteractor.getPriceOf(t),
                     playerInteractor.getCargoAmount(t)
             ));
         }
         for (Tradable t : tradeInteractor.getSellList()) {
             buyList.add(new Item(
-                    t,
+                    t.getName(),
                     tradeInteractor.getPriceOf(t),
                     playerInteractor.getCargoAmount(t)
             ));
@@ -79,9 +82,10 @@ public class MarketViewModel extends AndroidViewModel {
 
     /**
      * Increments the amount of a good selected
-     * @param good the Tradable selected
+     * @param name the Tradable selected
      */
-    public void increaseAmount(Tradable good) {
+    public void increaseAmount(String name) {
+        Tradable good = tradeInteractor.getTradable(name);
         if (buying) {
             if (selectedGoods.getCount() >= playerInteractor.getCargoRemaining()) {
                 return;
@@ -95,9 +99,10 @@ public class MarketViewModel extends AndroidViewModel {
 
     /**
      * Decreases amount of selected item
-     * @param good item that player selected
+     * @param name item that player selected
      */
-    public void decreaseAmount(Tradable good) {
+    public void decreaseAmount(String name) {
+        Tradable good = tradeInteractor.getTradable(name);
         if (selectedGoods.getQuantity(good) > 0) {
             selectedGoods.add(good, -1);
             total -= tradeInteractor.getPriceOf(good);
@@ -115,19 +120,21 @@ public class MarketViewModel extends AndroidViewModel {
 
     /**
      * Gets number of selected item
-     * @param good item
+     * @param name item
      * @return number of selected item
      */
-    public int getAmountSelected(Tradable good) {
+    public int getAmountSelected(String name) {
+        Tradable good = tradeInteractor.getTradable(name);
         return selectedGoods.getQuantity(good);
     }
 
     /**
      * Gets items in cargo
-     * @param good type of item
+     * @param name type of item
      * @return number of good that player owns
      */
-    public int getCargo(Tradable good) {
+    public int getCargo(String name) {
+        Tradable good = tradeInteractor.getTradable(name);
         return playerInteractor.getCargoAmount(good);
     }
 
