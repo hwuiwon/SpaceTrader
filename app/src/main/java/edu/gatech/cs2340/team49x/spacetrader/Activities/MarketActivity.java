@@ -13,8 +13,8 @@ import java.util.Collections;
 
 import edu.gatech.cs2340.team49x.spacetrader.Adapters.ItemAdapter;
 import edu.gatech.cs2340.team49x.spacetrader.R;
+import edu.gatech.cs2340.team49x.spacetrader.ViewModels.MarketViewModel;
 import edu.gatech.cs2340.team49x.spacetrader.ViewObjects.Item;
-import edu.gatech.cs2340.team49x.spacetrader.Viewmodels.MarketViewModel;
 import edu.gatech.cs2340.team49x.spacetrader.databinding.ActivityMarketBinding;
 
 /**

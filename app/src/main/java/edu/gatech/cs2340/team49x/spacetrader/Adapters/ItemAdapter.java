@@ -15,8 +15,8 @@ import android.widget.TextView;
 import java.util.List;
 
 import edu.gatech.cs2340.team49x.spacetrader.R;
+import edu.gatech.cs2340.team49x.spacetrader.ViewModels.MarketViewModel;
 import edu.gatech.cs2340.team49x.spacetrader.ViewObjects.Item;
-import edu.gatech.cs2340.team49x.spacetrader.Viewmodels.MarketViewModel;
 
 /**
  * Adapter for item ListView in MarketActivity

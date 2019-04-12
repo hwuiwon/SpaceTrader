@@ -11,7 +11,7 @@ import android.view.View;
 import java.io.IOException;
 
 import edu.gatech.cs2340.team49x.spacetrader.R;
-import edu.gatech.cs2340.team49x.spacetrader.Viewmodels.MainViewModel;
+import edu.gatech.cs2340.team49x.spacetrader.ViewModels.MainViewModel;
 
 /**
  * Starting screen of game
