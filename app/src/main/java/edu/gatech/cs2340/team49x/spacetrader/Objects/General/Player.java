@@ -3,6 +3,9 @@ package edu.gatech.cs2340.team49x.spacetrader.Objects.General;
 import android.support.annotation.NonNull;
 
 import java.io.Serializable;
+import java.util.Set;
+
+import edu.gatech.cs2340.team49x.spacetrader.Objects.Trading.Tradable;
 
 /**
  * Player object class
@@ -141,6 +144,14 @@ public class Player implements Serializable {
      */
     public Ship getShip() {
         return ship;
+    }
+
+    /**
+     * Gets cargo of a ship
+     * @return set of items in ship
+     */
+    public Set<Tradable> getShipCargo() {
+        return ship.getCargoSet();
     }
 
     /**

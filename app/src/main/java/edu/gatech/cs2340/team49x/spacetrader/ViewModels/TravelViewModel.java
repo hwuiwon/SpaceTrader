@@ -112,7 +112,8 @@ public class TravelViewModel extends AndroidViewModel {
         playerInteractor.decreaseFuel(getDistanceTo(pos));
         systemInteractor.setCurrentSystem(system);
         system.setCondition(null);
-        event = new RandomEventGenerator().getRandomEvent(new Random()); // change this random later
+        event = new RandomEventGenerator().getRandomEvent(new Random(),
+                ModelFacade.getInstance().getPlayer()); // change this random later
         if (event != null) {
             event.doAction(playerInteractor, systemInteractor);
         }

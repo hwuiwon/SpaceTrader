@@ -50,7 +50,6 @@ public class Inventory implements Serializable {
         } else if (quantity != 0) {
             quantities.put(good, quantity);
         }
-
         count += quantity;
     }
 

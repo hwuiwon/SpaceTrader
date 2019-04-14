@@ -2,7 +2,6 @@ package edu.gatech.cs2340.team49x.spacetrader.ViewModels;
 
 import android.app.Application;
 import android.arch.lifecycle.AndroidViewModel;
-import android.content.Context;
 import android.support.annotation.NonNull;
 import android.util.Log;
 
@@ -38,7 +37,6 @@ public class MarketViewModel extends AndroidViewModel {
     private PlayerInteractor playerInteractor;
     private boolean buying = true;
     private int total;
-    private Context app;
 
     /**
      * Initialize MarketViewModel
