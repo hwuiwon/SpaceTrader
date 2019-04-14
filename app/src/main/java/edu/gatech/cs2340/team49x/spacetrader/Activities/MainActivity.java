@@ -1,7 +1,9 @@
 package edu.gatech.cs2340.team49x.spacetrader.Activities;
 
 import android.arch.lifecycle.ViewModelProviders;
+import android.content.Context;
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
@@ -24,6 +26,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        playVoice(this, R.raw.spacesound);
         viewModel = ViewModelProviders.of(this).get(MainViewModel.class);
         setContentView(R.layout.activity_main);
     }
@@ -85,5 +88,20 @@ public class MainActivity extends AppCompatActivity {
                 launchGame();
             }
         }
+    }
+
+    /**
+     * Plays music when game starts
+     * @param context current context
+     * @param rawVoice mp3 file
+     */
+    private static void playVoice(final Context context, int rawVoice) {
+        MediaPlayer voice = MediaPlayer.create(context, rawVoice);
+        voice.setOnCompletionListener(mediaPlayer -> {
+            if (voice != null) {
+                voice.release();
+            }
+        });
+        voice.start();
     }
 }
