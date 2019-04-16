@@ -10,3 +10,4 @@ __Extra Project Features__
 - Pirate encounters (5)
 - Police encounters (5)
 - Other 4 Random events (2 * 4 = 8)
+- Cut scenes while traveling (5)
