@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Toast;
 
@@ -73,6 +74,9 @@ public class TravelActivity extends AppCompatActivity {
 
         if (viewModel.getFuel() >= distance) {
             AlertDialog.Builder builder = new AlertDialog.Builder(TravelActivity.this);
+            LayoutInflater factory = LayoutInflater.from(TravelActivity.this);
+            final View view = factory.inflate(R.layout.spaceship, null);
+            builder.setView(view);
             builder.setCancelable(true);
             builder.setTitle("Traveling...");
             builder.setMessage("Distance: " + distance + " km\nEstimated time: "
