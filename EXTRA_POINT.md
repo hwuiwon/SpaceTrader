@@ -1,5 +1,5 @@
 # Extra points
-### Current total: 35 (+7%)
+### Current total: 40 (+8%)
 
 
 __Design Patterns__
