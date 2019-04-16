@@ -15,6 +15,7 @@ public class PlayerInteractor {
 
     private Player player;
     private Ship ship;
+    final double RATIO = 0.1;
 
     /**
      * Initialize PlayerInteractor
@@ -65,16 +66,6 @@ public class PlayerInteractor {
     public double getMaxTravelDistance() {
         return ship.getMaxTravelDistance();
     }
-
-// --Commented out by Inspection START (4/6/2019 6:42 AM):
-//    /**
-//     * Gets player
-//     * @return current player
-//     */
-//    public Player getPlayer() {
-//        return player;
-//    }
-// --Commented out by Inspection STOP (4/6/2019 6:42 AM)
 
     /**
      * Decreases fuel
@@ -133,7 +124,6 @@ public class PlayerInteractor {
         return player.getCredits();
     }
 
-
     /**
      * Gets item amount in cargo
      * @param good selected item
@@ -149,5 +139,13 @@ public class PlayerInteractor {
      */
     public int getCargoRemaining() {
         return ship.cargoSpaceRemaining();
+    }
+
+    /**
+     * Gets pilot points
+     * @return pilot points of player
+     */
+    public double getPilotPt() {
+        return player.getPilotPt() * RATIO;
     }
 }

@@ -88,6 +88,14 @@ public class TravelViewModel extends AndroidViewModel {
     }
 
     /**
+     * Gets pilot points
+     * @return pilot points of player
+     */
+    public double getPilotPt() {
+        return playerInteractor.getPilotPt();
+    }
+
+    /**
      * Gets title of an event
      * @return event title
      */
@@ -109,7 +117,7 @@ public class TravelViewModel extends AndroidViewModel {
      */
     public void goTo(int pos) {
         SolarSystem system = systemsList.get(pos);
-        playerInteractor.decreaseFuel(getDistanceTo(pos));
+        playerInteractor.decreaseFuel(getDistanceTo(pos) / playerInteractor.getPilotPt());
         systemInteractor.setCurrentSystem(system);
         system.setCondition(null);
         event = new RandomEventGenerator().getRandomEvent(new Random(),

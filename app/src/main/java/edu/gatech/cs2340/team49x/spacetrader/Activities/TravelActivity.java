@@ -72,7 +72,7 @@ public class TravelActivity extends AppCompatActivity {
         final int pos = position;
         final double distance = viewModel.getDistanceTo(pos);
 
-        if (viewModel.getFuel() >= distance) {
+        if (viewModel.getFuel() >= distance / viewModel.getPilotPt()) {
             AlertDialog.Builder builder = new AlertDialog.Builder(TravelActivity.this);
             LayoutInflater factory = LayoutInflater.from(TravelActivity.this);
             final View view = factory.inflate(R.layout.spaceship, null);
