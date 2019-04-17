@@ -15,8 +15,7 @@ public class PlayerInteractor {
 
     private Player player;
     private Ship ship;
-    final double PILOT_RATIO = 0.1;
-    final double TRADE_RATIO = 0.01;
+    final double RATIO = 0.01;
 
     /**
      * Initialize PlayerInteractor
@@ -147,7 +146,7 @@ public class PlayerInteractor {
      * @return pilot points of player
      */
     public double getPilotPt() {
-        return player.getPilotPt() * PILOT_RATIO;
+        return 1 + player.getPilotPt() * RATIO;
     }
 
     /**
@@ -155,6 +154,6 @@ public class PlayerInteractor {
      * @return trader points of player
      */
     public double getTradePt() {
-        return 1 - player.getTradePt() * TRADE_RATIO;
+        return 1 - player.getTradePt() * RATIO;
     }
 }
