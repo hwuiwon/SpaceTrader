@@ -1,5 +1,5 @@
 # Extra points
-### Current total: 35 (+7%)
+### Current total: 40 (+8%)
 
 
 __Design Patterns__
@@ -11,3 +11,4 @@ __Extra Project Features__
 - Police encounters (5)
 - Other 4 Random events (2 * 4 = 8)
 - Cut scenes while traveling (5)
+- Skill points: Pilot decreases fuel needed to travel (5)
