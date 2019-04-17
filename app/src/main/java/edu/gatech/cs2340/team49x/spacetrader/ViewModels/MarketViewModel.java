@@ -61,7 +61,7 @@ public class MarketViewModel extends AndroidViewModel {
         for (Tradable t : tradeInteractor.getSellList()) {
             buyList.add(new Item(
                     t.getName(),
-                    tradeInteractor.getPriceOf(t),
+                    (int) (tradeInteractor.getPriceOf(t) * playerInteractor.getTradePt()),
                     playerInteractor.getCargoAmount(t)
             ));
         }

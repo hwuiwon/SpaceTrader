@@ -84,7 +84,6 @@ public class MarketActivity extends AppCompatActivity {
             binding.switchBT.setText(R.string.switchBuy);
             binding.buyBT.setText(R.string.sell);
         }
-
     }
 
     /**
