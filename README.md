@@ -17,7 +17,8 @@ Team 49x
 - [x] Travel Function & Fuel
 - [x] Player Inventory
 - [x] Random Events
-- [ ] Skill Points & Abilities
+- [x] Skill Points & Abilities
+- [x] Purchase Ships
 
 
 ## Team members
