@@ -1,5 +1,5 @@
 # Extra points
-### Current total: 41 (+8.2%)
+### Current total: 46 (+4.6%)
 
 
 __Design Patterns__
@@ -7,6 +7,7 @@ __Design Patterns__
 
 __Extra Project Features__
 - Custom designed music & graphical themes (10)
+- Purchase ships (5)
 - Pirate encounters (5)
 - Police encounters (5)
 - Other 4 Random events (2 * 4 = 8)
