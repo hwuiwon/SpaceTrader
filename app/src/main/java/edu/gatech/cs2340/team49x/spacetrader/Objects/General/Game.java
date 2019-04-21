@@ -56,6 +56,29 @@ public class Game implements Serializable {
     }
 
     /**
+     * Gets ship
+     * @return player's ship
+     */
+    public Ship.ShipType getShipType() {
+        return player.getShipType();
+    }
+
+    /**
+     * Sets ship
+     * @param shipType new ship
+     */
+    public void setShipType(Ship.ShipType shipType) {
+        player.setShipType(shipType);
+    }
+
+    /**
+     * Sets fuel to max
+     */
+    public void maxFuel() {
+        player.maxFuel();
+    }
+
+    /**
      * Prints player
      * @return current player name
      */

@@ -86,6 +86,7 @@
             android:layout_marginEnd="@dimen/margin4"/>
 
         <Button
+            android:onClick="openShipScreen"
             android:id="@+id/selectBT2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

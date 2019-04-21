@@ -12,6 +12,7 @@ import java.io.ObjectOutputStream;
 import edu.gatech.cs2340.team49x.spacetrader.Objects.Difficulty;
 import edu.gatech.cs2340.team49x.spacetrader.Objects.General.Game;
 import edu.gatech.cs2340.team49x.spacetrader.Objects.General.Player;
+import edu.gatech.cs2340.team49x.spacetrader.Objects.General.Ship;
 
 /**
  * Used for backend
@@ -96,6 +97,29 @@ public final class ModelFacade {
      */
     public Difficulty getDifficulty() {
         return  game.getDifficulty();
+    }
+
+    /**
+     * Gets ship
+     * @return player's ship
+     */
+    public Ship.ShipType getShipType() {
+        return game.getShipType();
+    }
+
+    /**
+     * Sets ship
+     * @param shipType new ship
+     */
+    public void setShipType(Ship.ShipType shipType) {
+        game.setShipType(shipType);
+    }
+
+    /**
+     * Sets fuel to max
+     */
+    public void maxFuel() {
+        game.maxFuel();
     }
 
     /**

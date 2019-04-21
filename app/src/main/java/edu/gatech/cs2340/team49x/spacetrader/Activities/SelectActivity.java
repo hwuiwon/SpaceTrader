@@ -61,6 +61,15 @@ public class SelectActivity extends AppCompatActivity {
     }
 
     /**
+     * Opens ship screen
+     * @param view current View
+     */
+    public void openShipScreen(View view) {
+        Intent intent = new Intent(SelectActivity.this, ShipActivity.class);
+        startActivity(intent);
+    }
+
+    /**
      * Update changed information when activity loads again
      */
     @Override

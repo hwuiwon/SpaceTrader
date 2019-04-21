@@ -5,6 +5,7 @@
     <string name="action_game">Travel</string>
     <string name="action_select">Select</string>
     <string name="action_info">Player Info</string>
+    <string name="action_ship">Ship Market</string>
 
     <string name="name_main">S P A C E\nT R A D E R S</string>
     <string name="play">PLAY</string>
@@ -59,4 +60,11 @@
     <string name="sell">Sell</string>
 
     <string name="cargo">My items:\t</string>
+
+    <string name="selectShip">Select ship to purchase</string>
+    <string name="currentShip">Current ship:\t</string>
+    <string name="tmpShip">GNAT</string>
+    <string name="creditLeft">\t| Credit:\t</string>
+    <string name="sShip">100000</string>
+    <string name="purchaseShip">Buy Ship</string>
 </resources>

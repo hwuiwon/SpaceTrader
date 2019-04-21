@@ -3,14 +3,19 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="edu.gatech.cs2340.team49x.spacetrader"
     tools:ignore="GoogleAppIndexingWarning">
+
     <application
         android:allowBackup="true"
+        android:fullBackupContent="@xml/backup_descriptor"
         android:icon="@mipmap/spacetrader"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/spacetrader_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme"
-        android:fullBackupContent="@xml/backup_descriptor">
+        android:theme="@style/AppTheme">
+        <activity android:name=".Activities.ShipActivity"
+            android:label="@string/action_ship"
+            android:theme="@style/AppTheme.NoActionBar.FullScreen"
+            tools:ignore="InnerclassSeparator" />
         <activity
             android:name=".Activities.InfoActivity"
             android:label="@string/action_info"
@@ -43,8 +48,10 @@
             tools:ignore="InnerclassSeparator">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
     </application>
+
 </manifest>

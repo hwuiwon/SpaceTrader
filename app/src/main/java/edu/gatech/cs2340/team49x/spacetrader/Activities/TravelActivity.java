@@ -39,7 +39,6 @@ public class TravelActivity extends AppCompatActivity {
                 new SolarSystemAdapter(this, viewModel.getNearbySystems()));
         binding.currentSystemTV.setText(viewModel.getName());
         binding.currentFuelTV.setText(String.valueOf(viewModel.getFuel()));
-
         binding.planetSelectLV.setOnItemClickListener((parent, view, position, id) ->
                 onItemClicked(position));
     }

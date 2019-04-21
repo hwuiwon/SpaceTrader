@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".Activities.ShipActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@android:color/black">
+
+        <TextView
+            android:id="@+id/shipSelectTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/selectShip"
+            android:layout_centerHorizontal="true"
+            android:textSize="23sp"
+            android:layout_marginTop="@dimen/margin7"
+            android:fontFamily="@font/montserrat_semibold"
+            android:textColor="@android:color/white"/>
+
+        <RelativeLayout
+            android:id="@+id/currSys"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/shipSelectTV"
+            android:orientation="horizontal"
+            android:layout_centerHorizontal="true">
+
+            <TextView
+                android:id="@+id/currShipTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/currentShip"
+                android:paddingTop="@dimen/margin2"
+                android:textSize="17sp"
+                android:fontFamily="@font/montserrat_regular"
+                android:textColor="@android:color/white" />
+
+            <TextView
+                android:id="@+id/currentShipTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingTop="@dimen/margin2"
+                android:text="@string/tmpShip"
+                android:textSize="17sp"
+                android:fontFamily="@font/montserrat_semibold"
+                android:textColor="@color/neonBlue"
+                android:layout_toEndOf="@id/currShipTV"/>
+
+            <TextView
+                android:id="@+id/creditTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingTop="@dimen/margin2"
+                android:text="@string/creditLeft"
+                android:textColor="@android:color/white"
+                android:textSize="17sp"
+                android:fontFamily="@font/montserrat_regular"
+                android:layout_toEndOf="@id/currentShipTV"/>
+
+            <TextView
+                android:id="@+id/currentCreditTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingTop="@dimen/margin2"
+                android:text="@string/sShip"
+                android:textColor="@color/neonPurple"
+                android:textSize="17sp"
+                android:fontFamily="@font/montserrat_semibold"
+                android:layout_toEndOf="@id/creditTV"/>
+
+        </RelativeLayout>
+
+        <ListView
+            android:paddingTop="@dimen/margin3"
+            android:id="@+id/shipSelectLV"
+            android:layout_width="match_parent"
+            android:layout_height="550dp"
+            android:layout_below="@+id/currSys" />
+
+        <Button
+            android:layout_margin="@dimen/margin2"
+            android:background="@drawable/round_rectangle_red"
+            android:onClick="buyShip"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/purchaseShip"
+            android:textSize="20sp"
+            android:textColor="@color/neonRed"
+            android:fontFamily="@font/montserrat_semibold"
+            android:layout_alignParentBottom="true" />
+
+    </RelativeLayout>
+
+</layout>

@@ -147,6 +147,29 @@ public class Player implements Serializable {
     }
 
     /**
+     * Gets ship type
+     * @return ship type
+     */
+    public Ship.ShipType getShipType() {
+        return ship.getShipType();
+    }
+
+    /**
+     * Sets ship
+     * @param shipType new ship
+     */
+    public void setShipType(Ship.ShipType shipType) {
+        ship.setShipType(shipType);
+    }
+
+    /**
+     * Sets fuel to max
+     */
+    public void maxFuel() {
+        ship.maxFuel();
+    }
+
+    /**
      * Gets cargo of a ship
      * @return set of items in ship
      */
