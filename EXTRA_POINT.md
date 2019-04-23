@@ -31,3 +31,6 @@ __Extra Project Features__
 - Skill points: Trade gives discount (3)
 - Mini games: Rock, Scissor, Paper (20)
 - Additional random events in game (8)
+
+__Etc From Piazza__
+- A full translation with no Lint errors about Internationalization and correct use of locale detection (8)
