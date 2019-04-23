@@ -14,3 +14,4 @@ __Extra Project Features__
 - Cut scenes while traveling (5)
 - Skill points: Pilot decreases fuel needed to travel (3)
 - Skill points: Trade gives discount (3)
+- Mini games: Rock, Scissor, Paper (10)
