@@ -12,6 +12,22 @@
         android:roundIcon="@mipmap/spacetrader_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".Activities.Database.LoginActivity"
+            android:label="@string/action_login"
+            android:theme="@style/AppTheme.NoActionBar.FullScreen"
+            tools:ignore="InnerclassSeparator" />
+        <activity android:name=".Activities.Database.ProfileActivity"
+            android:label="@string/action_profile"
+            android:theme="@style/AppTheme.NoActionBar.FullScreen"
+            tools:ignore="InnerclassSeparator" />
+        <activity android:name=".Activities.Database.RegisterActivity"
+            android:label="@string/action_register"
+            android:theme="@style/AppTheme.NoActionBar.FullScreen"
+            tools:ignore="InnerclassSeparator" />
+        <activity android:name=".Activities.MiniGameActivity"
+            android:label="@string/action_minigame"
+            android:theme="@style/AppTheme.NoActionBar.FullScreen"
+            tools:ignore="InnerclassSeparator" />
         <activity android:name=".Activities.ShipActivity"
             android:label="@string/action_ship"
             android:theme="@style/AppTheme.NoActionBar.FullScreen"
@@ -48,7 +64,6 @@
             tools:ignore="InnerclassSeparator">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>

@@ -1,0 +1,45 @@
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center_horizontal"
+        android:layout_marginTop="100dp">
+
+        <EditText
+            android:inputType="textEmailAddress"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/login_name"
+            android:id="@+id/editTextEmail"
+            android:layout_margin="15dp"
+            android:fontFamily="@font/montserrat_regular"/>
+
+        <EditText
+            android:inputType="textPassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/login_coordinate"
+            android:id="@+id/editTextPassword"
+            android:layout_margin="15dp"
+            android:fontFamily="@font/montserrat_regular"/>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/login_enter"
+            android:id="@+id/buttonSignin"
+            android:layout_margin="15dp"
+            android:fontFamily="@font/montserrat_regular"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/login_register"
+            android:id="@+id/textViewSignUp"
+            android:fontFamily="@font/montserrat_regular"/>
+    </LinearLayout>
+
+</layout>

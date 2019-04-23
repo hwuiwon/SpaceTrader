@@ -70,6 +70,15 @@ public class SelectActivity extends AppCompatActivity {
     }
 
     /**
+     * Opens mini game
+     * @param view current View
+     */
+    public void miniGame(View view) {
+        Intent intent = new Intent(SelectActivity.this, MiniGameActivity.class);
+        startActivity(intent);
+    }
+
+    /**
      * Update changed information when activity loads again
      */
     @Override

@@ -12,13 +12,13 @@
         <pl.droidsonroids.gif.GifImageView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:src="@drawable/background"
-            android:background="@color/space"/>
+            android:background="@color/space"
+            android:src="@drawable/background" />
 
         <RelativeLayout
+            android:id="@+id/rLayoutSelect"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/rLayoutSelect"
             android:layout_centerHorizontal="true"
             android:paddingTop="@dimen/mainTopMargin">
 
@@ -28,10 +28,10 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentTop="true"
                 android:layout_marginTop="@dimen/margin4"
+                android:fontFamily="@font/montserrat_regular"
                 android:text="@string/currOn"
                 android:textAlignment="viewStart"
-                android:textColor="@android:color/white"
-                android:fontFamily="@font/montserrat_regular"/>
+                android:textColor="@android:color/white" />
 
             <TextView
                 android:id="@+id/nameTV"
@@ -40,10 +40,10 @@
                 android:layout_alignParentTop="true"
                 android:layout_marginTop="@dimen/margin4"
                 android:layout_toEndOf="@+id/youAreOnTV"
+                android:fontFamily="@font/montserrat_semibold"
                 android:text="@string/tmpSys"
                 android:textAlignment="viewStart"
-                android:textColor="@color/neonBlue"
-                android:fontFamily="@font/montserrat_semibold"/>
+                android:textColor="@color/neonBlue" />
 
         </RelativeLayout>
 
@@ -52,70 +52,84 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/rLayoutSelect"
+            android:layout_centerInParent="true"
             android:layout_marginEnd="@dimen/margin4"
+            android:fontFamily="@font/montserrat_regular"
             android:text="@string/tmpTLv"
             android:textAlignment="viewStart"
-            android:textColor="@color/neonGreen"
-            android:fontFamily="@font/montserrat_regular"
-            android:layout_centerInParent="true"/>
+            android:textColor="@color/neonGreen" />
 
         <TextView
             android:id="@+id/resourcesTV"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/techLevelTV"
+            android:layout_centerInParent="true"
+            android:fontFamily="@font/montserrat_regular"
             android:text="@string/tmpRsr"
             android:textAlignment="viewStart"
-            android:textColor="@color/neonRed"
-            android:fontFamily="@font/montserrat_regular"
-            android:layout_centerInParent="true"/>
+            android:textColor="@color/neonRed" />
 
         <Button
-            android:onClick="openPlayerInfo"
             android:id="@+id/selectBT1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_above="@id/selectBT2"
+            android:layout_marginStart="@dimen/margin4"
             android:layout_marginTop="@dimen/margin7"
+            android:layout_marginEnd="@dimen/margin4"
             android:background="@drawable/round_rectangle"
             android:fontFamily="@font/montserrat_regular"
+            android:onClick="openPlayerInfo"
             android:text="@string/pInfo"
-            android:textSize="20sp"
-            android:layout_above="@id/selectBT2"
             android:textColor="@android:color/white"
-            android:layout_marginStart="@dimen/margin4"
-            android:layout_marginEnd="@dimen/margin4"/>
+            android:textSize="20sp" />
 
         <Button
             android:onClick="openShipScreen"
             android:id="@+id/selectBT2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_above="@id/selectBT3"
+            android:layout_marginStart="@dimen/margin4"
             android:layout_marginTop="@dimen/margin7"
+            android:layout_marginEnd="@dimen/margin4"
             android:background="@drawable/round_rectangle"
             android:fontFamily="@font/montserrat_regular"
             android:text="@string/buyShip"
-            android:textSize="20sp"
-            android:layout_above="@id/selectBT3"
             android:textColor="@android:color/white"
-            android:layout_marginStart="@dimen/margin4"
-            android:layout_marginEnd="@dimen/margin4"/>
+            android:textSize="20sp" />
 
         <Button
             android:id="@+id/selectBT3"
-            android:onClick="startTravel"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_above="@id/selectBT4"
+            android:layout_marginStart="@dimen/margin4"
             android:layout_marginTop="@dimen/margin7"
-            android:layout_alignParentBottom="true"
+            android:layout_marginEnd="@dimen/margin4"
             android:background="@drawable/round_rectangle"
             android:fontFamily="@font/montserrat_regular"
+            android:onClick="startTravel"
             android:text="@string/startTr"
-            android:textSize="20sp"
             android:textColor="@android:color/white"
-            android:layout_marginBottom="@dimen/mainTopMargin"
-            android:layout_marginStart="@dimen/margin4"
-            android:layout_marginEnd="@dimen/margin4"/>
+            android:textSize="20sp" />
 
+        <Button
+            android:id="@+id/selectBT4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="@dimen/margin4"
+            android:layout_marginTop="@dimen/margin7"
+            android:layout_marginEnd="@dimen/margin4"
+            android:layout_marginBottom="@dimen/mainTopMargin"
+            android:background="@drawable/round_rectangle"
+            android:fontFamily="@font/montserrat_regular"
+            android:onClick="miniGame"
+            android:text="@string/mg"
+            android:textColor="@android:color/white"
+            android:textSize="20sp" />
     </RelativeLayout>
 
 </layout>

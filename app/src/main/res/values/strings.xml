@@ -6,6 +6,10 @@
     <string name="action_select">Select</string>
     <string name="action_info">Player Info</string>
     <string name="action_ship">Ship Market</string>
+    <string name="action_login">Login</string>
+    <string name="action_profile">Profile</string>
+    <string name="action_register">Register</string>
+    <string name="action_minigame">Mini Game</string>
 
     <string name="name_main">S P A C E\nT R A D E R S</string>
     <string name="play">PLAY</string>
@@ -67,4 +71,40 @@
     <string name="creditLeft">\t| Credit:\t</string>
     <string name="sShip">100000</string>
     <string name="purchaseShip">Buy Ship</string>
+
+    <string name="profile_welcome">Welcome to Hidden GALAXY</string>
+    <string name="profile_email">TextView User Email</string>
+    <string name="profile_exit">Exit Galaxy</string>
+    <string name="profile_save">Save Information</string>
+
+    <string name="reg_email">\'Planet Name\' @ spacetrader.com</string>
+    <string name="reg_coordinate">Your Planet\'s Coordinate</string>
+    <string name="reg_join">Join Galaxy</string>
+    <string name="reg_signIn">Already a member? Enter here!</string>
+
+    <string name="login_name">Planet Name (email)</string>
+    <string name="login_coordinate">Planet\'s Coordinate</string>
+    <string name="login_enter">Enter BlackHole</string>
+    <string name="login_register">Not a member yet? Register here</string>
+
+    <string name="mg">Mini game</string>
+    <string name="mg_welcome">Welcome to\nSun, Moon, Star</string>
+    <string name="mg_default">This game is same as\nrock, scissor, paper.\nChoose your planet!</string>
+    <string name="mg_sun_sun">Enemy chose Sun, You chose Sun.
+        \nIt\'s a tie. You got your 100 credits back.</string>
+    <string name="mg_sun_moon">It\'s an Eclipse! Moon has covered your Sun.
+        \nYou lost! Try again!</string>
+    <string name="mg_sun_star">Your Sun burned enemy\'s Star.
+        \n You won! You\'ve earned 200 credits!</string>
+    <string name="mg_moon_sun">It\'s an Eclipse! Your Moon has covered enemy\'s Sun!
+        \nYou won! You\'ve earned 200 credits!</string>
+    <string name="mg_moon_moon">Enemy chose Moon, You chose Moon.
+        \nIt\'s a tie! You got your 100 credits back.</string>
+    <string name="mg_moon_star">Star crashed to your Moon.\nYou lost. Try again!</string>
+    <string name="mg_star_sun">Sun burned your Star.\nYou lost. Try again!</string>
+    <string name="mg_star_moon">Your star crashed to enemy\'s Moon.
+        \nYou won! You\'ve earned 200 credits!</string>
+    <string name="mg_star_star">Enemy chose Star, You chose Star.\n It\'s a tie.</string>
+    <string name="mg_play_again">This game is same as\nrock, scissor, paper.
+        \nPay 100 credits and Choose your planet!\nYour credit :\t</string>
 </resources>
