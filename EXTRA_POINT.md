@@ -1,5 +1,5 @@
 # Extra points
-### Current total: 86 (+8.6%)
+### Current total: - (+%)
 
 __Database__
 - *Not Auth* FireBase (15)
