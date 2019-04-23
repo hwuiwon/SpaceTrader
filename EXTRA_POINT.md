@@ -1,6 +1,11 @@
 # Extra points
-### Current total: 46 (+4.6%)
+### Current total: 86 (+8.6%)
 
+__Database__
+- *Not Auth* FireBase (15)
+
+__Network Backend__
+- Firebase Cloud Storage (15)
 
 __Design Patterns__
 - Facade (2)
