@@ -1,70 +1,73 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".Activities.Database.ProfileActivity">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <pl.droidsonroids.gif.GifImageView
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:src="@drawable/blackhole"
-        android:scaleType="centerCrop"/>
+        tools:context=".Activities.Database.ProfileActivity">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+        <pl.droidsonroids.gif.GifImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/blackhole"
+            android:scaleType="centerCrop" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="60dp"
-            android:fontFamily="@font/montserrat_regular"
-            android:gravity="center_horizontal"
-            android:text="@string/profile_welcome"
-            android:textColor="@android:color/white"
-            android:textSize="25sp"
-            android:textStyle="bold" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/textViewUerEmail"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="15dp"
-            android:fontFamily="@font/montserrat_regular"
-            android:text="@string/profile_email"
-            android:textColor="@android:color/white"
-            android:textSize="25sp" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="60dp"
+                android:fontFamily="@font/montserrat_regular"
+                android:gravity="center_horizontal"
+                android:text="@string/profile_welcome"
+                android:textColor="@android:color/white"
+                android:textSize="25sp"
+                android:textStyle="bold" />
 
-        <Button
-            android:id="@+id/buttonLogout"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="30dp"
-            android:background="@drawable/round_rectangle"
-            android:fontFamily="@font/montserrat_regular"
-            android:paddingLeft="15dp"
-            android:paddingRight="15dp"
-            android:text="@string/profile_exit"
-            android:textColor="@android:color/white"
-            android:textSize="20sp" />
+            <TextView
+                android:id="@+id/userEmailTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="15dp"
+                android:fontFamily="@font/montserrat_regular"
+                android:text="@string/profile_email"
+                android:textColor="@android:color/white"
+                android:textSize="25sp" />
 
-        <Button
-            android:id="@+id/buttonSave"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="30dp"
-            android:background="@drawable/round_rectangle"
-            android:fontFamily="@font/montserrat_regular"
-            android:paddingLeft="15dp"
-            android:paddingRight="15dp"
-            android:text="@string/profile_save"
-            android:textColor="@android:color/white"
-            android:textSize="20sp" />
-    </LinearLayout>
+            <Button
+                android:id="@+id/logoutBT"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="30dp"
+                android:background="@drawable/round_rectangle"
+                android:fontFamily="@font/montserrat_regular"
+                android:paddingLeft="15dp"
+                android:paddingRight="15dp"
+                android:text="@string/profile_exit"
+                android:textColor="@android:color/white"
+                android:textSize="20sp" />
 
-</RelativeLayout>
+            <Button
+                android:id="@+id/saveBT"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="30dp"
+                android:background="@drawable/round_rectangle"
+                android:fontFamily="@font/montserrat_regular"
+                android:paddingLeft="15dp"
+                android:paddingRight="15dp"
+                android:text="@string/profile_save"
+                android:textColor="@android:color/white"
+                android:textSize="20sp" />
+        </LinearLayout>
+
+    </RelativeLayout>
+</layout>

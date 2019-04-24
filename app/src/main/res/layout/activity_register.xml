@@ -10,36 +10,36 @@
         android:layout_marginTop="100dp">
 
         <EditText
+            android:id="@+id/rEmailET"
             android:inputType="textEmailAddress"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/reg_email"
-            android:id="@+id/editTextEmail"
             android:layout_margin="15dp"
             android:fontFamily="@font/montserrat_regular" />
 
         <EditText
+            android:id="@+id/rPasswordET"
             android:inputType="textPassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/reg_coordinate"
-            android:id="@+id/editTextPassword"
             android:layout_margin="15dp"
             android:fontFamily="@font/montserrat_regular" />
 
         <Button
+            android:id="@+id/regBT"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/reg_join"
-            android:id="@+id/buttonRegister"
             android:layout_margin="15dp"
             android:fontFamily="@font/montserrat_regular" />
 
         <TextView
+            android:id="@+id/rSignInTV"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/reg_signIn"
-            android:id="@+id/textViewSignin"
             android:fontFamily="@font/montserrat_regular" />
     </LinearLayout>
 

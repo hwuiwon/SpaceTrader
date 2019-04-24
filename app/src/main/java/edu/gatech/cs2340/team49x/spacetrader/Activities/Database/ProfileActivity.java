@@ -1,11 +1,10 @@
 package edu.gatech.cs2340.team49x.spacetrader.Activities.Database;
 
 import android.content.Intent;
+import android.databinding.DataBindingUtil;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
@@ -18,20 +17,22 @@ import java.util.Objects;
 import edu.gatech.cs2340.team49x.spacetrader.Model.ModelFacade;
 import edu.gatech.cs2340.team49x.spacetrader.Model.PlayerInteractor;
 import edu.gatech.cs2340.team49x.spacetrader.R;
+import edu.gatech.cs2340.team49x.spacetrader.databinding.ActivityProfileBinding;
 
 public class ProfileActivity extends AppCompatActivity implements View.OnClickListener {
 
+    private ActivityProfileBinding binding;
     private FirebaseAuth firebaseAuth;
-    private Button buttonLogout;
     private DatabaseReference databaseReference;
-    private Button buttonSave;
     private PlayerInteractor playerInteractor;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        overridePendingTransition(R.anim.fadein, R.anim.fadeout);
         setContentView(R.layout.activity_profile);
 
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_profile);
         playerInteractor = ModelFacade.getInstance().getPlayerInteractor();
         firebaseAuth = FirebaseAuth.getInstance();
 
@@ -39,19 +40,13 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
             finish();
             startActivity(new Intent(this, LoginActivity.class));
         }
-
         databaseReference = FirebaseDatabase.getInstance().getReference();
-        buttonSave = findViewById(R.id.buttonSave);
 
         FirebaseUser user = firebaseAuth.getCurrentUser();
-        TextView textViewUserEmail = findViewById(R.id.textViewUerEmail);
         String[] parts = Objects.requireNonNull(user.getEmail()).split("@");
-        textViewUserEmail.setText(parts[0]);
-        buttonLogout = findViewById(R.id.buttonLogout);
-
-        buttonLogout.setOnClickListener(this);
-        buttonSave.setOnClickListener(this);
-
+        binding.userEmailTV.setText(parts[0]);
+        binding.logoutBT.setOnClickListener(this);
+        binding.saveBT.setOnClickListener(this);
     }
 
     /**
@@ -68,18 +63,23 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
         if (user != null) {
             databaseReference.child(user.getUid()).setValue(userInfo);
         }
-        Toast.makeText(this, "Information saved...", Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, R.string.profile_infoSave, Toast.LENGTH_SHORT).show();
     }
 
     @Override
     public void onClick(View view) {
-        if (view == buttonLogout) {
+        if (view == binding.logoutBT) {
             firebaseAuth.signOut();
             finish();
             startActivity(new Intent(this, LoginActivity.class));
-        }
-        if (view == buttonSave) {
+        } else if (view == binding.saveBT) {
             saveUserInformation();
         }
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        overridePendingTransition(R.anim.fadein, R.anim.fadeout);
     }
 }

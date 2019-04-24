@@ -72,20 +72,28 @@
     <string name="sShip">100000</string>
     <string name="purchaseShip">Buy Ship</string>
 
-    <string name="profile_welcome">Welcome to Hidden GALAXY</string>
+    <string name="profile_welcome">Welcome to\nHidden GALAXY</string>
     <string name="profile_email">TextView User Email</string>
     <string name="profile_exit">Exit Galaxy</string>
     <string name="profile_save">Save Information</string>
+    <string name="profile_infoSave">Information saved…</string>
 
     <string name="reg_email">\'Planet Name\' @ spacetrader.com</string>
     <string name="reg_coordinate">Your Planet\'s Coordinate</string>
     <string name="reg_join">Join Galaxy</string>
     <string name="reg_signIn">Already a member? Enter here!</string>
+    <string name="reg_sending">Sending your information to the Galaxy…</string>
+    <string name="reg_success">Registered Successfully</string>
+    <string name="reg_fail">Please use correct email format</string>
 
     <string name="login_name">Planet Name (email)</string>
     <string name="login_coordinate">Planet\'s Coordinate</string>
     <string name="login_enter">Enter BlackHole</string>
     <string name="login_register">Not a member yet? Register here</string>
+    <string name="login_enterE">Please enter email</string>
+    <string name="login_enterP">Please enter password</string>
+    <string name="login_check">Checking your email and password from Galaxy…</string>
+    <string name="login_checkAgain">Please Check your email or password</string>
 
     <string name="mg">Mini game</string>
     <string name="mg_welcome">Welcome to\nSun, Moon, Star</string>

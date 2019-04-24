@@ -11,8 +11,8 @@ public class UserInformation {
     public double pilotPt;
     public double tradePt;
 
-    public UserInformation(String name, int fuel, int speed, double maxTravelDistance,
-                           int credits, int cargoRemaining, double pilotPt, double tradePt) {
+    UserInformation(String name, int fuel, int speed, double maxTravelDistance,
+                    int credits, int cargoRemaining, double pilotPt, double tradePt) {
         this.name = name;
         this.fuel = fuel;
         this.speed = speed;

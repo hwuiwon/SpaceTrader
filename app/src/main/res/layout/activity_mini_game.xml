@@ -1,83 +1,85 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@android:color/black"
-    android:orientation="vertical"
-    tools:context=".Activities.MiniGameActivity">
-
-    <ImageView
-        android:layout_width="180dp"
-        android:layout_height="200dp"
-        android:layout_marginTop="-80dp"
-        android:layout_marginBottom="-110dp"
-        android:src="@drawable/subscribe"
-        android:layout_gravity="end"
-        android:onClick="register"
-        tools:ignore="ContentDescription" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="30dp"
-        android:fontFamily="@font/montserrat_regular"
-        android:gravity="center_horizontal"
-        android:text="@string/mg_welcome"
-        android:textColor="@android:color/white"
-        android:textSize="25sp"
-        android:textStyle="bold" />
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="20dp"
-        android:orientation="horizontal">
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@android:color/black"
+        android:orientation="vertical"
+        tools:context=".Activities.MiniGameActivity">
+
+        <ImageView
+            android:layout_width="180dp"
+            android:layout_height="200dp"
+            android:layout_marginTop="-80dp"
+            android:layout_marginBottom="-110dp"
+            android:src="@drawable/subscribe"
+            android:layout_gravity="end"
+            android:onClick="register"
+            tools:ignore="ContentDescription" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="30dp"
+            android:fontFamily="@font/montserrat_regular"
+            android:gravity="center_horizontal"
+            android:text="@string/mg_welcome"
+            android:textColor="@android:color/white"
+            android:textSize="25sp"
+            android:textStyle="bold" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="20dp"
+            android:orientation="horizontal">
+
+            <pl.droidsonroids.gif.GifImageView
+                android:id="@+id/sun"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:layout_marginRight="50dp"
+                android:onClick="pickSun"
+                android:src="@drawable/sun"
+                tools:ignore="RtlHardcoded" />
+
+            <pl.droidsonroids.gif.GifImageView
+                android:id="@+id/moon"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:onClick="pickMoon"
+                android:src="@drawable/moon" />
+
+        </LinearLayout>
 
         <pl.droidsonroids.gif.GifImageView
-            android:id="@+id/sun"
+            android:id="@+id/star"
             android:layout_width="150dp"
             android:layout_height="150dp"
-            android:layout_marginRight="50dp"
-            android:onClick="pickSun"
-            android:src="@drawable/sun"
-            tools:ignore="RtlHardcoded" />
+            android:layout_gravity="center_horizontal"
+            android:onClick="pickStar"
+            android:src="@drawable/star" />
+
+        <TextView
+            android:id="@+id/instructionTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="30dp"
+            android:fontFamily="@font/montserrat_regular"
+            android:text="@string/mg_default"
+            android:textColor="@android:color/white"
+            android:gravity="center_horizontal" />
 
         <pl.droidsonroids.gif.GifImageView
-            android:id="@+id/moon"
-            android:layout_width="150dp"
-            android:layout_height="150dp"
-            android:onClick="pickMoon"
-            android:src="@drawable/moon" />
+            android:id="@+id/playAgainGIF"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="playAgain"
+            android:layout_gravity="center_horizontal" />
 
     </LinearLayout>
-
-    <pl.droidsonroids.gif.GifImageView
-        android:id="@+id/star"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
-        android:layout_gravity="center_horizontal"
-        android:onClick="pickStar"
-        android:src="@drawable/star" />
-
-    <TextView
-        android:id="@+id/instruction_text_view"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="30dp"
-        android:fontFamily="@font/montserrat_regular"
-        android:text="@string/mg_default"
-        android:textColor="@android:color/white"
-        android:gravity="center_horizontal"/>
-
-    <pl.droidsonroids.gif.GifImageView
-        android:id="@+id/playAgain_gif_view"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:onClick="playAgain"
-        android:layout_gravity="center_horizontal"
-        />
-
-</LinearLayout>
+</layout>

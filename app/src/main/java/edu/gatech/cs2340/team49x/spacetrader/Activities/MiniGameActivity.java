@@ -1,11 +1,10 @@
 package edu.gatech.cs2340.team49x.spacetrader.Activities;
 
 import android.content.Intent;
+import android.databinding.DataBindingUtil;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.ImageView;
-import android.widget.TextView;
 
 import java.util.Random;
 
@@ -13,17 +12,20 @@ import edu.gatech.cs2340.team49x.spacetrader.Activities.Database.RegisterActivit
 import edu.gatech.cs2340.team49x.spacetrader.Model.ModelFacade;
 import edu.gatech.cs2340.team49x.spacetrader.Model.PlayerInteractor;
 import edu.gatech.cs2340.team49x.spacetrader.R;
+import edu.gatech.cs2340.team49x.spacetrader.databinding.ActivityMiniGameBinding;
 
 public class MiniGameActivity extends AppCompatActivity {
 
-    private int player;
+    private ActivityMiniGameBinding binding;
     private PlayerInteractor playerInteractor;
+    private int player;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         overridePendingTransition(R.anim.fadein, R.anim.fadeout);
         setContentView(R.layout.activity_mini_game);
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_mini_game);
         playerInteractor = ModelFacade.getInstance().getPlayerInteractor();
     }
 
@@ -61,44 +63,40 @@ public class MiniGameActivity extends AppCompatActivity {
     public void setComputer() {
         Random random = new Random();
         int computer = random.nextInt(3);
-
-        TextView textView = findViewById(R.id.instruction_text_view);
-        pl.droidsonroids.gif.GifImageView gifImageView = findViewById(R.id.playAgain_gif_view);
-
         playerInteractor.changeCredits(-100);
 
         if (player == 0) {
             if (computer == 0) {
-                textView.setText(R.string.mg_sun_sun);
+                binding.instructionTV.setText(R.string.mg_sun_sun);
                 playerInteractor.changeCredits(100);
             } else if (computer == 1) {
-                textView.setText(R.string.mg_sun_moon);
+                binding.instructionTV.setText(R.string.mg_sun_moon);
             } else {
-                textView.setText(R.string.mg_sun_star);
+                binding.instructionTV.setText(R.string.mg_sun_star);
                 playerInteractor.changeCredits(200);
             }
         } else if (player == 1) {
             if (computer == 0) {
-                textView.setText(R.string.mg_moon_sun);
+                binding.instructionTV.setText(R.string.mg_moon_sun);
                 playerInteractor.changeCredits(200);
             } else if (computer == 1) {
-                textView.setText(R.string.mg_moon_moon);
+                binding.instructionTV.setText(R.string.mg_moon_moon);
                 playerInteractor.changeCredits(100);
             } else {
-                textView.setText(R.string.mg_moon_star);
+                binding.instructionTV.setText(R.string.mg_moon_star);
             }
         } else {
             if (computer == 0) {
-                textView.setText(R.string.mg_star_sun);
+                binding.instructionTV.setText(R.string.mg_star_sun);
             } else if (computer == 1) {
-                textView.setText(R.string.mg_star_moon);
+                binding.instructionTV.setText(R.string.mg_star_moon);
                 playerInteractor.changeCredits(200);
             } else {
-                textView.setText(R.string.mg_star_star);
+                binding.instructionTV.setText(R.string.mg_star_star);
                 playerInteractor.changeCredits(100);
             }
         }
-        gifImageView.setImageResource(R.drawable.playagain);
+        binding.playAgainGIF.setImageResource(R.drawable.playagain);
     }
 
     /**
@@ -106,10 +104,8 @@ public class MiniGameActivity extends AppCompatActivity {
      * @param view current View
      */
     public void playAgain(View view) {
-        TextView textView = findViewById(R.id.instruction_text_view);
-        textView.setText(R.string.mg_play_again + playerInteractor.getCredits());
-        ImageView imageView = findViewById(R.id.playAgain_gif_view);
-        imageView.setImageDrawable(null);
+        binding.instructionTV.setText(R.string.mg_play_again + playerInteractor.getCredits());
+        binding.playAgainGIF.setImageDrawable(null);
     }
 
     /**

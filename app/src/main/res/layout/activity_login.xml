@@ -13,7 +13,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/login_name"
-            android:id="@+id/editTextEmail"
+            android:id="@+id/emailET"
             android:layout_margin="15dp"
             android:fontFamily="@font/montserrat_regular"/>
 
@@ -22,7 +22,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/login_coordinate"
-            android:id="@+id/editTextPassword"
+            android:id="@+id/passwordET"
             android:layout_margin="15dp"
             android:fontFamily="@font/montserrat_regular"/>
 
@@ -30,7 +30,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/login_enter"
-            android:id="@+id/buttonSignin"
+            android:id="@+id/signInBT"
             android:layout_margin="15dp"
             android:fontFamily="@font/montserrat_regular"/>
 
@@ -38,7 +38,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/login_register"
-            android:id="@+id/textViewSignUp"
+            android:id="@+id/signUpTV"
             android:fontFamily="@font/montserrat_regular"/>
     </LinearLayout>
 
