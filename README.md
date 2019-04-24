@@ -26,8 +26,10 @@ Team 49x
 Programmers
 - Hwuiwon Kim (hwuiwon.kim@gatech.edu)<br>
 - Kalen Rohan Patton (kpatton33@gatech.edu)<br>
-
-Story Writers
 - Hyup Kim (hyupkim@gatech.edu)<br>
+
+Story Writer
 - Ye Jun Kim (rladpwns@gatech.edu)<br>
+
+Totem
 - Jeremy Qiushi Zou (jzou40@gatech.edu)
