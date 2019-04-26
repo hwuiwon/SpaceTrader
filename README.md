@@ -33,3 +33,4 @@ Story Writer
 
 Totem
 - Jeremy Qiushi Zou (jzou40@gatech.edu)
+- Hang Kim
